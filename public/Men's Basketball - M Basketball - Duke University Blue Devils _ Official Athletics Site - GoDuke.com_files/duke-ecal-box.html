@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)http://r.e-c.al/l/duke-ecal-box?SPSID=22724&SPID=1845&DB_LANG=C&DB_OEM_ID=4200#/ -->
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="widget" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths desktop mac macosx chrome chrome46 webkit flash ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+    <title>Sync Duke Schedules to your personal calendar</title>
+    <link rel="shortcut icon" href="http://d27vx6ekipa712.cloudfront.net/favicon.ico" type="image/x-icon">
+
+    <link href="default.css" rel="stylesheet">
+  	<!--[if lte IE 8]>
+     <script>
+
+       document.createElement('ng-include');
+       document.createElement('ng-pluralize');
+       document.createElement('ng-view');
+
+       // Optionally these for CSS
+       document.createElement('ng:include');
+       document.createElement('ng:pluralize');
+       document.createElement('ng:view');
+
+     </script>
+      <![endif]-->
+
+    <link href="bootstrap.min(1).css" rel="stylesheet">
+    <link href="font-loader.css" media="screen" rel="stylesheet" type="text/css">
+<link href="font.css" media="screen" rel="stylesheet" type="text/css">
+<link href="menu.css" media="screen" rel="stylesheet" type="text/css">
+<link href="color.css" media="screen" rel="stylesheet" type="text/css">
+<link href="header-images.white.css" media="screen" rel="stylesheet" type="text/css">
+<link href="menu-images.white.css" media="screen" rel="stylesheet" type="text/css">
+<link href="submenu-images.white.css" media="screen" rel="stylesheet" type="text/css">
+<link href="panel-images.white.css" media="screen" rel="stylesheet" type="text/css">
+<link href="images.white.css" media="screen" rel="stylesheet" type="text/css">
+<link href="event-icons.css" media="screen" rel="stylesheet" type="text/css">
+<link href="base.css" media="screen" rel="stylesheet" type="text/css">
+<link href="month.view.css" media="screen" rel="stylesheet" type="text/css">
+<link href="square.css" media="screen" rel="stylesheet" type="text/css">
+<link href="box.css" media="screen" rel="stylesheet" type="text/css">
+<link href="bootstrap-popup.css" media="screen" rel="stylesheet" type="text/css">
+<link href="css(1)" media="screen" rel="stylesheet" type="text/css">
+<link href="dimension" media="screen" rel="stylesheet" type="text/css">
+<link href="filtrify.css" media="screen" rel="stylesheet" type="text/css">        
+    <!--[if IE]>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js"></script>
+
+        <link href="//d27vx6ekipa712.cloudfront.net/remote/widget/base-theme/css/ie.hacks.css?v=5.6.0.7" rel="stylesheet">
+                <link href="/widget/css?p=duke-ecal-box&ie=true&v=5.6.0.7" rel="stylesheet">
+                <script>
+            /* Apply for sites default to IE 6/7/8 */
+            var checkIe8 = top.document.querySelector('meta[content="IE=8"]');
+            if(checkIe8)
+            {
+                document.write('<link href="//d27vx6ekipa712.cloudfront.net/remote/widget/css/browsers/lte8.css?v=5.6.0.7" rel="stylesheet">');
+            }
+        </script>
+        <style>
+            #event-details-quicklinks{width:20% !important; }
+            .box-slider-nav, #box-slider{margin-top:5px;}
+            #box-slider .clearfix{display:none;}
+            #box-slider .box-slider-top-right{display:block; position:absolute; right: 2px; top: 2px;}
+            /*.layout-l #action-menu .arrow-links{height:8px !important; line-height:10px !important;} */
+            /*.layout-l #action-menu .arrow-links i{position: absolute; right: 12px !important; top:8px !important;} */
+            
+            *+html #filter-placeholder{display:none !important;}
+            *+html #choose-month-row .span12{width: 93% !important;}
+        </style>
+    <![endif]-->
+    
+    <style>
+            #event-grid-row .loading:before{content: "Loading events. Please wait...";}
+        #cal-row-overflow.loading:before{content: "Loading calendars...";}
+        #cal-row-overflow.no-cals:before{content: "No calendars found...";}
+        #event-list-content.loading:before{content: "Loading events...";}
+        #event-list-content.no-events:before{content: "No events listed...";}
+        #event-details-row.loading:before{content: "Please wait. Fetching event details...";}
+        ul.day-selector:before{content: "Filter days:";}
+    </style>
+
+    <script type="text/javascript" async="" src="dc.js"></script><script>
+        var SERVER = "//r.e-c.al", 
+            ORG_ID = 780,
+            ORG_NAME = 'Duke Athletics',
+            PAGE_NAME = "DUKE-ECAL-BOX",
+            CALENDAR_API_URL = "/a/duke-ecal-box/get-calendar",
+            CALENDAR_TAGS_API_URL = "/duke-ecal-box/calendar-tags",
+            EVENTS_API_URL = "/a/duke-ecal-box/get-event",
+            ALL_EVENTS_API_URL = "/all-events/duke-ecal-box",
+            EVENTS_BY_MONTH_API_URL = "/duke-ecal-box/events-by-month",
+            EVENTS_FOR_MONTH_API_URL = "/duke-ecal-box/events-for-months",
+            EVENTS_FOR_WEEK_API_URL = "/duke-ecal-box/events-for-days",
+            EVENT_DETAILS_API_URL = "/a/duke-ecal-box/get-event-details",
+            FEATURED_EVENTS_URL = "/duke-ecal-box/featured-events",
+            LAYOUT_TYPE = "L",
+            THEME = "box-style-1";
+            TIME_ZONE = "America/New_York",
+            IS_FB     = false,
+            REFERRER = "http://www.goduke.com/SportSelect.dbml?SPID=1845",
+            IS_BOX = true,
+            DEFAULT_TAGS = {};
+
+            //Message translations
+            var INVALID_MOBILE_NO ="Invalid mobile number";
+            var PLEASE_WAIT = "Please Wait...";
+            var NO_EVENTS_TO_LOAD = "No more events to load...";
+            var SENT_SUCCESSFULY = "Successfully sent %s";
+            var SENDING_FAILED = "Failed sending %s";
+            var NO_CAL_SELECTED = "No calendar selected!";
+            var ADD_TO_CALENDAR = "Add to calendar";
+            var ARE_YOU_SURE_FB_POST = "Are you sure you want to publish to Facebook?";
+
+            var MSG_ENTER_NAME = "Please enter your name.";
+            var MSG_SUCCESS_RECOMENTATION = "Success! Recommendation sent.";
+            var MSG_NO_CONTACTS = "No contacts entered!";
+            var MSG_RECOMENTATION_FAILED = "Failed sending recommendation!";
+            var MSG_SENT_SUCCESS_TYPE = "Successfully sent {TYPE}";
+            var MSG_SENT_FAIL_TYPE = "Failed sending {TYPE}";
+
+            var EVENT_TYPES = {};
+                        EVENT_TYPES["Fixture / Schedule"] = "Fixture / Schedule";
+                        EVENT_TYPES["Event"] = "Event";
+                        EVENT_TYPES["Corporate"] = "Corporate";
+                        EVENT_TYPES["Birthday"] = "Birthday";
+                        EVENT_TYPES["Tactical"] = "Tactical";
+                        EVENT_TYPES["Media"] = "Media";
+                
+            function localizeJQMessages(){
+            	$.extend($.validator.messages, {
+            	    email: "Please enter a valid email",
+                    required: "This field is required"
+            	});
+            }
+            
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-23752265-61']);
+    	    _gaq.push(['_trackPageview']);
+                </script>
+    
+    <script src="jquery.min(1).js"></script>
+    <script src="jquery-ui.min.js"></script>
+    
+    
+    <script src="jquery.validate.min.js"></script>
+
+    <script src="jstorage.js"></script>
+    
+    <script src="jquery.cookie.js"></script>
+    <script src="angular.min.js"></script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak{display:none;}ng\:form{display:block;}</style>
+    <script src="angular-resource.min.js"></script>
+    
+    <script src="hammer.min.js"></script>
+    <script src="angular-hammer.js"></script>
+    
+    <script src="bootstrap.js"></script>
+    <script src="modernizr.min.js"></script>
+    <script src="detectizr.min.js"></script>
+    <script src="fingerprint.js"></script>
+  <link type="text/css" rel="stylesheet" media="screen" href="floatbox.css"></head>
+  <body class=" layout-l">
+    <div class="container ng-scope" id="box-widget" ng-controller="BoxCtrl" data-start-view="calendar" data-header-icon-set="white">
+    <div class="row-fluid title-row-bgcolor reg-font" id="title-row">
+        <div class="span12">
+            <table width="100%">
+                <tbody><tr class="header-container">
+                    <td width="24" class="logo-container">
+                                                    <img style="max-width:36px; max-height:36px;" src="780">
+                                            </td>
+                    <td class="desc-container">Sync Duke Schedules to your personal calendar</td>
+                    <td class="view-icon-container" width="28">
+                        <ul>
+                            <li><a class="back-button" ng-click="$emit(&quot;go-back&quot;, {targetEvent : $event});" href="javascript:{}" style="display: none;"><img width="24" src="arrow_left.png"></a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
+    <div class="ie8-message">
+        <p style="font-size: 20px; font-family:&#39;MontserratBold&#39;,sans-serif; line-height: 1.5em; padding: 10px 10px 0 10px;">We're sorry!</p>
+        <p style="font-size: 15px; font-family:&#39;MontserratRegular&#39;,sans-serif; line-height: 1.5em; padding: 0 10px 10px 10px;">Sorry, looks like you are using an outdated browser type. To feel the full ECAL experience, please switch to a more modern browser (eg: Chrome, Firefox, Safari, IE9 or later).
+    </p></div>
+    <div class="viewport" style="height: 158px;">
+    	<div class="events-listing scroll-false">
+           
+            <div class="row-fluid" id="event-list-scroll">
+                <div id="event-list-content" class="span12" style="height: 160px;">
+                    <input type="hidden" id="sel-cal-name-str" value="*Duke Football FULL Schedule">
+                    <input type="hidden" id="sel-cal-ids-str" value="543779775eba34257c000001">
+                                          <ul id="choose-cal-list">
+                        <!-- ngRepeat: calendar in data | orderBy:name --><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543779775eba34257c000001" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square checked" style="position: relative;"><input id="cal-list-543779775eba34257c000001" type="checkbox" data-cal-id="543779775eba34257c000001" data-cal-name="*Duke Football FULL Schedule" class="custom-checkbox cid-543779775eba34257c000001" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">*Duke Football FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-5498a0881c981f9411000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-5498a0881c981f9411000000" type="checkbox" data-cal-id="5498a0881c981f9411000000" data-cal-name="Duke Baseball FULL Schedule" class="custom-checkbox cid-5498a0881c981f9411000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Baseball FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-5498a0b81c981fe912000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-5498a0b81c981fe912000000" type="checkbox" data-cal-id="5498a0b81c981fe912000000" data-cal-name="Duke Baseball HOME Schedule" class="custom-checkbox cid-5498a0b81c981fe912000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Baseball HOME Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54065b72fb0615d267000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54065b72fb0615d267000000" type="checkbox" data-cal-id="54065b72fb0615d267000000" data-cal-name="Duke Cross Country FULL Schedule" class="custom-checkbox cid-54065b72fb0615d267000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Cross Country FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-5437795b5eba34367d000002" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-5437795b5eba34367d000002" type="checkbox" data-cal-id="5437795b5eba34367d000002" data-cal-name="Duke Fencing FULL Schedule" class="custom-checkbox cid-5437795b5eba34367d000002" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Fencing FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54065bdbfb0615d667000001" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54065bdbfb0615d667000001" type="checkbox" data-cal-id="54065bdbfb0615d667000001" data-cal-name="Duke Field Hockey FULL Schedule" class="custom-checkbox cid-54065bdbfb0615d667000001" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Field Hockey FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-5433442f5eba34206b000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-5433442f5eba34206b000000" type="checkbox" data-cal-id="5433442f5eba34206b000000" data-cal-name="Duke Field Hockey HOME Game Schedule" class="custom-checkbox cid-5433442f5eba34206b000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Field Hockey HOME Game Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543b5b865eba34680e000002" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543b5b865eba34680e000002" type="checkbox" data-cal-id="543b5b865eba34680e000002" data-cal-name="Duke Football HOME Schedule" class="custom-checkbox cid-543b5b865eba34680e000002" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Football HOME Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54377a075eba34267c000063" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54377a075eba34267c000063" type="checkbox" data-cal-id="54377a075eba34267c000063" data-cal-name="Duke Men&#39;s Basketball FULL Schedule" class="custom-checkbox cid-54377a075eba34267c000063" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Men's Basketball FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543b5c925eba34010c000006" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543b5c925eba34010c000006" type="checkbox" data-cal-id="543b5c925eba34010c000006" data-cal-name="Duke Men&#39;s Basketball HOME Schedule" class="custom-checkbox cid-543b5c925eba34010c000006" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Men's Basketball HOME Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54377a7a5eba34677c00001f" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54377a7a5eba34677c00001f" type="checkbox" data-cal-id="54377a7a5eba34677c00001f" data-cal-name="Duke Men&#39;s Golf FULL Schedule" class="custom-checkbox cid-54377a7a5eba34677c00001f" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Men's Golf FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54065c3ffb06157b6c000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54065c3ffb06157b6c000000" type="checkbox" data-cal-id="54065c3ffb06157b6c000000" data-cal-name="Duke Men&#39;s Soccer FULL Schedule" class="custom-checkbox cid-54065c3ffb06157b6c000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Men's Soccer FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543344d55eba340c70000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543344d55eba340c70000000" type="checkbox" data-cal-id="543344d55eba340c70000000" data-cal-name="Duke Men&#39;s Soccer HOME Game Schedule" class="custom-checkbox cid-543344d55eba340c70000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Men's Soccer HOME Game Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543779175eba34677c000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543779175eba34677c000000" type="checkbox" data-cal-id="543779175eba34677c000000" data-cal-name="Duke Men&#39;s Tennis FULL Schedule" class="custom-checkbox cid-543779175eba34677c000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Men's Tennis FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54377ad85eba34c17c000001" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54377ad85eba34c17c000001" type="checkbox" data-cal-id="54377ad85eba34c17c000001" data-cal-name="Duke Swimming and Diving FULL Schedule" class="custom-checkbox cid-54377ad85eba34c17c000001" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Swimming and Diving FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543b5cf45eba340526000001" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543b5cf45eba340526000001" type="checkbox" data-cal-id="543b5cf45eba340526000001" data-cal-name="Duke Swimming and Diving HOME Schedule" class="custom-checkbox cid-543b5cf45eba340526000001" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Swimming and Diving HOME Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54065ca6fb0615326f000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54065ca6fb0615326f000000" type="checkbox" data-cal-id="54065ca6fb0615326f000000" data-cal-name="Duke Volleyball FULL Schedule" class="custom-checkbox cid-54065ca6fb0615326f000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Volleyball FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-5433437f5eba34d265000001" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-5433437f5eba34d265000001" type="checkbox" data-cal-id="5433437f5eba34d265000001" data-cal-name="Duke Volleyball HOME Game Schedule" class="custom-checkbox cid-5433437f5eba34d265000001" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Volleyball HOME Game Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54377b7f5eba34f102000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54377b7f5eba34f102000000" type="checkbox" data-cal-id="54377b7f5eba34f102000000" data-cal-name="Duke Women&#39;s Basketball FULL Schedule" class="custom-checkbox cid-54377b7f5eba34f102000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Women's Basketball FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543b5d845eba34e614000002" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543b5d845eba34e614000002" type="checkbox" data-cal-id="543b5d845eba34e614000002" data-cal-name="Duke Women&#39;s Basketball HOME Schedule" class="custom-checkbox cid-543b5d845eba34e614000002" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Women's Basketball HOME Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54377bb15eba349602000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54377bb15eba349602000000" type="checkbox" data-cal-id="54377bb15eba349602000000" data-cal-name="Duke Women&#39;s Golf FULL Schedule" class="custom-checkbox cid-54377bb15eba349602000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Women's Golf FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54065ceefb0615d567000002" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54065ceefb0615d567000002" type="checkbox" data-cal-id="54065ceefb0615d567000002" data-cal-name="Duke Women&#39;s Soccer FULL Schedule" class="custom-checkbox cid-54065ceefb0615d567000002" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Women's Soccer FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-5433425b5eba34275b000003" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-5433425b5eba34275b000003" type="checkbox" data-cal-id="5433425b5eba34275b000003" data-cal-name="Duke Women&#39;s Soccer HOME Game Schedule" class="custom-checkbox cid-5433425b5eba34275b000003" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Women's Soccer HOME Game Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543778f25eba34267c000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543778f25eba34267c000000" type="checkbox" data-cal-id="543778f25eba34267c000000" data-cal-name="Duke Women&#39;s Tennis FULL Schedule" class="custom-checkbox cid-543778f25eba34267c000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Women's Tennis FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543b5df95eba344924000000" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543b5df95eba344924000000" type="checkbox" data-cal-id="543b5df95eba344924000000" data-cal-name="Duke Women&#39;s Tennis HOME Schedule" class="custom-checkbox cid-543b5df95eba344924000000" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Women's Tennis HOME Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-54377bdc5eba342d07000001" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-54377bdc5eba342d07000001" type="checkbox" data-cal-id="54377bdc5eba342d07000001" data-cal-name="Duke Wrestling FULL Schedule" class="custom-checkbox cid-54377bdc5eba342d07000001" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Wrestling FULL Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li><li ng-repeat="calendar in data | orderBy:name" class="cal-li-entry ng-scope" id="cal-li-id-543b5eac5eba34260c000007" cal-id="">
+                            <div class="choose-list-row list-row-bgcolor">
+                                <div class="icheckbox_square" style="position: relative;"><input id="cal-list-543b5eac5eba34260c000007" type="checkbox" data-cal-id="543b5eac5eba34260c000007" data-cal-name="Duke Wrestling HOME Schedule" class="custom-checkbox cid-543b5eac5eba34260c000007" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                <label class="reg-font-alt ng-binding" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event})" style="width: 238px;">Duke Wrestling HOME Schedule</label>
+                                <a href="javascipt:{}" ng-click="$emit(&quot;list-events&quot;, { cId: calendar.id, cName : calendar.name, targetEvent : $event});" class="icon-chevron-down icon-black expander"></a>
+                            </div>
+                        </li>
+                        <li style="display:none" class="no-data">
+							<div class="choose-list-row list-row-bgcolor">
+								<label class="reg-font-alt" style="width: 238px;">No Calendar Available</label>
+							</div>
+						</li>
+                    </ul>
+                                     
+                </div>
+            </div>
+           
+        </div>
+        <!--div ng-view class="views" ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div-->
+        <div ng-view="" class="views" ng-animate="{enter: &#39;view-enter&#39;, leave: &#39;view-leave&#39;}"></div>
+    </div>
+        <div class="row-fluid  panel-row-bgcolor action-menu-row">
+        <div class="span12 reg-font" id="action-menu">
+        		<div class="cur-cal-name" style="width: 275px;"></div>
+        		
+                <ul class="nav nav-list" id="action-nav-list" style="display: block;">
+                   <li class="reg-font menu-label" style="width: 215px !important"><span id="cal-popover" ng-click="$emit(&quot;show-calendars&quot;)" class="bubble-2"><span class="count">1</span><span class="arrow-right"></span></span><span id="add-to-cal">Sync to calendar <span class="arrow-links"><i class="icon-white icon-chevron-right"></i></span></span></li>
+                   <li class="dropdown menu-row-bgcolor">
+                        <a id="action-menu-mobile" class="reg-font dropdown-toggle arrow-links" href="http://r.e-c.al/l/duke-ecal-box?SPSID=22724&SPID=1845&DB_LANG=C&DB_OEM_ID=4200#/events/add/mobile/duke-ecal-box">Mobile</a>
+                   </li>
+                   <li class="dropdown menu-row-bgcolor">
+                        <a id="action-menu-calendar" class="reg-font dropdown-toggle arrow-links" href="http://r.e-c.al/l/duke-ecal-box?SPSID=22724&SPID=1845&DB_LANG=C&DB_OEM_ID=4200#/events/add/calendar/duke-ecal-box">Calendar</a>                      
+                    </li>
+                    <!--
+                    <li class="dropdown menu-row-bgcolor">
+                        <a id="action-menu-social" class="reg-font dropdown-toggle arrow-links" href="#/events/add/social/duke-ecal-box">Social</a>
+                    </li>-->
+                </ul>
+               
+        </div>
+    </div>
+             <div class="footer row-fluid title-row-bgcolor reg-font">
+        <div class="span12">
+            <a style="text-decoration: none;" target="_blank" href="http://ecal.com/">Powered By <img src="e-cal_logo_footer.png" style="width:40px;"></a>
+        </div>
+    </div>
+    </div>    
+    <script src="date.format.js"></script>
+    <script src="general.js"></script>
+    <script src="ng-modules.js"></script>
+    <script src="ng-directives.js"></script>
+    <script src="ng-main.js"></script>
+    <script src="ng-controllers.js"></script>
+    <script src="address_books.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var csPageOptions = {
+        domain_key:"LJK8JBTTPYMMC7RCZNLH", 
+        textarea_id:"contact_list"
+    };
+    </script>
+    <script type="text/javascript" src="jgestures.js"></script>
+<script type="text/javascript" src="jquery.icheck.js"></script>
+<script type="text/javascript" src="box.js"></script>
+<script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="jquery.carouFredSel-6.1.0-packed.js"></script>
+<script type="text/javascript" src="filtrify.js"></script>    
+    <script type="text/javascript">
+        if (LAYOUT_TYPE == 'L') {
+            $(function() {
+                $.filtrify("choose-cal-list", "filter-placeholder");
+            });
+        }
+    
+        (function() {
+	        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	        //ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+	        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+
+	    if (typeof(_gaq) != undefined) { 
+            var layouts = {L: 'List', M: 'Month', W: 'Week'};
+        	_gaq.push(['_trackEvent', 'Application', 'WidgetView', layouts[LAYOUT_TYPE]]);
+            _gaq.push(['_trackEvent', 'Application', 'GetCalendars', ORG_NAME]); 
+        }
+
+        function eventsGACallback(cals){
+            if (typeof(_gaq) != undefined) { _gaq.push(['_trackEvent', 'Application', 'GetEvents', cals]); }
+        }
+
+        function eventDetailsCallback(eventName){
+            if (typeof(_gaq) != undefined) { _gaq.push(['_trackEvent', 'Application', 'GetEventDetails', eventName]); }
+        }
+        
+        function enablePlaceholders() {
+            if (!Modernizr.input.placeholder) {
+                $('[placeholder]').focus(function() {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                        input.removeClass('placeholder');
+                    }
+                }).blur(function() {
+                    var input = $(this);
+                    if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                        input.addClass('placeholder');
+                        input.val(input.attr('placeholder'));
+                       }
+                }).blur();
+    
+                $('[placeholder]').parents('form').submit(function() {
+                    $(this).find('[placeholder]').each(function() {
+                        var input = $(this);
+                        if (input.val() == input.attr('placeholder')) {
+                            input.val('');
+                        }
+                    })
+                });
+            }
+        };
+    </script>
+    
+    <input type="hidden" id="WT" value="Sync Duke Schedules to your personal calendar">
+    <input type="hidden" id="WD" value="eCal keeps you up-to-date and connected! Subscribe to events directly into your mobile, tablet, computer or social calendar program, for free! It&#39;s easy. &#39;eCal it&#39; now, and never miss a moment!">
+  
+<iframe name="easyXDM_cloudsponge_default4645_provider" id="easyXDM_cloudsponge_default4645_provider" frameborder="0" src="provider.html" style="position: absolute; top: -2000px;"></iframe><div id="cs_container" style="display: none;"></div><a data-cs-init="true" href="http://r.e-c.al/l/duke-ecal-box?SPSID=22724&SPID=1845&DB_LANG=C&DB_OEM_ID=4200#cs_container" id="cs_link" style="display: none;"></a></body></html>

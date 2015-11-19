@@ -1,0 +1,163 @@
+.slider-widget.content {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.slider-widget.content .slider {
+	position: relative;
+	left: 0px;
+}
+
+.slider-widget.content .slider .item {
+	float: left;
+}
+
+.slider-widget.content .clear {
+	clear: both;
+}
+
+.slider-widget.content.desktop-one .slider .item,
+body.desktop .slider-widget.content.desktop-one .slider .item {
+	width: 100%;
+}
+
+.slider-widget.content.desktop-two .slider .item,
+body.desktop .slider-widget.content.desktop-two .slider .item {
+	width: 50%;
+}
+
+.slider-widget.content.desktop-three .slider .item,
+body.desktop .slider-widget.content.desktop-three .slider .item {
+	width: 33.3%;
+}
+
+.slider-widget.content.desktop-four .slider .item,
+body.desktop .slider-widget.content.desktop-four .slider .item {
+	width: 25%;
+}
+
+.slider-widget.content.desktop-five .slider .item,
+body.desktop .slider-widget.content.desktop-five .slider .item {
+	width: 20%;
+}
+
+.slider-widget.content.desktop-six .slider .item,
+body.desktop .slider-widget.content.desktop-six .slider .item {
+	width: 16.6%;
+}
+
+.slider-widget.content.desktop-seven .slider .item,
+body.desktop .slider-widget.content.desktop-seven .slider .item {
+	width: 14.2%;
+}
+
+.slider-widget.content.desktop-eight .slider .item,
+body.desktop .slider-widget.content.desktop-eight .slider .item {
+	width: 12.5%;
+}
+
+.slider-widget.content.desktop-nine .slider .item,
+body.desktop .slider-widget.content.desktop-nine .slider .item {
+	width: 11.1%;
+}
+
+.slider-widget.content.desktop-ten .slider .item,
+body.desktop .slider-widget.content.desktop-ten .slider .item {
+	width: 10%;
+}
+
+.slider-widget.content.desktop-eleven .slider .item,
+body.desktop .slider-widget.content.desktop-eleven .slider .item {
+	width: 9%;
+}
+
+
+body.tablet .slider-widget.content.tablet-one .slider .item {
+	width: 100%;
+}
+
+body.tablet .slider-widget.content.tablet-two .slider .item {
+	width: 50%;
+}
+
+body.tablet .slider-widget.content.tablet-three .slider .item {
+	width: 33.3%;
+}
+
+body.tablet .slider-widget.content.tablet-four .slider .item {
+	width: 25%;
+}
+
+body.tablet .slider-widget.content.tablet-five .slider .item {
+	width: 20%;
+}
+
+body.tablet .slider-widget.content.tablet-six .slider .item {
+	width: 16.6%;
+}
+
+body.tablet .slider-widget.content.tablet-seven .slider .item {
+	width: 14.2%;
+}
+
+body.tablet .slider-widget.content.tablet-eight .slider .item {
+	width: 12.5%;
+}
+
+body.tablet .slider-widget.content.tablet-nine .slider .item {
+	width: 11.1%;
+}
+
+body.tablet .slider-widget.content.tablet-ten .slider .item {
+	width: 10%;
+}
+
+body.tablet .slider-widget.content.tablet-eleven .slider .item {
+	width: 9%;
+}
+
+
+body.mobile .slider-widget.content.mobile-one .slider .item {
+		width: 100%;
+	}
+
+body.mobile .slider-widget.content.mobile-two .slider .item {
+	width: 50%;
+}
+
+body.mobile .slider-widget.content.mobile-three .slider .item {
+	width: 33.3%;
+}
+
+body.mobile .slider-widget.content.mobile-four .slider .item {
+	width: 25%;
+}
+
+body.mobile .slider-widget.content.mobile-five .slider .item {
+	width: 20%;
+}
+
+body.mobile .slider-widget.content.mobile-six .slider .item {
+	width: 16.6%;
+}
+
+body.mobile .slider-widget.content.mobile-seven .slider .item {
+	width: 14.2%;
+}
+
+body.mobile .slider-widget.content.mobile-eight .slider .item {
+	width: 12.5%;
+}
+
+body.mobile .slider-widget.content.mobile-nine .slider .item {
+	width: 11.1%;
+}
+
+body.mobile .slider-widget.content.mobile-ten .slider .item {
+	width: 10%;
+}
+
+body.mobile .slider-widget.content.mobile-eleven .slider .item {
+	width: 9%;
+}

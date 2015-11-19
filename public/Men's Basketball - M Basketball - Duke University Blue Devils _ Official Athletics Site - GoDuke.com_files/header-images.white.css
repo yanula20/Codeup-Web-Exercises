@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+#header-menu li.list {
+    background-image : url('../img/white/32/list.png');
+}
+
+#header-menu li.next10 {
+    background-image : url('../img/white/32/next_track.png');
+}
+
+#header-menu li.week {
+    background-image : url('../img/white/32/day_calendar.png');
+}
+
+#header-menu li.month {
+    background-image : url('../img/white/32/month_calendar.png');
+}
+
+.title.choose-calendars{
+    background-image: url('../img/white/32/day_calendar.png');
+    background-repeat: no-repeat;
+    background-position: 9px 4px;
+    background-size: 24px;
+}
+
+.title.add-calendars{
+    background-image: url('../img/white/32/plus.png');
+    background-repeat: no-repeat;
+    background-position: 0px 10px !important;
+    background-size: 24px;
+}

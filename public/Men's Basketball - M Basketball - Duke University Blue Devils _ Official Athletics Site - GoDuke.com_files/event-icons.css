@@ -1,0 +1,115 @@
+.event-entry{
+	background-repeat: no-repeat;
+    background-position: 9px 7px;
+    background-image: url('../img/black/16/abacus.png') !important;
+}
+
+.event-fixture {
+	background-image: url('../img/black/16/cup.png') !important;
+}
+
+.event-birthday {
+	background-image: url('../img/black/16/balloons.png') !important;
+}
+
+.event-corporate {
+	background-image: url('../img/black/16/admin_user.png') !important;
+}
+
+.event-tactical {
+	background-image: url('../img/black/16/bulls_eye.png') !important;
+}
+
+.event-event {
+	background-image: url('../img/black/16/users.png') !important;
+}
+
+.event-list-row.active .event-entry,
+.event-list-row:hover .event-entry,
+.event-entry:hover {
+	background-repeat: no-repeat;
+    background-position: 9px 7px;
+    background-image: url('../img/white/16/abacus.png') !important;
+}
+
+.event-list-row.active .event-birthday,
+.event-list-row:hover .event-birthday,
+.event-birthday:hover {
+	background-image: url('../img/white/16/balloons.png') !important;
+}
+
+.event-list-row.active .event-event,
+.event-list-row:hover .event-event,
+.event-event:hover {
+	background-image: url('../img/white/16/users.png') !important;
+}
+
+.event-list-row.active .event-corporate,
+.event-list-row:hover .event-corporate,
+.event-corporate:hover {
+	background-image: url('../img/white/16/admin_user.png') !important;
+}
+
+.event-list-row.active .event-tactical,
+.event-list-row:hover .event-tactical,
+.event-tactical:hover {
+	background-image: url('../img/white/16/bulls_eye.png') !important;
+}
+
+.event-list-row.active .event-fixture,
+.event-list-row:hover .event-fixture,
+.event-fixture:hover {
+	background-image: url('../img/white/16/cup.png') !important;
+}
+
+.event-list-row.active .event-school,
+.event-list-row:hover .event-school,
+.event-school:hover {
+	background-image: url('../img/white/16/book_large.png') !important;
+}
+
+/* Month view */
+#month-widget #choose-cal-header-row .span12 {
+	background-image: url('../img/white/32/month_calendar.png');
+}
+
+#month-widget .event-entry {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-image: url('../img/black/16/abacus.png') !important;
+}
+
+#month-widget .popover .event-entry {
+	background-position: left top;
+	color: black !important;
+}
+
+#month-widget .event-fixture {
+    background-image: url('../img/black/16/cup.png') !important;
+}
+
+#month-widget .event-birthday {
+    background-image: url('../img/black/16/balloons.png') !important;
+}
+
+#month-widget .event-corporate {
+    background-image: url('../img/black/16/admin_user.png') !important;
+}
+
+#month-widget .event-event {
+    background-image: url('../img/black/16/users.png') !important;
+}
+
+#month-widget .event-tactical {
+    background-image: url('../img/black/16/bulls_eye.png') !important;
+}
+
+#month-widget .event-school {
+    background-image: url('../img/black/16/book_large.png') !important;
+}
+
+#event-grid-row .event-details {
+	background-image: url('../img/black/16/document.png') !important;
+	background-repeat: no-repeat;
+    background-position: right;
+}

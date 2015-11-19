@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+#choose-cal-header-row .span12, #choose-cal-header-row .span9 {
+    background-image: url('../img/white/32/day_calendar.png');
+    background-repeat: no-repeat;
+    background-position: 9px 4px;
+    background-size: 24px;
+}
+
+#event-header-row .span6 {
+    background-image: url('../img/white/32/documents.png');
+    background-repeat: no-repeat;
+    background-position: 9px 5px;
+    background-size: 24px;
+}
+
+#event-details-header-row .span12 {
+    background-image: url('../img/white/32/document.png');
+    background-repeat: no-repeat;
+    background-position: 9px 5px;
+    background-size: 24px;
+}
+
+.title.event-details{
+    background-image: url('../img/black/32/document.png');
+    background-repeat: no-repeat;
+    background-position: 0 0 !important;
+    background-size: 24px;
+}
+
+#month-widget #choose-cal-header-row .span12 {
+	background-image: url('../img/white/32/month_calendar.png') !important;
+}
+
+#featured-event-header-row .span12 {
+    background-image: url('../img/white/32/favorite.png') !important;
+}
+
+ul.ft-menu > li.ft-field > span.ft-label .icon { 
+    background-image: url("../../img/glyphicons-halflings-white.png")  !important; 
+}

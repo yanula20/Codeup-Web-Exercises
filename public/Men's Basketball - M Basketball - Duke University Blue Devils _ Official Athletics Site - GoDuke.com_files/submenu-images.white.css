@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+.apple {
+    background-image: url('../img/6_1.png');
+}
+
+.apple:hover {
+    background-image: url('../img/6_1.png') !important;
+}
+
+.android {
+    background-image: url('../img/7_1.png');
+}
+
+.android:hover {
+    background-image: url('../img/7_1.png') !important;
+}
+
+.blackberry {
+    background-image: url('../img/8_1.png');
+}
+
+.blackberry:hover {
+    background-image: url('../img/8_1.png') !important;
+}
+
+.google {
+     background-image: url('../img/google_2_1.png');
+}
+
+.google:hover {
+     background-image: url('../img/google_2_1.png') !important;
+}
+
+.outlook {
+     background-image: url('../img/outlook-2-white.png');
+}
+
+.outlook:hover {
+     background-image: url('../img/outlook-2-white.png') !important;
+}
+
+.facebook {
+     background-image: url('../img/white/32/facebook_f.png');
+}
+
+.facebook:hover {
+     background-image: url('../img/white/32/facebook_f.png') !important;
+}
+
+.yahoo {
+     background-image: url('../img/yahoo_2_1.png') ;
+}
+
+.yahoo:hover {
+     background-image: url('../img/yahoo_2_1.png') !important ;
+}
+
+.aol {
+     background-image: url('../img/aol_white.png');
+}
+
+.aol:hover {
+     background-image: url('../img/aol_white.png') !important;
+}
+
+.lotus {
+     background-image: url('../img/lotus_note_white.png');
+}
+
+.lotus:hover {
+     background-image: url('../img/lotus_note_white.png') !important;
+}
+
+.other {
+     background-image: url('../img/white/32/month_calendar.png');
+}
+
+.other:hover {
+     background-image: url('../img/white/32/month_calendar.png') !important;
+}
+
+.windows {
+    background-image: url('../img/9_1.png');
+}
+
+.windows:hover {
+    background-image: url('../img/9_1.png') !important;
+}

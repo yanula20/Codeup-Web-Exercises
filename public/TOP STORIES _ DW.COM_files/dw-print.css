@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/* 	MINIMAL PRINT CSS
+	Start 12.12.2011	Version 0.8 
+	Letzte Änderung: 12.12.2011
+	Alex Koch | wysiwyg*
+*/
+
+
+body {
+	margin: 0px;
+	padding: 0;
+	background: none;
+    background-color: #fff;}
+
+div#navMeta { display: none; }
+
+div#navContainer {
+	position: relative;
+	z-index: 2000;
+	background-color: #fff;
+	width: 980px;
+	height: 115px;
+	margin: 0px auto; }
+
+div#navHead {
+	width: 940px;
+	height: 85px;
+	margin: 0px 20px; }
+
+div#navMain { display: none; }
+	
+div#navPath { 
+	padding: 0px 10px;
+	clear: both; }
+
+div#logo {
+	display: none; }
+
+div#logoprint {
+	display: block; }
+
+div#bodyContent {
+	padding-left: 0px;
+	padding-bottom: 20px;
+	margin: 0px auto; }
+
+div#footerSection { display: none; }
+
+div.col1.dim { display: none; }
+
+div#search { display: none; }

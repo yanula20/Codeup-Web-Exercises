@@ -1,0 +1,163 @@
+body { 
+	margin: 0;
+	padding: 0;
+	background: transparent; 
+	text-align: center;
+}
+
+/* ============================================================ */
+/* SOCIAL LOGIN: IFRAME */
+/* ============================================================ */
+	
+	body.scrbbl-login-loading { background: url(images/loading.gif) 50% 50% no-repeat; }
+
+	body.scrbbl-login-error #scrbbl-login-error { display: block; }
+
+	body.scrbbl-login-loading #scrbbl-tb-login-network,
+	body.scrbbl-login-error #scrbbl-tb-login-network {
+		display: none;
+	}
+
+	#scrbbl-login-error {
+		display: none;
+		font: 11px Helvetica, Arial, sans-serif;
+		color: #FF4949;
+	}
+
+
+/* ============================================================ */
+/* SOCIAL LOGIN: BUTTONS */
+/* ============================================================ */
+
+	.scrbbl-tb-login-network {
+		display: inline-block;
+		margin: 0 auto;
+		padding: 0;
+		list-style: none;
+		zoom: 1;
+	}
+		.scrbbl-tb-login-network:after { content: ""; display: table; clear: both; }
+
+		.scrbbl-tb-login-network li {
+			float: left;
+			width: 52px;
+			height: 30px;
+			margin: 0 5px 5px 0;
+			border-width: 1px;
+			border-style: solid;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+
+			.scrbbl-tb-login-network li span {
+				display: block;
+				text-indent: -99999px;
+				background-image: url(images/social_icons.png); 
+				background-repeat: no-repeat;
+			}
+
+		.scrbbl-tb-login-twitter {
+			border-color: #2CB1E4;
+			background: #77cdee;
+			background: -moz-linear-gradient(top,  #77cdee 0%, #35b5e6 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#77cdee), color-stop(100%,#35b5e6));
+			background: -webkit-linear-gradient(top,  #77cdee 0%,#35b5e6 100%);
+			background: -o-linear-gradient(top,  #77cdee 0%,#35b5e6 100%);
+			background: -ms-linear-gradient(top,  #77cdee 0%,#35b5e6 100%);
+			background: linear-gradient(to bottom,  #77cdee 0%,#35b5e6 100%);
+		}
+			.scrbbl-tb-login-twitter:hover { background: #35b5e6; }
+			.scrbbl-tb-login-twitter span {
+				width: 17px;
+				height: 13px;
+				margin: 9px auto 0 auto;
+				background-position: 0px -14px;
+			}
+
+		.scrbbl-tb-login-facebook {
+			border-color: #4E5D87;
+			background: #6677ae;
+			background: -moz-linear-gradient(top,  #6677ae 0%, #4e5c92 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6677ae), color-stop(100%,#4e5c92));
+			background: -webkit-linear-gradient(top,  #6677ae 0%,#4e5c92 100%);
+			background: -o-linear-gradient(top,  #6677ae 0%,#4e5c92 100%);
+			background: -ms-linear-gradient(top,  #6677ae 0%,#4e5c92 100%);
+			background: linear-gradient(to bottom,  #6677ae 0%,#4e5c92 100%);
+		}
+			.scrbbl-tb-login-facebook:hover { background: #4e5c92; }
+			.scrbbl-tb-login-facebook span {
+				width: 8px;
+				height: 14px;
+				margin: 8px auto 0 auto;
+				background-position: 0px 0px;
+			}
+
+		.scrbbl-tb-login-google {
+			border-color: #A62700;
+			background: #db3f00;
+			background: -moz-linear-gradient(top,  #db3f00 0%, #bc2e00 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#db3f00), color-stop(100%,#bc2e00));
+			background: -webkit-linear-gradient(top,  #db3f00 0%,#bc2e00 100%);
+			background: -o-linear-gradient(top,  #db3f00 0%,#bc2e00 100%);
+			background: -ms-linear-gradient(top,  #db3f00 0%,#bc2e00 100%);
+			background: linear-gradient(to bottom,  #db3f00 0%,#bc2e00 100%);
+		}
+			.scrbbl-tb-login-google:hover { background: #bc2e00; }
+			.scrbbl-tb-login-google span {
+				width: 18px;
+				height: 15px;
+				margin: 8px auto 0 auto;
+				background-position: 1px -28px;
+			}
+
+		.scrbbl-tb-login-yahoo {
+			border-color: #450059;
+			background: #7606FF;
+			background: -moz-linear-gradient(top,  #7606FF 0%, #4B00A8 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7606FF), color-stop(100%,#4B00A8));
+			background: -webkit-linear-gradient(top,  #7606FF 0%,#4B00A8 100%);
+			background: -o-linear-gradient(top,  #7606FF 0%,#4B00A8 100%);
+			background: -ms-linear-gradient(top,  #7606FF 0%,#4B00A8 100%);
+			background: linear-gradient(to bottom,  #7606FF 0%,#4B00A8 100%);
+		}
+			.scrbbl-tb-login-yahoo:hover { background: #5802C2; }
+			.scrbbl-tb-login-yahoo span {
+				width: 44px;
+				height: 12px;
+				margin: 10px auto 0 auto;
+				background-position: 0px -43px;
+			}
+			
+		.scrbbl-tb-login-linkedin {
+			border-color: #0977B5;
+			background: #075E8B;
+			background: -moz-linear-gradient(top,  #0977B5 0%, #075E8B 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0977B5), color-stop(100%,#075E8B));
+			background: -webkit-linear-gradient(top,  #0977B5 0%,#075E8B 100%);
+			background: -o-linear-gradient(top,  #0977B5 0%,#075E8B 100%);
+			background: -ms-linear-gradient(top,  #0977B5 0%,#075E8B 100%);
+			background: linear-gradient(to bottom,  #0977B5 0%,#075E8B 100%);
+		}
+			.scrbbl-tb-login-linkedin:hover { background: #075E8B; }
+			.scrbbl-tb-login-linkedin span {
+				width: 19px;
+				height: 12px;
+				margin: 9px auto 0 auto;
+				background-position: 4px -55px;
+			}
+
+
+/* ============================================================ */
+/* SOCIAL LOGIN: IE */
+/* ============================================================ */
+
+	html.scrbbl-ie8 body.scrbbl-login-loading { background: url(images/loading.gif) 49% 10px no-repeat; }
+
+	html.scrbbl-ie7 .scrbbl-tb-login-network li{
+		display: inline;
+		float: none;
+		zoom: 1;
+	}
+
+/* ============================================================ */
+/* ============================================================ */

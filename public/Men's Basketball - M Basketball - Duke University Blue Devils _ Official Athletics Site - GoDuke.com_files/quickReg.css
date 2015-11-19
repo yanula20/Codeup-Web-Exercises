@@ -1,0 +1,156 @@
+#qr-login-box,
+#qr-login-box th 
+{
+	color:#000000;	
+}
+
+#qr-login-box a {
+	color:#000000;	
+}
+
+#quickreg-submit-form {
+	position:relative;
+}
+
+#qr-box #quickreg-submit-form fieldset {
+	width:510px;
+	margin:0 auto;	
+}
+
+#quickreg-submit-form tr,
+#quicklogin-submit-form tr 
+{
+	vertical-align:top;	
+}
+
+#quickreg-submit-form fieldset, #quicklogin-submit-form fieldset {
+	width:400px;
+	margin:0 auto;	
+}
+
+#quickreg-submit-form fieldset th, #quicklogin-submit-form fieldset th {
+	text-align:left;	
+}
+
+#quickreg-submit-form fieldset input.qr-text, #quicklogin-submit-form fieldset input.qr-text {
+	border:1px solid;	
+}
+
+#quickreg-submit-form .validation-failed, #quicklogin-submit-form .validation-failed {
+	background:#FAEBE7 none repeat scroll 0 0 !important;
+	border:1px dashed #EB340A !important;
+}
+
+#quickreg-submit-form #qr-messages {
+	position:absolute;
+	top:10px;
+	right:20px;
+	display:none;
+	padding:5px;
+	width:110px;
+	border:1px solid #EB340A;
+	color:#EB340A;
+}
+
+#quicklogin-submit-form #qr-messages {
+	position:absolute;
+	top:20px;
+	right:20px;
+	display:none;
+	padding:5px;
+	width:100px;
+	border:1px solid #EB340A;
+	color:#EB340A;
+}
+
+#qr-box #quickreg-submit-form #qr-messages {
+	position:absolute;
+	top:15px;
+	right:20px;
+	display:none;
+	padding:5px;
+	width:180px;
+	border:1px solid #EB340A;
+	color:#EB340A;
+}
+
+#quickRegMessage {
+	padding:0 10px;	
+}
+
+#quickRegMessage .fail {
+	color:#ff0000;	
+	font-weight:bold;
+}
+
+#quickRegMessage .success {
+	color:#177F25;
+	font-weight:bold;
+}
+
+#quickreg-submit-form textarea, 
+#quickreg-submit-form input, 
+#quickreg-submit-form select,
+#quicklogin-submit-form textarea, 
+#quicklogin-submit-form input, 
+#quicklogin-submit-form select  
+{
+	background:#F4F4F4 none repeat scroll 0 0;
+	border:1px solid #B2B2B2;
+	color:#000000;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	margin:1px;
+	padding:3px;
+}
+
+#quickreg-submit-form input:focus, 
+#quickreg-submit-form textarea:focus, 
+#quickreg-submit-form label:focus,
+#quicklogin-submit-form input:focus, 
+#quicklogin-submit-form textarea:focus, 
+#quicklogin-submit-form label:focus  
+{
+	background:#FFFFFF none repeat scroll 0 0;
+	border:1px solid #686868;
+}
+
+#quickreg-submit-form #quickReg-submit, 
+#quickreg-submit-form #quickReg-cancel, 
+#quicklogin-submit-form .button,
+#quicklogin-submit-form .button
+{
+	background:#EBEAE9 none repeat scroll 0 0;
+	border-color:#CCCCCC #999999 #999999 #CCCCCC;
+	border-style:double;
+	border-width:3px;
+	color:#333333;
+	padding:0.25em;
+}
+
+#qr-login-box {
+	position:absolute;
+	width:420px;
+	height:143px;
+	border:1px solid #000000;
+	background:#ffffff;
+	color:#000000;
+	z-index:1000;
+	display:none;
+	padding:10px;
+}
+
+#qr-box {
+	position:absolute;
+	width:530px;
+	height:232px;
+	border:1px solid #000000;
+	background:#ffffff;
+	color:#000000;
+	z-index:1000;
+	display:none;
+	padding:10px;
+}
+
+#qr-box.hasCommunity {
+	height:252px;	
+}

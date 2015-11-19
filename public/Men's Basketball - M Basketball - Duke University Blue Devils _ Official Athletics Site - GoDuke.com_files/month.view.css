@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+
+.month-selector .premonth, .month-selector .nextmonth{
+}
+
+ul.day-selector,
+ul.months{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.day-selector li,
+ul.months li{
+    display: inline-block;
+    margin: 0 8px;
+}
+
+ul.months{
+	display: inline-block;
+	float: left;
+}
+
+.month-selector{
+	background-color: red;
+	padding: 6px;
+	color: white;
+	overflow: hidden;
+}
+
+.slot{
+    width: 60px;
+    height: 60px;
+    line-height: 28px;
+    background-color: #FF4F4F;
+    float: left;
+    text-align: center;
+}
+
+.slot .month, .slot .year{
+    display: block; 
+    clear:both;
+    text-align: center;
+}
+
+a.active-true{
+	text-decoration: underline;
+	color: #CCC !important;
+	font-weight: bold;
+}
+
+ul.day-selector a{
+	color: white;
+}
+
+ul.day-selector{
+	background-color: blue;
+	color: white;
+	padding: 6px;
+}

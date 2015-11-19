@@ -1,0 +1,10 @@
+/* Dimensions */
+.container-fluid{
+    margin: 0 auto;
+    height: 266px !important;
+}
+
+
+#cal-row-overflow{
+    height: 0px !important;
+}

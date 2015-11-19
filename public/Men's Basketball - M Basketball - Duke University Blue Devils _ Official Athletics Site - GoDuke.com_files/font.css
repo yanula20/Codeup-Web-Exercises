@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+
+.bold-font {
+    color: white;
+    font-family : 'PTSansBold';
+}
+
+.bold-font-alt {
+    color: black;
+    font-family : 'PTSansBold';
+}
+
+.reg-font {
+    color: white;
+    font-family: 'PTSansRegular';
+}
+
+.reg-font-alt {
+    font-family: 'PTSansRegular';
+    color: black;
+}
+
+.reg-font-bold {
+    color: white;
+    font-family: 'PTSansRegular';
+    font-weight: bold;
+}
+
+.popover-title {
+	color: black !important;
+    font-family : 'PTSansBold';
+    text-align: left;
+}
+
+.popover-content {
+	font-family: 'PTSansRegular';
+    color: black !important;
+    font-size: 12px;
+    text-align: left;
+}

@@ -1,0 +1,192 @@
+.live-stats-now,
+#rotator .live-stats-now {
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	width: 100%;
+	font-family: Tahoma;
+	z-index: 500;
+}
+
+.live-stats-now .container,
+#rotator .live-stats-now .container {
+	width: 94%;
+	margin: 0px auto;
+	height: 144px;
+	background: rgba(0, 0, 0, .75);
+}
+
+.live-stats-now .container .ln-sport-name {
+	color: #fff;
+	text-transform: uppercase;
+	font-family: Tahoma;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 0px;
+}
+
+.live-stats-now .container .ln-home-team,
+.live-stats-now .container .ln-away-team {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: normal;
+	width: 21%;
+	text-align: center;
+	float: left;
+	max-height: 70px;
+	padding: 0px 2%;
+}
+
+.live-stats-now .container .ln-home-team img,
+.live-stats-now .container .ln-away-team img {
+	width: 90%;
+	margin: 0px auto;
+	max-height: 70px;
+	max-width: 70px;
+	padding-bottom: 4px;
+	display: block;
+}
+
+.live-stats-now .container .ln-score-info {
+	width: 50%;
+	height: 70px;
+	float: left;
+}
+
+.live-stats-now .container .clear {
+	clear: both;
+}
+
+.live-stats-now .container .ln-stats-link {
+	width: 100%;
+	text-align: center;
+	width: 26%;
+	min-width: 130px;
+	height: 20px;
+	border-top: 0px;
+	margin: 0px auto;
+}
+
+.live-stats-now .container .ln-stats-link a {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+	line-height: 20px;
+}
+
+.live-stats-now .container .stats-team-score,
+.live-stats-now .container .stats-event-period {
+	height: 68px;
+	line-height: 68px;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #606060;
+}
+
+.live-stats-now .container .box-30 {
+	width: 30%;
+	float: left;
+}
+
+.live-stats-now .container .box-40 {
+	width: 40%;
+	float: left;
+}
+
+.live-stats-now .container .stats-team-score {
+	font-size: 48px;
+	background: rgb(38,38,38); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(38,38,38,1) 45%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(45%,rgba(38,38,38,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(38,38,38,1) 45%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(38,38,38,1) 45%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(38,38,38,1) 45%,rgba(0,0,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(38,38,38,1) 45%,rgba(0,0,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262626', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.live-stats-now .container .stats-event-period {
+	font-size: 18px;
+	border-left: 0px;
+	border-right: 0px;
+	background: rgb(0,0,0); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(38,38,38,1) 59%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(59%,rgba(38,38,38,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(38,38,38,1) 59%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(38,38,38,1) 59%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(38,38,38,1) 59%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(38,38,38,1) 59%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#262626',GradientType=0 ); /* IE6-9 */
+}
+
+/*tablet*/
+@media (max-width: 1000px) {
+	.live-stats-now .container, 
+	#rotator .live-stats-now .container {
+		width: 60%;
+	}
+}
+
+/*phone*/
+@media (max-width: 767px) {
+	.live-stats-now .container, 
+	#rotator .live-stats-now .container {
+		width: 90%;
+		height: 70px;
+	}
+
+	.live-stats-now .container .ln-home-team {
+		padding: 0px 1% 0px 0px;
+	}
+
+	.live-stats-now .container .ln-away-team {
+		padding: 0px 0px 0px 1%;
+	}
+
+	.live-stats-now .container .ln-home-team .name, 
+	.live-stats-now .container .ln-away-team .name {
+		display: none;
+	}
+
+	.live-stats-now .container .ln-score-info {
+		width: 56%;
+		height: 33px;
+	}
+
+	.live-stats-now .container .stats-team-score, 
+	.live-stats-now .container .stats-event-period {
+		height: 31px;
+		line-height: 31px;
+		font-size: 14px;
+	}
+
+	.live-stats-now .container .stats-event-period {
+		font-size: 12px;
+	}
+
+	.live-stats-now .container .ln-sport-name {
+		font-size: 10px;
+		line-height: 16px;
+	}
+
+	.live-stats-now .container .ln-stats-link {
+		height: 12px;
+	}
+
+	.live-stats-now .container .ln-stats-link a {
+		font-size: 9px;
+		line-height: 12px;
+	}
+
+	.live-stats-now .container .ln-home-team img, 
+	.live-stats-now .container .ln-away-team img {
+		padding-bottom: 0px;
+		height: 33px;
+		width: auto;
+	}
+}

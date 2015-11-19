@@ -1,0 +1,88 @@
+@CHARSET "UTF-8";
+
+.clock {
+    background-image: url('../img/black/16/clock.png');
+    background-repeat: no-repeat;
+    background-position: 2px 7px;
+    padding-left: 25px;
+}
+
+.timer {
+    background-image: url('../img/black/16/stop_watch.png');
+    background-repeat: no-repeat;
+    background-position: 2px 6px;
+    padding-left: 25px;
+}
+
+.list-row-bgcolor:hover .event-fixture {
+    background-image: url('../img/black/16/blocks_images.png');
+}
+
+.event-entry:hover {
+	color: white !important;
+}
+
+.list-row-bgcolor.active .clock ,
+.list-row-bgcolor:hover .clock {
+    background-image: url('../img/white/16/clock.png');
+    background-repeat: no-repeat;
+    background-position: 2px 7px;
+    padding-left: 25px;
+    color: white !important;
+}
+
+.list-row-bgcolor.active .timer,
+.list-row-bgcolor:hover .timer {
+    background-image: url('../img/white/16/stop_watch.png');
+    background-repeat: no-repeat;
+    background-position: 2px 6px;
+    padding-left: 25px;
+    color: white !important;
+}
+
+.post-to-fb,
+.invite-friends {
+	background-image: url('../img/white/16/facebook.png');
+    background-repeat: no-repeat;
+    background-position: 9px 7px;
+    padding-left: 30px;
+    height:32px;
+    font-family: PTSansBold;
+    font-size: 12px;
+    line-height: 26px;
+}
+
+.post-to-fb:hover,
+.invite-friends:hover {
+    background-image: url('../img/white/16/facebook.png');
+    background-repeat: no-repeat;
+    background-position: 9px 7px;
+}
+
+/* Month View */
+#choose-month-prev  span {
+    background-image: url('../img/s_l.png');
+}
+
+#choose-month-next  span {
+    background-image: url('../img/s_r.png');
+}
+
+#featured-event-header-row .span12 {
+    background-image: url('../img/white/32/favorite.png');
+    background-repeat: no-repeat;
+    background-position: 9px 4px;
+    background-size: 24px;
+}
+
+#day-filter-header-row .span12 {
+    background-image: url('../img/white/32/settings_2.png');
+    background-repeat: no-repeat;
+    background-position: 9px 4px;
+    background-size: 24px;
+}
+
+/* Common */
+.footer .content .fbPostBtn{
+	background: transparent url('/remote/images/calendar-post-small.png') no-repeat;
+}

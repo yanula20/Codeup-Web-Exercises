@@ -1,0 +1,45 @@
+﻿.info-tip {
+	position: relative;
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	margin-left: 5px;
+	background: url(../images/infotip_sprite.png) 0px 0px no-repeat;
+	text-indent: -9999999px;
+	cursor: pointer;
+}
+
+.info-box {
+	z-index: 5;
+	position: absolute;
+	display: none;
+	width: 250px;
+	margin: 0;
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 0 0 9px #CCC;
+	-moz-box-shadow: 0 0 9px #CCC;
+	-webkit-box-shadow: 0 0 9px #CCC;
+	text-indent: 0px;
+	text-transform: none;
+	font-size: 12px;
+	font-weight: normal;
+	font-family: Helvetica,Arial,sans-serif;
+	color: #7C7C7C;
+}
+	.info-box.show { display: block; }
+
+	.info-box p { margin: 0; }
+
+.info-tip.small-grey {
+    background: url(/client/style/images/infotip.png) 0px 0px no-repeat;
+    height: 13px;
+    position: absolute;
+    right: -15px;
+    top: 0;
+    width: 13px;
+}

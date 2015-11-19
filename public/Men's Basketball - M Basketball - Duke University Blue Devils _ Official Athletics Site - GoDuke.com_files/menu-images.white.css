@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+#action-menu-mobile {
+    background-image: url('../img/1_1.png');
+}
+
+#action-menu-calendar {
+    background-image: url('../img/2_1.png');
+}
+
+#action-menu-social {
+    background-image: url('../img/3_1.png');
+}
+
+#action-menu-export {
+    background-image: url('../img/5_1.png');
+}
