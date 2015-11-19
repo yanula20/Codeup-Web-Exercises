@@ -5,7 +5,6 @@
 	    body{
 	    	background-image: url("/images/Duke_Blue_Devils.jpg");
 	    	background-attachment: fixed;
-	    	background-position: center;
 	    	background-repeat: no-repeat;
         	color: #ff0000;
 	        font-family: "helvetica", serif;
