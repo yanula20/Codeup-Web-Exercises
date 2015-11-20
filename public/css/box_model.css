@@ -1,4 +1,8 @@
 
+<--!Remember that height and width describes the content area. 
+Outside of that area is the padding. Next, is the border and then the margin.
+The Margin is important because it can be moved or positioned to wherever based 
+on the top, bottom, left, or right px sizes that you identify.-->
 
 body {
 	color: white;
