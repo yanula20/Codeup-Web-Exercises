@@ -1,0 +1,55 @@
+
+
+body {
+	color: white;
+}
+
+#section1{
+	background-color: red;
+	height: 50px;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 10px;
+}
+#section2{
+	background-color: orange;
+	height: 50px;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 10px 30px; 
+
+}
+#section3{
+	background-color: yellow;
+	height: 50px;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 10px 60px; 
+}
+#section4{
+	background-color: green;
+	height: 50px;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 10px 90px; 
+}
+#section5{
+	background-color: blue;
+	height: 50px;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 10px 120px; 
+}
+#section6{
+	background-color: violet;
+	height: 50px;
+	width: 150px;
+	padding: 10px;ß
+	border: 1px solid black;
+	margin: 10px 150px; 
+}
