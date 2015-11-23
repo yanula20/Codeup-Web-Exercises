@@ -1,0 +1,90 @@
+
+
+body {
+	color: white;
+
+}
+header{
+	text-align: left;
+}
+
+body>header>strong>a {
+	text-align: center;
+	font-family: Times, "Comic Sans Ms", Helvetica;
+	font-size: 35px;
+}
+
+body{ font-weight: bold;
+}
+
+
+#arrow {
+	position: relative;
+	bottom: 75px;
+	left: 75px;
+	width: 15px;
+	height: 15px;		
+}
+
+#section1 {
+	background-color: red;
+	height: 50px;
+	width:  50px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 50px 50px 50px 0px;
+	position: relative;
+	float: left;
+/**"position: static" makes element follow normal web page flow; 
+the element will own the whole block or entire width of page**/
+}
+
+#section2 {
+	background-color: orange;
+	height: 50px;
+	width:  50px;
+	padding: 10px;
+	border: 1px solid black;
+	margin-top: 50px;
+	float: left;
+
+}
+#section3 {
+	background-color: yellow;
+	height: 50px;
+	width:  50px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 50px;
+	float: left;
+}
+#section4 {
+	background-color: green;
+	height: 50px;
+	width:  50px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 50px 50px 50px 0px;
+	clear:left;
+	float: left;
+	position: relative;
+}
+#section5 {
+	background-color: blue;
+	height: 50px;
+	width:  50px;
+	padding: 10px;
+	border: 1px solid black;
+	margin-top: 50px;
+	float: left;
+}
+#section6 {
+	background-color: violet;
+	height: 50px;
+	width:  50px;
+	padding: 10px;
+	border: 1px solid black;
+	margin: 50px;
+	float: left;
+}
+

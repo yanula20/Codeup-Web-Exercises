@@ -3,11 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Semantics</title>
+    <style type="text/css">
+    .logo {background: yellow; padding: 10px; width: 100px;}
+    .post-title>h1 {text-decoration: underline;}
+    </style>      
+
 </head>
 <body>
     <main>
-
-        <header>
+        <header id="Logo and Company info">
             <img class="logo" src="http://placehold.it/75&amp;text=My+Blog" alt="My Blog">
             <h1>My Blog Site</h1>
             <nav>
@@ -24,24 +28,36 @@
                 <h1>Latest Posts</h1>
                 <article>
                     <div class="post-title">
-                        <h1>Blog Post 3 Title</h1>
-                        <p>Published on <time datetime="2001-05-15 19:00">May 15</time>.</p>
+                        <h1 id="Blog Post 3">Blog Post 3 Title</h1>
+                        <p>
+                        Here is is the content for Blog Post 3. <br>
+                        Published on <time datetime="2001-05-15 19:00">May 15</time>.
+                         <a href="#" title="Blog Post 3 Read More">Read More</a>
+                        </p>
                     </div>
 
                     <p class="post-excerpt">Nulla vitae elit libero, a pharetra augue.</p>
                 </article>
                 <article>
                     <div class="post-title">
-                        <h1>Blog Post 2 Title</h1>
-                        <p>Published on <time datetime="2001-05-12 11:00">May 12</time>.</p>
+                        <h1 id="Blog Post 2">Blog Post 2 Title</h1>
+                        <p>
+                        Here is is the content for Blog Post 2. <br>
+                        Published on <time datetime="2001-05-12 11:00">May 12</time>.
+                         <a href="#" title="Blog Post 2 Read More">Read More</a>
+                        </p>
                     </div>
 
                     <p class="post-excerpt">Ut enim ad minim veniam, quis nostrud exercitation.</p>
                 </article>
                 <article>
                     <div class="post-title">
-                        <h1>Blog Post 1 Title</h1>
-                        <p>Published on <time datetime="2001-05-09 15:00">May 9</time>.</p>
+                        <h1 id="Blog Post 1">Blog Post 1 Title</h1>
+                        <p>
+                        Here is is the content for Blog Post 2. <br>
+                        Published on <time datetime="2001-05-09 15:00">May 9</time>.
+                        <a href="#" title="Blog Post 1 Read More">Read More</a>
+                        </p>
                     </div>
 
                     <p class="post-excerpt">Excepteur sint occaecat cupidatat non proident.</p>

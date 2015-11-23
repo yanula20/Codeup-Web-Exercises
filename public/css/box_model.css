@@ -1,8 +1,10 @@
+html {
+    box-sizing: border-box;
+}
 
-<--!Remember that height and width describes the content area. 
-Outside of that area is the padding. Next, is the border and then the margin.
-The Margin is important because it can be moved or positioned to wherever based 
-on the top, bottom, left, or right px sizes that you identify.-->
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
 body {
 	color: white;
@@ -53,7 +55,12 @@ body {
 	background-color: violet;
 	height: 50px;
 	width: 150px;
-	padding: 10px;ß
+	padding: 10px;
 	border: 1px solid black;
 	margin: 10px 150px; 
 }
+
+<--! Remember that height and width describes the content 'area'. 
+Outside of that 'area' is the padding. Next, is the border and then the margin.
+The Margin is important because it can be moved or positioned to wherever based 
+on the top, bottom, left, or right px sizes that you identify.-->

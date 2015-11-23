@@ -1,0 +1,70 @@
+
+
+#NavMenu {
+	margin: 0; 
+	padding: 0;
+
+}
+ 
+ #NavMenu ul {
+	margin: 0; 
+	padding: 0;
+	line-height: 30px;
+/**This targets all unordered lists**/	
+}
+
+#NavMenu li {
+	float: left;
+	position: relative;
+	margin: 0; 
+	padding: 0;
+	list-style: none;
+	background-color: gray;
+	border: white;
+/**This targets all list items to get rid of the bullets, i.e. list-style is none.
+The background color is also gray.**/	
+}
+
+#NavMenu ul li a {
+	text-align: center;
+	font-family: "Comic Sans Ms", Helvetica, Times;
+	text-decoration: none;
+	height: 30px;
+	width: 150px;
+	display: block;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+/**** This targets the text of ALL unordered list-links; both Depts and list items***/
+}
+
+ #NavMenu ul ul {
+	position: absolute;
+	visibility: hidden;
+	top: 32px;
+/****This hides only the child ul (list items) parent ul (Departments)***/
+}
+ 
+#NavMenu ul li:hover ul {
+	visibility: visible;
+/**This makes the embedded list items visible in a drop-down on a hover since the 
+they were hidden in the code above 'ul ul'**/
+}
+
+#NavMenu li:hover {
+	background-color: red;
+}
+
+#NavMenu ul li:hover ul li a:hover {
+	background-color: red;
+	color: black;
+/**a means that you are just targeting the letters of your href link and the background
+for those letters; The ul li: hover ul (Departments) remains unchanged**/
+}
+
+#NavMenu a:hover {
+	color:black;
+}
+	
+.ClearFloat{
+	clear: both;
+}
