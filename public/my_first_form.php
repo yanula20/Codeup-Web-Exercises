@@ -19,8 +19,11 @@
 	t also offers more styling possibilities.-->
 
 	<!--margin-right works well for expanding labels across the page.-->
-	
-	
+
+	<!--Do not leave out the "name" attribute in your input fields, test choices,
+	blanks of fill-in forms. Without them, key (name)=value (user-defined) string will not be submitted to the
+    server. You don't need a "name" for Submit, Enter buttons-->
+		
 
 <html>
 <head>
@@ -47,7 +50,7 @@
     }
 
     body option { background-color: orange; width: 50%; margin-right: 20px;
-    	/* Within a labels and options, experiment with background color, width %, 
+    	/* Within labels and options, experiment with background color, width %, 
 	margin-right px */
     }
     
@@ -86,27 +89,27 @@
 	    </p>
 	    <p>
 	    	<label for="Login"></label>
-	        <button id="Login" name="uname and pword" type="Submit"><strong>Login</strong></button>
+	        <button id="Login" name="Login" type="Submit"><strong>Login</strong></button>
 	    </p>
 	</form>
 	
 	<form>
 		<h4 id="Compose_e-mail">Compose an e-mail</h4>
 
-		<textarea id="To" type="text" rows="1" cols="40" 
+		<textarea id="To" type="text" name="recipient" rows="1" cols="40" 
 		placeholder="To:"></textarea><br>
 
-		<textarea id="From" type="text" rows="1" cols="40" 
+		<textarea id="From" type="text" name="sender" rows="1" cols="40" 
 		placeholder="From:"></textarea><br>
 
-		<textarea id="Subject" type="text" rows="1" cols="40" 
+		<textarea id="Subject" type="text" name="subject" rows="1" cols="40" 
 		placeholder="Subject:"></textarea><br>
 
-		<textarea id="e-mail_body" type="text" rows="10" cols="40" 
+		<textarea id="e-mail_body" type="text" name="e-mailbody" rows="10" cols="40" 
 		placeholder="Compose:"></textarea><br>
 
 		<label for="Sent_folder">Save a copy in your Sent folder?</label><br>
-		<button id="Sent_folder" type="text" type="Submit" checked><strong>Send</strong></button>
+		<button id="Sent_folder" name="sent_folder" type="Submit" checked><strong>Send</strong></button>
 	</form> 
 
 	<form>
@@ -136,7 +139,10 @@
 		<label><input type="checkbox" id="country3" name="country[]" value="Canada">Canada</label><br>
 		<label><input type="checkbox" id="country4" name="country[]" value="Afghanistan">Afghanistan</label><br>
 		<label><input type="checkbox" id="country5" name="country[]" value="Malaysia">Malaysia</label><br>
-		<label><input type="checkbox" id="country6" name="country[]" value="Singapore">Singapore</label>
+		<label><input type="checkbox" id="country6" name="country[]" value="Singapore">Singapore</label><br>
+	
+		<label for="Multiple_Choice_Test"></label>
+	    <button id="Multiple_Choice_Test" type="Submit"><strong>Submit Answers</strong></button>
 	</form>
 
 	<form>
@@ -145,6 +151,9 @@
 		<select id="President" name="President">
 			<option>Barack Obama</option>
 			<option selected>George Washington</option>
+		<label for="Presidents_Test"></label>
+	    <button id="Presidents_Test" name="Presidents_Answers" type="Submit"><strong>Submit Answers</strong></button>
+
 		</select>
 	</form>
 
@@ -159,6 +168,9 @@
 			<option name="city5" value="Annapolis, MD">Annapolis, MD</option>
 			<option name="city6" value="Monterey, CA">Monterey, CA</option>
 			<option name="city7" value="Hattiesburg, MS">Hattiesburg, MS</option>
+
+		<label for="Football_Test"></label>
+	    <button id="Football_Test" name="Football_Answers" type="Submit"><strong>Submit Answers</strong></button>
 		</select>
 	</form>
 
