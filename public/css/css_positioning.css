@@ -65,14 +65,15 @@ each have 50px margins on those sides. Bottom three boxes have
 	width:  50px;
 	padding: 10px;
 	border: 1px solid black;
-	/*margin: 50px 50px 0px 50px;*/
-	/*float: left;*/
+	/*two rows of three below*/
+	margin: 50px 50px 0px 50px;
+	float: left;
 	/**3 rows of two below**/
-	position: absolute;
+	/*position: absolute;
 	top: 336px;
 	float: left;
 	margin-left: 0px;
-	margin-right:50px;
+	margin-right:50px;*/
 /***Last 0px on bottom needed because bottom three boxes have 
 50px top margins.**/
 }
@@ -110,12 +111,13 @@ margins**/
 	width:  50px;
 	padding: 10px;
 	border: 1px solid black;
-	/*margin: 50px;*/
+/*two rows of three below*/
+	margin: 50px;
 	float: left;
 /**three rows of 2 below**/
-	clear: left;
+	/*clear: left;
 	margin-top: 0px;
-	margin-left:122px;
+	margin-left:122px;*/
 
 }
 
