@@ -3,6 +3,7 @@
 body {
 	color: white;
 
+
 }
 header{
 	text-align: left;
@@ -11,7 +12,7 @@ header{
 body>header>strong>a {
 	text-align: center;
 	font-family: Times, "Comic Sans Ms", Helvetica;
-	font-size: 35px;
+	font-size: 32px;
 }
 
 body{ font-weight: bold;
@@ -20,10 +21,12 @@ body{ font-weight: bold;
 
 #arrow {
 	position: relative;
-	bottom: 75px;
-	left: 75px;
-	width: 15px;
-	height: 15px;		
+	bottom: 85px;
+	left: 45px;
+	width: 50px;
+	height: 50px;
+/***Position: relative-move the element in relation to where it was located
+originally.**/		
 }
 
 #section1 {
@@ -32,11 +35,14 @@ body{ font-weight: bold;
 	width:  50px;
 	padding: 10px;
 	border: 1px solid black;
-	margin: 50px 50px 50px 0px;
-	position: relative;
+	margin: 50px 50px 0px 0px;
+	/**position: relative;**/
 	float: left;
 /**"position: static" makes element follow normal web page flow; 
 the element will own the whole block or entire width of page**/
+/**0px in margin floats box all the way against L-side of containing 
+element**/
+
 }
 
 #section2 {
@@ -46,7 +52,11 @@ the element will own the whole block or entire width of page**/
 	padding: 10px;
 	border: 1px solid black;
 	margin-top: 50px;
+	margin-bottom: 0px;
 	float: left;
+/**Only 50px in top margin is needed for the Wavelength sign. L and R boxes
+each have 50px margins on those sides. Bottom three boxes have 
+50px top margins.**/
 
 }
 #section3 {
@@ -55,8 +65,10 @@ the element will own the whole block or entire width of page**/
 	width:  50px;
 	padding: 10px;
 	border: 1px solid black;
-	margin: 50px;
+	margin: 50px 50px 0px 50px;
 	float: left;
+/***Last 0px on bottom needed because bottom three boxes have 
+50px top margins.**/
 }
 #section4 {
 	background-color: green;
@@ -67,7 +79,9 @@ the element will own the whole block or entire width of page**/
 	margin: 50px 50px 50px 0px;
 	clear:left;
 	float: left;
-	position: relative;
+	/*position: relative;*/
+/**0px pics in L-margin, first box second row. Must have 50px in top
+margin. **/
 }
 #section5 {
 	background-color: blue;
@@ -76,7 +90,11 @@ the element will own the whole block or entire width of page**/
 	padding: 10px;
 	border: 1px solid black;
 	margin-top: 50px;
+	margin-bottom: 50px;
 	float: left;
+/**Top margin must be 50px, since all top row boxes have 0px in bottom 
+margins**/
+
 }
 #section6 {
 	background-color: violet;
