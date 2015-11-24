@@ -2,10 +2,11 @@
 
 body {
 	color: white;
-
-
 }
-header{
+
+
+
+header {
 	text-align: left;
 }
 
@@ -15,7 +16,7 @@ body>header>strong>a {
 	font-size: 32px;
 }
 
-body{ font-weight: bold;
+body { font-weight: bold;
 }
 
 
@@ -42,7 +43,6 @@ originally.**/
 the element will own the whole block or entire width of page**/
 /**0px in margin floats box all the way against L-side of containing 
 element**/
-
 }
 
 #section2 {
@@ -57,19 +57,26 @@ element**/
 /**Only 50px in top margin is needed for the Wavelength sign. L and R boxes
 each have 50px margins on those sides. Bottom three boxes have 
 50px top margins.**/
-
 }
+
 #section3 {
 	background-color: yellow;
 	height: 50px;
 	width:  50px;
 	padding: 10px;
 	border: 1px solid black;
-	margin: 50px 50px 0px 50px;
+	/*margin: 50px 50px 0px 50px;*/
+	/*float: left;*/
+	/**3 rows of two below**/
+	position: absolute;
+	top: 336px;
 	float: left;
+	margin-left: 0px;
+	margin-right:50px;
 /***Last 0px on bottom needed because bottom three boxes have 
 50px top margins.**/
 }
+
 #section4 {
 	background-color: green;
 	height: 50px;
@@ -82,6 +89,7 @@ each have 50px margins on those sides. Bottom three boxes have
 	/*position: relative;*/
 /**0px pics in L-margin, first box second row. Must have 50px in top
 margin. **/
+
 }
 #section5 {
 	background-color: blue;
@@ -102,7 +110,12 @@ margins**/
 	width:  50px;
 	padding: 10px;
 	border: 1px solid black;
-	margin: 50px;
+	/*margin: 50px;*/
 	float: left;
+/**two rows of 3 below*/
+	clear: left;
+	margin-top: 0px;
+	margin-left:122px;
+
 }
 
