@@ -2,13 +2,16 @@
  * CONTENTS
  *
  * SETTINGS
- * Global...............Global styles and config.
- * Normalize.css......../css/normalize.css
- * Box-sizing...........Better default `box-sizing`.
- * Word-wrap: break word
- * Header - My Tour Through Central Asia
- * Nav and List-Items
- * Section and Blog Articles (Topics)
+ *   Box-sizing...........Better default `box-sizing`(css)
+ *   Word-wrap: break word (css)
+ *   Global...............Global styles and config (html)
+ *   Normalize.css......../css/normalize.css (html)
+ * HEADER - My Tour Through Central Asia*   
+ * NAVIGATION and List-Items   
+ * BODY
+ *   Blog Articles
+ *   Blog excerpts 
+ * FOOTER
  * 
  * 
  * 
@@ -17,6 +20,9 @@
  *
 **/
 
+/*-------------------*\
+  SETTINGS
+\*-------------------*/
 
 body {
     box-sizing: border-box;
@@ -27,13 +33,9 @@ body {
     color: red;   
 }
 
-
-
 *, *:before, *:after {
     box-sizing: inherit;
 }
-
-
 
 /*-------------------*\
   HEADER
@@ -139,7 +141,6 @@ header h1 {
   NAVIGATION
 \*-------------------*/
 
-
 nav {
 	display: -webkit-flex;
     display: flex;
@@ -182,8 +183,7 @@ li.list-item6 {
 	margin-left: 10px;
 	margin-right: 10px;
 	line-height: 0 auto;
-	/*each contains 'a' anchors .list-item*/
-	
+	/*each contains 'a' anchors .list-item*/	
 }
 
 li.list-item1 a:visited,
@@ -227,7 +227,6 @@ li.list-item6 a:active {
 	color: orange;
 }
 
-
 /*-------------------*\
   BODY
 \*-------------------*/
@@ -255,10 +254,6 @@ section>h1 {
 	/*--Latest Posts*/
 }
 
-section>h1>span {
-	style="color: blue;"
-
-}
 .post-title {
 	margin: 0 auto;
 	text-align: center;
@@ -298,7 +293,6 @@ div.post-title p {
 	/*Not contained in section; therefore width must be at 70%*/
 }
 
-
 /*-------------------*\
   FOOTER
 \*-------------------*/
@@ -309,5 +303,4 @@ footer>p {
 	filter: alpha(opacity=95);
 	-moz-opacity:.95;
 	opacity:.95;
-
 }
