@@ -153,9 +153,10 @@ nav {
 	/* position is relative to its container = header*. 
 	Must ensure that 'header' position is relative
 	to move the 'nav ul' element*/	
-	/* nav is container element for .list-nav*/
-	
+	/* nav is container element for .list-nav*/	
 }
+
+
 
 ul.list-nav {
 	margin: 0px auto;
@@ -167,6 +168,12 @@ ul.list-nav {
 }
 	
 
+/*ul.list-nav li.list-item1,
+ul.list-nav li.list-item2,
+ul.list-nav li.list-item3,
+ul.list-nav li.list-item4,
+ul.list-nav li.list-item5*/
+
 ul.list-nav li {
 	/*background-color: white;*/
 	filter:alpha(opacity=95); 
@@ -175,12 +182,41 @@ ul.list-nav li {
 	float: left;
 	list-style: none;
 	margin: 0 auto;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 12px;
+	margin-right: 12px;
 	line-height: 0 auto;
-	/*each contains 'a' anchors .list-item*/	
+	/*each contains 'a' anchors .list-item*/
+	/*Across the top Navigation topic containers*/	
 }
 
+ul.archived-posts {
+	padding-left: 0px;
+}
+
+ul.archived-posts li {
+	clear: left;
+	float: left;
+	margin-left: 0px;
+	padding-left: 0px;
+	width: 100%;
+	visibility: hidden;	
+}
+
+li.list-item6:hover ul.archived-posts li {
+	visibility: visible;
+}
+
+ul.list-nav ul {
+	display: block;
+	position: relative;
+	text-align: left;
+	width: 100%;
+	margin: 0 auto;
+	/*padding-left: 0px;*/
+	line-height: 0 auto;
+
+	/*container for Archived Posts anchor and anchor*/	
+}
 
 ul.list-nav li a {
 	color: red;
