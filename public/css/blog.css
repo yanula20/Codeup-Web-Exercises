@@ -167,12 +167,7 @@ ul.list-nav {
 }
 	
 
-li.list-item1,
-li.list-item2,
-li.list-item3,
-li.list-item4,
-li.list-item5,
-li.list-item6 {
+ul.list-nav li {
 	/*background-color: white;*/
 	filter:alpha(opacity=95); 
 	-moz-opacity:.95;
@@ -186,21 +181,12 @@ li.list-item6 {
 	/*each contains 'a' anchors .list-item*/	
 }
 
-li.list-item1 a:visited,
-li.list-item2 a:visited, 
-li.list-item3 a:visited, 
-li.list-item4 a:visited, 
-li.list-item5 a:visited, 
-li.list-item6 a:visited, {
+
+ul.list-nav li a {
 	color: red;
 }
 
-li.list-item1 a,
-li.list-item2 a, 
-li.list-item3 a, 
-li.list-item4 a, 
-li.list-item5 a,
-li.list-item6 a { 
+ul.list-nav li a { 
 	text-decoration: none;
 	color: blue;
 	text-align: center;
@@ -208,21 +194,11 @@ li.list-item6 a {
 	/*without 'a' text-decoration has no target to get rid of underline*/
 }
 
-li.list-item1 a:hover,
-li.list-item2 a:hover, 
-li.list-item3 a:hover, 
-li.list-item4 a:hover, 
-li.list-item5 a:hover, 
-li.list-item6 a:hover {
+ul.list-nav li a:hover {
 	color: green;
 }
 
-li.list-item1 a:active,
-li.list-item2 a:active, 
-li.list-item3 a:active,
-li.list-item4 a:active, 
-li.list-item5 a:active, 
-li.list-item6 a:active {
+ul.list-nav li a:active {
 	font-size: 20px;
 	color: orange;
 }
@@ -232,7 +208,7 @@ li.list-item6 a:active {
 \*-------------------*/
 
 
-section  {
+section {
 	/*background-color: red;*/
 	background-image: url("/img/Notebook_Paper.jpg");
 	background-size: cover;
@@ -277,6 +253,23 @@ div.post-title p {
 	/*--Blog Posts*/
 	/*contained in section; therefore width is 100% of 70% of section
 	tag's width*/
+}
+
+div.post-title.post-photo {
+	background-size: cover;
+	clear: left;
+	margin: 0 auto;
+	padding: 0px;
+	width: 100%;
+	height:200px;
+	border: 20px solid black;	
+}
+
+div.post-title p {
+	border: 1px dashed;
+	filter: alpha(opacity=95);
+	-moz-opacity:.95;
+	opacity:.95;
 }
 
 .post-excerpt {
