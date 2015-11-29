@@ -1,0 +1,313 @@
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Global...............Global styles and config.
+ * Normalize.css......../css/normalize.css
+ * Box-sizing...........Better default `box-sizing`.
+ * Word-wrap: break word
+ * Header - My Tour Through Central Asia
+ * Nav and List-Items
+ * Section and Blog Articles (Topics)
+ * 
+ * 
+ * 
+ * 
+ *
+ *
+**/
+
+
+body {
+    box-sizing: border-box;
+    font-family: 'Cedarville Cursive', cursive;
+    background-color: lightyellow;
+    word-wrap: break-word; 
+    margin: 0 auto;
+    color: red;   
+}
+
+
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+
+/*-------------------*\
+  HEADER
+\*-------------------*/
+
+header {
+	background-color: lightgreen;
+	border: 1px solid black;
+	width: 70%;
+	background: url("/img/Tashkent_Downtown.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	padding-bottom: 600px;
+	position: relative;
+    /*container for h1 - My Tour Through Cental Asia*/
+}
+
+
+div.banner_flags {
+	height: 100px;
+	width: 100%;
+	padding: 0px;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+div#div-flag1 {
+	background: url("/img/Kazakh_Flag.svg.png");
+	display: block;
+	background-size: cover;
+	height: 100%;
+	width: 200px;
+	float: left;
+	margin: 0 auto;
+	padding: 0px;
+	border: 1px solid black;
+	
+}
+
+div#div-flag2 {
+	background: url("/img/Uzbek_Flag.gif");
+	display: block;
+	background-size: cover;
+	height: 100%;
+	width: 200px;
+	float: center;
+	margin: 0 auto;
+	padding: 0px;
+	border: 1px solid black;
+	
+}
+
+div#div-flag3 {
+	background: url("/img/Tadjik_Flag.png");
+	display: block;
+	background-size: cover;
+	position: absolute;
+    top:0px;
+    right: 0px;
+	height: 100%;
+	width: 200px;
+	float: right;
+	margin: 0 auto;
+	padding: 0px;
+	border: 1px solid black;
+	
+}
+
+div#div-flag1>span,
+div#div-flag2>span,
+div#div-flag3>span {
+	display: block;
+	visibility:hidden;
+	
+} 
+
+div#div-flag1:hover span,
+div#div-flag2:hover span,
+div#div-flag3:hover span {
+	visibility: visible;
+	background-color: lightyellow;
+} 
+
+header h1 {
+	font-size: 40px;
+	color: red;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	padding: 0px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 100px;
+	text-align: center;
+
+	/* For h1, margin: 0 auto is not needed since h1 is 
+	a block item with a 100% width inside a 70% width containder = header*/	
+}
+
+/*-------------------*\
+  NAVIGATION
+\*-------------------*/
+
+
+nav {
+	display: -webkit-flex;
+    display: flex;
+	background-color: lightblue;
+	border: .5px solid black;
+	margin: 0 auto;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	/* position is relative to its container = header*. 
+	Must ensure that 'header' position is relative
+	to move the 'nav ul' element*/	
+	/* nav is container element for .list-nav*/
+	
+}
+
+ul.list-nav {
+	margin: 0px auto;
+	margin-bottom: 2px;
+	padding: 0px;
+	/*container*/
+	/*this is ul, which is a container for class .list-item*/
+	/* nav is the container element for .list-nav*/
+}
+	
+
+li.list-item1,
+li.list-item2,
+li.list-item3,
+li.list-item4,
+li.list-item5,
+li.list-item6 {
+	/*background-color: white;*/
+	filter:alpha(opacity=95); 
+	-moz-opacity:.95;
+	opacity:.95;
+	float: left;
+	list-style: none;
+	margin: 0 auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	line-height: 0 auto;
+	/*each contains 'a' anchors .list-item*/
+	
+}
+
+li.list-item1 a:visited,
+li.list-item2 a:visited, 
+li.list-item3 a:visited, 
+li.list-item4 a:visited, 
+li.list-item5 a:visited, 
+li.list-item6 a:visited, {
+	color: red;
+}
+
+li.list-item1 a,
+li.list-item2 a, 
+li.list-item3 a, 
+li.list-item4 a, 
+li.list-item5 a,
+li.list-item6 a { 
+	text-decoration: none;
+	color: blue;
+	text-align: center;
+	font-size: 15px;
+	/*without 'a' text-decoration has no target to get rid of underline*/
+}
+
+li.list-item1 a:hover,
+li.list-item2 a:hover, 
+li.list-item3 a:hover, 
+li.list-item4 a:hover, 
+li.list-item5 a:hover, 
+li.list-item6 a:hover {
+	color: green;
+}
+
+li.list-item1 a:active,
+li.list-item2 a:active, 
+li.list-item3 a:active,
+li.list-item4 a:active, 
+li.list-item5 a:active, 
+li.list-item6 a:active {
+	font-size: 20px;
+	color: orange;
+}
+
+
+/*-------------------*\
+  BODY
+\*-------------------*/
+
+
+section  {
+	/*background-color: red;*/
+	background-image: url("/img/Notebook_Paper.jpg");
+	background-size: cover;
+	border: 1px solid black;
+	margin: 0 auto;
+	width: 70%;
+	position: relative;	
+}
+
+section>h1 {
+	filter: alpha(opacity=95);
+	-moz-opacity:.95;
+	opacity:.95;
+	height: auto;
+	clear: left;
+	margin: 0 auto;
+	width: 70%;
+	text-align: center;	
+	/*--Latest Posts*/
+}
+
+section>h1>span {
+	style="color: blue;"
+
+}
+.post-title {
+	margin: 0 auto;
+	text-align: center;
+	/*background-color: white;*/
+	width: 70%;
+	font-size: 15px;
+	/*--Blog Post Title no. 1-5*/
+} 
+
+div.post-title p {
+	clear: left;
+	background-color: lightyellow;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	margin-left: 0px;
+	margin-right: 0px;
+	filter: alpha(opacity=95);
+	-moz-opacity:.95;
+	opacity:.95;
+	/*--Blog Posts*/
+	/*contained in section; therefore width is 100% of 70% of section
+	tag's width*/
+}
+
+.post-excerpt {
+	clear: left;
+	/*background-color: green;*/
+	width: 70%;
+	border: black 1px;
+	margin: 0 auto;
+	margin-top: 10px;
+	text-align: center;
+	filter:alpha(opacity=95); 
+	-moz-opacity:.95;
+	opacity:.95;
+	/*Not contained in section; therefore width must be at 70%*/
+}
+
+
+/*-------------------*\
+  FOOTER
+\*-------------------*/
+
+footer>p {
+	width: 70%;
+	margin: 0 auto;
+	filter: alpha(opacity=95);
+	-moz-opacity:.95;
+	opacity:.95;
+
+}

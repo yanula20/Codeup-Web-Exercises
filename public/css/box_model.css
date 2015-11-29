@@ -12,15 +12,14 @@ body {
 
 #section1{
 	background-color: red;
-	height: 72px;
-	width: 172px;
-	padding: 10px;
+	height: 50px;
+	width: 150px;
+	padding: 20px;
 	border: 1px solid black;
 	margin: 10px;
-
-
-
+	/*box-sizing: border-box;*/
 }
+
 #section2{
 	background-color: orange;
 	height: 50px;

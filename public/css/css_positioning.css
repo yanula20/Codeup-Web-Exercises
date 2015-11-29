@@ -1,14 +1,8 @@
 
-
 body {
 	color: white;
 }
 
-
-
-header {
-	text-align: left;
-}
 
 body>header>strong>a {
 	text-align: center;
@@ -19,6 +13,11 @@ body>header>strong>a {
 body { font-weight: bold;
 }
 
+
+
+header {
+	text-align: left;
+}
 
 #arrow {
 	position: relative;
@@ -76,6 +75,7 @@ each have 50px margins on those sides. Bottom three boxes have
 	margin-right:50px;*/
 /***Last 0px on bottom needed because bottom three boxes have 
 50px top margins.**/
+
 }
 
 #section4 {
@@ -118,6 +118,5 @@ margins**/
 	/*clear: left;
 	margin-top: 0px;
 	margin-left:122px;*/
-
 }
 
