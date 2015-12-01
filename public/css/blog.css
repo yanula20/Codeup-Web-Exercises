@@ -163,6 +163,8 @@ ul.list-nav {
 	margin: 0px auto;
 	margin-bottom: 2px;
 	padding: 0px;
+	display: flex;
+	justify-content: center;
 	/*container*/
 	/*this is ul, which is a container for class .list-item*/
 	/* nav is the container element for .list-nav*/

@@ -65,6 +65,8 @@ nav.top-nav {
 }
 
 ul.ul-horizontal {
+	display: flex;
+	justify-content: center;
 	margin-top: 0px;
 	padding: 0px;
 	margin-bottom: 0px;
