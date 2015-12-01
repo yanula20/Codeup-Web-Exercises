@@ -1,0 +1,159 @@
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ *   Box-sizing...........Better default `box-sizing`(css)
+ *   Word-wrap: break word (css)
+ *   Global...............Global styles and config (html)
+ *   Normalize.css......../css/normalize.css (html)
+ * TOP NAVIGATION BAR  
+ * LEFT NAVIGATION BAR - ASIDE   
+ * CONTENT AREA - RIGHT
+ *	 Death Star
+ * FOOTER
+ * 
+ * 
+ * 
+ * 
+ *
+ *
+**/
+
+/*-------------------*\
+  SETTINGS
+\*-------------------*/
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*-------------------*\
+  BODY
+\*-------------------*/
+
+body {
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    background-color: lightyellow;
+    word-wrap: break-word; 
+    color: red;   
+}
+
+div,
+aside
+ { 
+	border-radius: 25px;
+	box-shadow: 15px 15px 50px black;
+}
+
+/*-------------------*\
+  TOP NAVIGATION BAR
+\*-------------------*/
+
+nav.top-nav {
+	/*Not needed position: absolute;
+	top: 0px; Caused problems because aside and footer would 
+	overlap-Ask about this in class.*/
+	box-sizing: border-box;
+	background-color: white;	
+	border: 1px solid black;
+	margin: 0px;
+	padding: 0px;
+	/*position: relative;*/
+	margin: 0 auto;
+	height: 25px;
+}
+
+ul.ul-horizontal {
+	margin-top: 0px;
+	padding: 0px;
+	margin-bottom: 0px;
+	height: 24px;
+
+}
+
+ul.ul-horizontal li {
+	float: left;
+	list-style: none;
+	margin: 0px 100px 0px 100px;
+
+}
+
+/*---------------------------*\
+  LEFT NAVIGATION BAR - ASIDE 
+\*---------------------------*/
+aside.ul-aside {
+	float:left;
+	/*clear: left;*/
+	background-color: white;
+	padding: 20px;
+	padding-left: 0px;	
+	margin: 20px;
+	border: 1px solid black;
+	border-radius: 25px;
+	width: 200px;
+	height: 600px;
+		
+}
+
+ul#ul-aside {
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+}
+
+ul#ul-aside li {
+	list-style: none;
+	padding: 0px;
+	margin: 70px 0px 70px 0px;
+}
+
+ul#ul-aside li a {
+	text-decoration: none;
+	text-align: center;
+}
+
+/*----------------------*\
+  CONTENT AREA - RIGHT
+\*----------------------*/
+
+div.content-area {
+	float: left;
+	position: relative;
+	background-color: #e1e1e1;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-image: url("/img/Death-Star2.jpeg");
+	background-repeat:  no-repeat;
+	height: 600px;
+	width: 768px;
+	border: 1px solid black;
+	padding: 0px;
+}
+
+div.content-area p {
+	clear: both;
+	position: absolute;
+	background-color: #e1e1e1;
+	bottom: 20px;
+	border-radius: 3px;
+	margin-left: 5px;
+
+}
+
+/*--------*\
+  FOOTER
+\*--------*/
+footer.footer-bottom {
+	clear: left;
+	background-color: white;	
+ 	border: 1px solid black;
+ 	margin: 0 auto;
+ 	padding: 0px;
+}
+
+footer.footer-bottom p {
+clear: left;
+margin-left: 100px;
+font-size: 10px;
+}
