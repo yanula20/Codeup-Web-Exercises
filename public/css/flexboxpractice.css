@@ -78,20 +78,30 @@
 }
 
 /*Set a height to get rid of stretch. default is stretch.*/
+/*Content- think moving the group of items.*/
+
 /*-------------------*\
-       PRACTICE - child
+      PRACTICE - child
 \*-------------------*/
 
 .item {
-	width: 30%;
+	width: 10%;
 }
 .item:nth-child(1) {              
 	order: 2;                    
 }
 
 .item:nth-child(odd) {		
-	align-items: center;
+	align-self: flex-end;
 }
+
+.item:nth-child(2),
+.item:nth-child(4) {
+  background-color: blue;
+  margin-left: 10%;
+}
+
+
 /*place in a row; with a wrap; wide width;s
 /*.item:nth-child(4) {		
 	flex-grow: 4 5 30px;
@@ -164,4 +174,3 @@
 /*Stretch is a def ault, when there is no ht defined*/
 /*If stretch is not working, check your hts*/
 
-}

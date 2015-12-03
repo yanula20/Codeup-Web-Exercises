@@ -1,0 +1,91 @@
+/*
+ * CONTENTS
+ * Settings
+ *		
+ *		
+ * 
+ *      
+ *      
+ */
+
+/*-------------------*\
+       SETTINGS 
+\*-------------------*/
+
+
+div.responsive-boxes  {
+	height: 600px;
+	width: 1200px;
+	background-color: pink;
+	border: 1px solid black;
+	padding: 0px;
+	margin: 5px;
+}
+
+div.responsive-boxes div {
+	height: 50px;
+	width: 250px;
+	border: 1px solid black;
+	padding: 0px;
+	margin: 5px;
+}
+
+.Red {
+	background-color: red;
+
+}
+
+.Blue {
+	background-color: blue;
+
+}
+.Green {
+	background-color: green;
+
+}
+.Purple {
+	background-color: purple;
+}
+
+.Orange {
+	background-color: orange;
+
+}
+/* Small devices (tablets, 768px and up) */
+/*max-width means any screen under specified px width*/
+@media screen and (max-width:549px) { 
+	div.responsive-boxes div  { 
+		height: 80%;
+		width: 80%;
+		border: 1px solid black;
+		padding: 0px;
+		margin: 4px; 
+		}
+}
+
+/* Medium devices (desktops, 992px and up) */
+/*min-width means any screen size over specified px width*/
+@media screen and (min-width:550px) and (max-width:799px){ 
+	div.responsive-boxes div { 
+		height: 30%;
+		width: 30%;
+		border: 1px solid black;
+		padding: 0px;
+		margin: 6px; 
+		}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (min-width:800px) { 
+	div.responsive-boxes div { 
+		height: 25%;
+		width: 25%;
+		border: 1px solid black;
+		padding: 0px;
+		margin: 7px; 
+		} 
+}
+
+
+
+

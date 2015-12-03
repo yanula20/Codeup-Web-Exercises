@@ -19,3 +19,160 @@
 /*-------------------*\
   SETTINGS
 \*-------------------*/
+
+
+
+
+
+
+
+/*-------------------*\
+  NAVIGATION BAR
+\*-------------------*/
+body#wrapper {
+	border: 1px solid black;
+	width: 1200px;
+	height: 1200px;
+}
+
+body#wrapper nav {
+	background-color: yellow;
+	border: 1px solid black;
+	height: 100px;
+	margin: 0 auto;
+}
+
+div.President {
+	float: left;
+
+}
+
+div.President p {
+	margin-top: 40px;
+
+}
+
+nav div.top-nav ul {
+	float: left;
+	position: relative;
+
+}
+
+nav div.top-nav ul li {
+	float: left;
+	margin: 20px;
+	list-style: none;		
+}
+
+
+nav div.top-nav ul li a {
+	text-decoration: none;
+	
+}
+
+
+/*-------------------*\
+  REGISTRATION AND PIC
+\*-------------------*/
+
+div.register-pic {
+	background-image: url("/img/stephenroot.jpeg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+div.register-pic form {
+	background: red;
+}
+
+textarea#e-mail-address {
+	padding: 0px ;
+	margin: 0px;
+
+	
+
+}
+
+textarea#zipcode {
+	padding: 2px;
+	margin: 0px;
+
+
+}
+
+button#join-us {
+	position: absolute;
+	top: 0px;
+	left: 740px;
+
+}
+
+select#state-list {
+	position: absolute;
+	top: 0px;
+	left: 580px;
+}
+
+
+
+/*-------------------*\
+  MAIN CONTENT
+\*-------------------*/
+div.main-content {
+	height: 400px;
+	width: 1200px;
+	border: 1px solid black;
+	
+}
+
+
+div.swing-line {
+	float: left;
+	height: 398px;
+	width: 700px;
+	border: 1px solid black;
+	margin-right: 100px;
+
+}
+
+
+div.news-volume {
+	background-color: yellow;
+	float: right;
+	height: 398px;
+	width: 300px;
+	border: 1px solid black;
+	margin-left: 90px;
+
+}
+
+/*-------------------*\
+  FOOTER
+\*-------------------*/
+
+footer p {
+	margin: 0px;
+}
+
+footer.footer-quote>p {
+	float: left;
+	margin-bottom: 2px;
+	
+}
+
+footer.footer-quote p {
+	float: left;
+	font-size: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
