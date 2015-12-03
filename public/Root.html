@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <?php var_dump($_GET); 
+	var_dump($_POST);
+	?>
+    <title>Stephen Root 2016</title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/Root.css">
+   <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+</head>
+<body id="wrapper">
+	<nav>
+		<div class="President"><p>Stephen Root for President</p>
+		</div>
+		<div class="top-nav">
+			<ul>
+				<li><a href="#" target="_blank">Bio</a></li>
+				<li><a href="#" target="_blank">Issues</a></li>
+				<li><a href="#" target="_blank">Events</a></li>
+				<li><a href="#" target="_blank">Volunteer</a></li>
+			</ul>
+		</div><!--end top-nav-->
+	</nav>	
+	<div class="register-pic">
+		<div class="pic" <img src="/img/stephenroot.jpeg">
+		</div>
+
+		<form method="POST" action="/Root.php">
+			<textarea id="e-mail_address" type="text" name="voter" rows="1" cols="40" 
+			placeholder="E-Mail Address"></textarea><br>
+
+			<textarea id="zipcode" type="text" name="zipcode" rows="1" cols="40" 
+			placeholder="Zip Code"></textarea><br>
+		
+			<form method="POST" action="/Root.php">	
+				<select id="state-list" name="state">
+					<option>Alabama</option>
+					<option>Arizona</option>
+					<option>Arkansas</option>
+					<option>Texas</option>
+					<option>Vermont</option>
+					<option>Washington</option>
+				<label for="Join Us"></label>
+			    <button id="join-us" name="state" type="Submit"><strong>Submit State</strong></button>
+				</select>
+			</form>
+		</form>
+     </div><!--end div register-pic-->
+		<div class="main-content">
+			
+				<h2>Uniting the Nation with his Swingline Stapler</h2>
+
+				<div class="news-volume">
+					<h2>Root News Volume #1</h2>
+					<p>Root News Volume #1 Root News Volume #1
+					Root News Volume #1 Root News Volume #1 Root News Volume #1 Root News Volume #1 Root News Volume #1</p>
+				</div> 	    
+
+		</div> <!--end main content-->
+		<footer class="footer-qoute">
+			<p>Look at Disney. If the Hunchback is running a deficit, you'd think Mickey Mouse would bail him out? Hell, no! </p>
+			<p>&copy; Commission for goofy publications.</p>
+		</footer>
+
+		</div>
+</body>
+</html>

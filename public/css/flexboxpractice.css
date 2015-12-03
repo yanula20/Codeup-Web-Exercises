@@ -1,0 +1,167 @@
+/*
+ * CONTENTS
+ * Settings
+ *		-parent
+ *		-item (child)
+ * Practice
+ *      -parent
+ *      -item (child)
+**/
+
+/*-------------------*\
+       SETTINGS 
+\*-------------------*/
+
+.parent{
+	border: 5px solid lightcoral;
+	/*height: 500px;*/
+	height: 300px;
+}
+
+
+.item {
+	height: 50px;
+	margin: 5px;
+   	background-color: lightblue;
+   	color: white;
+   	text-align: center;
+   	line-height: 50px;
+   	font-weight: 600;
+}
+
+/*-------------------*\
+       PRACTICE - Parent
+\*-------------------*/
+.parent {
+	display: flex;
+  flex-direction: column;
+  /*flex-direction: column-reverse;*/
+  /* flex-direction: row;*/
+  /*flex-direction: row-reverse;*/
+  /*flex-wrap: wrap;*/ 
+  										/*500px-adjust child width*/
+  /*flex-wrap: nowrap;*/ 
+  										/*500px-adjust child width*/
+  /*flex-wrap: wrap-reverse;*/
+  /*justify-content: flex-start;   
+  										/*50px-adjust child width*/
+  /*justify-content: flex-end; */  
+  										/*50px-adjust child width*/
+  /*justify-content: center;*/
+  /*justify-content: space-between;*/ 
+  										/*row: need ht. L,R child edge, rem space shared btwn rem children*/
+  /*justify-content: space-around; */    
+  										/*row: need ht. L,R margin same for all. No collapsing margins*/
+  /* align-items: flex-start;  */    
+  										/*500px-adjust parent height, sp around*/
+  /*align-items: flex-end; */      
+  										/*500px-adjust parent height, sp around*/
+  /*align-items: center; */        
+  										/*500px-adjust parent height, sp around*/
+  /*align-items: space-between;*/
+  /*align-items: space-around;*/
+  /*align-items: stretch;   */       
+  										/*50px-tak off; DO NOT USE hieght w/ stretch (item)*/
+  /* align-items: baseline;*/    
+  										/*baseline: item:nth-child(5) {font-size: 80px;*/
+
+  /*align-content: center; */ 		
+  										/*Moves stuff in grps; applies to FLWRAP, fl dir 
+  										row, make lrgr and lrgr width adj on items (400px)
+  										then*/
+  /*align-content: stretch; */       	/*nice to use after al-cont centr. No child ht!*/
+  /*align-content: flex-end;*/
+  /*align-content: flex-start;*/
+  /*align-content: space-between;*/
+  /*align-content: space-around;*/
+
+}
+
+/*Set a height to get rid of stretch. default is stretch.*/
+/*-------------------*\
+       PRACTICE - child
+\*-------------------*/
+
+.item {
+	width: 30%;
+}
+.item:nth-child(1) {              
+	order: 2;                    
+}
+
+.item:nth-child(odd) {		
+	align-items: center;
+}
+/*place in a row; with a wrap; wide width;s
+/*.item:nth-child(4) {		
+	flex-grow: 4 5 30px;
+}*/
+
+ /*Order is like a number line -1,-2,0,1,2.*/
+ /*-1,2,0 are groups. undeclared order is 0,*/
+
+/*.item:nth-child(3) {
+	font-size: 80px;
+}*/
+
+/*.item {
+	width: 50px;
+}*/
+
+/*.item:nth-child(1) {           
+	order: 2;
+	flex-grow: 2;
+}*/
+
+/*flex-grow sets a factor for growth */ 
+
+/*.item:nth-child(2) {            
+	flex-shrink: 1;
+}*/
+
+/*flex-shrink sponge setting, won't see til parent is compressed*/
+
+/*.item:nth-child(3) {            
+	flex-basis: 15px;   
+}  */   
+
+/* sets perm width on x-axis; perm ht on y-axis;*/
+
+
+/*.item:nth-child(5) {
+	flex-shrink: 5 4 30px;  
+}*/
+
+/*shorthand. shrink child 5 30px in direction of 4.*/
+
+/*.item:nth-child(4) {		
+	flex-grow: 4 5 30px;
+}*/
+
+/*shorthand. grow child 4 30px in direction of 5.*/
+
+
+/*.item:nth-child(4) {          
+  align-self: flex-end;
+}*/
+
+/*alignment, not justification-think vertical, so get children in a row.*/
+
+/*.item:nth-child(4) {           
+	align-self: flex-start;
+
+}*/
+
+/*.item:nth-child(4) {     
+	align-self: center;
+
+}*/
+
+/*.item:nth-child(4) {          
+	align-self: stretch;
+}*/
+
+/*Stretch is a def ault, when there is no ht defined*/
+/*If stretch is not working, check your hts*/
+
+}

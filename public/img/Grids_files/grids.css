@@ -1,0 +1,153 @@
+/**
+ * CONTENTS
+ * SETTINGS
+ *
+ * 
+ * 
+ * NOTES:
+ * 	-Target parent containers for display: flex;
+ *  -flex-direction: row; is the default property
+ *  -flex-wrap: nowrap; is the default property
+ *  -Children get assigned percentages of the parent div ht and width. Parent div
+    is a block element, so it takes up the entire width of page.
+ *  -justify-content: space-between; css places first and last child on the ends
+ *  of container ICW set margin and equalizes the space between inner children.
+ *  -justify-content: space-around; all children get the same top bottom and L,R 
+ *  margins. Rule of collapsing margins doesn't apply.
+ *  -When practicing, make parent height larger to see align-items: flex-start; 
+ *  -justify-content - x axis
+ *  -align-items - y-axis
+ *  -align-content: stretch default setting; this is y-axis
+ *  -nth-child order. Think of a number line -2,-1,0,1,2. No order set stays at group 0
+ *  -1 order moves children to the front. children can have the same order no.
+ *  which will group them together.
+ *  -Flex shrink makes the target element a sponge. It has the ability to shrink
+ *  if necessary.
+
+**/
+
+/*-------------------*\
+  SETTINGS
+\*-------------------*/
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+div.row {
+	/*parent!!! is the focus of flex box. Don't give it
+	a ht and width. Let it flex.*/
+	margin: 5px;
+	height: 200px;
+	max-width: 1000px;
+	width: 600px;
+	padding: 0px;
+	border: 1px solid black;
+	display: flex;
+	/*flex-direction: column;*/
+	/*flex-direction: column-reverse;*/
+	/*flex-direction: row;*/
+	/*flex-direction: row-reverse;*/
+	/*flex-wrap: wrap;*/
+	/*flex-wrap: nowrap;*/
+	/*flex-wrap: wrap-reverse;*/
+	/*justify-content: flex-start;*/
+	/*justify-content: flex-end;*/
+	/*justify-content: center;*/
+	/*justify-content: space-between;*/
+	/*justify-content: space-around;*/
+	/*align-items: baseline*/
+	/*align-items: flex-start;*/
+	/*align-items: flex-end;*/
+	/*align-items: center;*/
+	/*align-items: space-between;*/
+	/*align-items: space-around;*/
+	/*align-content: stretch;*/
+}
+
+
+.col-one-half,
+.col-one-third,
+.col-one-fourth,
+.col-one-sixth,
+.col-one-eigth {
+	margin: 5px;
+	line-height: 50px;
+	width: 60px;
+}	
+
+
+.col-one-sixth:nth-child(2) {
+	order: 0;
+	flex-grow: 2;
+}
+.col-one-sixth:nth-child(6) {
+	order: 0;
+	flex-grow: 2;
+}
+
+/*.col-one-sixth:nth-child(5) {*/
+	/*background-color: yellow;*/
+	/*order: 0;*/
+	/*flex-shrink: 4;*/
+/*}*/
+
+/*.col-one-sixth:nth-child(3) {
+	order: -1;
+}
+
+
+.col-one-sixth:nth-child(5) {
+	order: 1;
+}*/
+
+/*.col-one-sixth:nth-child(5) {
+	order: 1;
+	flex-basis: 20px;
+}*/
+
+/*.col-one-sixth:nth-child(5) {
+	order: 1;
+	flex 2 3 20px;
+}/*short hand*/
+
+/*.col-one-sixth:nth-child(6) {*/
+	/*align-self: bottom;*/
+/*}*/
+
+
+/*-------------------*\
+  BODY
+\*-------------------*/
+
+.col-one-half {
+	background-color: red;
+	border: 1px solid black;		
+
+}
+
+.col-one-third {
+	background-color: yellow;
+	border: 1px solid black;
+	
+}
+
+.col-one-fourth {
+	background-color: orange;
+	border: 1px solid black;
+	
+}
+
+.col-one-sixth {
+	background-color: green; 
+	border: 1px solid black;	
+}
+
+.col-one-eigth {
+	background-color: lightblue; 
+	border: 1px solid black;	
+}
+
+
+
+

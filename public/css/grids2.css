@@ -1,0 +1,329 @@
+/**
+ * CONTENTS
+ * SETTINGS - Float
+ * 	 -Box-sizing
+ *   -:after 
+ * SETTINGS - Flex Box
+ *   -Parent
+ *   -Child
+ * SETTINGS- All Columns
+ *	 -1/2 columns
+ *	 -1/3 columns
+ *	 -1/4 columns
+ *	 -1/6 columns
+ *	 -1/8 columns
+ *
+ *
+ *
+**/
+
+/*-------------------*\
+  SETTINGS - Float
+\*-------------------*/
+
+body * {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.row {
+	/*width:100%;*/
+	margin: 0px;
+	height: 300px;
+	max-width: 1200px;
+	/*width: 1000px;*/
+	padding: 0px;
+	border: 1px solid black;
+	/*display: flex;
+	justify-content: space-around;
+	flex-direction: row;*/
+}
+
+/*-------------------------*\
+  SETTINGS - Flex Box - Parent
+\*-------------------------*/
+/*flex-direction: column;*/
+/*flex-direction: column-reverse;*/
+/*flex-direction: row;*/
+/*flex-direction: row-reverse;*/
+/*flex-wrap: wrap;*/
+/*flex-wrap: nowrap;*/
+/*flex-wrap: wrap-reverse;*/
+/*justify-content: flex-start;*/
+/*justify-content: flex-end;*/
+/*justify-content: center;*/
+/*justify-content: space-between;*/
+/*justify-content: space-around;*/
+/*align-items: baseline*/
+/*align-items: flex-start;*/
+/*align-items: flex-end;*/
+/*align-items: center;*/
+/*align-items: space-between;*/
+/*align-items: space-around;*/
+/*align-content: stretch;*/
+
+/*-------------------------*\
+  SETTINGS - Flex Box - Child
+\*-------------------------*/
+
+/*
+.col-one-sixth:nth-child(6) { 
+ 	align-self: right;
+}*/
+
+/*.col-one-sixth:nth-child(6) { 
+ 	flex-grow: 2;
+}*/
+ 
+/* .col-one-sixth:nth-child(6) { 
+ 	flex-shrink: shrink;
+}	*/
+
+ 	
+/*------------------------*\
+  SETTINGS - ALL COLUMNS
+\*-------------------------*/
+.col-one-half,
+.col-one-third,
+.col-one-fourth,
+.col-one-sixth,
+.col-one-eigth {
+	padding: 0px;
+	line-height: 50px;
+}	
+
+/*------------------------*\
+       	COLUMN 1/2
+\*-------------------------*/
+.col-one-half {
+	background-color: red;
+	border: 1px solid black;
+	width: 588px;
+	margin: 5px;	
+	height: 288px;	
+}
+
+div#one-half {
+	position: relative;
+	/*margin: 0 auto; Ask about this in class*/
+}
+#one-half-box1 {
+	float: left;
+}
+ 
+#one-half-box2 {
+	float: right;
+}	
+/*------------------------*\
+  		COLUMN 1/3
+\*-------------------------*/
+.col-one-third {
+	background-color: yellow;
+	border: 1px solid black;
+	width: 388px;
+	height: 288px;
+	margin: 5px;
+}
+
+div#one-third {
+	position: relative;
+	/*margin-left: 10%;*/
+}
+
+#one-third-box1 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#one-third-box2 {
+	position: absolute;
+	top: 0px;
+	left: 400px;
+}
+
+#one-third-box3 {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+/*------------------------*\
+  		COLUMN 1/4
+\*-------------------------*/
+.col-one-fourth {
+	background-color: orange;
+	border: 1px solid black;
+	height: 288px;
+	margin: 5px;
+	width: 288px;		
+}
+
+div#one-fourth {
+	position: relative;
+}
+
+#one-fourth-box1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#one-fourth-box2 {
+	position: absolute;
+	left: 300px;
+	top: 0px;
+}
+
+#one-fourth-box3 {
+	position: absolute;
+	left: 600px;
+	top: 0px;
+
+}
+
+#one-fourth-box4 {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+/*------------------------*\
+  		COLUMN 1/6
+\*-------------------------*/
+.col-one-sixth {
+	background-color: green; 
+	border: 1px solid black;
+	height: 288px;
+	margin: 5px;
+	width: 188px;	
+}
+
+div#one-sixth {
+	position: relative;
+}
+
+#one-sixth-box1 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#one-sixth-box2 {
+	position: absolute;
+	top: 0px;
+	left: 200px;
+}
+
+
+#one-sixth-box3 {
+	position: absolute;
+	top: 0px;
+	left: 400px;
+}
+
+#one-sixth-box4 {
+	position: absolute;
+	top: 0px;
+	left: 600px;
+}
+
+#one-sixth-box5 {
+	position: absolute;
+	top: 0px;
+	left: 800px;
+}
+
+#one-sixth-box6 {
+  	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+/*------------------------*\
+  		COLUMN 1/8
+\*-------------------------*/
+.col-one-eigth {
+	background-color: orange; 
+	border: 1px solid black;
+	height: 288px;
+	width: 138px;
+	margin: 5px;
+	
+	
+}
+
+div#one-eigth {
+	position: relative;
+}
+
+.col-one-eigth:nth-child(odd){
+	background-color: blue;
+	width: 75px;
+}
+
+
+#one-eigth-box1 {
+	position: absolute;
+	top: 0px;
+	left: 37.5px;
+}
+
+#one-eigth-box2 {
+	position: absolute;
+	top: 0px;
+	left: 150px;
+}
+
+#one-eigth-box3 {
+	position: absolute;
+	top: 0px;
+	left: 337.5px;
+
+}
+#one-eigth-box4 {
+	position: absolute;
+	top: 0px;
+	left: 450px;
+}
+#one-eigth-box5 {
+	position: absolute;
+	top: 0px;
+	left: 637.5px;
+
+}
+#one-eigth-box6 {
+	position: absolute;
+	top: 0px;
+	left: 750px;
+
+}
+#one-eigth-box7 {
+	position: absolute;
+	top: 0px;
+	left: 937.5px;
+}
+
+#one-eigth-box8 {
+position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+
+
+
+
+
+
+
