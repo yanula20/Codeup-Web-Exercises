@@ -40,8 +40,7 @@ body {
 }
 
 div,
-aside
- { 
+aside { 
 	border-radius: 25px;
 	box-shadow: 15px 15px 50px black;
 }
@@ -86,7 +85,6 @@ ul.ul-horizontal li {
 \*---------------------------*/
 aside.ul-aside {
 	float:left;
-	/*clear: left;*/
 	background-color: white;
 	padding: 20px;
 	padding-left: 0px;	
@@ -94,8 +92,7 @@ aside.ul-aside {
 	border: 1px solid black;
 	border-radius: 25px;
 	width: 200px;
-	height: 600px;
-		
+	height: 600px;		
 }
 
 ul#ul-aside {
@@ -140,7 +137,6 @@ div.content-area p {
 	bottom: 20px;
 	border-radius: 3px;
 	margin-left: 5px;
-
 }
 
 /*--------*\
@@ -156,6 +152,6 @@ footer.footer-bottom {
 
 footer.footer-bottom p {
 clear: left;
-margin-left: 100px;
+margin-left: 265px;
 font-size: 10px;
 }
