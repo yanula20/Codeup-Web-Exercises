@@ -2,12 +2,10 @@
  * CONTENTS
  *
  * SETTINGS
- 
+ *
  * NAVIGATION BAR
  * 
- * REGISTRATION AND PIC
- * 
- * FORMS
+ * REGISTRATION FORM AND PIC
  *
  * MAIN CONTENT
  *
@@ -37,18 +35,20 @@ body#wrapper {
 
 body#wrapper nav {
 	background-color: yellow;
-	border: 1px solid black;
+	border: 0px 1px 1px 1px solid black;
 	height: 100px;
 	margin: 0 auto;
 }
 
 div.President {
 	float: left;
+	margin: 0px;
 
 }
 
 div.President p {
-	margin-top: 40px;
+	margin-top: 35px;
+	margin-left: 5px;
 
 }
 
@@ -75,43 +75,74 @@ nav div.top-nav ul li a {
   REGISTRATION AND PIC
 \*-------------------*/
 
+
 div.register-pic {
-	background-image: url("/img/stephenroot.jpeg");
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-image: url("/img/stephenroot.jpeg");	
 	position: relative;
+	margin-bottom: 0px;
+	width: 100%;
 }
+
+div.register-pic img {
+	/*object-fit: fill;*/
+	/*object-fit: contain;*/
+	object-fit: scale-down;
+	/*object-fit: cover;*/
+	/*background-color: cover;*/
+	/*background-repeat: no-repeat;*/
+}
+
 
 div.register-pic form {
-	background: red;
+	display: flex;
+	flex-direction: row;
+	/*justify-content: center;*/
+	justify-content: center;
+	justify-content: space-around;
+	width: 90%;
+	padding-bottom: 200px;
+	padding-top: 80px;
+	padding-left: 55px;
+	padding-right: 60px;
+
 }
 
-textarea#e-mail-address {
-	padding: 0px ;
+div.register-pic form p {
 	margin: 0px;
+	padding: 0px;
 
+}
+
+textarea#e-mail_address {
+	height: 18px;
+	border: 0px solid black;
 	
 
 }
 
 textarea#zipcode {
-	padding: 2px;
-	margin: 0px;
-
+	height: 18px;
+	border: 0px solid black;
+	
 
 }
 
 button#join-us {
-	position: absolute;
-	top: 0px;
-	left: 740px;
+	height: 24px;
+	width: 70px;
+	border: 1px solid black;
+	padding: 0px;
+	margin: 0px;
+	background-color: white;
+
 
 }
 
 select#state-list {
-	position: absolute;
-	top: 0px;
-	left: 580px;
+	border: 1px solid black;
+	padding: 0px;
+	margin: 0px;
+	
 }
 
 
@@ -122,8 +153,7 @@ select#state-list {
 div.main-content {
 	height: 400px;
 	width: 1200px;
-	border: 1px solid black;
-	
+	border-bottom: 1px solid black;		
 }
 
 
@@ -131,7 +161,6 @@ div.swing-line {
 	float: left;
 	height: 398px;
 	width: 700px;
-	border: 1px solid black;
 	margin-right: 100px;
 
 }
@@ -142,7 +171,6 @@ div.news-volume {
 	float: right;
 	height: 398px;
 	width: 300px;
-	border: 1px solid black;
 	margin-left: 90px;
 
 }
@@ -151,19 +179,27 @@ div.news-volume {
   FOOTER
 \*-------------------*/
 
+
+footer.footer-quote {
+	width: 1000px;
+}
+
 footer p {
 	margin: 0px;
+	margin-top: 5px;
 }
 
 footer.footer-quote>p {
 	float: left;
 	margin-bottom: 2px;
-	
+  /*acutal Root quote*/
 }
 
 footer.footer-quote p {
 	float: left;
 	font-size: 10px;
+	margin-top: 10px;
+	/*Copyright*/
 
 }
 
