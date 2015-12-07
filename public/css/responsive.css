@@ -11,75 +11,155 @@
 /*-------------------*\
        SETTINGS 
 \*-------------------*/
-
-
-div.responsive-boxes  {
-	height: 1200px;
-	width: 1200px;
-	/*background-color: violet;
-	border: 1px solid black;*/
-	padding: 0px;
-	margin: 5px;
+div.responsive {
+	height: 750px;
+	width: 549px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -5px;
 }
 
-/*The height and width above are the reference values used to determine responsive percentages
-for the div boxes below.*/
+	h5 {
+	text-decoration: underline;
+	margin-bottom: 5px;
+	text-align: center;
+	font-size: 55px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	/*width: 100px;*/
+}
 
-.Red {
+div.responsive div {
+	border: 1px solid black;
+	height: 138px;
+	width: 545px;
+	margin: 20px;
+}
+
+#Red {
 	background-color: red;
-
 }
 
-.Blue {
-	background-color: blue;
 
+#Blue {
+	
+	background-color: blue;	
 }
 
-.Green {
-	background-color: green;
-
-}
-.Purple {
-	background-color: purple;
+#Green {
+	background-color: green;		
 }
 
-.Orange {
-	background-color: orange;
-
+#Purple {
+	background-color: purple;		
 }
+
+#Orange {
+	background-color: orange;		
+}
+
 /* Small devices (tablets, 768px and up) */
 /*max-width means any screen under specified px width*/
-@media screen and (max-width:549px) { 
-	div.responsive-boxes div  { 
-		height: 80%;
+@media screen and (max-width:549px) {  
+		
+		
+		div.responsive {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		width: 80%;
+		background-color: violet;
 		border: 1px solid black;
 		padding: 0px;
-		margin: 4px; 
 		}
+
+		div.responsive div {
+		border: 1px solid black;
+		height: 80%;
+		width:  80%;
+		margin: 16px;
+		
+		}
+
+		h5 {
+			font-size: 90%;
+			width: 100px;
+		}		
 }
 
+/*margin does not like %s*/
+/*do not enter a height*/
 /* Medium devices (desktops, 992px and up) */
 /*min-width means any screen size over specified px width*/
-@media screen and (min-width:550px) and (max-width:799px){ 
-	div.responsive-boxes div { 
-		height: 30%;
-		width: 30%;
+@media screen and (min-width:550px) and (max-width:799px) { 	
+		div.responsive {
+		display: flex;
+  		flex-direction: row;
+  		flex-wrap: wrap;
+  		justify-content: space-between;
+  		height: 30%;
+		width: 30%; 
+		background-color: pink;
 		border: 1px solid black;
 		padding: 0px;
-		margin: 6px; 
 		}
+
+		div.responsive div {
+		border: 1px solid black;
+		height: 41.25px;
+		/*must provide ht, .3(137.5)*/
+		width: 35%;
+		/*adjust width perectanges to keep wrap*/
+		margin: 10px;
+		}
+
+
+		h5 {
+		font-size: 70%;
+		width: 300px;
+		align-self: center;
+		}		
 }
 
+/*justify-content: center;*/
+/*justify-content: space-around;*/
+/*justify-content: center;*/
 /* Large devices (large desktops, 1200px and up) */
 @media screen and (min-width:800px) { 
-	div.responsive-boxes div { 
-		height: 25%;
-		width: 25%;
+		div.responsive {
+		display: flex;
+  		flex-direction: row;
+  		flex-wrap: wrap;
+  		justify-content: space-between;
+  		height: 25%;
+		width:25%;
+		background-color: lightblue;
 		border: 1px solid black;
-		padding: 0px;
-		margin: 7px; 
-		} 
+		padding: 0px;	
+		}
+
+		div.responsive div {
+		border: 1px solid black;
+		/*ht is 137.5(.25)=34.375*/
+		height: 34.38px;
+		width: 35%;
+		/*adjust width perectanges to keep wrap*/
+		/*width:136.25px;*/
+		margin: 10px;
+		margin-right: 0 auto;
+		margin-left: 0 auto;
+		}
+
+
+	   
+			
+		h5 {
+			font-size: 40%;
+		}	
+		
+
+		
 }
 
 
