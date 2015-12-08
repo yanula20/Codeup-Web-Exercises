@@ -23,10 +23,13 @@ div.responsive {
 	}
 
 
-ul {
-	margin: 0 auto;
+nav {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 	
-}	
+	
 
 li {
 	margin: 0 auto;
@@ -44,6 +47,11 @@ ul#ul-top  {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-left: 0px;
 	}
 
 ul#ul-top li {
@@ -56,11 +64,13 @@ ul#ul-aside {
 	display: flex;
 	flex-direction: column;
 	align-items: start-flex;
+	padding-left: 0px;
 }
 
 ul#ul-aside li {
-	margin-top: 2px;
-	margin-bottom: 2px;
+	margin-top: 4px;
+	margin-bottom: 8px;
+	margin-left: 0px;
 }
 
 
@@ -172,7 +182,8 @@ div.boxes div {
 		}
 		
 		ul#ul-aside	li a {
-		font-size: 0%;	
+		font-size: 0%;
+		margin-bottom: 20px;	
 		}
 }
 
@@ -208,7 +219,6 @@ div.boxes div {
 		margin: auto;
 		}
 		
-
 		
 
 		div#boxes {
@@ -217,7 +227,7 @@ div.boxes div {
   		flex-wrap: wrap;
   		justify-content: space-between;
   		height: 25%;
-		width: 80%; 
+		width: 100%; 
 		/*background-color: pink;*/
 		/*border: 1px solid black;*/
 		padding: 0px;
@@ -237,12 +247,12 @@ div.boxes div {
 
 
 		h5 {
-		font-size: 60%;
-		width: 300px;
-		/*align-self: center;*/
+		font-size: 80%;
+		width: 165px;
 		display: block;
 		margin-bottom: 8px;
-		padding-left: 55px;
+		margin-left: auto;
+		margin-right: auto;
 		}		
 
 
@@ -288,11 +298,10 @@ div.boxes div {
 			
 		h5 {
 		font-size: 60%;
-		align-self: center;
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 8px;
-		padding-left: 55px;
+		
 		}	
 			
 		
