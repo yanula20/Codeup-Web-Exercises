@@ -12,24 +12,25 @@
        SETTINGS 
 \*-------------------*/
 
-.parent{
+.parent {
 	border: 5px solid lightcoral;
 	/*height: 500px;*/
-	height: 300px;
-  margin-left:150px;
-  margin-right: 150px;
+	/*height: 900px;*/
+  width: 600px;
+  /*margin-left:150px;
+  margin-right: 150px;*/
 }
 
 
 .item {
 	height: 50px;
 	margin: 5px;
-  width: 300px;
-   	background-color: lightblue;
-   	color: white;
-   	text-align: center;
-   	line-height: 50px;
-   	font-weight: 600;
+  width: 70px;
+ 	background-color: lightblue;
+ 	color: white;
+ 	text-align: center;
+ 	line-height: 50px;
+ 	font-weight: 600;
 }
 
 /*-------------------*\
@@ -37,8 +38,9 @@
 \*-------------------*/
 .parent {
 	display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+ /* flex-wrap: wrap;*/
+                    /*flex-wrap-ht not needed on parent.*/
   /*flex-direction: column-reverse;*/
   /* flex-direction: row;*/
   /*flex-direction: row-reverse;*/
@@ -94,9 +96,11 @@
 	order: 2;                    
 }*/
 
-/*.item:nth-child(odd) {		
+.item:nth-child(odd) {		
 	align-self: flex-end;
-}*/
+  
+}
+
 
 /*.item:nth-child(2),
 .item:nth-child(4) {
