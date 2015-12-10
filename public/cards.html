@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+   	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+   	<style type="text/css">
+   	body {
+   		font-size: 20px;
+   	}
+   	#ace-diamond {
+   		position: relative;
+   		margin: 0 auto;
+   		background-color: white;
+   		height: 180px;
+   		width: 120px;
+   		border-radius: 5px;
+   		box-shadow: 5px 5px 20px;
+   	}
+
+	.triangle-up-tl {
+		position: absolute;
+		top:20px; 
+		left:2px;
+		width: 0;
+		height: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 10px solid red;
+	}
+
+	.triangle-down-tl {
+		position: absolute; 
+		top: 30px;
+		left: 2px;
+		width: 0;
+		height: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 10px solid red;
+		}
+	
+
+		.triangle-up-c {
+		position: absolute; 
+		top: 80px;
+		left: 60px;
+		width: 0;
+		height: 0;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 10px solid red;
+		}
+
+		.triangle-down-c {
+		position: absolute;
+		top: 90px;
+		left: 60px; 
+		width: 0;
+		height: 5px;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 10px solid red;
+		}
+
+
+		.triangle-up-br {
+		position: absolute; 
+		right: 2px; 
+		bottom: 35px;
+		width: 0px;
+		height: 5px;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 10px solid red;
+		}
+
+		.triangle-down-br {
+		position: absolute;
+		right: 2px; 
+		bottom: 20px;
+		width: 0px;
+		height: 5px;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 10px solid red;
+		}
+
+	span.upside-down {
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=2);  /* IE6,IE7 */
+		ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"; /* IE8 */
+		-moz-transform: rotate(-180deg);  /* FF3.5+ */
+		-o-transform: rotate(-180deg);  /* Opera 10.5 */
+		-webkit-transform: rotate(-180deg);  /* Safari 3.1+, Chrome */
+	}
+
+	
+   	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="ace-diamond">
+			<div class="A">
+				<span>A</span>
+				<div class="triangle-up-tl">
+				</div>
+				<div class="triangle-down-tl">
+				</div>
+			</div><!-- end A -->
+			
+			<div class="triangle-up-c">
+			</div>
+			<div class="triangle-down-c">
+			</div>
+			
+			<div class="A">
+				<span class="upside-down">A</span>
+				<div class="triangle-up-br">
+				</div>
+				<div class="triangle-down-br">
+				</div>
+			</div><!-- end A -->
+
+		</div><!-- end ace-diamond -->
+	</div><!-- end container	 -->
+</body>
+</html>

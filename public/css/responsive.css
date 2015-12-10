@@ -1,41 +1,24 @@
 /*
  * CONTENTS
- * Settings
- *		
- *		
- * 
- *      
- *      
+ * NAV BAR-TOP
+ * ASIDE - NAV BAR	
+ * MAIN CONTENT	
+ * BREAK PT < 549px
+ * BREAK PT 550px TO 799px    
+ * BREAK PT > 800px    
  */
 
+
+
 /*-------------------*\
-       SETTINGS 
+       NAV BAR-TOP
 \*-------------------*/
-
-div.responsive {
-	display: flex;
-	padding: 0px;
-	margin: 0 auto;
-	border: 0px;
-	height: 800px;
-	width: 600px;
-	background-color: white;	
-	}
-
-
 nav {
 	margin-left: auto;
 	margin-right: auto;
 }
 
-	
-	
 
-li {
-	margin: 0 auto;
-	list-style: none;
-	text-align: left;	
-}
 
  a {
 	
@@ -60,6 +43,9 @@ ul#ul-top li {
 
 }
 
+/*-------------------*\
+       ASIDE-NAV BAR
+\*-------------------*/
 ul#ul-aside {
 	display: flex;
 	flex-direction: column;
@@ -68,12 +54,30 @@ ul#ul-aside {
 }
 
 ul#ul-aside li {
-	margin-top: 4px;
+	margin-top: px;
 	margin-bottom: 8px;
 	margin-left: 0px;
 }
 
+/*-------------------*\
+       MAIN CONTENT
+\*-------------------*/
 
+div.responsive {
+	display: flex;
+	padding: 0px;
+	margin: 0 auto;
+	border: 0px;
+	height: 800px;
+	width: 600px;
+	background-color: white;	
+	}
+
+li {
+	margin: 0 auto;
+	list-style: none;
+	text-align: left;	
+}
 div#boxes {
 	display: flex;
 	height: 750px;
@@ -123,6 +127,9 @@ div.boxes div {
 	background-color: orange;		
 	}
 
+/*-------------------*\
+       BREAK PT < 549px
+\*-------------------*/
 /* Small devices (tablets, 768px and up) */
 /*max-width means any screen under specified px width*/
 @media screen and (max-width:549px) {  
@@ -206,6 +213,9 @@ div.boxes div {
 
 }
 
+/*-------------------------*\
+    BREAK PT 550px TO 799px
+\*-------------------------*/
 /*margin does not like %s*/
 /*do not enter a height*/
 /* Medium devices (desktops, 992px and up) */
@@ -256,12 +266,14 @@ div.boxes div {
 		}		
 
 
-
 }
 /*justify-content: center;*/
 /*justify-content: space-around;*/
 /*justify-content: center;*/
 /* Large devices (large desktops, 1200px and up) */
+/*-------------------*\
+       BREAK PT > 800px
+\*-------------------*/
 @media screen and (min-width:800px) { 
 		div.responsive {
 		/*display: flex;*/
@@ -302,8 +314,7 @@ div.boxes div {
 		margin-right: auto;
 		margin-bottom: 8px;
 		
-		}	
-			
+		}				
 		
 }
 
