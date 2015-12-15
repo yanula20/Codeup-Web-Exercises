@@ -5,128 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards</title>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-   	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-   	<style type="text/css">
-   	body {
-   		font-size: 20px;
-   	}
-   	#ace-diamond {
-   		position: relative;
-   		margin: 0 auto;
-   		background-color: white;
-   		height: 180px;
-   		width: 120px;
-   		border-radius: 5px;
-   		box-shadow: 5px 5px 20px;
-   	}
-
-	.triangle-up-tl {
-		position: absolute;
-		top:20px; 
-		left:2px;
-		width: 0;
-		height: 0;
-		border-left: 5px solid transparent;
-		border-right: 5px solid transparent;
-		border-bottom: 10px solid red;
-	}
-
-	.triangle-down-tl {
-		position: absolute; 
-		top: 30px;
-		left: 2px;
-		width: 0;
-		height: 0;
-		border-left: 5px solid transparent;
-		border-right: 5px solid transparent;
-		border-top: 10px solid red;
-		}
-	
-
-		.triangle-up-c {
-		position: absolute; 
-		top: 80px;
-		left: 60px;
-		width: 0;
-		height: 0;
-		border-left: 5px solid transparent;
-		border-right: 5px solid transparent;
-		border-bottom: 10px solid red;
-		}
-
-		.triangle-down-c {
-		position: absolute;
-		top: 90px;
-		left: 60px; 
-		width: 0;
-		height: 5px;
-		border-left: 5px solid transparent;
-		border-right: 5px solid transparent;
-		border-top: 10px solid red;
-		}
-
-
-		.triangle-up-br {
-		position: absolute; 
-		right: 2px; 
-		bottom: 35px;
-		width: 0px;
-		height: 5px;
-		border-left: 5px solid transparent;
-		border-right: 5px solid transparent;
-		border-bottom: 10px solid red;
-		}
-
-		.triangle-down-br {
-		position: absolute;
-		right: 2px; 
-		bottom: 20px;
-		width: 0px;
-		height: 5px;
-		border-left: 5px solid transparent;
-		border-right: 5px solid transparent;
-		border-top: 10px solid red;
-		}
-
-	span.upside-down {
-		position: absolute;
-		bottom: 0px;
-		right: 0px;
-		filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=2);  /* IE6,IE7 */
-		ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"; /* IE8 */
-		-moz-transform: rotate(-180deg);  /* FF3.5+ */
-		-o-transform: rotate(-180deg);  /* Opera 10.5 */
-		-webkit-transform: rotate(-180deg);  /* Safari 3.1+, Chrome */
-	}
-
-	
-   	</style>
+    <link rel="stylesheet" type="text/css" href="/css/cards.css">
+   	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>  	
 </head>
 <body>
-	<div class="container">
-		<div id="ace-diamond">
-			<div class="A">
-				<span>A</span>
-				<div class="triangle-up-tl">
-				</div>
-				<div class="triangle-down-tl">
-				</div>
-			</div><!-- end A -->
+<div id="wrapper">
+	<header>
+		<p id="tournament" style="color:orange"><b>TOURNAMENT<b></p>
 			
-			<div class="triangle-up-c">
-			</div>
-			<div class="triangle-down-c">
-			</div>
-			
-			<div class="A">
-				<span class="upside-down">A</span>
-				<div class="triangle-up-br">
-				</div>
-				<div class="triangle-down-br">
-				</div>
-			</div><!-- end A -->
+		<p id="hold-em" style="color:orange"><b>HOLD' EM<b></p>
 
-		</div><!-- end ace-diamond -->
-	</div><!-- end container	 -->
+		<p id="hand" style="color:white">HAND BY HAND</p>
+	</header>
+	<div class="container-5-cards">
+		<div id="ace-spade">
+			<div class="ace-spade-1"><!-- card 1 -->
+				<div class="span-top">
+				<span class="span-top">A<br>&spades;</span>
+			  	</div>
+
+			  	<div id="spade-center">
+			  	<pre>&spades;<span id="spade-smaller" style="color:white">&spades;</span><span id="spade-smallest" style="color:black">&spades;</span></pre>
+			  	</div>
+
+			  	<div class="span-bottom">
+				<span>A<br>&spades;</span>
+			  	</div> 
+			</div> <!-- end ace-spade-1 -->
+		</div><!-- end ace-spade -->
+		<div id="ace-club">
+			<div class="ace-clubs-2"><!-- card 2 -->
+				<div class="span-top">
+				<span class="span-top">A<br>&clubs;</span>
+			  	</div>
+
+			  	<div id="club-center-1">&clubs;</div>
+
+			  	<div class="span-bottom">
+				<span ="span-bottom">A<br>&clubs;</span>
+			  	</div> 
+			</div> <!-- end ace-clubs-2 -->
+		</div><!-- end ace-clubs -->
+
+		<div id="eight-club">
+			<div class="eight-clubs-3">
+				<div class="span-top">
+				<span>8<br>&clubs;</span>
+			  	</div>
+
+				<div class="span-center"><span><pre>
+				&clubs;&nbsp;&clubs;<span id="lone-club">&clubs;</span> &clubs;&nbsp;&clubs;<span class="upside-down">&clubs; <span id="lone-club-2">&clubs;</span>&clubs;</span></pre></span>
+				</div>
+
+			  	<div class="span-bottom">
+				<span>8<br>&clubs;</span>
+			  	</div> 	
+			</div><!-- eight-clubs-3 -->
+		</div><!-- end eight clubs- -->
+		<div id="seven-club">
+			<div class="seven-clubs-4">  
+				<div class="span-top">
+				<span>7<br>&clubs;</span>
+				</div>
+
+				<div class="span-center"><span><pre>
+				&clubs;&nbsp;&clubs;<span id="lone-club">&clubs;</span> &clubs;&nbsp;&clubs;<span class="upside-down">&clubs; &clubs;</pre></span>
+				</div>
+
+				<div class="span-bottom">
+				<span>7<br>&clubs;</span>
+				</div> 
+			</div> <!-- end-seven-clubs-4 -->
+		</div><!-- end seven clubs -->
+
+		<div id="six-club">
+			<div class="six-clubs-5">           
+				<div class="span-top">
+				<span>6<br>&clubs;</span>
+			  	</div>
+
+				<div class="span-center" id="six-club-center">
+			  	<span><pre>&clubs; &clubs;<br>&clubs; &clubs;</span><span class="upside-down">&clubs; &clubs;</span></pre>
+			  	</div>
+
+			  	<div class="span-bottom">
+				<span>6<br>&clubs;</span>
+			  	</div>  	
+			</div>
+		</div><!-- end six-clubs-5 -->
+	</div><!-- end container 5 cards-->
+	<div class="container2">
+		<div class="two-cards">
+			<div class="two-cards-l" >
+
+				<div class="two-cards-l-top">
+					<!-- <img src="http://placehold.it/120x180?text=Acehrts"> -->
+					<div class="span-top">
+					<span class="span-top" style="color:red">A<br>&hearts;</span>
+				  	</div>
+
+				  	<div id="club-center-1" style="color:red">&hearts;</div>
+
+				  	<div class="span-bottom">
+					<span ="span-bottom" style="color:red">A<br>&hearts;</span>
+				  	</div> 
+				</div>
+
+				<div class="two-cards-l-bottom">
+					<div class="span-top">
+					<span class="span-top" style="color:red">A<br>&diams;</span>
+				  	</div>
+
+				  	<div id="club-center-1" style="color:red">&diams;</div>
+
+				  	<div class="span-bottom">
+					<span ="span-bottom" style="color:red">A<br>&diams;</span>
+				  	</div> 
+				</div>
+
+			</div><!-- 2 cards-l end -->
+			
+			
+			<div class="two-cards-r">
+				<div class="two-cards-r-top">
+					<!-- ten of clubs - top in html
+					order -->
+					<div class="span-top">
+					<span class="span-top">10<br>&clubs;</span>
+				  	</div>
+
+				  	<div class="span-center">
+				  	<!-- <pre> --><span id="ten-clubs-row-1"><pre>&clubs;&nbsp;&clubs;<span id="lone-club-10-top">&clubs;</span></pre></span><span id="ten-clubs-row-2"><pre>&clubs;&nbsp;&clubs;</pre></span><span id="ten-clubs-row-3"><pre>&clubs;&nbsp;&clubs;</pre></span><span id="ten-clubs-row-4"><pre><span id="lone-club-10-bottom">&clubs;</span>&clubs;&nbsp;&clubs;</pre></span><!-- </pre> --></div>
+
+				  	<div class="span-bottom">
+					<span>10<br>&clubs;</span>
+				  	</div> 
+				</div>
+
+				<div class="two-cards-r-bottom">
+					<!-- nine of clubs - bottom in html order -->
+					<div class="span-top">
+					<span class="span-top">9<br>&clubs;</span>
+				  	</div>
+
+				  	<div class="span-center">
+				  	<!-- <pre> --><span id="nine-clubs-row-1"><pre>&clubs;&nbsp;&clubs;<span id="lone-club-9-clubs">&clubs;</span></pre></span><span id="nine-clubs-row-2"><pre>&clubs;&nbsp;&clubs;</pre></span><span id="nine-clubs-row-3"><pre>&clubs;&nbsp;&clubs;</pre></span><span id="nine-clubs-row-4"><pre>&clubs;&nbsp;&clubs;</pre></span><!-- </pre> --></div>
+
+				  	<div class="span-bottom">
+					<span>9<br>&clubs;</span>
+				  	</div> 	
+				</div>
+
+				
+			</div><!-- end 2 cards r -->
+			<p id="step-by-step"><br>The Step-by-Step<br><br>Guide to the<br><br>Final Table</p>
+		</div> <!-- end 2-cards -->
+	
+		<div id="neil"><p >Neil D. Myers</p></div>
+		<div id="bonus-dvd">
+			<div id="black-box-l"></div>
+
+			<p id="dvd">INCLUDES BONUS DVD!</p>
+
+			<div id="black-box-r"></div>
+		</div><!-- end bonus dvd -->
+	</div><!-- end container 2 -->
+	
+<div id="wrapper"><!-- end of wrapper -->	
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+

@@ -1,0 +1,1003 @@
+/*
+ * CONTENTS
+ *   HEADER
+ *   FIVE CARDS CONTAINER	
+ *   FIVE CARDS ALL	
+ *   ACE OF SPADES
+ * 	 ACE OF CLUBS   
+ *   EIGHT OF CLUBS  
+ *	 SEVEN OF CLUBS
+ *   SIX OF CLUBS
+ *
+ * 
+ */
+   			
+ /*-------------------*\
+	  WRAPPER 
+\*-------------------*/ 
+#wrapper {
+	position: relative;
+	height: 1000px;
+	width: 1000px;
+	margin: 0 auto;
+} 		
+
+/*-------------------*\
+	  NAV BAR
+\*-------------------*/
+
+/*bootstrap hamburger bar - style later*/
+
+/*-------------------*\
+	 HEADER
+\*-------------------*/
+
+header {
+height: 450px;
+width: 740px;
+margin: 0px auto;
+background-color: black;
+}
+
+p#tournament {
+font-size: 90px;
+text-decoration: orange;
+text-align: center;
+margin-bottom: 5px;
+margin-top: 0;
+}
+
+p#hold-em {
+margin-top: 0;
+font-size: 110px;
+text-decoration: orange;
+text-align: center;
+margin-bottom: 10px;		 		
+}    
+
+p#hand {
+margin-top: 0;
+font-size: 83px;
+font-weight: 500;
+text-decoration: white;
+text-align: center;
+}
+
+/*-------------------*\
+   CONTAINER FIVE CARDS
+\*-------------------*/
+.five-cards-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 740px;
+	height: 250px;
+	margin: 0px auto;
+	background-color: orange;
+}
+
+/*-------------------*\
+   FIVE CARDS ALL
+\*-------------------*/
+#ace-spade,
+#ace-club,
+#eight-club,
+#seven-club,
+#six-club {
+	height: 180px;
+	width: 120px;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 3px 3px 5px;
+	margin: 20px auto;
+}
+
+/*-----------------------------*\
+TWO CARDS OVERLAPPING CONTAINER
+\*-----------------------------*/
+.container2 {
+position: relative;
+margin-top: 0px;
+height: 525px;
+width: 740px;
+margin: 0 auto; /*centers obj l to right*/
+background-color: orange;
+}
+
+.two-cards {
+margin: 0 auto;
+height: 400px;
+width:740px;
+}
+
+.two-cards-l-top,
+.two-cards-l-bottom,
+.two-cards-r-top,
+.two-cards-r-bottom	{
+
+margin: 10px auto;
+background-color: white;
+height: 180px;
+width: 120px;
+border-radius: 5px;
+box-shadow: 3px 3px 5px;
+border: 1px solid black;
+}
+
+
+p#step-by-step  {
+margin-top:0px;
+font-size: 35px;
+color: red;
+text-align: center;
+width: 500px	;
+}
+
+/*-----------------------------*\
+        TWO CARDS LEFT
+\*-----------------------------*/
+
+.two-cards-l-top {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+
+.two-cards-l-bottom {
+position: absolute;
+top: 140px;
+left: 60px;
+
+}
+
+.two-cards-l {
+position: relative;
+margin: 10px;
+float: left;
+width: 180px;
+height: 340px;
+}
+
+/*-----------------------------*\
+        TWO CARDS RIGHT
+\*-----------------------------*/
+.two-cards-r {
+position: relative;
+margin: 10px;
+float: right;
+width: 180px;
+height: 340px;
+background-color: orange;
+}
+
+.two-cards-r-top /*10 of clubs*/ {
+position: absolute;
+top: 140px;
+right: 60px;
+
+}
+
+.two-cards-r-bottom /*9 of clubs*/ {
+position: absolute;
+top: 0px;
+right: 0px;
+}
+
+/*-------------------*\
+   NEIL D. MYERS
+\*-------------------*/
+#neil p {
+margin:0 auto;
+position: absolute;
+bottom:50px;
+padding: 0px;
+width: 740px;
+height: 100px;
+font-size: 75px;
+text-align: center;
+background-color: orange;
+}
+
+/*-------------------*\
+   INCLUDES BONUS DVD
+\*-------------------*/
+
+#black-box-l {
+height: 50px;
+width: 145px;
+background-color: black;
+}
+
+#bonus-dvd p {
+height: 50px;
+position: relative;
+text-align: center;
+font-weight:200;
+font-size: 30px;
+margin: 0px;
+padding-top: 10px;
+}
+
+#bonus-dvd{
+margin:0 auto;
+position: absolute;	
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+bottom: 0px;
+padding: 0px;
+width: 740px;
+height: 50px;	
+background-color: orange;
+}
+
+#black-box-r {
+height: 50px;
+width: 145px;
+background-color: black;
+}
+/*-------------------*\
+       BREAK PT 0-294px
+\*-------------------*/
+@media screen and (max-width:294px) {
+	#wrapper {
+	/*height: 1000px;*/
+	/*height is insignificant here, why?*/
+	width: 100%;
+	margin: 0 auto;
+	background-color: black;
+	} 	
+
+
+	header {
+	height: 250px;
+	width: 100%;
+	margin: 0px auto;
+	background-color: black;
+	}
+
+	p#tournament {
+	/*font-size: 90px;*/
+	font-size: 40px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 2px;
+	margin-top: 0;
+	}
+
+	p#hold-em {
+	margin-top: 0;
+	/*font-size: 110px;*/
+	font-size: 45px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 3px;		 		
+	}    
+
+	p#hand {
+	margin-top: 0;
+	/*font-size: 83px;*/
+	font-size:40px;
+	/*font-weight: 500;*/
+	font-weight: 400;
+	text-decoration: white;
+	text-align: center;
+	}
+
+
+	.five-cards-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	}
+	#ace-spade,
+	#ace-club,
+	#eight-club,
+	#seven-club,
+	#six-club {
+	float: left;
+	height: 180px;
+	width: 120px;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 3px 3px 5px;
+	margin: 20px -15px;
+	}
+
+
+	/*move cards into a fan-SEE ABOVE 
+	CONTAINERS*/
+
+
+	
+/*-----------------------------*\
+       FIVE CARDS
+\*-----------------------------*/
+	.container2 {
+	/*4 cards and a para*/
+	position: relative;
+	margin-top: 0px;
+	height: 480px;
+	width: 100%;
+	margin: 0 auto; /*centers obj l to right*/
+	background-color: orange;
+	}
+	
+
+   /*move four cards to middle*/
+/*-----------------------------*\
+       FOUR CARDS
+\*-----------------------------*/
+
+	.two-cards-l-top {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	}
+
+	.two-cards-l-bottom {
+	position: absolute;
+	top: 0px;
+	left: 60px;
+
+	}
+
+	.two-cards-r-top /*10 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 60px;
+	}
+
+	.two-cards-r-bottom /*9 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	}
+
+	.two-cards-l {
+	position: relative;
+	margin: 10px;
+	left: 0px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+	}
+
+
+	.two-cards-r {
+	position:absolute;
+	right: 10px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+	background-color: orange;
+	}
+
+	p#step-by-step {
+	position: absolute;
+	top: 0;
+	margin: 0 auto;
+	font-size: 20px;
+	width: 100%;
+	}
+
+	#neil p {
+	font-size: 20px;
+	width: 100%;
+	}
+/*-----------------------------*\
+          BONUS DVD
+\*-----------------------------*/
+
+	#bonus-dvd {
+	width:100%;
+	}
+
+
+	#bonus-dvd p {
+	width:100%;
+	font-size: 5px;
+	font-weight: 800;
+	}
+
+	#black-box-l {
+	height: 50px;
+	width: 145px;
+	/*width: 100px;*/
+	background-color: black;
+	}
+
+	#black-box-r {
+	height: 50px;
+	/*width: 100px;*/
+	width: 145px;
+	background-color: black;
+	}
+
+}/*end media breakpoint <294px*/
+
+
+
+/*------------------------*\
+       BREAK PT 295 to 549px
+\*------------------------*/
+/* Small devices (tablets, 768px and up) */
+/*max-width means any screen under specified px width*/
+@media screen and (min-width:294px) and (max-width:549px) { 
+	#wrapper {
+	/*height: 1000px;*/
+	/*height is insignificant here, why?*/
+	width: 100%;
+	margin: 0 auto;
+	background-color: black;
+	} 	
+
+
+	header {
+	height: 250px;
+	width: 100%;
+	margin: 0px auto;
+	background-color: black;
+	}
+
+	p#tournament {
+	/*font-size: 90px;*/
+	font-size: 40px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 2px;
+	margin-top: 0;
+	}
+
+	p#hold-em {
+	margin-top: 0;
+	/*font-size: 110px;*/
+	font-size: 45px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 3px;		 		
+	}    
+
+	p#hand {
+	margin-top: 0;
+	/*font-size: 83px;*/
+	font-size:40px;
+	/*font-weight: 500;*/
+	font-weight: 400;
+	text-decoration: white;
+	text-align: center;
+	}
+
+
+	.five-cards-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	}
+	#ace-spade,
+	#ace-club,
+	#eight-club,
+	#seven-club,
+	#six-club {
+	float: left;
+	height: 180px;
+	width: 120px;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 3px 3px 5px;
+	margin: 20px -15px;
+	}
+
+
+	/*move cards into a fan-SEE ABOVE 
+	CONTAINERS*/
+
+
+	
+/*-----------------------------*\
+       FIVE CARDS
+\*-----------------------------*/
+
+	.container2 {
+	/*4 cards and a para*/
+	position: relative;
+	margin-top: 0px;
+	height: 480px;
+	width: 100%;
+	margin: 0 auto; /*centers obj l to right*/
+	background-color: orange;
+	}
+	
+
+   /*move four cards to middle*/
+/*-----------------------------*\
+       FOUR CARDS
+\*-----------------------------*/
+
+	.two-cards-l-top {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	}
+
+	.two-cards-l-bottom {
+	position: absolute;
+	top: 0px;
+	left: 60px;
+
+	}
+
+	.two-cards-r-top /*10 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 60px;
+	}
+
+	.two-cards-r-bottom /*9 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	}
+
+	.two-cards-l {
+	position: relative;
+	margin: 10px;
+	left: 0px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+
+	}
+
+
+	.two-cards-r {
+	position:absolute;
+	right: 10px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+	background-color: orange;
+	}
+
+
+
+	p#step-by-step {
+	position: absolute;
+	top: 0;
+	margin: 0 auto;
+	font-size: 35px;
+	width: 100%;
+	}
+
+	#neil p {
+	font-size: 30px;
+	width: 100%;
+	}
+/*-----------------------------*\
+          BONUS DVD
+\*-----------------------------*/
+
+	#bonus-dvd {
+	width:100%;
+	}
+
+
+	#bonus-dvd p {
+	width:100%;
+	font-size: 15px;
+	font-weight: 800;
+	}
+
+	#black-box-l {
+	height: 50px;
+	width: 145px;
+	/*width: 100px;*/
+	background-color: black;
+	}
+
+	#black-box-r {
+	height: 50px;
+	/*width: 100px;*/
+	width: 145px;
+	background-color: black;
+	}
+
+}/*end media breakpoint 295px to 549px*/
+
+	
+/*---------------------------------*\
+      549px< BREAK PT < 799px (70%)
+\*----------------------------------*/
+
+@media screen and (min-width:549px) and (max-width:799px){ 
+#wrapper {
+	height: 1000px;
+	width: 70%;
+	margin: 0 auto;
+	background-color: black;
+	} 	
+
+	header {
+	height: 250px;
+	width: 70%;
+	margin: 0px auto;
+	background-color: black;
+	}
+
+	p#tournament {
+	/*font-size: 90px;*/
+	font-size: 40px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 2px;
+	margin-top: 0;
+	}
+
+	p#hold-em {
+	margin-top: 0;
+	/*font-size: 110px;*/
+	font-size: 45px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 3px;		 		
+	}    
+
+	p#hand {
+	margin-top: 0;
+	/*font-size: 83px;*/
+	font-size:40px;
+	/*font-weight: 500;*/
+	font-weight: 400;
+	text-decoration: white;
+	text-align: center;
+	}
+
+	.five-cards-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	}
+
+	#ace-spade,
+	#ace-club,
+	#eight-club,
+	#seven-club,
+	#six-club {
+	float: left;
+	/*reduce ht and wdith*/
+	height: 180px;
+	width: 120px;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 3px 3px 5px;
+	margin: 20px -40px;
+	}
+
+
+	/*move cards into a fan-SEE ABOVE 
+	CONTAINERS*/
+
+
+	
+/*-----------------------------*\
+       FIVE CARDS
+\*-----------------------------*/
+
+	.container2 {
+	/*4 cards and a para*/
+	position: relative;
+	margin-top: 0px;
+	height: 480px;
+	width: 100%;
+	margin: 0 auto; /*centers obj l to right*/
+	background-color: orange;
+	}
+	
+
+   /*move four cards to middle*/
+/*-----------------------------*\
+       FOUR CARDS
+\*-----------------------------*/
+
+	.two-cards-l-top {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	}
+
+	.two-cards-l-bottom {
+	position: absolute;
+	top: 0px;
+	left: 60px;
+
+	}
+
+	.two-cards-r-top /*10 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 60px;
+	}
+
+	.two-cards-r-bottom /*9 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	}
+
+	.two-cards-l {
+	position: relative;
+	margin: 10px;
+	left: 0px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+
+	}
+
+
+	.two-cards-r {
+	position:absolute;
+	right: 10px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+	background-color: orange;
+	}
+
+
+
+	p#step-by-step {
+	position: absolute;
+	top: 0;
+	margin: 0 auto;
+	font-size: 35px;
+	width: 100%;
+	}
+
+	#neil p {
+	font-size: 30px;
+	width: 100%;
+	}
+/*-----------------------------*\
+          BONUS DVD
+\*-----------------------------*/
+
+	#bonus-dvd {
+	width:100%;
+	}
+
+
+	#bonus-dvd p {
+	width:100%;
+	font-size: 15px;
+	font-weight: 800;
+	}
+
+	#black-box-l {
+	height: 50px;
+	width: 145px;
+	/*width: 100px;*/
+	background-color: black;
+	}
+
+	#black-box-r {
+	height: 50px;
+	/*width: 100px;*/
+	width: 145px;
+	background-color: black;
+	}
+
+
+}/*end media breakpoint 549px< BREAK PT < 799px*/
+
+
+/*-------------------------------------*\
+      BREAK PT from 800 to 1050px (60%)
+\*-------------------------------------*/
+
+@media screen and (min-width:800px) { 
+#wrapper {
+	height: 1000px;
+	width: 60%;
+	margin: 0 auto;
+	background-color: black;
+	} 	
+
+	header {
+	height: 250px;
+	width: 60%;
+	margin: 0px auto;
+	background-color: black;
+	}
+
+	p#tournament {
+	/*font-size: 90px;*/
+	font-size: 30px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 2px;
+	margin-top: 0;
+	}
+
+	p#hold-em {
+	margin-top: 0;
+	/*font-size: 110px;*/
+	font-size: 40px;
+	text-decoration: orange;
+	text-align: center;
+	margin-bottom: 3px;		 		
+	}    
+
+	p#hand {
+	margin-top: 0;
+	/*font-size: 83px;*/
+	font-size:35px;
+	/*font-weight: 500;*/
+	font-weight: 400;
+	text-decoration: white;
+	text-align: center;
+	}
+
+	.five-cards-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	}
+
+	#ace-spade,
+	#ace-club,
+	#eight-club,
+	#seven-club,
+	#six-club {
+	float: left;
+	/*reduce ht and wdith*/
+	height: 180px;
+	width: 120px;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 3px 3px 5px;
+	margin: 20px -40px;
+	}
+
+
+	/*move cards into a fan-SEE ABOVE 
+	CONTAINERS*/
+
+
+	
+/*-----------------------------*\
+       FIVE CARDS
+\*-----------------------------*/
+
+	.container2 {
+	/*4 cards and a para*/
+	position: relative;
+	margin-top: 0px;
+	height: 480px;
+	width: 100%;
+	margin: 0 auto; /*centers obj l to right*/
+	background-color: orange;
+	}
+	
+
+   /*move four cards to middle*/
+/*-----------------------------*\
+       FOUR CARDS
+\*-----------------------------*/
+
+	.two-cards-l-top {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	}
+
+	.two-cards-l-bottom {
+	position: absolute;
+	top: 0px;
+	left: 60px;
+
+	}
+
+	.two-cards-r-top /*10 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 60px;
+	}
+
+	.two-cards-r-bottom /*9 of clubs*/ {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	}
+
+	.two-cards-l {
+	position: relative;
+	margin: 10px;
+	left: 0px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+
+	}
+
+
+	.two-cards-r {
+	position:absolute;
+	right: 10px;
+	/*float: left;*/
+	/*width: 180px;
+	height: 340px;*/
+	height:170px;
+	width: 90px;
+	background-color: orange;
+	}
+
+
+
+	p#step-by-step {
+	position: absolute;
+	top: 0;
+	margin: 0 auto;
+	font-size: 30px;
+	width: 100%;
+	}
+
+	#neil p {
+	font-size: 20px;
+	width: 100%;
+	}
+/*-----------------------------*\
+          BONUS DVD
+\*-----------------------------*/
+
+	#bonus-dvd {
+	width:100%;
+	}
+
+
+	#bonus-dvd p {
+	width:100%;
+	font-size: 15px;
+	font-weight: 800;
+	}
+
+	#black-box-l {
+	height: 50px;
+	width: 145px;
+	/*width: 100px;*/
+	background-color: black;
+	}
+
+	#black-box-r {
+	height: 50px;
+	/*width: 100px;*/
+	width: 145px;
+	background-color: black;
+	}
+
+
+}/*end media breakpoint min-width: 800px*/
+
+
