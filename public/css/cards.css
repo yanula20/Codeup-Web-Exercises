@@ -74,8 +74,6 @@ height: 250px;
 width: 740px;
 margin: 0px auto; /*centers obj l to right*/
 background-color: orange;
-
-
 }
 
 
@@ -134,7 +132,6 @@ top: 5px;
 right: 39px;
 font-size: 92px;
 /*z-index: -1;*/
-
 }
 
 #spade-smallest {
@@ -144,7 +141,6 @@ top: 8px;
 left: 3px;
 font-size: 87px;
 /*z-index: -2;*/
-
 }
 
 /*-------------------*\
@@ -191,14 +187,12 @@ width: 120px;
 border-radius: 5px;
 box-shadow: 3px 3px 5px;
 border: 1px solid black;
-
 }
 
 span#lone-club-2 {
 	position: absolute;
 	top: 30px;
 	left: 30px;
-
 }
 
 /*#club-center {
@@ -224,10 +218,9 @@ border: 1px solid black;
 }
 
 span#lone-club {
-	position: absolute;
-	top: 30px;
-	left: 30px;
-    /*z-index: 100;*/
+position: absolute;
+top: 30px;
+left: 30px;
 }
 
 /*-------------------*\
@@ -245,8 +238,8 @@ border: 1px solid black;
 }
 
 #six-club-center {
-	top: 0px;
-	left: 12px; 
+top: 0px;
+left: 12px; 
 }
 /*-----------------------------*\
 TWO CARDS OVERLAPPING CONTAINER
@@ -295,7 +288,6 @@ left: 0px;
 position: absolute;
 top: 140px;
 left: 60px;
-
 }
 
 .two-cards-l {

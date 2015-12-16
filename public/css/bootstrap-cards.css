@@ -1,13 +1,20 @@
 /*
  * CONTENTS
+ *   WRAPPER
+ *   NAV BAR - BOOTSTRAP 'HAMBURGER'
  *   HEADER
- *   FIVE CARDS CONTAINER	
- *   FIVE CARDS ALL	
- *   ACE OF SPADES
- * 	 ACE OF CLUBS   
- *   EIGHT OF CLUBS  
- *	 SEVEN OF CLUBS
- *   SIX OF CLUBS
+ *   CONTAINER FIVE CARDS	
+ *   FIVE CARDS ALL
+ *	 TWO CARDS OVERLAPPING CONTAINER
+ *	 TWO CARDS LEFT
+ *   TWO CARDS RIGHT
+ *   NEIL D. MYERS
+ * 	 INCLUDES BONUS DVD   
+ *   MEDIA BREAK PT 0-294px
+ *	 MEDIA BREAK PT 295 to 549px (100%)
+ *	 550px< BREAK PT < 799px (70%)
+ *   BREAK PT > 800px (60%)
+ *   
  *
  * 
  */
@@ -22,12 +29,59 @@
 	margin: 0 auto;
 } 		
 
-/*-------------------*\
-	  NAV BAR
-\*-------------------*/
+/*----------------------------------*\
+	  NAV BAR - BOOTSTRAP 'HAMBURGER'
+\*----------------------------------*/
 
-/*bootstrap hamburger bar - style later*/
+.navbar-default {
+	background-color: black;
+	border-color: none;
+	border: 1px solid black;
 
+}
+
+.navbar-default .navbar-nav>.active>a {
+	background-color: white;
+	color: orange;
+	/*Past Tournament Winners*/
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+	background-color: black;
+	color: orange;
+	/*Past Tournament Winners*/
+}
+
+.navbar-default .navbar-nav>li>a {
+	/*More Info*/
+	background-color: white;
+	color: orange;
+} 
+
+.navbar-default .navbar-nav>li>a:hover {
+	/*More Info*/
+	background-color: black;
+	color: orange;
+}   
+
+.navbar-default .navbar-nav>.open>a:hover {
+	/*Nav Menu*/
+	background-color: black;
+	color: orange;
+}   
+
+.navbar-nav>li>.dropdown-menu li a {
+	color: orange;
+}
+
+.navbar-nav>li>.dropdown-menu li  {
+	background-color: white;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+	background-color: white;
+	color: orange;
+}
 /*-------------------*\
 	 HEADER
 \*-------------------*/
@@ -236,9 +290,9 @@ height: 50px;
 width: 145px;
 background-color: black;
 }
-/*-------------------*\
-       BREAK PT 0-294px
-\*-------------------*/
+/*--------------------------*\
+       MEDIA BREAK PT 0-294px
+\*--------------------------*/
 @media screen and (max-width:294px) {
 	#wrapper {
 	/*height: 1000px;*/
@@ -310,8 +364,6 @@ background-color: black;
 	/*move cards into a fan-SEE ABOVE 
 	CONTAINERS*/
 
-
-	
 /*-----------------------------*\
        FIVE CARDS
 \*-----------------------------*/
@@ -424,9 +476,9 @@ background-color: black;
 
 
 
-/*------------------------*\
-       BREAK PT 295 to 549px
-\*------------------------*/
+/*-------------------------------*\
+       MEDIA BREAK PT 295 to 549px
+\*-------------------------------*/
 /* Small devices (tablets, 768px and up) */
 /*max-width means any screen under specified px width*/
 @media screen and (min-width:294px) and (max-width:549px) { 
@@ -618,10 +670,10 @@ background-color: black;
 
 	
 /*---------------------------------*\
-      549px< BREAK PT < 799px (70%)
+      550px< BREAK PT < 799px (70%)
 \*----------------------------------*/
 
-@media screen and (min-width:549px) and (max-width:799px){ 
+@media screen and (min-width:550px) and (max-width:799px){ 
 #wrapper {
 	height: 1000px;
 	width: 70%;
@@ -810,7 +862,7 @@ background-color: black;
 
 
 /*-------------------------------------*\
-      BREAK PT from 800 to 1050px (60%)
+      BREAK PT > 800px (60%)
 \*-------------------------------------*/
 
 @media screen and (min-width:800px) { 
@@ -954,8 +1006,6 @@ background-color: black;
 	background-color: orange;
 	}
 
-
-
 	p#step-by-step {
 	position: absolute;
 	top: 0;
@@ -975,7 +1025,6 @@ background-color: black;
 	#bonus-dvd {
 	width:100%;
 	}
-
 
 	#bonus-dvd p {
 	width:100%;
