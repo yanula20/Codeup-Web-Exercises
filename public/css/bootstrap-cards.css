@@ -12,6 +12,7 @@
  * 	 INCLUDES BONUS DVD   
  *   MEDIA BREAK PT 0-294px
  *	 MEDIA BREAK PT 295 to 549px (100%)
+ *   MEDIA BREAK PT < 768px (DROPDOWN MENU)
  *	 550px< BREAK PT < 799px (70%)
  *   BREAK PT > 800px (60%)
  *   
@@ -120,7 +121,38 @@ ul.dropdown-menu {
 
 ul.dropdown-menu li:nth-child(5) { /*drop down list padding removal*/
 	padding-bottom: 0px;
+} 
+
+.navbar-default .navbar-toggle .icon-bar { /*hamburger bar-start*/
+	background-color: white;	
 }
+
+button.navbar-toggle { /*hamburger button-start*/
+	background-color: black;
+}
+
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover {
+	background-color: green;
+}
+
+button.navbar-toggle.collapsed:hover { /*hamburger button*/
+	background-color: orange;
+		
+}
+
+button.navbar-toggle.collapsed:focus { /*hamburger button*/
+	background-color: yellow;
+		
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -710,7 +742,15 @@ background-color: black;
 
 }/*end media breakpoint 295px to 549px*/
 
-	
+/*-------------------------------------*\
+   MEDIA BREAK PT < 768px (DROPDOWN MENU)
+\*-------------------------------------*/
+
+@media screen and (max-width: 767px) {
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: orange;
+	}
+} /*end media breakpoint <768px for dropdown menu*/
 /*---------------------------------*\
       550px< BREAK PT < 799px (70%)
 \*----------------------------------*/
