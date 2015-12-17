@@ -74,9 +74,7 @@ ul.nav.navbar-nav li a:hover { /*More info and Nav menu*/
 
 .navbar-default .navbar-nav>li>a:focus { /*More info self*/
 	background-color: orange;
-	color: black;
-	
-
+	color: black;	
 }
 
 
@@ -91,24 +89,25 @@ ul.nav.navbar-nav li li a:hover { /*Nav menu drop-down*/
 
 }
 
-.navbar-default .navbar-nav>.open>a { /*Nav menu self*/
-    background-color: black;
-	color: orange;
-	border: 1px black;
 
-}
-
+.navbar-default .navbar-nav>.open>a:hover,
 .navbar-default .navbar-nav>.open>a:focus { /*Nav menu self*/
     background-color: orange;
 	color: black;
-	
-
+	border: 1px solid black;	
 }
+
 .navbar-default .navbar-nav>.open>a:hover { /*Nav menu self*/
     background-color: orange;
 	color: black;	
 }
 
+.navbar-default .navbar-nav>.open>a { /*prevents grey,Nav menu self*/
+	color: orange;
+    background-color: black;
+    border: 1px solid black;
+   }
+   
 ul.dropdown-menu li:nth-child(1) { /*drop down list padding removal*/
 	padding-top: 0px;
 }
@@ -145,15 +144,6 @@ button.navbar-toggle.collapsed:focus { /*hamburger button*/
 	background-color: yellow;
 		
 }
-
-
-
-
-
-
-
-
-
 
 
 /*-------------------*\
@@ -749,8 +739,30 @@ background-color: black;
 @media screen and (max-width: 767px) {
 .navbar-default .navbar-nav .open .dropdown-menu>li>a {
     color: orange;
+    background-color: black;
 	}
-} /*end media breakpoint <768px for dropdown menu*/
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    color: black;
+    background-color: orange;
+	}
+
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus { /*Nav menu self*/
+    background-color: orange;
+	color: black;	
+	}
+
+.navbar-default .navbar-nav>.open>a { /*prevents grey,Nav menu self*/
+	color: orange;
+    background-color: black;
+    border: 1px solid black;
+   }
+
+
+
+}/*end media breakpoint <768px for dropdown menu*/
 /*---------------------------------*\
       550px< BREAK PT < 799px (70%)
 \*----------------------------------*/
