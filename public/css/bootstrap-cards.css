@@ -33,55 +33,97 @@
 	  NAV BAR - BOOTSTRAP 'HAMBURGER'
 \*----------------------------------*/
 
-.navbar-default {
+ .navbar-default { /*Overall container*/
+ 	background-color: black;
+ 	border: 1px solid black;	
+ }
+
+
+ .container-fluid a { 
 	background-color: black;
-	border-color: none;
 	border: 1px solid black;
-
 }
-
-.navbar-default .navbar-nav>.active>a {
-	background-color: white;
-	color: orange;
-	/*Past Tournament Winners*/
-}
-
-.navbar-default .navbar-nav>.active>a:hover {
+ 
+.navbar-default .navbar-nav>.active>a { /*Testimonials*/
 	background-color: black;
 	color: orange;
-	/*Past Tournament Winners*/
 }
 
-.navbar-default .navbar-nav>li>a {
-	/*More Info*/
-	background-color: white;
+.navbar-default .navbar-nav>.active>a:hover { /*Testimonials*/
+	background-color: orange;
+	color: black;
+}
+
+
+.navbar-default .navbar-nav>.active>a:focus { /*Testimonials*/
+	background-color: orange;
+	color: black;
+	border: 1px orange;
+}
+
+ul.nav.navbar-nav li a  { /*More info and Nav menu*/
+	background-color: black;
 	color: orange;
 } 
 
-.navbar-default .navbar-nav>li>a:hover {
-	/*More Info*/
+ul.nav.navbar-nav li a:hover { /*More info and Nav menu*/
+	background-color: orange;
+	color: black;
+}
+
+.navbar-default .navbar-nav>li>a:focus { /*More info self*/
+	background-color: orange;
+	color: black;
+	
+
+}
+
+
+ul.nav.navbar-nav li li a { /*Nav menu drop-down*/
 	background-color: black;
 	color: orange;
-}   
+} 
 
-.navbar-default .navbar-nav>.open>a:hover {
-	/*Nav Menu*/
-	background-color: black;
-	color: orange;
-}   
+ul.nav.navbar-nav li li a:hover { /*Nav menu drop-down*/
+	background-color: orange;
+	color: black;
 
-.navbar-nav>li>.dropdown-menu li a {
-	color: orange;
 }
 
-.navbar-nav>li>.dropdown-menu li  {
-	background-color: white;
+.navbar-default .navbar-nav>.open>a { /*Nav menu self*/
+    background-color: black;
+	color: orange;
+	border: 1px black;
+
 }
 
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-	background-color: white;
-	color: orange;
+.navbar-default .navbar-nav>.open>a:focus { /*Nav menu self*/
+    background-color: orange;
+	color: black;
+	
+
 }
+.navbar-default .navbar-nav>.open>a:hover { /*Nav menu self*/
+    background-color: orange;
+	color: black;	
+}
+
+ul.dropdown-menu li:nth-child(1) { /*drop down list padding removal*/
+	padding-top: 0px;
+}
+
+ul.dropdown-menu {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+
+ul.dropdown-menu li:nth-child(5) { /*drop down list padding removal*/
+	padding-bottom: 0px;
+}
+
+
+
 /*-------------------*\
 	 HEADER
 \*-------------------*/
@@ -500,7 +542,7 @@ background-color: black;
 
 	p#tournament {
 	/*font-size: 90px;*/
-	font-size: 40px;
+	font-size: 43px;
 	text-decoration: orange;
 	text-align: center;
 	margin-bottom: 2px;
@@ -510,7 +552,7 @@ background-color: black;
 	p#hold-em {
 	margin-top: 0;
 	/*font-size: 110px;*/
-	font-size: 45px;
+	font-size: 48px;
 	text-decoration: orange;
 	text-align: center;
 	margin-bottom: 3px;		 		
@@ -690,7 +732,7 @@ background-color: black;
 
 	p#tournament {
 	/*font-size: 90px;*/
-	font-size: 40px;
+	font-size: 33px;
 	text-decoration: orange;
 	text-align: center;
 	margin-bottom: 2px;
@@ -700,7 +742,7 @@ background-color: black;
 	p#hold-em {
 	margin-top: 0;
 	/*font-size: 110px;*/
-	font-size: 45px;
+	font-size: 28px;
 	text-decoration: orange;
 	text-align: center;
 	margin-bottom: 3px;		 		
@@ -709,7 +751,7 @@ background-color: black;
 	p#hand {
 	margin-top: 0;
 	/*font-size: 83px;*/
-	font-size:40px;
+	font-size:30px;
 	/*font-weight: 500;*/
 	font-weight: 400;
 	text-decoration: white;
@@ -892,7 +934,7 @@ background-color: black;
 	p#hold-em {
 	margin-top: 0;
 	/*font-size: 110px;*/
-	font-size: 40px;
+	font-size: 25px;
 	text-decoration: orange;
 	text-align: center;
 	margin-bottom: 3px;		 		
@@ -901,7 +943,7 @@ background-color: black;
 	p#hand {
 	margin-top: 0;
 	/*font-size: 83px;*/
-	font-size:35px;
+	font-size:28px;
 	/*font-weight: 500;*/
 	font-weight: 400;
 	text-decoration: white;
