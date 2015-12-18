@@ -74,10 +74,20 @@ ul.nav.navbar-nav li a:hover { /*More info and Nav menu*/
 
 .navbar-default .navbar-nav>li>a:focus { /*More info self*/
 	background-color: orange;
+	color: black;
+	border: 1px orange;	
+}
+
+.navbar-default .navbar-nav>.open>a:hover { /*Nav menu self*/
+    background-color: orange;
 	color: black;	
 }
 
-
+.navbar-default .navbar-nav>.open>a { /*prevents grey,Nav menu self*/
+	color: orange;
+    background-color: black;
+    border: 1px solid black;
+   }
 ul.nav.navbar-nav li li a { /*Nav menu drop-down*/
 	background-color: black;
 	color: orange;
@@ -97,17 +107,8 @@ ul.nav.navbar-nav li li a:hover { /*Nav menu drop-down*/
 	border: 1px solid black;	
 }
 
-.navbar-default .navbar-nav>.open>a:hover { /*Nav menu self*/
-    background-color: orange;
-	color: black;	
-}
 
-.navbar-default .navbar-nav>.open>a { /*prevents grey,Nav menu self*/
-	color: orange;
-    background-color: black;
-    border: 1px solid black;
-   }
-   
+
 ul.dropdown-menu li:nth-child(1) { /*drop down list padding removal*/
 	padding-top: 0px;
 }
@@ -598,6 +599,7 @@ background-color: black;
 	flex-direction: row;
 	justify-content: center;
 	}
+
 	#ace-spade,
 	#ace-club,
 	#eight-club,
@@ -609,7 +611,7 @@ background-color: black;
 	background-color: white;
 	border: 1px solid black;
 	box-shadow: 3px 3px 5px;
-	margin: 20px -15px;
+	margin: 20px -30px;
 	}
 
 
