@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- order matters, my own stylesheet must go unederneath -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-library.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap-Spyscroll-Top</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'> 
+    <style type="text/css">
+    .body {
+      position: relative;
+    }
+
+    #section1,
+    #section2,
+    #section3,
+    #section4 {
+      width: auto;
+      height: 500px;
+    }
+
+    #section1 {
+      background-color: yellow;
+    }
+
+    #section2 {
+      background-color: pink;
+    }
+
+    #section3 {
+      background-color: orange;
+    }
+
+    #section4 {
+      background-color: lightblue;
+    }
+
+    </style>   
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="75">
+  <div id="wrapper">
+
+<!-- The element with data-spy="scroll" requires the CSS position 
+property, with a value of "relative" to work properly. -->
+
+<!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <ul class="nav navbar-nav">
+        <li><a href="#section1">Section 1</a></li>
+        <li><a href="#section2">Section 2</a></li>
+        <li><a href="#section3">Section 3</a></li>
+        <li><a href="#section4">Section 4</a></li>
+    </nav>
+    <br>
+    <br>s
+    <hr>
+  <!-- Section 1 -->
+    <div id="section1">
+    <h1>Section 1</h1>
+    <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+    </div>
+  <!-- Section 2 -->
+    <div id="section2">
+    <h1>Section 2</h1>
+    <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+    </div>
+    <!-- Section 3 -->
+    <div id="section3">
+    <h1>Section 3</h1>
+    <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+    </div>  
+  <!-- Section 4 -->
+    <div id="section4">
+    <h1>Section 4</h1>
+    <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+    </div>
+  </div> <!-- end wrapper   --> 
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+  </html>  

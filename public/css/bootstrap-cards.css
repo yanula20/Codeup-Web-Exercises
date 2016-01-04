@@ -411,6 +411,7 @@ background-color: black;
 	flex-direction: row;
 	justify-content: center;
 	}
+	
 	#ace-spade,
 	#ace-club,
 	#eight-club,
@@ -732,13 +733,13 @@ background-color: black;
 	background-color: black;
 	}
 
-}/*end media breakpoint 295px to 549px*/
+}
 
 /*-------------------------------------*\
    MEDIA BREAK PT < 768px (DROPDOWN MENU)
 \*-------------------------------------*/
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 .navbar-default .navbar-nav .open .dropdown-menu>li>a {
     color: orange;
     background-color: black;

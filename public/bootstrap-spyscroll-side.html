@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- order matters, my own stylesheet must go unederneath -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-library.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap-Spyscroll-side</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'> 
+
+    <style type="text/css">
+
+    #section1 {
+      background-color: yellow;
+    }
+
+    #section2 {
+      background-color: pink;
+    }
+
+    #section3 {
+      background-color: orange;
+    }
+
+    #section4 {
+      background-color: lightblue;
+    }
+
+    .body {
+      position: relative;
+    }
+
+    .sections li {
+      list-style: none;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .row>div div{
+      height: 500px;
+    }
+
+     ul.nav.nav-pills.nav-stacked {
+      top: 20px;
+      position: fixed;
+    }
+
+    /* div.col-sm-9 div {
+      height: 250px;
+      font-size: 28px;
+      }*/
+
+     /* #section1 {color: #fff; background-color: #1E88E5;}
+      #section2 {color: #fff; background-color: #673ab7;}
+      #section3 {color: #fff; background-color: #ff9800;}
+      #section41 {color: #fff; background-color: #00bcd4;}
+      #section42 {color: #fff; background-color: #009688;}*/
+      
+      @media screen and (max-width: 810px) {
+        #section1, #section2, #section3, #section41, #section42  {
+            margin-left: 150px;
+        }
+      }
+
+
+    </style>   
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+  <div class="wrapper">
+    <div class="row">   
+      <nav class="col-sm-3" id="myScrollspy">
+        <ul class="nav nav-pills nav-stacked">
+        <li><a href="#section1">Section 1</a></li>
+        <li><a href="#section2">Section 2</a></li>
+        <li><a href="#section3">Section 3</a></li>
+        <li><a href="#section4">Section 4</a></li>
+       </ul>
+      </nav>
+    <!-- Section 1 -->
+      <div class="col-sm-9">
+        <div id="section1">
+        <h1>Section 1</h1>
+        <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+        </div>
+        
+        <!-- Section 2 -->
+        <div id="section2">
+        <h1>Section 2</h1>
+        <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+        </div> 
+       
+        <!-- Section 3 -->
+        <div id="section3">
+        <h1>Section 3</h1>
+        <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+        </div> 
+        
+        <!-- Section 4 -->
+        <div id="section4">
+        <h1>Section 4</h1>
+        <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+        </div>
+    </div><!--end row  -->
+  </div> <!-- end wrapper -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>  

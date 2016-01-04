@@ -277,6 +277,13 @@ border: 1px solid black;
 /*-----------------------------*\
         TWO CARDS LEFT
 \*-----------------------------*/
+.two-cards-l {
+position: relative;
+margin: 10px;
+float: left;
+width: 180px;
+height: 340px;
+}
 
 .two-cards-l-top {
 position: absolute;
@@ -290,13 +297,6 @@ top: 140px;
 left: 60px;
 }
 
-.two-cards-l {
-position: relative;
-margin: 10px;
-float: left;
-width: 180px;
-height: 340px;
-}
 
 /*-----------------------------*\
         TWO CARDS RIGHT
@@ -430,6 +430,8 @@ font-size: 35px;
 color: red;
 text-align: center;
 width: 500px	;
+position: absolute;
+left: 123px;
 }
 
 
