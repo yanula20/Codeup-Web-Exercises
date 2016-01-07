@@ -7,6 +7,9 @@ var favorite = 'green'; // TODO: change this to your favorite color from the lis
 
 // TODO: Create a block of if/else statements to check for 
 //every color except indigo and violet.
+
+(color === favorite) ?console.log ("My favorite color"):console.log("Not my fav");
+
  if (color === 'red' || 'orange' || 'yellow' || 'green' || 'blue'){
  	document.body.style.background = "green"
  	alert("JS ignored indigo and violet");
@@ -33,19 +36,19 @@ var favorite = 'green'; // TODO: change this to your favorite color from the lis
 alert("Next Exercise")
 
  if (color === 'red') {
- 	document.body.style.background = "red"
+ 	document.body.style.background = "red";
  	alert("An apple is red. Hit OK to check the next color");
 } else if (color === 'orange') {
- 	document.body.style.background = "orange"
+ 	document.body.style.background = "orange";
  	alert("An Orange is orange. Hit OK to check the next color");
 } else if (color === 'yellow'){
-	document.body.style.background = "yellow"	
+	document.body.style.background = "yellow";	
 	alert("A Codeup Ducky is yellow. Hit OK to check the next color");
 } else if (color === 'green') {
- 	document.body.style.background = "green"
+ 	document.body.style.background = "green";
  	alert("An avocado is green. Hit OK to check the next color");
 } else if (color === 'blue') {
- 	document.body.style.background = "blue"
+ 	document.body.style.background = "blue";
  	alert("The Duke University Devil is Blue. Hit OK to check the next color");
 } else if (color === ('indigo' || 'violet')) {
  	alert("We caught indigo or violet!.");
