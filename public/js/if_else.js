@@ -7,10 +7,10 @@ var favorite = 'green'; // TODO: change this to your favorite color from the lis
 
 // TODO: Create a block of if/else statements to check for 
 //every color except indigo and violet.
- if (colors === 'red' || 'orange' || 'yellow' || 'green' || 'blue'){
+ if (color === 'red' || 'orange' || 'yellow' || 'green' || 'blue'){
  	document.body.style.background = "green"
  	alert("JS ignored indigo and violet");
-} else if (colors === 'indigo' || 'violet') {
+} else if (color === 'indigo' || 'violet') {
 	document.body.style.background = "red";
 	alert("JS did not ignore indigo and violet in the array");
 }
@@ -35,49 +35,33 @@ alert("Next Exercise")
  if (color === 'red') {
  	document.body.style.background = "red"
  	alert("An apple is red. Hit OK to check the next color");
-} else if (color === 'orange' || 'yellow' || 'green' || 'blue' 
-	|| 'indigo' || 'violet'){
-	alert("Did not encounter red. Hit OK to check the next color");	
-}
-
-if (color === 'orange') {
+} else if (color === 'orange') {
  	document.body.style.background = "orange"
  	alert("An Orange is orange. Hit OK to check the next color");
-} else if (color === 'red' || 'yellow' || 'green' || 'blue' 
-	|| 'indigo' || 'violet'){
-	alert("Did not encounter orange. Hit OK to check the next color");	
-}
-
-if (color === 'yellow') {
- 	document.body.style.background = "yellow"
- 	alert("A Codeup Ducky is yellow. Hit OK to check the next color");
-} else if (color === 'red' || 'orange' || 'green' || 'blue' 
-	|| 'indigo' || 'violet'){
-	alert("Did not encounter yellow. Hit OK to check the next color");	
-}
-
-if (color === 'green') {
+} else if (color === 'yellow'){
+	document.body.style.background = "yellow"	
+	alert("A Codeup Ducky is yellow. Hit OK to check the next color");
+} else if (color === 'green') {
  	document.body.style.background = "green"
  	alert("An avocado is green. Hit OK to check the next color");
-} else if (color === 'red' || 'orange' || 'yellow' || 'blue' 
-	|| 'indigo' || 'violet'){
-	alert("Did not encounter green. Hit OK to check the next color");
-}
-
-if (color === 'blue') {
+} else if (color === 'blue') {
  	document.body.style.background = "blue"
  	alert("The Duke University Devil is Blue. Hit OK to check the next color");
-} else if (color === 'red' || 'orange' || 'yellow' || 'green' 
-	|| 'indigo' || 'violet'){
-	alert("Did not encounter blue. Hit OK to catch indigo and violet");	
-}
-
-if (color === ('indigo' || 'violet')) {
+} else if (color === ('indigo' || 'violet')) {
  	alert("We caught indigo or violet!.");
-} else if (color === ('red' || 'orange' || 'yellow' || 'green' 
-	|| 'blue')){
+} else {
 	alert("I don't know anything about that color.");	
 }
+
+ 	
+ 	
+
+
+
+
+
+
+
 
 // TODO: Have a final else that will catch indigo and violet.
 // TODO: In the else, log: I do not know anything by that color.
