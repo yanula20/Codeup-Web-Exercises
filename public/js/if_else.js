@@ -8,7 +8,7 @@ var favorite = 'green'; // TODO: change this to your favorite color from the lis
 // TODO: Create a block of if/else statements to check for 
 //every color except indigo and violet.
 
-(color === favorite) ?console.log ("My favorite color"):console.log("Not my fav");
+(color === favorite)?console.log("My favorite color"):console.log("Not my fav");
 
  if (color === 'red' || 'orange' || 'yellow' || 'green' || 'blue'){
  	document.body.style.background = "green"

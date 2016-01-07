@@ -9,11 +9,11 @@ var color = colors[Math.floor(Math.random()*colors.length)];
     //every color except indigo and violet
 
  switch (color) {
- 	//below is like an or statement
+ 	//below is like an or statement and default
     case "indigo":
     case "violet": 
-        //do nothing; indigo and violet are ignored
-    	// break;
+        alert("I don\'t know this color.");
+    	break;
     case ("red"):
     	document.body.style.background = "red";
         alert("I am as red as an apple.");
@@ -35,7 +35,7 @@ var color = colors[Math.floor(Math.random()*colors.length)];
         alert("I am blue as the sky.");
         break;
     default :      
-}
+}		
 
  
     // todo: when a color is encountered log a message that tells the color, and an object of that color

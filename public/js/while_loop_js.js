@@ -20,8 +20,7 @@ var i = 0;
 	console.log('My zero =' + i);
 	while (++i<=10){
 		var c = i*2;
-		console.log('Math result =' + c);
-		
+		console.log('Math result =' + c);	
 	}
 	
 	
