@@ -1,0 +1,68 @@
+
+
+
+<html>
+<head>
+    <title>Do_While_Break_Continue</title>
+</head>
+<body>
+	<script type="text/javascript">
+  	  console.log('First try')
+	  do {
+	  	var x = Math.floor((Math.random()*50)+1)
+	  } while (x%2==0);
+	   console.log('This is the number to skip: ' + x);
+	  
+	 
+	  var d = 1;
+	  	for (var d=1; d <= 50; d=d+2) {
+    	console.log('Here is an odd number: ' + d);
+	    if (d == x) {
+	   	console.log('Yikes! skipping number: ' + x);  
+		}else if (d != x) {
+		continue;
+		}
+		}
+    
+	console.log('Second try')
+    do {
+	  	var x = Math.floor((Math.random()*50)+1)
+	  } while (x%2==0);//When the while condition is true (x%2==0), the code picks even numbers only (does not log them), restarts the loop by moving back to top (do line) and does not continuing downward to the console line. The while condition ONLY becomes false when the random number is not even, so the code breaks the loop, does not go back to the top (do line), and moves down to the console line where it logs the odd number and stops!
+	   console.log('This is the number to skip: ' + x);
+
+	var d = 1;
+  	for (var d=1; d <= 50; d=d+2) {
+  		if (d!==x){
+  			console.log('Here is an odd number: ' + d);	
+  		}else if (d==x){
+  			console.log('Yikes! skipping number: ' + x);
+  			continue;  
+  		}
+  		}
+
+
+
+
+
+
+	  
+	//Francisco's solution below
+     // do {
+     //        var x = Math.floor((Math.random()*50)+1)
+     //    }while (x%2==0);
+     //        console.log("Random number to skip is: ",x);
+                
+     //    var y=1;
+     //    do {
+     //        if (x!=y){
+     //            console.log("Here is an odd number: ", y);
+     //            y=y+2;
+     //        }else{
+     //            console.log("Yikes! Skipping number: ",x);
+     //            y=y+2;
+     //        }
+     //    }while (y<50);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+
+<html>
+<head>
+    <title>For Loop JS</title>
+</head>
+<body>
+	<script type="text/javascript">
+    // var i = 1;
+    // while (i <= 30){//as long as condition is true, will run
+    // console.log(i);
+    // i++;
+
+    // }
+    
+    // for (var j =1; j <= 30; j++){
+    // 	console.log(j);
+    // }
+ 	
+ 	console.log('100 minus 5 part 1')
+    var x = 100;
+    while (x >= 1){//as long as condition is true, will run
+    console.log(x);
+    x=x-5;
+    }
+
+    console.log('100 minus 5 part 2')
+    for (var m=100; m>=1; m=m-5)
+    console.log(m);
+
+	console.log('part 3')
+    for (var r=30; r>=1; r--)
+    	if (r % 3 == 0) {
+    		console.log(r);
+    	}
+    console.log('break kills the loop')
+    var divisor = 25;
+    for (x = 786790; x > 0; x--) {
+    	if (x % divisor == 0) {
+    		console.log(x);
+    		break;
+
+    	}
+    }
+    console.log('continue')
+    var p = 30;
+    for (var p=30; p >= 1; p--) {
+    	if (p % 3 != 0) {
+    	continue;	//control flow of loop
+    	}
+    	console.log(p);
+    }
+    </script>
+</body>
+</html>
