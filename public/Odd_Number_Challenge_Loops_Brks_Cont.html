@@ -1,0 +1,117 @@
+
+<html>
+<head>
+    <title>Odd_Number_Challenge_Loops_Brks_Continue</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	console.log('FIRST-CLEANEST SOLUTION')
+    do {
+	var x = Math.floor((Math.random()*50)+1)
+	} while (x%2==0);
+	console.log('This is the number to skip: ' + x);
+
+	
+  	for (var d = 1; d <= 50; d=d+2) {
+  		if (d!==x){
+  		console.log('Here is an odd number: ' + d);	
+  		}else if (d==x){
+  		console.log('Yikes! skipping number: ' + x);
+  		}
+  	}
+
+  	console.log('SECOND try- Do While')
+    do {
+	var z = Math.floor((Math.random()*50)+1)
+	} while (z%2==0);  
+	console.log('This is the number to skip: ' + z);
+
+	var b = 1;
+	do { 
+		for (var b = 1; b<z; b=b+2) {
+			if (b<z){
+				console.log('Here is an odd numberrr: ' + b);	
+			}
+		}
+	}while (b!=z);  
+
+	console.log('Yikes! skipping number: ' + z);
+
+	b=z; //reset b to z, essentially by adding 2
+		for (;z=z+2;) {
+			if (z<50){
+				console.log('Here is an odd number: ' + z);	
+			}else if (z>50) {
+				break;
+			}
+		}
+
+	console.log('THIRD try - Else If')
+    do {
+	var x = Math.floor((Math.random()*50)+1)
+	} while (x%2==0);  
+	console.log('This is the number to skip: ' + x);
+
+	var r = 1;
+	for (var r = 1; r <= x || (r > x && r <= 50); r=r+2) {
+	if (r!=x && r < x){
+		console.log('Here is an odd number: ' + r);	
+	}else if (r==x){
+  		console.log('Yikes! skipping number: ' + x);
+  	}else if (r > x && r <= 50){
+  		console.log('Here is an odd number: ' + r);	
+	}
+  	}
+
+
+	console.log('FOURTH try - THREE FORs')
+    do {
+	var x = Math.floor((Math.random()*50)+1)
+	} while (x%2==0);  
+	console.log('This is the number to skip: ' + x);
+
+	var r = 1;
+	for (; r<x && r<50;r=r+2) {
+		if (r < x && r!=x){ // loop brooken; stops at x-2, up, b/c r<=x || (r>x && r<50) is true
+		console.log('Here is an odd numberrrr: ' + r);
+	  }
+	}
+
+	for (;x=r;) {
+		if (x=r){
+  		console.log('Yikes! skipping number: ' + x);
+  		break; //very important to avoid unending loop!!
+  		}
+  	}
+  		
+  	var r = r+2; //added 2 to r, if not x=r is stuck at above for statement
+  	for (; r>x && r<50;r=r+2) {
+  		console.log('Here is an odd numberyyy: ' + r);
+  	}
+
+  	
+  	console.log('FIFTH TRY try- MISTAKE IN IT')
+  	do {
+  	var x = Math.floor((Math.random()*50)+1)
+  	} while (x%2==0);
+  	 console.log('This is the number to skip: ' + x);
+  
+  	var d = 1;
+  	for (var d=1; d <= 50; d=d+2) {
+	console.log('Here is an odd number: ' + d);
+	
+    if (d == x) {
+   	console.log('Yikes! skipping number: ' + x);
+	}else if (d !== x) {
+		continue;
+		}
+	}
+  	
+
+  	
+		
+    </script>
+</body>
+</html>
+

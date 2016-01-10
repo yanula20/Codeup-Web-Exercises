@@ -9,12 +9,12 @@ var color = colors[Math.floor(Math.random()*colors.length)];
     //every color except indigo and violet
 
  switch (color) {
- 	//below is like an or statement and default
+ 	//swith is like the if statement, case is like else if
     case "indigo":
     case "violet": 
         alert("I don\'t know this color.");
     	break;
-    case ("red"):
+    case "red":
     	document.body.style.background = "red";
         alert("I am as red as an apple.");
     	break;
