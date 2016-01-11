@@ -38,11 +38,14 @@
 
 	console.log('Yikes! skipping number: ' + z);
 
-	b=z; //reset b to z, essentially by adding 2
-		for (;z=z+2;) {
-			if (z<50){
-				console.log('Here is an odd number: ' + z);	
-			}else if (z>50) {
+		for (;;b=b) {
+			if (b<47){
+				b=b+2;
+				console.log('Here is an odd number: ' + b);
+
+			}else if (b=47) {
+				b=b+2;
+				console.log('Here is an odd number: ' + b);
 				break;
 			}
 		}
