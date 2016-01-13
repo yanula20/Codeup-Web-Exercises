@@ -1,0 +1,127 @@
+<html>
+<head>
+    <title>functions_js</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+// todo:
+// Create a function called 'sayHello' that takes a parameter 'name'.
+// When called, the function should log a message that says hello from the passed in name.
+
+
+/*Both invoking function and taking advantage of the fact the function's 
+*power relieves me from assigning a variable to 'name'.
+*The function itself has a variable placeholder built 
+*into it. That built it variable placeholder is function (here).
+*/
+sayHello("Donny Moore");
+function sayHello(name) {
+   	console.log('Hello. I am '+name+".");
+   }
+
+//Reassigned Donny to John
+var nameResult = sayHello("John Flanagan");
+	console.log(nameResult);
+
+
+//Invoking function and assigning var value
+LongName("Sandra Dee song from the movie Grease.");
+function LongName(name) {
+	for (;name;) {
+		if (name.length>20) {
+			console.log('Too long. Try, again.');
+			break;
+			
+		}else {
+			console.log('Hey, '+name+'!')
+			break;
+			
+		}
+	  }
+	}
+var LongNameResult = LongName("Janis Joplin");
+console.log(LongNameResult);//var = function result
+
+
+// todo: Call the function 'sayHello' passing the variable 'myNameIs' as a parameter.
+console.log('Function has global variable = available to all code on page');
+var myNameIs = 'Lucky Louie';
+sayHello1(myNameIs);//function invoked!
+ function sayHello1(myNameIs){
+ 	console.log('part1: Hello, again. My name is '+myNameIs);
+ }
+ console.log(sayHello1(myNameIs));
+
+console.log('Var is hoisted outside func, i.e. var myNameIs; ');
+var myNameIs;//var is hoisted, func does this as well
+
+sayHello2("Bert Macklin");//function invoked!
+ function sayHello2(myNameIs){
+ 	console.log("part2: "+myNameIs);
+ }
+ sayHello2("Leslie Knope - P&R Dept");//reassigned to Leslie K, must be on top
+ console.log(sayHello2(myNameIs));//LK P&R Dept
+ console.log(myNameIs);//Lucky Louie is global above!!!!!
+ 
+console.log('SCOPED = Var is assigned with the funcion')
+sayHello3(myNameIs);//function invoked!
+ function sayHello3(myNameIs){
+ 	myNameIs = "Dirty Harry";
+ 	//var assigned within function
+ 	//var must be above console.log or will be undefined
+ 	console.log('part 3: Yes, I am a cop named '+myNameIs);
+ }
+ console.log(sayHello3(myNameIs));
+ 
+
+
+// todo:
+// Create a function called 'isOdd' that takes a number as a parameter.
+// The function should use the ternary operator to log a message.
+// The log should tell the number passed in and whether it is odd or not.
+
+var num = 50;//Global
+var Results = isOdd(num);//must have num to define var
+isOdd(num);//must invoke function
+function isOdd(num){
+	if (num%2==1) {
+	    console.log(num + " :You are odd!");
+	} else{
+	    console.log(num + ": You are even!");
+	}
+  }
+  console.log(Results);//c&p in console log
+// the above if/else can be re-written as:
+var Results = (num%2==1) ? "Oooooodd!" : "You are Eeeeeeven!";
+console.log(Results);
+
+
+// todo: Call the function 'isOdd' passing the variable 'random' as a parameter.
+do {
+	var random = Math.floor((Math.random()*100)+1)
+	} while (random>100);  
+	console.log('The Random number from 1 to 100 is: ' + random);
+
+isOdd2(random);//must invoke function
+var ResultsRandom = isOdd2(random);//must have random to define var in func
+function isOdd2(random){
+	if (random%2==1) {
+	    console.log(random + " :You are odd!");
+	} else{
+	    console.log(random + " :You are even!");
+	}
+  }
+
+console.log(ResultsRandom);//c&p in console log
+// the above if/else can be re-written as:
+var ResultsRandom = (random%2==1) ? "Oooooodd!" : "You are Eeeeeeven!";
+console.log(ResultsRandom);
+		
+    </script>
+</body>
+</html>
+
+
+
+

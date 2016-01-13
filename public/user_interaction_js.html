@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>User_Interaction</title>
+</head>
+<body>
+	<script type="text/javascript">
+// todo: Ask the user for their name.
+//Two answer branches: either there is an answer or null
+//       Keep asking if an empty input is provided.
+var nameInput;//hoisted
+nameInput = prompt("What is your name?");
+	do {
+		if (nameInput == '') {
+			nameInput = prompt("Please type your name in the blank.")
+			//nameInput reassigned
+		}
+	} while (nameInput =='') 
+				
+			alert('Thank you. Welcome '+nameInput+'!!');
+			
+
+
+// todo: Show an alert message that welcomes the user based on their input.
+
+// todo: Ask the user if they like pizza.
+//       Based on their answer show a creative alert message
+
+//Four answer branches: yes, no, gibberish, null
+var aQuestion;
+
+aQuestion = prompt("Yes or No. Do you like pizza?");//stores answer
+var pizzaAnswer = aQuestion;
+var yes = "yes" || "Yes" || "YEs"|| "YES" || "yeS" || "yES";
+var no = "no" || "No" || "NO" || "nO";
+
+	do {
+			if (pizzaAnswer == '')
+				alert('Your answer is blank. Answer yes or no, please.');
+				aQuestion = prompt("Please, Please answer. Do you like pizza?");//stores answer; 
+				var pizzaAnswer = aQuestion; 
+			} while (pizzaAnswer == '')
+	for(;pizzaAnswer;){
+		if (pizzaAnswer == yes) {
+				alert('Yes. Me too! Did you know that pizza is an anagram for zizpa?');
+				break;
+			}
+		else if (pizzaAnswer == no) {
+				alert('No?! Well, have you ever tried zizpa?');
+				break;
+			}
+		else if (pizzaAnswer != yes || no) {//giberrish
+				alert('Your answer is unclear. Answer yes or no, please.');
+				aQuestion = prompt("Yes or No. Do you like pizza?");
+				var pizzaAnswer = aQuestion;
+						if (pizzaAnswer == yes) {
+					alert('Did you know that pizza is an anagram for zizpa?');
+						break;
+					}
+						else if (pizzaAnswer == no) {
+					alert('Well, have you ever tried zizpa?');
+						break;
+					}
+				}
+			}
+		
+								
+			
+    </script>
+</body>
+</html>
+
+
+
+
