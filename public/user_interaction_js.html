@@ -24,8 +24,7 @@ nameInput = prompt("What is your name?");
 
 // todo: Ask the user if they like pizza.
 //       Based on their answer show a creative alert message
-
-//Four answer branches: yes, no, gibberish, null
+//Four answer branches: yes, no, gibberish
 var aQuestion;
 
 aQuestion = prompt("Yes or No. Do you like pizza?");//stores answer
@@ -38,7 +37,7 @@ var no = "no" || "No" || "NO" || "nO";
 				alert('Your answer is blank. Answer yes or no, please.');
 				aQuestion = prompt("Please, Please answer. Do you like pizza?");//stores answer; 
 				var pizzaAnswer = aQuestion; 
-			} while (pizzaAnswer == '')
+			} while (pizzaAnswer == '' || pizzaAnswer == null)//null is 'Cancel', '' is <Enter>
 	for(;pizzaAnswer;){
 		if (pizzaAnswer == yes) {
 				alert('Yes. Me too! Did you know that pizza is an anagram for zizpa?');

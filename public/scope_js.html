@@ -1,9 +1,12 @@
+
 <html>
 <head>
     <title>functions_js</title>
 </head>
 <body>
 	<script type="text/javascript">
+	(function(){//start IFFE
+	"use strict";
 
 // todo:
 // Create a function called 'sayHello' that takes a parameter 'name'.
@@ -53,19 +56,22 @@ sayHello1(myNameIs);//function invoked!
  }
  console.log(sayHello1(myNameIs));//Lucky Louie
 
-console.log('Bert, Leslie, Louie');
+console.log('Var is hoisted inside the function for reassignment. ');
+// var myNameIs;//var is hoisted, func does this as well
 
-sayHello2("Bert Macklin");//function invoked!
+sayHello2("Bert Macklin");//function invoked! 
  function sayHello2(myNameIs){
- 	console.log("part2: "+myNameIs);//Bert Macklin
+ 	var myNameIs;
+ 	console.log("part2: "+myNameIs);
+ 	
+ 	var myNameIs = "Tom Haverford"//Bert Macklin
+ 	console.log("part2: "+myNameIs);//Tom Haverford
  }
  sayHello2("Leslie Knope - P&R Dept");//reassigned to Leslie K, must be on top
  console.log(sayHello2(myNameIs));//LK P&R Dept
  console.log(myNameIs);//Lucky Louie is global above!!!!!
  
 console.log('SCOPED = Var is assigned within the funcion')
-
-console.log('Hoisted example');
 sayHello3(myNameIs);//function invoked!
  function sayHello3(myNameIs){
  	myNameIs = "Dirty Harry";
@@ -118,7 +124,7 @@ console.log(ResultsRandom);//c&p in console log
 // the above if/else can be re-written as:
 var ResultsRandom = (random%2==1) ? "Oooooodd!" : "You are Eeeeeeven!";
 console.log(ResultsRandom);
-		
+	})();//end IFFE	
     </script>
 </body>
 </html>
