@@ -68,10 +68,60 @@ function vowel(myVowel){
 	console.log(vowel("g"));
 	console.log(vowel("hello"));
 	console.log(vowel("O"));
+	console.log(vowel("U"));
+	console.log(vowel("u"));
+	console.log(vowel("uu"));
 	
 	
-//to do: Document write("Some String")
-var writeMe;
+	// var myVowelArray = ["a","A","e","E","i","I","o","O","u","U"]
+	// function amIVowel(letter){
+	// 	for (i=0;i<=9;i++){
+	// 		console.log(letter);
+	// 		(letter == myVowelArray[i])?console.log(letter +" is a vowel"):console.log(letter +" is not a vowel");
+	// 		// return myVowelResult;// return;DO NOT USE; for loop will stop after first iteration;
+
+	// 	} 
+	// }
+	// amIVowel("b"); //invoke function
+	
+	var vow = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
+	console.log('The first vowel is: ' + vow[0]);
+	console.log('The fourth vowel is: ' + vow[3]);
+	console.log('The fifth vowel is: ' + vow[4]);
+	console.log('The seventh vowel is: ' + vow[6]);
+	amIVowel('A');
+	function amIVowel(letter){
+		for (i=0;i<10;i++){
+			console.log(letter);
+			var myVowelResult = (letter == vow[i])?true:false;
+			console.log(myVowelResult);
+		} 
+	}
+
+
+/****************************************************/
+	var vow2 = 'aAeEiIoOuUyY';
+	console.log(vow2.indexOf('b'));
+	console.log(vow2.indexOf('E'));
+	console.log(vow2.indexOf('a'));
+	console.log(vow2.indexOf('A'));
+	console.log(vow2.indexOf('y'));
+	console.log(vow2.indexOf('zz'));
+	
+	function checkVowel(ltr){
+		return (vow2.indexOf(ltr) != -1)?console.log(ltr+" :is a vowel."):console.log(ltr+" :is not a vowel.");
+	}
+	
+	console.log(checkVowel('O'));
+	console.log(checkVowel('zz'));
+	console.log(checkVowel('y'));
+	console.log(checkVowel('a'));
+	console.log(checkVowel('A'));
+	console.log(checkVowel('b'));
+	
+	console.log(vow2.indexOf("y"));//index 10
+	console.log(vow2.indexOf("g"));//index -1; means false
+/****************************************************/
 function writeSomething(writeMe){
 	document.write(writeMe);
 }
