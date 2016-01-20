@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title>Objects_Intro</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	(function () {
+		"use strict"
+
+  var bookSearch = [ 
+	  { //element of array, element.title, element.author.firstName, element.title, element.type
+		  "title" : "The 9mm and You",
+		  "author":
+		  {
+			    "firstName": "Bill",
+			    "lastName": "Smith",
+			    "city": "New York",
+		        "state": "NY",
+		        "postalCode": "10021",
+			    "homepage": "www.bsmith.com"
+		 },
+		  "pages": "100",
+		  "type": "paperback"
+	  },
+
+	  { //element of array
+		  "title": "Modern Revolvers",
+		  "author":
+		  {
+			    "firstName": "Terry",
+			    "lastName": "Tate",
+			    "city": "San Antonio",
+		        "state": "TX",
+		        "postalCode": "78109",
+			    "homepage": "www.revolvers.com"
+		 },
+		  "pages": "300",
+		  "type": "hard cover"
+	  },
+
+	  {  //element of array
+		  "title": "Military Pistols",
+		  "author":
+		  {
+			    "firstName": "Joe",
+			    "lastName": "Marine",
+			    "city": "Austin",
+		        "state": "TX",
+		        "postalCode": "7822",
+			    "homepage": "www.mil_pistols.com"
+		 },
+		  "pages": "400",
+		  "type": "hard cover"
+	  },
+
+	  {//element of array
+		  "title": "Six Shooters",
+		  "author":
+		  {
+			    "firstName": "NRA",
+			    "lastName": "President",
+			    "city": "Arlington",
+		        "state": "VA",
+		        "postalCode": "22333",
+			    "homepage": "www.revolvers.com"
+		 },
+		  "pages": "670",
+		  "type": "hard cover"
+	  },
+
+	  {//element of array, element.
+		  "title": "Quick Draw Tips", //element.title
+		  "author": //element.authour
+		  {
+			    "firstName": "Dirty",  //element.author.firstName
+			    "lastName": "Harry",
+			    "city": "Angola",
+		        "state": "NY",
+		        "postalCode": "55888",
+			    "homepage": "www.mistereastwood.com"
+		 },
+		  "pages": "10",
+		  "type": "hard cover"
+	  }
+  ]
+
+	var index = 0;
+  	bookSearch.forEach(function (element,index,array) {
+  	for (var i=bookSearch.length-1; i<bookSearch.length; i++) {
+  	console.log('Your book search result number ' + (index+1) + ' is named: '+element.title);
+  	console.log('The author\'s name is '+element.author.firstName+" "+element.author.lastName);
+  	console.log('The author lives in '+element.author.city+" , "+element.author.state);
+  	console.log('The author\'s homepage is '+element.author.homepage);
+  	console.log('The book type for result ' + (index+1) + ' is a: '+element.type);
+  	
+    }
+  });
+
+
+  })();
+					
+			
+    </script>
+</body>
+</html>
