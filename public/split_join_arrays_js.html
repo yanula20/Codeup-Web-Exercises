@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Split_Join</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	
+	(function () {
+		"use strict"
+
+// todo:
+// Copy the array of planets you created in the last lesson.
+var planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+
+// todo: Join the planets array with pipes (|) to create a variable named 'planetsAsString'.
+console.log(planets);
+var planetsAsString = planets.join('|');
+console.log(planetsAsString);
+
+// todo: Split the 'planetsAsString' variable by pipes (|) to create a variable named 'planetsAsArray'.
+
+var planetsAsArray = planetsAsString.split(",");
+console.log(planetsAsArray);
+
+console.log('Array to String using toString function')
+var planets1 = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+
+planets1.toString();
+console.log(planets1.toString());
+
+})();
+
+		
+								
+			
+    </script>
+</body>
+</html>
+
+
+
+

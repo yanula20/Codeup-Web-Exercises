@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Manipulating_Arrays</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	
+	(function () {
+		"use strict"
+// todo: Create an array holding the names of the planets of our solar system (in order, starting closest to the sun).
+var planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+
+// function for logging the planets array
+console.log('Here is the array of the planets: ')
+console.log(planets);
+
+
+// todo: Add Sun to the beginning of the planets array.
+planets.unshift('The Sun');
+console.log('Adding "The Sun" to the beginning of the planets array.');
+console.log(planets);
+
+
+
+// todo: Add Pluto to the end of the planets array.
+planets.push('Pluto');
+console.log('Adding "Pluto" to the end of the planets array.');
+console.log(planets);
+
+// todo: Remove "The Sun" from the beginning of the planets array.
+
+planets.shift('The Sun');
+console.log('Removing "The Sun" from the beginning of the planets array.');
+console.log(planets);
+
+
+// todo: 'Removing "Pluto" from the end of the planets array.
+planets.pop('Pluto')
+console.log('Removing "Pluto" from the end of the planets array.');
+console.log(planets);
+
+
+// todo: Finding and logging the index of "Earth" in the planets array.
+
+console.log('Finding and logging the index of "Earth" in the planets array.');
+console.log('Earth\'s index is: '+planets.indexOf('Earth'));
+
+// todo: Using splice to remove the planet after Earth.
+planets.splice(3,1);
+console.log('Using splice to remove the planet after Earth.');
+console.log(planets);
+
+// todo: Using splice to add back the planet after Earth.
+console.log('Using splice to add back the planet after Earth.');
+console.log(planets);
+planets.splice(2,0,'Mars');
+console.log(planets);
+
+// todo: Reversing the order of the planets array.
+console.log('Reversing the order of the planets array.');
+planets.reverse();
+console.log(planets);
+
+// todo: Sorting the planets array.
+console.log('Sorting the planets array.');
+planets.sort();
+console.log(planets);
+
+
+console.log('PLANETS PART TWO')
+var planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'];
+
+// todo: Create an array holding the names of the planets of our solar system (in order, starting closest to the sun).
+logPlanets(planets);//invoke function; must include planets
+function logPlanets(planets) {
+    console.log('Here is the list of planets:');
+    return console.log(planets);
+}
+
+// todo: Add Sun to the beginning of the planets array.
+addOne(planets);//invoke function; must include planets
+function addOne(planets) {
+	console.log('Adding "The Sun" to the beginning of the planets array.');
+    	planets.unshift("The Sun");
+    	return console.log(planets);
+}
+
+// todo: 'Removing "Pluto" from the end of the planets array.
+
+})();
+
+		
+								
+			
+    </script>
+</body>
+</html>
+
+
+
+
