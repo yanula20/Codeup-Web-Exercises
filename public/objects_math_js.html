@@ -9,19 +9,21 @@
 		"use strict"
 // create a circle object
 var circle = {
-    radius: 3,
+    radius: 5,
     getArea: function () {
         // todo: finish this method
         // hint: area = pi * radius^2
         var result = Math.pow(this.radius,2)*Math.PI;
-        return console.log(result); // todo: return data
+        return result; // todo: return data
     },
     logInfo: function (round) {
         // todo: complete this method. if round is true, round the result to the nearest integer.
-        console.log('Area of a circle with radius: ' + this.radius + ', is: '+circle.getArea());//MUST HAVE COMPLETE FUNCTION: 
-    }
-};
+       
+        (round)?console.log("The rounded area of the circle with a radius of " + this.radius + ", is: " +Math.round(this.getArea())):console.log("The decimal area of the circle with a radius of " + this.radius + ", is: " +this.getArea());
+    }  
+} 
 
+// };
 // log info about the circle
 circle.logInfo(false);
 circle.logInfo(true);
@@ -32,7 +34,6 @@ circle.logInfo(true);
 // log info about the circle
 circle.logInfo(false);
 circle.logInfo(true);
-
 
   })();
 					

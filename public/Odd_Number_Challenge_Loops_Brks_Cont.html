@@ -100,19 +100,13 @@
   	} while (x%2==0);
   	 console.log('This is the number to skip: ' + x);
   
-  	var d = 1;
-  	for (var d=1; d <= 50; d=d+2) {
-	console.log('Here is an odd number: ' + d);
+  	for (var d=1; d < 50; d=d+2) {
+		console.log('Here is an odd number: ' + d);
 
-    if (d == x) {
-   	console.log('Yikes! skipping number: ' + x);
-	}else if (d !== x) {
-		continue;
-		}
-
-	if (d == x+2){
-		continue;
-	}
+		if (d = x-2) {
+	   	console.log('Yikes! skipping number: ' + x);
+	   	continue;
+	   }
 	}
   	
     </script>

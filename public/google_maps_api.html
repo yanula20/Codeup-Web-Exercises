@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
+
+    <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJMMD6k9NVgkv5xDAcIaENzanI8psOI44"></script>
+
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
+    (function() {
+        "use strict";
+        /**********************************/
+        var address = "600 Navarro, San Antonio, TX";
+
+        var geocoder = new google.maps.Geocoder ();//object that sends req to google
+        
+        // function handles the data that comes back from the google service. Handle the results and its status
+        geocoder.geocode({ "address": address }, function(results, status) {
+            /*geocode is the method for the geocoder obj, this is from google
+            and its parameters are results and status*/
+           // Check for a successful result. this is call back function
+           //address is a key, var address is global
+           if (status == google.maps.GeocoderStatus.OK) {
+                //status is 1 of 2 parameters/arguments of geocodemthode
+               // Recenter the map over the address
+
+               // map.setCenter(results[0].geometry.location);
+               map.panTo(results[0].geometry.location);
+            //geometry is key and location is value
+
+               var marker = new google.maps.Marker ({
+                "position": results[0].geometry.location,
+                "map": map
+               });
+
+                               // Create a new infoWindow object with content
+                var infowindow = new google.maps.InfoWindow({
+                    content: "<h1>Changing the world, one programmer at a time.</h1>"
+                });
+
+                // Open the window using our map and marker
+                infowindow.open(map, marker);
+
+           } else {
+
+               // Show an error message with the status if our request fails
+               alert("Geocoding was not successful - STATUS: " + status);
+           }
+        });
+           /**********************************/
+
+
+        var addresses = ["Brazilian BBQ. Great Hangover food. <br> Try the Guarana! <br> Address: 18318 Sonterra Pl San Antonio TX 78258", " If you like Ponjon in a great family atmosphere, <br> try the Korean BBQ House. <br> Address: 4400 Rittiman Rd San Antonio TX 78218", " Yorky\'s Taco House. <br> Bright, art-filled cafe offering Mexican classics <br> including breakfast & lunch specials.<br> Address: 5418 W Military Dr, San Antonio, TX 78242"];
+        //Brazilian BBQ, Korian BBQ, Kiku Garden korean food
+        var geocoder = new google.maps.Geocoder ();//object that sends req to google
+        addresses.forEach(function (addresses, index, array) {
+              // function handles the data that comes back from the google service. Handle the results and its status
+        geocoder.geocode({ "address": addresses }, function(results, status) {
+            /*geocode is the method for the geocoder obj, this is from google
+            and its parameters are results and status*/
+           // Check for a successful result. this is call back function
+           //address is a key, var address is global
+           if (status == google.maps.GeocoderStatus.OK) {
+                //status is 1 of 2 parameters/arguments of geocodemthode
+               // Recenter the map over the address
+
+               // map.setCenter(results[0].geometry.location);
+               // map.setCenter(results[0].geometry.location);
+            //geometry is key and location is value
+
+               var marker = new google.maps.Marker ({
+                "position": results[0].geometry.location,
+                // icon: 'http://cdn.com/my-custom-icon.png',
+                "map": map,
+                draggable: true,
+                "icon": '/img/restaurant.png',
+                animation: google.maps.Animation.DROP
+
+               });
+                
+                marker.addListener('click', toggleBounce);
+
+                function toggleBounce() {
+                  if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                  } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                  }
+                }
+                // Create a new infoWindow object with content
+                
+                var infowindow = new google.maps.InfoWindow({
+                    content: addresses
+
+                });
+
+                // // Open the window using our map and marker
+                infowindow.open(map, marker);
+
+           } else {
+
+               // Show an error message with the status if our request fails
+               alert("Geocoding was not successful - STATUS: " + status);
+           }
+        }); //end geocoder
+
+
+        
+    });
+
+        
+      
+         /**********************************/
+        // Set our map options
+        var mapOptions = {
+            // Set the zoom level
+            zoom: 10,
+
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.4284595,
+                lng: -98.492433
+            },
+            mapTypeId: google.maps.MapTypeId.HYBRID
+            // MapTypeId.ROADMAP — default road map view. This is the default map type.
+            // MapTypeId.SATELLITE — Google Earth satellite images
+            // MapTypeId.HYBRID — mixture of roadmap and satellite views
+            // MapTypeId.TERRAIN — physical map based on terrain information.
+        };
+
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);//grab the map-canvas div
+        console.log("Map was intialized successfully.");
+        
+    })();
+    </script>
+</body>

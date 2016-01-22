@@ -87,16 +87,13 @@
 
 	var index = 0;
   	bookSearch.forEach(function (element,index,array) {
-  	// for (var i=bookSearch.length-1; i<bookSearch.length; i++) { not necessary!
   	console.log('Your book search result number ' + (index+1) + ' is named: '+element.title);
   	console.log('The author\'s name is '+element.author.firstName+" "+element.author.lastName);
   	console.log('The author lives in '+element.author.city+" , "+element.author.state);
   	console.log('The author\'s homepage is '+element.author.homepage);
   	console.log('The book type for result ' + (index+1) + ' is a: '+element.type);
   	
-    // }
   });
-
 
   })();
 					
