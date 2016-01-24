@@ -35,7 +35,7 @@
                // Recenter the map over the address
 
                // map.setCenter(results[0].geometry.location);
-               map.panTo(results[0].geometry.location);
+               // map.panTo(results[0].geometry.location);
             //geometry is key and location is value
 
                var marker = new google.maps.Marker ({
@@ -43,13 +43,16 @@
                 "map": map
                });
 
-                               // Create a new infoWindow object with content
+                // Create a new infoWindow object with content
                 var infowindow = new google.maps.InfoWindow({
-                    content: "<h1>Changing the world, one programmer at a time.</h1>"
+                    content: "<h6>Changing the world, one programmer at a time.</h6>"
                 });
 
                 // Open the window using our map and marker
-                infowindow.open(map, marker);
+                marker.addListener('mouseover', function(){
+                    infowindow.open(map, marker);
+                });
+                
 
            } else {
 
@@ -58,14 +61,34 @@
            }
         });
            /**********************************/
+           //array members and their properties are described with element.address, element.description, ..etc.
+        var addressObj = [{//element
+            
+            address: "<br>18318 Sonterra Pl San Antonio TX 78258<br>",
+            description: 'Brazilian BBQ. Great Hangover food.<br> Try the Guarana!<br>',
+            iconUrl: '/img/restaurant.png',
+            favoriteDish:"<a href=\"https://en.wikipedia.org/wiki/Churrasco\">Churrasco<a/>",
+            image: "<img src=\"/img/google_maps_img/brazilian_bbq.jpeg\" alt=\"brazilian bbq\">",
+        },{//element..address,element.description,
+            address: "<br>4400 Rittiman Rd San Antonio, TX 78218<br>",
+            description: "If you like Ponjon in a great family atmosphere, <br> try the Korean BBQ House.<br>",
+            iconUrl: '/img/restaurant_korean.png',
+            favoriteDish:"<a href=\"https://en.wikipedia.org/wiki/Bibimbap\">Bibimbap<a/>",
+            image: "<img src=\"/img/google_maps_img/kiku_korean.jpeg\" alt=\"Kiku Korean restaurant\">",
+        },{
+            address: "<br>5418 W Military Dr San Antonio TX 78242<br>",
+            description: "Yorky\'s Taco House. <br> Bright, art-filled cafe offering Mexican classics.<br> Breakfast & Lunch specials.<br>",
+            iconUrl: '/img/restaurant_mexican.png',
+            favoriteDish: "<a href=\"https://en.wikipedia.org/wiki/Doritos\">Taco Doritos<a/>",
+            image: "<img src=\"/img/google_maps_img/Yorkys.jpeg\" alt=\"Taco Restaurant\">",
+        
+        }];
 
-
-        var addresses = ["Brazilian BBQ. Great Hangover food. <br> Try the Guarana! <br> Address: 18318 Sonterra Pl San Antonio TX 78258", " If you like Ponjon in a great family atmosphere, <br> try the Korean BBQ House. <br> Address: 4400 Rittiman Rd San Antonio TX 78218", " Yorky\'s Taco House. <br> Bright, art-filled cafe offering Mexican classics <br> including breakfast & lunch specials.<br> Address: 5418 W Military Dr, San Antonio, TX 78242"];
         //Brazilian BBQ, Korian BBQ, Kiku Garden korean food
-        var geocoder = new google.maps.Geocoder ();//object that sends req to google
-        addresses.forEach(function (addresses, index, array) {
+        var geocoder = new google.maps.Geocoder ();//object that sends request to google
+        addressObj.forEach(function (element, index, array) {
               // function handles the data that comes back from the google service. Handle the results and its status
-        geocoder.geocode({ "address": addresses }, function(results, status) {
+        geocoder.geocode({ "address": element.address }, function(results, status) {
             /*geocode is the method for the geocoder obj, this is from google
             and its parameters are results and status*/
            // Check for a successful result. this is call back function
@@ -81,13 +104,14 @@
                var marker = new google.maps.Marker ({
                 "position": results[0].geometry.location,
                 // icon: 'http://cdn.com/my-custom-icon.png',
+                // results[0] does not change
                 "map": map,
+                icon: element.iconUrl,
                 draggable: true,
-                "icon": '/img/restaurant.png',
                 animation: google.maps.Animation.DROP
 
                });
-                
+
                 marker.addListener('click', toggleBounce);
 
                 function toggleBounce() {
@@ -98,14 +122,20 @@
                   }
                 }
                 // Create a new infoWindow object with content
-                
+               
                 var infowindow = new google.maps.InfoWindow({
-                    content: addresses
-
+                    content: "My restaurant pick number "+(index+1)+" is as follows:"+
+                             element.address+
+                             element.description+
+                             element.favoriteDish+
+                             element.image
                 });
 
                 // // Open the window using our map and marker
-                infowindow.open(map, marker);
+                marker.addListener('click', function(){
+                    infowindow.open(map, marker);
+                });
+                
 
            } else {
 
@@ -113,12 +143,8 @@
                alert("Geocoding was not successful - STATUS: " + status);
            }
         }); //end geocoder
-
-
         
     });
-
-        
       
          /**********************************/
         // Set our map options

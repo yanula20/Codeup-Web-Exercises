@@ -23,7 +23,7 @@
 
 #container {
 	/*height: auto; Ask about this*/
-   height: 2955px;
+   
 	width: 75%;
 	margin: 0 auto;
 	border: 1px solid black;
@@ -33,7 +33,7 @@
 }
 
 .banner {
-	height: 25px;
+	height: 30px;
 	background-color: lightblue;
 	text-align: center;
 	font-weight: 900; 
@@ -88,6 +88,7 @@ div#clearance.col-md-6 {
 
    div#container {
       width: auto;
+      height: 3300px;
    } 
 
    div.row.name-clearance {
@@ -111,6 +112,7 @@ div#clearance.col-md-6 {
 @media screen and (min-width:206px) and (max-width:549px) { 
    div#container {
       width: auto;
+      height: 3300px;
    }
    div.row.name-clearance {
       height: 150px;
@@ -132,7 +134,12 @@ div#clearance.col-md-6 {
    div#clearance.col-md-6 {
       top: 25px;
       right: 16px;
-      height: 2955x
+      
+   }
+
+  div#container {
+      width: auto;
+      height: 2700px;
    }
 
 }
