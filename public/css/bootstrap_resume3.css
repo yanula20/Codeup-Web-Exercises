@@ -1,0 +1,19 @@
+/*
+ * CONTENTS
+ *   SETTINGS
+ *   WRAPPER
+ *   MEDIA BREAK PT 0-589px
+ *   MEDIA BREAK PT 590-589px
+ *   AMEDIA BREAK PT 0-589px
+ * 	   
+ *   
+ *
+ * 
+ */
+/*-------------------*\
+  		SETTINGS
+\*-------------------*/
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
