@@ -82,9 +82,9 @@
 	$(document).ready(function() {
     alert( 'The DOM has finished loading!' );
 
-     alert($("#paragraph").html());
+     // alert($("#paragraph").html());	
 
-     alert($("#lamp_stack").html());
+     // alert($("#lamp_stack").html());
 
      $("h4").css("background-color","green");
 
@@ -95,6 +95,38 @@
      $("li").css("font-size","20px");
 
      $("h1,p,li").css("color","yellow");
+
+ 	
+     $('h1').click(function() {
+                $('h1').css('background-color', 'red');
+            });
+
+     $('p').dblclick(function() {
+                $('p').css('font-size','18px');
+            });
+
+     $('li').hover(function() {
+                $('li').css('color','red');
+            }, function() {
+                $('li').css('color','white');
+            }
+
+         );
+
+     // keydown and keypress(does not count for keys with no input, CALLED MODIFIERS, like the SHIFT KEY)
+     // $("test").keyup(functiion (){
+     // 	$('img'.css('display', 'none');
+     // 	$(this).css('display','visible');
+
+     // });
+
+ //     $("#textinput").keydown(function(e) {
+ //    	console.log(e.keyCode); // this value
+	// });
+    <p>Please type something into this form:<\p>
+    <form>
+        <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
+    </form>
 
 	});
 
