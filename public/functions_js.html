@@ -5,6 +5,115 @@
 <body>
 	<script type="text/javascript">
 
+/*
+1. What is a function: a reusable block of code
+
+2. Why we love em? accessibility, power, modularity, saves time
+
+3. Where do we place a function? function definition is placed
+at the top of our page, function calls anwywere we need the return value
+
+4. Anatomy of a function
+ function saygoodMorning (name) {
+	return "Good Morning, "+name;
+
+ }
+
+ 5. Calling a function or running a function
+var message = sayGoodMorning("Bob");
+console.log(message);
+
+message = sayGoodMorning("Jane");
+console.log(message);
+
+6. Multiple Parameters
+
+function sayGoodMorn (firstName, lastName) {
+	return "Good Morning, "+firstName+" "+lastName"
+
+ }
+var morn = sayGoodMorn("Don","Moore");
+console.log(morn);
+7. Return Values, USE RETURN vs console.log:
+ 	7a. function isOdd(number) {
+	var result = number %2 !== 0;
+	console.log (result); DO NOT USE console.log, USE RETURN!!
+	return result;
+ }
+
+	7b. if you don't have a value in your function, javascript returns undefined.
+
+
+
+	7c. if (isOdd(11)){
+		console.log("11 is odd");
+	} else {
+		console.log("11 is not odd");
+	}
+
+
+8. function square (n) {
+	return n*n;
+	}
+
+	      or
+
+	function square (n) {
+	if(isNaN(n)){
+	    console.log(n+ "is not a number");
+	    return false;
+	} 
+	 return n * n;
+   }
+
+
+
+
+	function sumOfSquares(a,b) {
+		return square(a) + square(a);
+	}
+
+	function differenceofSquares(a,b) {
+		return square(a) - square(a);
+	}
+}
+9. 
+function sumOfSquares(a,b) {
+		var aSquared = square(a);
+		var bSquared = square(b);
+
+		return aSquared + bSquared;
+	}
+10. var dayOfTheWeek = 'Tuesday'
+    function makeWednesday () {
+	dayOfTheWeek = 'Wednesday';
+	return dayOfTheWeek;
+    }
+function is powerful enuff to reassign
+day of the week from Tuesday to Wednesday
+     
+    var dayOfTheWeek = 'Tuesday'
+    function makeWednesday () {
+	day = 'Wednesday'
+	return day;
+
+    }
+
+console.log(dayOfTheWeek); Tuesday
+dayOfTheWeek = makeWednesday (); Wednesday
+console.log(dayOfTheWeek); Wednesday
+
+
+12. function smileBack (){
+	var someOtherLovalVariable = ":(";
+	var localVariable = ":)";
+	return localVariable;
+}
+
+***!!! smileGlobal = smileBack();
+
+*/
+
 // todo:
 // Create a function called 'sayHello' that takes a parameter 'name'.
 // When called, the function should log a message that says hello from the passed in name.
@@ -15,34 +124,41 @@
 *The function itself has a variable placeholder built 
 *into it. That built it variable placeholder is function (here).
 */
-sayHello("Donny Moore");
+
 function sayHello(name) {
-   	console.log('Hello. I am '+name+".");
+   	var message = 'Hello. I am '+name+".";
+   	return message;
    }
 
-//Reassigned Donny to John
-var nameResult = sayHello("John Flanagan");
-	console.log(nameResult);
+var donMoore = sayHello("Donny Moore");
+console.log(donMoore);
+
+var johnFlanagan = sayHello("John Flanagan");
+	console.log(johnFlanagan); //undefined
+	
+console.log(sayHello("Aziz Ansari"));
+console.log(sayHello("Don Moreleone"));
+console.log(sayHello("Smokin\' Joe Peacy"));
+
 
 
 //Invoking function and assigning var value
-LongName("Sandra Dee song from the movie Grease.");
-function LongName(name) {
-	for (;name;) {
+;
+function longName(name) {
+	
 		if (name.length>20) {
 			console.log('Too long. Try, again.');
-			break;
-			
-		}else {
-			console.log('Hey, '+name+'!')
-			break;
-			
+		} else {
+			var Grease = 'Hey, '+name+'!';
+			return Grease;
 		}
 	  }
-	}
-var LongNameResult = LongName("Janis Joplin");
-console.log(LongNameResult);//var = function result
 
+longName("Sandra Dee song from the movie Grease.")	
+var longNameResult = longName("Janis Joplin");
+console.log(longNameResult);
+console.log(longName("Dana Delaney from China Beach"));
+console.log(longName("Dana Delaney"));
 
 // todo: Call the function 'sayHello' passing the variable 'myNameIs' as a parameter.
 console.log('Function has global variable = available to all code on page');
@@ -51,17 +167,19 @@ sayHello1(myNameIs);//function invoked!
  function sayHello1(myNameIs){
  	console.log('part1: Hello, again. My name is '+myNameIs);//Luckie Louie
  }
- console.log(sayHello1(myNameIs));//Lucky Louie
 
-console.log('Bert, Leslie, Louie');
+console.log(sayHello1("Jennifer"));//Lucky Louie
+
+var sayHello1Result = sayHello1("San Antonio Outlaws")
+console.log(sayHello1Result);
 
 sayHello2("Bert Macklin");//function invoked!
  function sayHello2(myNameIs){
  	console.log("part2: "+myNameIs);//Bert Macklin
  }
  sayHello2("Leslie Knope - P&R Dept");//reassigned to Leslie K, must be on top
- console.log(sayHello2(myNameIs));//LK P&R Dept
- console.log(myNameIs);//Lucky Louie is global above!!!!!
+ console.log(sayHello2("Leslie Knope - P&R Dept"));//LK P&R Dept
+ console.log(myNameIs);//Lucky Louie is global above and has nothing to do with the function!!!!!
  
 console.log('SCOPED = Var is assigned within the funcion')
 

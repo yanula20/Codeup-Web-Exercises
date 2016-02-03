@@ -6,11 +6,10 @@ var color = colors[Math.floor(Math.random()*colors.length)];
 var favorite = 'green'; // TODO: change this to your favorite color from the list
 
 // TODO: Create a block of if/else statements to check for 
-//every color except indigo and violet.
+//every color except indigo and violet.console.log('The random color turned out to be my favorite color green!')
+(color === favorite)?console.log("My favorite color is "+favorite+" !!"):console.log("Not my fav");
 
-(color === favorite)?console.log("My favorite color"):console.log("Not my fav");
-
- if (color === 'red' || 'orange' || 'yellow' || 'green' || 'blue'){
+ if (color ==! 'indigo' || 'violet'){
  	document.body.style.background = "green"
  	alert("JS ignored indigo and violet");
 } else if (color === 'indigo' || 'violet') {
@@ -20,10 +19,10 @@ var favorite = 'green'; // TODO: change this to your favorite color from the lis
 
 //below if/else is false b/c i am comparing an array with a string
 //a red background is the result
- if (colors === favorite){
+ if (color === favorite){
  	alert("green is my favorite color")
  	document.body.style.background = "green";
-} else if (colors === 'indigo' || 'violet') {
+} else if (color === 'indigo' || 'violet') {
 	document.body.style.background = "indigo"
 	alert("This is indigo. Hit OK to see Violet")
 	document.body.style.background = "violet"
@@ -50,11 +49,9 @@ alert("Next Exercise")
 } else if (color === 'blue') {
  	document.body.style.background = "blue";
  	alert("The Duke University Devil is Blue. Hit OK to check the next color");
-} else if (color === ('indigo' || 'violet')) {
- 	alert("We caught indigo or violet!.");
 } else {
-	alert("I don't know anything about that color.");	
-}
+ 	alert("I don't know anything about that color.");	
+} 
 
  	
  	
@@ -71,4 +68,4 @@ alert("Next Exercise")
 
 // TODO: Using the ternary operator, conditionally log a statement that
 //       says whether the random color matches your favorite color.
-alert("my name is Don and this is the End")
+alert("Endex")

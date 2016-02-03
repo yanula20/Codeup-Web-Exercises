@@ -1,0 +1,105 @@
+/*
+ * CONTENTS
+ * CALCULATOR WRAPPER
+ * DIV Operands
+ * CALCULATOR ROWS 
+ * CALCULATOR BUTTONS 
+ *
+ *\
+
+/*-------------------*\
+   CALCULATOR WRAPPER
+\*-------------------*/
+#calculator_wrapper {
+	margin-left: 20px;
+	margin-top: 20px;
+	height: 278px;
+	width: 600px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+/*-------------------*\
+    OPERANDS CONTAINER
+\*-------------------*/
+#operands {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 1px solid black;
+	background-color: gray;
+	padding-bottom: 0px;
+}
+
+#first-operand {
+	width: 200px;
+	
+}
+
+
+#operator {
+	width: 30px;
+	text-align: center;
+	background-color: white;
+}
+}
+
+#second-operand {
+	width: 200px;
+	
+}
+
+#calculate {
+	width: 70px;
+}
+
+input#answer {
+width: 100px;
+background-color: lightyellow;
+color: red;
+
+}
+
+/*-------------------------------*\
+        CALCULATOR ROWS 
+\*-------------------------------*/
+
+.calc_row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+
+/*----------------------------------------*\
+  CALCULATOR BUTTONS ---> button.calc-button
+\*-----------------------------------------*/
+
+
+button.button-operator,
+#calculate {
+	height: 50px;
+	width: 200px;
+	background-color: black;
+	color: yellow;
+}
+
+button.calc-button,
+.divBy100 {
+	height: 50px;
+	width: 750px;
+	background-color: gray;
+	color: yellow;
+
+}
+
+#calculate {
+	background-color: red;
+}
+
+:focus {
+	background-color: green;
+}
+
+
+

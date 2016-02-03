@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Class- Ryan</title>
+   	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
+   	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- order matters, most specific or important style sheet goes at the bottom-->
+	
+	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+	
+
+</head>
+<body>
+	<script type="text/javascript">
+		"use strict";
+
+/*
+* Notes:
+*  if (isNaN(a) || isNaN(b)) false trigger
+*  if (isNumber(a) && isNumber(b)) truthy path
+* if (typeof a == 'number' && typeof b == 'number')
+*  When passing b without quotes, JS thinks that b is a variable
+*  and returns a Syntax error; instead pass "b"
+*  line 63: if (numberCheck) { // numberCheck is var name of function, NOT ALLOWED!, must use function itself if (numberCheck(a,b))
+*
+*/
+/**************************************************/
+	var numberCheck = function numberCheck(a,b){
+		if (isNaN(a) || isNaN(b)) {  //falsy path
+			alert("Check your numbers again!");
+	   		return false;
+	   	}  
+	   	  return true; // if above (false || false);
+	}  
+
+/*above be careful to not use numberCheck, i.e. variable name inside
+your if statements.
+*/
+
+/**************************************************/
+   function sum(a,b){
+   if (numberCheck(a,b)) {  //
+   		return a + b;
+   	} 	
+   	
+  }
+	var sumResult = sum(5,6);
+	console.log("Here is the sum result: "+sumResult);
+
+
+/**************************************************/
+	function diff(a,b){
+   	if (numberCheck(a,b)) { 
+   		return a - b;
+   	} 
+  }
+	var diffResult = diff(99,6);
+	console.log("Here is the difference result: "+diffResult);
+
+/**************************************************/
+	
+
+	function prod(a,b){
+   	if (numberCheck(a,b)) { 
+   		return a * b;
+   	} 
+  }
+	var prodResult = prod("b",6);
+	console.log("Here is the product result: "+prodResult);
+/**************************************************/
+	function div(a,b){
+   	if (isNaN(a) || isNaN(b)){
+   		alert("Check your numbers again!");
+
+   	} else {
+   		return a/b;
+   	}
+  }
+	var divResult = div(100,6);
+	console.log("Here is the div result: "+divResult);
+	/**************************************************/	
+function remainder(a,b){
+   	if (isNaN(a) || isNaN(b)){
+   		alert("Check your numbers again!");
+
+   	} else {
+   		return a%2 + b%2;
+   	}
+  }
+	var remainderResult = remainder(100,6);
+	console.log("Here is the remainder result: "+remainderResult);
+
+
+
+
+	</script>
+
+
+	
+	
+</body>
+</html>

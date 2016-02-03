@@ -9,6 +9,8 @@
 //       Keep asking if an empty input is provided.
 // var nameInput = prompt("What is your name?");
 var nameInput = null;
+var aQuestion;
+
 	do {
 			nameInput = prompt("What is your name?");
 			//nameInput reassigned
@@ -16,50 +18,22 @@ var nameInput = null;
 	} while (nameInput == null || nameInput == '')  	
 				
 			alert('Thank you. Welcome '+nameInput+'!!');
-			
 
-
-// todo: Show an alert message that welcomes the user based on their input.
-
-// todo: Ask the user if they like pizza.
-//       Based on their answer show a creative alert message
-//Four answer branches: yes, no, gibberish
-var aQuestion;
 
 aQuestion = prompt("Yes or No. Do you like pizza?");//stores answer
-var pizzaAnswer = aQuestion;
-var yes = "yes" || "Yes" || "YEs"|| "YES" || "yeS" || "yES";
-var no = "no" || "No" || "NO" || "nO";
 
-	do {
-				alert('Your answer is blank. Answer yes or no, please.');
-				aQuestion = prompt("Please, Please answer. Do you like pizza?");//stores answer; 
-				var pizzaAnswer = aQuestion; 
-			} while (pizzaAnswer == '' || aQuestion == null)//null is 'Cancel', '' is <Enter>
-	for(;pizzaAnswer;){
-		if (pizzaAnswer == yes) {
-				alert('Yes. Me too! Did you know that pizza is an anagram for zizpa?');
-				break;
-			}
-		else if (pizzaAnswer == no) {
-				alert('No?! Well, have you ever tried zizpa?');
-				break;
-			}
-		else if (pizzaAnswer != yes || no) {//giberrish
-				alert('Your answer is unclear. Answer yes or no, please.');
-				aQuestion = prompt("Yes or No. Do you like pizza?");
-				var pizzaAnswer = aQuestion;
-						if (pizzaAnswer == yes) {
-					alert('Did you know that pizza is an anagram for zizpa?');
-						break;
-					}
-						else if (pizzaAnswer == no) {
-					alert('Well, have you ever tried zizpa?');
-						break;
-					}
-				}
-			}
-		
+	while(aQuestion == null || aQuestion == "") {
+		aQuestion = prompt("yes or no. Do you like pizza?");//stores answer
+	}
+
+	aQuestion = aQuestion.trim();
+	aQuestion = aQuestion.toLowerCase();
+	if (aQuestion == "yes"){
+			alert('Yes. Me too! Did you know that pizza is an anagram for zizpa?');
+	} else {
+			alert('No?! Well, have you ever tried zizpa?');
+	}
+	
 								
 			
     </script>

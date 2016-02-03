@@ -10,32 +10,30 @@ var color = colors[Math.floor(Math.random()*colors.length)];
 
  switch (color) {
  	//swith is like the if statement, case is like else if
-    case "indigo":
-    case "violet": 
-        alert("I don\'t know this color.");
-    	break;
+   
     case "red":
     	document.body.style.background = "red";
-        alert("I am as red as an apple.");
+        console.log("I am as red as an apple.");
     	break;
     case "orange":
     	document.body.style.background = "orange";
-        alert("I am an orange orange.");
+        console.log("I am an orange orange.");
         break;
     case "yellow":
     	document.body.style.background = "yellow";
-        alert("I am a yellow Codeup Ducky.");
+        console.log("I am a yellow Codeup Ducky.");
         break;
     case "green":
     	document.body.style.background = "green";
-        alert("I am a green avocado.");
+        console.log("I am a green avocado.");
         break;
     case "blue":
     	document.body.style.background = "blue";
-        alert("I am blue as the sky.");
+        console.log("I am blue as the sky.");
         break;
-    default :      
-}		
+    default:      
+		alert("I don\'t know this color.");
+    }
 
  
     // todo: when a color is encountered log a message that tells the color, and an object of that color

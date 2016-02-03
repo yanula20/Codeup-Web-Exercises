@@ -9,37 +9,55 @@
 	console.log('FIRST-CLEANEST SOLUTION')
     do {
 	var x = Math.floor((Math.random()*50)+1)
-	} while (x%2==0);
+	} while (x%2 == 0)
 	console.log('This is the number to skip: ' + x);
 
-	
-  	for (var d = 1; d <= 50; d=d+2) {
-  		if (d!==x){
+	var d = 1; //not necessary
+  	for (d = 1; d <= 50; d = d+2) {
+  		if (d != x) {
   		console.log('Here is an odd number: ' + d);	
-  		}else if (d==x){
+  		} else if (d == x) {
   		console.log('Yikes! skipping number: ' + x);
   		}
   	}
+/****************************************************************/
+  	console.log('SECOND try - If Else')
+    do {
+	var x = Math.floor((Math.random()*50)+1)
+	} while (x%2==0);  
+	console.log('This is the number to skip: ' + x);
 
-  	console.log('SECOND try- Do While')
+	var r = 1; // not necessary
+	for (r = 1; r <= x || (r > x && r <= 50); r=r+2) {
+		if (r != x && r < x) {
+			console.log('Here is an odd number: ' + r);	
+		} else if (r==x) {
+	  		console.log('Yikes! skipping number: ' + x);
+	  	} else if (r > x && r <= 50) {
+	  		console.log('Here is an odd number: ' + r);	
+		}
+  	}
+/****************************************************************/
+
+  	console.log('THIRD try - Do While')
     do {
 	var z = Math.floor((Math.random()*50)+1)
-	} while (z%2==0);  
+	} while (z%2 == 0);  
 	console.log('This is the number to skip: ' + z);
 
-	var b = 1;
+	
 	do { 
-		for (var b = 1; b<z; b=b+2) {
-			if (b<z){
+		for (var b = 1; b < z; b = b+2) {
+			if (b < z) {
 				console.log('Here is an odd numberrr: ' + b);	
 			}
 		}
-	}while (b!=z);  
+	} while (b != z);  
 
 	console.log('Yikes! skipping number: ' + z);
 
 		for (;;b=b) {
-			if (b<47){
+			if (b<47) {
 				b=b+2;
 				console.log('Here is an odd number: ' + b);
 
@@ -49,67 +67,90 @@
 				break;
 			}
 		}
-
-	console.log('THIRD try - Else If')
-    do {
-	var x = Math.floor((Math.random()*50)+1)
-	} while (x%2==0);  
-	console.log('This is the number to skip: ' + x);
-
-	var r = 1;
-	for (var r = 1; r <= x || (r > x && r <= 50); r=r+2) {
-	if (r!=x && r < x){
-		console.log('Here is an odd number: ' + r);	
-	}else if (r==x){
-  		console.log('Yikes! skipping number: ' + x);
-  	}else if (r > x && r <= 50){
-  		console.log('Here is an odd number: ' + r);	
-	}
-  	}
-
-
+/****************************************************************/
 	console.log('FOURTH try - THREE FORs')
     do {
 	var x = Math.floor((Math.random()*50)+1)
 	} while (x%2==0);  
 	console.log('This is the number to skip: ' + x);
 
-	var r = 1;
-	for (; r<x && r<50;r=r+2) {
-		if (r < x && r!=x){ // loop brooken; stops at x-2, up, b/c r<=x || (r>x && r<50) is true
+	
+	for (r = 1; r < x && r < 50; r = r+2) {
+		if (r < x && r != x){ // loop brooken; stops at x-2, up, b/c r<=x || (r>x && r<50) is true
 		console.log('Here is an odd numberrrr: ' + r);
 	  }
 	}
 
-	for (;x=r;) {
-		if (x=r){
+	for (; x = r;) {
+		
   		console.log('Yikes! skipping number: ' + x);
-  		break; //very important to avoid unending loop!!
-  		}
+  		break; //very important to avoid unending loop!!, unnecessary since we can just log the console.log x;
   	}
   		
-  	var r = r+2; //added 2 to r, if not x=r is stuck at above for statement
-  	for (; r>x && r<50;r=r+2) {
+  	 //declared var r = r+2; in for 1st argument; if not x=r is stuck at above for statement
+  	for (r = r + 2; r > x && r < 50; r = r+2) {
   		console.log('Here is an odd numberyyy: ' + r);
   	}
 
-  	
-  	console.log('FIFTH TRY try- MISTAKE IN IT')
-  	do {
-  	var x = Math.floor((Math.random()*50)+1)
-  	} while (x%2==0);
-  	 console.log('This is the number to skip: ' + x);
-  
-  	for (var d=1; d < 50; d=d+2) {
-		console.log('Here is an odd number: ' + d);
+/****************************************************************/
 
-		if (d = x-2) {
-	   	console.log('Yikes! skipping number: ' + x);
-	   	continue;
-	   }
+console.log('FIFTH try - CAMERON');
+    do {
+	var m = Math.floor((Math.random()*50)+1)
+	} while (m%2==0);  
+	console.log('This is the number to skip: ' + m);
+
+	for (var i = 1; i <= 50; i++) {
+		if (i % 2 == 0) {
+			continue;
+		} else if ( i == m) {
+			console.log('Yikes! skipping number: ' + m);
+			continue;
+		} else {
+			console.log("Here is an odd number: "+ i)
+		}
 	}
-  	
+/****************************************************************/
+
+console.log('PRIME NUMBERS FROM 1 TO 100 - CAMERON');
+
+// loop through 1 to 100 to be divide
+for (var i = 1; i <= 100; i++)
+{
+
+	// loop through 1 to 100 to divide by
+	for (var j = 1; j <= 100; j++)
+	{
+
+		// skip check for divisible by 1 since everything is
+		if (j == 1)
+		{
+
+			continue;
+		}
+
+		// if i and j are equal then it is a prime number
+		// below if statement will stop non primes from getting here
+		if (j == i)
+		{
+
+			console.log(i);
+			break;
+		}
+
+		// if a number divisible by any number besides 1 or itself
+		// break out because it is not prime
+		if (i % j == 0)
+		{
+
+			break;
+		}
+	}
+}
+
+
+
+
     </script>
 </body>
 </html>
-

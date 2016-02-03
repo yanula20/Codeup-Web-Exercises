@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Parks</title>
+   	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
+   	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- order matters, most specific or important style sheet goes at the bottom-->
+	
+	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+	<style type="text/css">
+
+		
+        .invisible {
+        	display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+	
+	<div id="wrapper">
+		
+		
+	<h1>National Parks: Frequently Asked Questions</h1>
+		<dl>
+			<dt>1.  As you may know, the National Park Service sets aside land for all of us to enjoy in its natural state. How much, you ask? </dt>
+			<dd>51 million acres! About the size of Kansas.</dd>
+			<dt>2. The world’s first national park, Yellowstone, was created in 1872 by President Ulysses S. Grant.</dt>
+			<dd>Its caretakers – the cavalry.</dd>
+			<dt>3.    Wind Cave National Park is the first cave to be named a national park in the world. In addition to its length (currently sixth longest in the world), Wind Cave is known for its calcite formations known as “boxwork.” </dt>
+			<dd>About 95% of the world’s boxwork is found in Wind Cave.	</dd>
+			<dt>4.    Wind Cave National Park is the first cave to be named a national park in the world. In addition to its length (currently sixth longest in the world), Wind Cave is known for its calcite formations known as “boxwork.” </dt>
+			<dd>About 95% of the world’s boxwork is found in Wind Cave.	</dd>
+			<dt>5.    Wind Cave National Park is the first cave to be named a national park in the world. In addition to its length (currently sixth longest in the world), Wind Cave is known for its calcite formations known as “boxwork.” </dt>
+			<dd>About 95% of the world’s boxwork is found in Wind Cave.	</dd>
+			<dt>6.    Wind Cave National Park is the first cave to be named a national park in the world. In addition to its length (currently sixth longest in the world), Wind Cave is known for its calcite formations known as “boxwork.” </dt>
+			<dd>About 95% of the world’s boxwork is found in Wind Cave.	</dd>
+			<dt>7.    Wind Cave National Park is the first cave to be named a national park in the world. In addition to its length (currently sixth longest in the world), Wind Cave is known for its calcite formations known as “boxwork.” </dt>
+			<dd>About 95% of the world’s boxwork is found in Wind Cave.	</dd>
+			<dt>8.    Wind Cave National Park is the first cave to be named a national park in the world. In addition to its length (currently sixth longest in the world), Wind Cave is known for its calcite formations known as “boxwork.” </dt>
+			<dd>About 95% of the world’s boxwork is found in Wind Cave.	</dd>
+			<dt>9.    Wind Cave National Park is the first cave to be named a national park in the world. In addition to its length (currently sixth longest in the world), Wind Cave is known for its calcite formations known as “boxwork.” </dt>
+			<dd>About 95% of the world’s boxwork is found in Wind Cave.	</dd>
+			<dt>10.    The Yellowstone Caldera, in Yellowstone National Park, is a super volcano that is responsible for three of the world’s six biggest volcano eruptions. </dt>
+			<dd>It is on pace to blow about 100,000 years from now. So come see it while you still can!	</dd>
+		</dl>
+		<button id="park-button">Parks</button>
+
+		<br>
+		<br>
+		<h3>ORDERED LIST of National Parks</h3>
+		<ol id="parks_exercise">
+			<li>Here is an</li>
+			<li> ordered lists of Parks</li>
+			<li>for this</li>
+			<li>exercise</li>
+		</ol>
+		
+		
+		<h3>National Parks</h3>
+		<ul id="national-parks">
+		    <li>Arches</li>
+		    <li>Badlands</li>
+		    <li>Carlsbad Caverns</li>
+		    <li>Denali</li>
+		    <li>Everglades</li>
+		</ul>
+
+		<h3>State Parks of Texas</h3>
+		<ul id="state-parks-texas">
+		    <li>Abilene</li>
+		    <li>Big Bend</li>
+		    <li>Choke Canyon</li>
+		    <li>Davis Mountains</li>
+		    <li>Enchanted Rock</li>
+		</ul>
+
+		<h1>Christmas Shopping List</h1>
+	    <h3 id="nephew-list-toggle">Nephew Shopping List</h3>
+	    <ul id="footlocker-list">
+	        <li>football cleats</li>
+	        <li>Chicago Bears Jersey</li>
+	        <li>sweatshirt</li>
+	        <li>socks</li>
+	        <li>kettle bells</li>
+	    </ul>
+	    <h3 id="nieces-list-toggle">My three Princesses Shopping List</h3>
+	    <ul id="toysrus-list">
+	        <li>dolls</li>
+	        <li>scooters</li>
+	        <li>easy bake oven</li>
+	        <li>coloring books</li>
+	        <li>crayons</li>
+	    </ul>
+
+	<script src="/js/jquery-1.12.0.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+	</script>
+	<!--personal javascript file must be below-->
+	<script type="text/javascript">
+	// (function(){
+	"use strict;"
+	$(document).ready(function() {
+    // alert( 'The DOM has finished loading!' );
+    // .hide() — Hide the matched elements.
+	//.show() — Display the matched elements.
+	//.toggle() — Display or hide the matched elements.
+	
+
+    	$("#nephew-list-toggle,#nieces-list-toggle").click(function(){
+    	$(this).css("background-color","red");
+    	});
+
+
+    	 $('ul').click(function(){
+    	 	$(this).children().first("li").css('font-weight','bold').css('color', 'yellow');
+    	});
+
+    	 $('ol').click(function(){
+    	 	$(this).children().first("li").css('font-weight','bold').css('color', 'yellow');
+    	});
+
+    	 // $('h3').click(function(){
+    	 // 	$('li').toggleClass('invisible');
+    	 // });
+
+    	$("dt").click(function(){
+    		$("dd").removeClass("invisible");
+    	});
+
+    	$("dd").click(function(){
+    		$(this).toggleClass("invisible");
+    	});
+	     
+	    $("#park-button").click(function(){
+	    	$("dd").toggleClass("invisible");
+	    });
+
+	});
+
+
+	// })();
+	</script>
+</body>
+</html>

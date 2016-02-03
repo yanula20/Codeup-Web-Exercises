@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Exercise</title>
+   	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
+   	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- order matters, most specific or important style sheet goes at the bottom-->
+	
+	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/calculator_js.css">
+	<!-- <link rel="stylesheet" type="text/javascript" href="/js/calculator_js.js"> -->
+
+</head>
+<body>
+	
+	<div id="calculator_wrapper">
+		<div id="operands">
+			<input id="first-operand" type="number"></input>
+			<input id="operator" type="text"></input>
+			<input id="second-operand" type="number"></input>
+			<input id="answer" type="number"></input>
+		</div>
+		<div class="calc_row" id="row1">
+			<button class="calc-button" id="clear">Clear</button>
+			<button class="calc-button" id="backspace">Backspace??</button>
+			<button class="divBy100" id="percent" value="1/100">%</button>
+			<button class="button-operator" id="divide" value="/">/</button>
+		</div>
+
+		<div class="calc_row" id="row2">
+			<button class="calc-button" id="seven" value="7">7</button>
+			<button class="calc-button" id="eight" value="8">8</button>
+			<button class="calc-button" id="nine" value="9">9</button>
+			<button class="button-operator"  id="multiply" value="*">x</button>
+		</div>
+
+		<div class="calc_row" id="row3" id="">
+			<button class="calc-button" id="four" value="4">4</button>
+			<button class="calc-button" id="five" value="5">5</button>
+			<button class="calc-button" id="six" value="6">6</button>
+			<button class="button-operator"  id="subtract" value="-">-</button>
+		</div>
+
+		<div class="calc_row" id="row4">
+			<button class="calc-button" id="one" value="1">1</button>
+			<button class="calc-button" id="two" value="2">2</button>
+			<button class="calc-button" id="three" value="3">3</button>
+			<button class="button-operator"  id="add" value="+">+</button>
+		</div>
+		<div class="calc_row" id="row5">
+			<button class="calc-button" id="zero" value="0">0</button>
+			<button class="calc-button" id="decimal">.</button>
+			<button class="button=" id="calculate">=</button>
+		</div>
+
+	</div> <!-- end calculator_wrapper -->
+	<script src="/js/jquery-1.12.0.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+	</script>
+	<!--personal javascript file must be below-->
+	<script type="text/javascript">
+	"use strict;"
+
+	/************** DOCUMENT SCOPE ***************/
+	$(document).ready(function() {
+    // alert( 'The DOM has finished loading!' );
+    var num = "";
+    var num2 = "";
+    var mathOperator = "";
+    var firstOperand = $("#first-operand").val(num);
+    var secondOperand = $("#second-operand").val(num2);
+    var solution = $("#answer").val();
+    var percentSolution = $("#answer").val();
+    var activeInput;
+    
+    
+    // var activeInput = $("#first-operand").val();
+
+    /*notes:
+    * $("#first-operand").val() or firstOperand can't use substring
+    * $("#first-operand").val(num) can't use substring
+    * $("#first-operand").val().length WORKS!!
+    * $("#backspace").click() on 1st and 2nd operand was backspacing
+    in both boxes; .click() is sticky and does not leave even with conditional statements. Solution:
+    * $("#first-operand").val(); in console.log "77"!
+	* $("#first-operand").val().length; 2 is output of console.log!
+    * $("#first-operand").val().slice(0,-1), CORRECT, removed "7" from "77"
+    * activeInput.slice(0,-1); syntax erro!
+    *
+    */
+ 	/**************  NUMERICAL BUTTONS ***************/
+
+	$(".calc-button").click(function(){
+		if ($("#operator").val() == "") {
+		num += this.value;                //num = num + this.value, if middle empty, use first
+		$("#first-operand").val(num); 
+		} else {
+			num2 +=this.value;             //num2 = num2 + this.value, if middle full, use third 
+			$("#second-operand").val(num2);
+		}
+	});
+   /**************  MATH OPERATIONS ***************/
+
+   $("button.button-operator").click(function(){  // plus, minus, div, multiply buttons
+   		if ($("#first-operand").val() == "") { // do nothing if first-operand is blank
+	    } else {
+		mathOperator = this.value;
+		$("input#operator").val(mathOperator); 
+		}
+	});
+    /************** CALCULATE BUTTON ***************/
+	$("#calculate").click(function(){
+		var firstOperand = $("#first-operand").val();
+		console.log(firstOperand);
+		var secondOperand = $("#second-operand").val();
+		console.log(secondOperand);
+		var operator = $("#operator").val();
+		console.log(operator);
+		var solution = eval(firstOperand+operator+secondOperand);
+		console.log(solution.toFixed(4));
+		$("#answer").val(solution.toFixed(4));
+	});
+    
+	 /************** PERCENTAGE BUTTON***************/
+     $(".divBy100").click(function(){
+   	if ($("#answer").val() <= 1 && $("#answer").val() != "") {     
+   		console.log("hey")
+   		percentSolution = $("#answer").val()*100;
+   		var parsed = percentSolution.toFixed(4);
+   		console.log(parsed);
+   		$("#answer").val(parsed);
+   	} else  {  // do nothing, if not less than to 1 AND not empty
+
+   	}
+   	
+
+   });
+    /************** CLEAR BUTTON***************/
+
+	$("#clear").click(function(){
+		num = "";
+		num2 = "";
+		mathOperator = "";
+		percentSolution = "";
+		solution = "";
+		percentSolution = "";
+
+		$("#first-operand").val(num); 
+		$("#second-operand").val(num2);
+		$("#operator").val(mathOperator);
+		$("#answer").val(solution);
+		$("#answer").val(percentSolution);
+	});
+	
+	/************** BACKSPACE *******************/
+
+		
+    
+
+    	$("#first-operand").click(function(){
+    		activeInput = $("#first-operand").val();
+    		console.log("test-box-1-green-focus");
+    		
+   
+    		if (activeInput = $("#first-operand").val()){
+    			 $("#backspace").click(function() {
+    			 	
+    		    	console.log("test1");
+				num = $("#first-operand").val().slice(0,-1);
+				$("#first-operand").val(num);
+		    });
+    		
+		 }	 
+	});	
+		
+
+    	$("#second-operand").click(function(){
+    		activeInput = $("#second-operand").val();
+    		console.log("test-box-2-green-focus");
+    		
+    		if (activeInput = $("#second-operand").val()){
+    			$("#backspace").click(function() {
+
+					console.log("test2");
+				num2 = $("#second-operand").val().slice(0,-1);
+				$("#second-operand").val(num2);
+		
+		 	});
+
+		 }	 
+	});	
+
+
+ 	/************** DECIMAL BUTTON ***************/
+	$("#decimal").click(function(){
+		
+	if (num == "") {
+		num = "0.";
+	$("#first-operand").val(num);
+	// num = "0."
+	} else if (num == "0.") {   //cant click . twice!
+		num = "0.";
+	$("#first-operand").val(num);
+	} else if ($("#first-operand").val() !== "" || $("#first-operand").val() == $("#first-operand").val() + ".") {   //not blank, ex. "7"
+	 	num = $("#first-operand").val() + "."; 
+	 	 console.log("don");
+	    $("#first-operand").val(num); 
+	     console.log("moore");         
+	 } 
+		 
+	});
+
+	});      //document ready
+  
+	 
+
+	
+	</script>
+</body>
+</html>

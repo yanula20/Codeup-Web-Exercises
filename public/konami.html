@@ -27,16 +27,16 @@
 	// (function(){
 	// "use strict;"
 
-	 var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 65, 66];
+	 
 
 	$(document).ready(function() {
     	alert( 'The DOM has finished loading!' );
      
     
+	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 65, 66, 13];
+    console.log(konamiArray);
 
-    
-
-    $('#textfield').keyup(function(e) {
+    $('#textfield').keyup(function() {
        
       
       console.log(konamiArray);
@@ -44,13 +44,13 @@
        		console.log('keep going');
        		konamiArray.shift();
 
-       		if (konamiArray.length == 0) {
+       		if (konamiArray.length = 13) {
        		console.log('You win!');
        		}
 
        	} else if (event.keyCode != konamiArray[0]) {
        	console.log('lose');
-       	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 65, 66];
+       	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 65, 66,13];
        	} 
    });
 });
