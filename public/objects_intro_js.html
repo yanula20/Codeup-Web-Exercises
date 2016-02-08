@@ -16,6 +16,27 @@ var person = {};
 person.firstName = "Don";
 person.lastName = "Moore";
 
+
+var car = {
+	   "make": "Chevy",
+	   "model": "Corvette",
+	   "years": [1999,1985,1967],
+	   "honk": function (){
+	   	   return "honk honk!"
+	   },
+	   "getMakeAndModel": function() {
+	   	return "The car is a " + this.make + " "+this.model;
+	   },
+	   "makeAndModel": function(){
+	     return "The car is a "+this.make+" "+this.model;
+	   },
+	   "getFirstYear": function (){
+	   	 var yearsInOrder = this.years.sort();
+	   	 return yearsInOrder[0];
+	   }
+}  
+
+
 // todo:
 // Add a say hello method to the person object that alerts hello using the firstName and lastName properties.
 person.sayHello = function(){

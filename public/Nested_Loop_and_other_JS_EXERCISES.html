@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Nested Loop Practice</title>
+    </head>
+
+    <body>
+        <h1>Nested For Loop Practice!</h1>
+        <p id="Practice">
+         Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+
+        1914 translation by H. Rackham
+
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+        </p>
+
+        <script>
+            // Use Strict
+            "use strict";
+            // TODO: Using only a nested for loop, output a string of numbers from 1-9
+            // Each line should show all previous numbers plus the next one
+            // Example:
+            // 1
+            // 12
+            // 123
+            // HINT: We haven't learned this yet, but the provided document.write() functions output to HTML
+            // I will provide them for you. You just figure out where to stick them in your loops!
+            // document.write("<br>") <-- New line
+            // document.write() <-- Don't forget to give it something to output
+            // Divider Line Between Exercises
+            var myArray = [];
+            for(i = 0; i <= 8; i++) {
+                myArray.push(i+1);
+                document.write(myArray+"<br>");
+            }
+
+            document.write("<br>");
+            document.write("<br>");
+            // TODO: Using a nested for loop, sort the values of this array from least to greatest
+            // Remember to print your sorted array either to the console log or HTML
+            // HINT: Unlike the first exercise, you will need a variable for this one
+            var numbers = [20,50,10,70,40,100,80,30,90,60];
+            //Divider Line Between Exercises
+            // numbers.sort(function(a,b){
+            //     return a - b;
+                
+            // });
+            //  document.write("Ascending order: "+numbers+"</br>");
+
+            //  numbers.sort(function(a,b){
+            //     return a - b;
+                
+            // }).reverse();
+            // document.write("Descending Order :"+numbers+"</br>");
+
+            // numbers.sort(function(a,b){
+            //     return b - a;
+                
+            // });
+            // document.write("Descending Order :"+numbers+"</br>");
+           
+
+
+
+            document.write("<br>");
+            document.write("<br>");
+            // TODO: Using nested for loops and your new knowledge of aligning output, create a multiplication table
+            // This table should go from 1-9 showing all combinations of products
+            // Note that this table will not look very nice due to no styling. What's important is the logic behind it!
+            // HINT: Don't forget how to output a blank space in HTML!
+            // Divider Line Between Exercises
+            document.write("<br>");
+            document.write("<br>");
+            // TODO: Using a nested for loop, output a pyramid of stars with 9 stars at its base
+            // Example:
+            //     *
+            //    ***
+            //   *****
+            //  *******
+            // *********
+            // HINT: You will need to find a way to account for spaces. It may help to draw it out...
+            // document.write("&nbsp;&nbsp;") <-- Produces 2 spaces in HTML
+            // document.write("*") <-- Prints an asterisk to the page
+           
+            //TO DO: Use a loop to add elements to an array
+            var donArray =[];
+            var i = 0;
+            // for(i = 0; i <= 5; i++) {
+            //     donArray[i] = i*2;
+            // }
+
+            // for(i = 0; i <= 5; i++) {
+            //     document.write(donArray[i]+" is index: "+i+"<br>");
+            // }
+           //******
+           for(i = 0; i <= 5; i++) {
+                donArray.push(i*2);
+                document.write(donArray+"<br>");
+            }
+
+            for(i = 0; i <= 5; i++) {
+                document.write(donArray.pop()+"<br>");
+            }
+            alert(donArray.length);//'0'
+            //pop returns whatever it removes
+           //*******
+           
+
+
+
+            //TO DO: Use a loop to show index of array memebers
+
+            //Search an array for members
+
+            //Search a string of paragraph for specific terms, log them
+
+            //Seach a string or paragraph and place them into an array
+        </script>
+    </body>
+</html>

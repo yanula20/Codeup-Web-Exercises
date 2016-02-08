@@ -25,9 +25,9 @@
 		</div>
 		<div class="calc_row" id="row1">
 			<button class="calc-button" id="clear">Clear</button>
-			<button class="calc-button" id="backspace">Backspace??</button>
 			<button class="divBy100" id="percent" value="1/100">%</button>
-			<button class="button-operator" id="divide" value="/">/</button>
+			<button class="button=" id="calculate">=</button>
+		
 		</div>
 
 		<div class="calc_row" id="row2">
@@ -48,12 +48,14 @@
 			<button class="calc-button" id="one" value="1">1</button>
 			<button class="calc-button" id="two" value="2">2</button>
 			<button class="calc-button" id="three" value="3">3</button>
-			<button class="button-operator"  id="add" value="+">+</button>
+			<button class="button-operator" id="divide" value="/">/</button>
+			
 		</div>
 		<div class="calc_row" id="row5">
 			<button class="calc-button" id="zero" value="0">0</button>
 			<button class="calc-button" id="decimal">.</button>
-			<button class="button=" id="calculate">=</button>
+			<button class="button-operator"  id="add" value="+">+</button>
+			
 		</div>
 
 	</div> <!-- end calculator_wrapper -->
@@ -74,7 +76,7 @@
     var secondOperand = $("#second-operand").val(num2);
     var solution = $("#answer").val();
     var percentSolution = $("#answer").val();
-    var activeInput;
+    var activeInput = $("#first-operand");
     
     
     // var activeInput = $("#first-operand").val();
@@ -155,43 +157,10 @@
 		$("#answer").val(percentSolution);
 	});
 	
-	/************** BACKSPACE *******************/
-
-		
-    
-
-    	$("#first-operand").click(function(){
-    		activeInput = $("#first-operand").val();
-    		console.log("test-box-1-green-focus");
+	
+	
     		
-   
-    		if (activeInput = $("#first-operand").val()){
-    			 $("#backspace").click(function() {
-    			 	
-    		    	console.log("test1");
-				num = $("#first-operand").val().slice(0,-1);
-				$("#first-operand").val(num);
-		    });
-    		
-		 }	 
-	});	
-		
-
-    	$("#second-operand").click(function(){
-    		activeInput = $("#second-operand").val();
-    		console.log("test-box-2-green-focus");
-    		
-    		if (activeInput = $("#second-operand").val()){
-    			$("#backspace").click(function() {
-
-					console.log("test2");
-				num2 = $("#second-operand").val().slice(0,-1);
-				$("#second-operand").val(num2);
-		
-		 	});
-
-		 }	 
-	});	
+		  
 
 
  	/************** DECIMAL BUTTON ***************/

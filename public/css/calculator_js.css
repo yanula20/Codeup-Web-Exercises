@@ -48,10 +48,10 @@
 	width: 200px;
 	
 }
-
+/*
 #calculate {
 	width: 70px;
-}
+}*/
 
 input#answer {
 width: 100px;
@@ -79,7 +79,7 @@ color: red;
 button.button-operator,
 #calculate {
 	height: 50px;
-	width: 200px;
+	width: 190px;
 	background-color: black;
 	color: yellow;
 }

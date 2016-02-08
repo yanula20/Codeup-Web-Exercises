@@ -26,31 +26,37 @@
 	<script type="text/javascript">
 	// (function(){
 	// "use strict;"
-
-	 
-
+	var event;
+	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39,65, 66];
+	var firstKey = konamiArray[0];
 	$(document).ready(function() {
     	alert( 'The DOM has finished loading!' );
-     
-    
-	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 65, 66, 13];
+ 
+	
     console.log(konamiArray);
 
-    $('#textfield').keyup(function() {
-       
-      
-      console.log(konamiArray);
-       if (event.keyCode == konamiArray[0]) {
-       		console.log('keep going');
-       		konamiArray.shift();
+    $('#textfield').keyup(function(event) {
+    	 event = event.keyCode;
+    	 firstKey = (konamiArray[0]);
 
-       		if (konamiArray.length = 13) {
+    	 konamiArray = [38, 38, 40, 40, 37, 39, 37, 39,66, 65];
+    	 konamiArray.shift();
+   	    
+       if (event == firstKey) {
+
+       		
+       		console.log(konamiArray);
+       		console.log('keep going');
+       		
+       		
+       	    
+       		if (konamiArray.length = 0) {
        		console.log('You win!');
        		}
 
-       	} else if (event.keyCode != konamiArray[0]) {
+       	} else if (event != firstKey) {
        	console.log('lose');
-       	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 65, 66,13];
+       	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
        	} 
    });
 });

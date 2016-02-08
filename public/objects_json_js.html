@@ -95,7 +95,35 @@
   	
   });
 
+
+  	 var arrayofObjects = [{
+ 		"title": "Infinte Jest",
+ 		"author": {
+ 			"FirstName": "David",
+ 			"MiddleName": "Foster",
+ 			"LastName": "Wallace"
+ 		}
+ 	},
+ 	{
+ 		"title": "Javascript the Good Parts",
+ 		"author": {
+ 			"FirstName": "Doug",
+ 			"MiddleName": "none",
+ 			"LastName": "Crockford"
+ 		}
+ 	}];
+
+   arrayofObjects.forEach(function (element,index,array){
+   	console.log("Book number "+(index+1)+" is "+element.title+"The author is "+element.author.FirstName+" "+element.author.LastName);
+   
+
+   });
+
+  
+
   })();
+
+ 
 					
 			
     </script>

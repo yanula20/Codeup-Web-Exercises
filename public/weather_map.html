@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Map JQuery Exercise</title>
+   	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
+   	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- order matters, most specific or important style sheet goes at the bottom-->
+	
+	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+	<style type="text/css">
+	#map-canvas {
+        width: 770px;
+        height: 481px;
+    }
+
+	#container {
+		margin: 0 auto;
+		width: 770px;
+		
+		background-color: lightblue;
+	}
+	.weather_box {
+		background-color: lightgray;
+		height: 300px;
+		width: 240px;
+		border: 1px solid black;
+	}
+
+	#three_boxes {
+
+		font-size: 15px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	#three_boxes p {
+		text-align: center;
+	}
+	#weather_header {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	</style>
+</head>
+<body>
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJMMD6k9NVgkv5xDAcIaENzanI8psOI44"></script>
+	<div id ="container">
+		<header id="weather_header">
+			<h2>Weather Application</h2>
+			<h1>San Antonio</h1>
+		</header>
+		<div>
+
+		<div id="three_boxes">
+			<div class="weather_box" id="day1">
+
+			</div>
+			<div class="weather_box" id="day2">
+
+			</div>
+			<div class="weather_box" id="day3">
+
+			</div>
+	    </div>
+	    <br>
+	    <div id="coordinates">
+	    <form>
+	    	<label for="lat">Latitude:</label>
+				<input id="lat" type="text" name="latitude" value="">
+			<label for="long">Longitude:</label>
+				<input id="lon" type="text" name="longitude" value="">
+			<button id="coord_submit" type="button" value="">Submit</button>
+		</form>
+	    </div>
+	    <div id="map-canvas"></div>
+
+
+	<script src="/js/jquery-1.12.0.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+	</script>
+	<!--personal javascript external file must be below-->
+	<script type="text/javascript">
+	// (function(){
+	"use strict";
+	
+	
+	
+	$(document).ready(function() {
+
+  $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+    	APPID: "c28ab8ca9477e8bf88571ee9fc63967a",
+    	q:  "San Antonio, TX",
+    	lat:    29.423017,
+		lon:   -98.48527,
+		cnt:    "3",
+		units: "imperial"
+
+		}) //end 
+    	.done(function(data){
+			console.log("Weather Data Returned!");
+	    	console.log(data);
+
+	    
+	    	data.list.forEach(function(element,i, array) {
+	    		console.log("#day" + (i+1));
+	    		$("#day" + (i+1)).append("<p><img src='http://openweathermap.org/img/w/"+element.weather[0].icon+".png'></p><br><p>"+element.weather[0].description+"</p><br><p>"+"Location: "+data.city.name+"</p><br><p>"+"Humidity: "+element.humidity+"</p><br><p>"+"Temperature: "+element.temp.day+"</p>");
+
+	    	}); //end  forEach
+
+		}); //end ajax
+			
+
+   	var results;
+	var latitude = $("#lat").val(); //$("#lat").value
+	var longitude = $("#lon").val();
+
+	var box1 = $("#day1");
+	var box2 = $("#day2");
+	var box3 = $("#day3");
+	
+	
+	$("#coord_submit").click(function(){
+		var latitude = $("#lat").val();
+		 var longitude = $("#lon").val();
+		
+			function getWeather (latitude,longitude) {
+			var location = latitude+","+longitude;
+            console.log(location+"don");
+				
+			return location;
+
+					
+		var geocoder = new google.maps.Geocoder ();//object that sends req to google
+
+	// function handles the data that comes back from the google service. Handle the results and its status
+	  geocoder.geocode({'location': location }, function(results, status) {
+	    /*geocode is the method for the geocoder obj, this is from google
+	    and its parameters are results and status*/
+	   // Check for a successful result. this is call back function
+	   //address is a key, var address is global
+	   if (status == google.maps.GeocoderStatus.OK) {
+	        //status is 1 of 2 parameters/arguments of geocodemthode
+	       // Recenter the map over the address
+
+	       // map.setCenter(results[0].geometry.location);
+	       // map.panTo(results[0].geometry.location);
+	    //geometry is key and location is value
+
+	       var marker = new google.maps.Marker ({
+	        "position": map.setCenter(results[0].geometry.location),
+	        "map": map,
+
+
+	       });
+
+
+	        // Create a new infoWindow object with content
+                var infowindow = new google.maps.InfoWindow({
+                    content: "<h6>Changing the world, one programmer at a time.</h6>"
+                });
+
+                // Open the window using our map and marker
+                marker.addListener('mouseover', function(){
+                    infowindow.open(map, marker);
+                });
+                
+
+           } else {
+
+               // Show an error message with the status if our request fails
+               alert("Geocoding was not successful - STATUS: " + status);
+           }
+
+	   		}); //end geocoder
+		}; //end get weather
+		getWeather();
+	}); //end click submit
+	alert( 'The DOM has finished loading!' );
+        
+         /**********************************/
+        // Set our map options
+        var mapOptions = {
+            // Set the zoom level
+            zoom: 10,
+
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.4284595,
+                lng: -98.492433
+            },
+            mapTypeId: google.maps.MapTypeId.HYBRID
+            // MapTypeId.ROADMAP — default road map view. This is the default map type.
+            // MapTypeId.SATELLITE — Google Earth satellite images
+            // MapTypeId.HYBRID — mixture of roadmap and satellite views
+            // MapTypeId.TERRAIN — physical map based on terrain information.
+        };
+
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);//grab the map-canvas div
+        console.log("Map was intialized successfully.");
+
+        }); //end document scope
+
+
+	// })();   //end IFFE
+	</script>
+</body>
+</html>
