@@ -70,16 +70,14 @@ color: red;
 	justify-content: space-between;
 }
 
-
 /*----------------------------------------*\
   CALCULATOR BUTTONS ---> button.calc-button
 \*-----------------------------------------*/
 
-
 .button-operator,
 #calculate {
 	height: 50px;
-	width: 190px;
+	width: 50px;
 	background-color: black;
 	color: yellow;
 }
@@ -90,17 +88,11 @@ button.calc-button,
 #clear,
 #decimal  {
 	height: 50px;
-	width: 750px;
+	width: 300px;
 	background-color: lightblue;
 	color: black;
-
 }
 
 #calculate {
 	background-color: red;
 }
-
-
-
-
-
