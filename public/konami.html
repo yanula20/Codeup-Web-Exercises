@@ -1,70 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komani Code</title>
-   	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
-   	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<!-- order matters, most specific or important style sheet goes at the bottom-->
-	
-	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komani Code</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- order matters, most specific or important style sheet goes at the bottom-->
+
+  <link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 
-	 <p>Please type something into this form:<p/>
+  <p>Please type something into this form:<p/>
     <form>
-        <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
+      <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
     </form>
 
 
-	<script src="/js/jquery-1.12.0.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
-	</script>
-	<!--personal javascript file must be below-->
-	<script type="text/javascript">
+    <script src="/js/jquery-1.12.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+    </script>
+    <!--personal javascript file must be below-->
+    <script type="text/javascript">
 	// (function(){
 	// "use strict;"
-	var event;
-	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39,65, 66];
-	var firstKey = konamiArray[0];
-	$(document).ready(function() {
-    	alert( 'The DOM has finished loading!' );
- 
-	
-    console.log(konamiArray);
-
+  // $(document).ready(function() {
+    alert( 'The DOM has finished loading!' );
+    document.getElementById("textfield").innerHTML = "";
+    var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39,65, 66];
+    
     $('#textfield').keyup(function(event) {
-    	 event = event.keyCode;
-    	 firstKey = (konamiArray[0]);
+      var firstKey = konamiArray[0];
+      var keyCode = event.keyCode;
+     
+      if (keyCode == firstKey) {
+         console.log(firstKey);
+         konamiArray.shift();
+         console.log(konamiArray);
 
-    	 konamiArray = [38, 38, 40, 40, 37, 39, 37, 39,66, 65];
-    	 konamiArray.shift();
-   	    
-       if (event == firstKey) {
+            
+           if (Number(konamiArray.length) == Number(0)) {
+             alert('You win!');
+               }
 
-       		
-       		console.log(konamiArray);
-       		console.log('keep going');
-       		
-       		
-       	    
-       		if (konamiArray.length = 0) {
-       		console.log('You win!');
-       		}
+     } else if (Number(keyCode) != Number(firstKey)) {
+      alert('lose');
+      konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    } 
+  });
+  // });
 
-       	} else if (event != firstKey) {
-       	console.log('lose');
-       	var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-       	} 
-   });
-});
-
-
+/*
+* Be careful. Can't compare []==[]. Convert to string.
+* Number() seems to work better in the comparisons.
+*
+*
+/
 
 // });
 
-	</script>
+</script>
 </body>
 </html>

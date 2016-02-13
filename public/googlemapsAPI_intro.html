@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GOOGLE Maps practice</title>
+</head>
+<body>
+  
+    <script>
+        
+// Set our address to geocode
+var address = "300 Alamo Plaza, San Antonio, TX, 78205";
+
+// Init geocoder object
+var donFind = new google.maps.Geocoder();
+
+// Geocode our address
+donFind.geocode({ "address": address }, function(results, status) {
+
+   // Check for a successful result
+   if (status == google.maps.GeocoderStatus.OK) {
+
+       // Recenter the map over the address
+       map.setCenter(results[0].geometry.location);
+   } else {
+
+   	// Create lat and long for our marker position
+	var codeup = { lat: 29.428459, lng: -98.492433 };
+
+	// Add the marker to our existing map
+	var marker = new google.maps.Marker({
+    position: codeup,
+    map: map
+	});
+
+   	var donWindow = new.google.maps.INfoWindow({
+   		content: "<h1>Here is the Codeup location!!</h1>"
+   	})
+
+   	donWindow.open(map, marker);
+
+       // Show an error message with the status if our request fails
+       alert("Geocoding was not successful - STATUS: " + status);
+   }
+});
+
+var geocoder = new google.maps.Geocoder(); //same as donFind
+
+var addressLookup = new.google.maps.Geocoder();
+var address = "8019 Manderly Place Converse TX 78109";
+
+addressLookup.geocode({address:address}, function(results,status){ 
+if(status == google.maps.GeocoderStatus.OK) {
+	console.log(results);
+
+	map.setCenter(results[0].geometry.location);
+
+	var codeup = { lat: 29.428459, lng: -98.492433 };
+
+	var marker = new google.maps.Marker({
+	    position: codeup,
+	    map: results[0].geometry.location;
+	});
+ }
+
+});
+
+    </script>
+</body>
+</html>
+

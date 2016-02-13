@@ -90,8 +90,9 @@
      // alert($("#paragraph").html());	
 
      // alert($("#lamp_stack").html());
+     $("ol li, h1").append(" I should learn Korean");
 
-     $("h4").css("background-color","green");
+     $("h4").append(" Anna is mean").css("background-color","green");
 
      $("dl > dt").css("color", "red");
 
@@ -102,7 +103,7 @@
      $("h1,p,li").css("color","yellow");
 
  	
-     $('h1').click(function() {
+     $('h1').addClass("donny").click(function() {
                 $('h1').css('background-color', 'red');
             });
 
@@ -129,6 +130,20 @@
 	//    	console.log(e.keyCode); // this value
 	// });
     
+    // clearing out attributes for inline styling
+    // var paragraphs = $('.paras');
+
+    // paragraphs.css({
+    // 	'font-size': "15px"
+    // 	'background-color': "red"
+    // })
+
+    //  var paragraphs = $('.paras');
+
+    // paragraphs.css({
+    // 	'font-size': ""
+    // 	'background-color': ""
+    // })
 
 	});
 

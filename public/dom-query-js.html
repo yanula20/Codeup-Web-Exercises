@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+    <h1 id="main-header">Hello World!</h1>
+    <ul>
+        <li data-dbid="1">Item 1</li>
+        <li data-dbid="2">Item 2</li>
+        <li data-dbid="3">Item 3</li>
+        <li data-dbid="4">Item 4</li>
+        <li data-dbid="5">Item 5</li>
+    </ul>
+    <h2 id="sub-header">Hello Again.</h2>
+    <p class="sub-paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <form name="login">
+        <div>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" value="Password is Practice Exercise">
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+    <br>
+    <button id="btn1" value="1">Main Header: HW JSisCool</button>
+
+     <br>
+    <button id="btn2" value="2">SubHeader: HA</button>
+     <br>
+    <button id="btn3" value="3">Lists</button>
+     <br>
+    <button id="btn4" value="4">Sub Paragraphs</button>
+    <script>
+        "use strict";
+        (function() {
+
+            //notes:
+            //EVEN THOUGH THERE IS ONE SUB-PARAGRAPH, when you use document.getElementsByClass or document.getElementsByTag, JS puts your results into an array. YOU MUST USE [0], even though there is only one element returning. USE A FOR LOOP, if there are more than one tag elements or class elements. If statments (within the for loop, and generic [i]) will likely follow to idetify the element that meets the condition.
+
+            //var heading = document.getElementById("heading-1");
+            //document.getElementsbyClassName or TagName (always a for loop)
+            //.innerText and .innerHtml
+            //  mainHeading.innerHTML = "Hello Codeup!";
+
+            //console.log(mainHeading.innerHTML); /
+            // .style
+            //get,set, has remove attribute
+            // heading.innerText = "<em>Hello Ike</em>"
+            // var oddParas = document.
+            // .html() = ""; reset page
+            // for (var i =0; i < oddParras.length; i++) {
+            // console.log(oddParas[i].innerText);
+            // }
+            // console.log(oddParas[i].getAttribute("data-counter");
+            // oddParas[i].style["text-align"]="right";
+
+            //}
+            // document.forms.signup_form.first_name.value 
+            // document.getElementById("first-name").value
+            // document.getElementById("first-name").value
+            // document.getElementsByTagName('body')[0].style.backgroundColor = 'blue'
+            // WITHIN IN THE EVENT LISTENER FUNCTION event.target.value
+            // 'this' inside the event listener function describes the target
+
+
+
+            // TODO: Uncomment next line and get the main header element by id
+           
+            // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+
+            var buttons = document.getElementsByTagName('button');
+            
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].style.backgroundColor = 'lightblue';
+
+            }
+
+             var mainHeader = document.getElementById("main-header");
+
+            function mainHeaderListener () {
+                
+           console.log(mainHeader.innerText);//"Hello World!"
+            mainHeader.innerText = "JavaScript is Cool";
+            console.log(event); //click
+           
+            };
+            
+            var btn1_MainHeader = document.getElementById("btn1");
+            
+            btn1_MainHeader.addEventListener('click',mainHeaderListener,false);
+
+            
+
+            // TODO: Uncomment the next line and get the sub header element by id
+            //"Hello Again"
+
+            // TODO: Set the text color of subHeader to blue
+           
+            var subHeader = document.getElementById("sub-header");
+            function subHeaderEventLister () {
+            console.log(subHeader.innerText);
+            subHeader.style.color = "blue";
+
+            }
+
+            var btn2_subHeader = document.getElementById("btn2");
+            btn2_subHeader.addEventListener('click',subHeaderEventLister,false);
+
+            //color above refers to text color!!
+            // TODO: Uncomment the next line and get all list items
+            var listItems = document.getElementsByTagName("li");
+            // .html() = ""; reset page
+    
+
+            // TODO: Set text color on every other list item to grey
+
+            function changeListItemsListener () {
+            for (var i = 0; i < listItems.length; i++) {
+                
+                if ((i+1)%2 == 0) { //when index is odd, target even (by length) elements
+                    listItems[i].style.color = "grey";
+                }
+
+            }
+            // TODO: Set text color of li with dbid = 1 to blue
+            for (var i = 0; i < listItems.length; i++) {
+                  var getAlldbid = listItems[i].getAttribute('data-dbid');
+
+                if (getAlldbid == "1"){ // li one, i = 0;
+                    listItems[i].style.color = "blue";
+                } else if ((i !== 0 && i%2 == 0)){ // odd li's except one, when index is even or 0, i can target odd positions (by length)
+                    listItems[i].style.color = "salmon"
+                    listItems[i].style['font-size'] = "25px";
+
+                }
+            }
+
+            } // end listener
+            var btn3_lists = document.getElementById("btn3");
+            btn3_lists.addEventListener('click',changeListItemsListener,false);
+
+
+
+            // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+            var subParagraphs = document.getElementsByClassName("sub-paragraph");
+
+            function changeSubParaListener () {
+                // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+            subParagraphs[0].innerHTML = "Mission Accomplished!"
+            console.log(subParagraphs[0].innerHTML);
+            }
+
+
+
+            var btn4_subparagraph = document.getElementById("btn4");
+            btn4_subparagraph.addEventListener('click',changeSubParaListener,false);
+
+            var userPasswordInput = document.forms.login.password;
+
+            console.log(userPasswordInput.value);
+            //forms, anchors, and images are collections that can be accessed directly: example,document.forms.login.passoword;
+
+
+        })();
+    </script>
+</body>
+</html>

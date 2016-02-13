@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator 2 Exercise JS</title>
+   	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
+   	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- order matters, most specific or important style sheet goes at the bottom-->
+	
+	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/calculator2_JS.css">
+	<!-- <link rel="stylesheet" type="text/javascript" href="/js/calculator_js.js"> -->
+</head>
+<body>
+	
+	<div id="calculator_wrapper">
+		<div id="operands">
+			<input id="first-operand" type="number"/>
+			<input id="operator" type="text" />
+			<input id="second-operand" type="number"/>
+			<input id="answer" type="number"/>
+		</div>
+		<div class="calc_row" id="row1">
+			<button class="calc-button" id="clear">Clear</button>
+			<button class="divBy100" id="percent" value="1/100">%</button>
+			<button id="backspace" >Backspace</button>
+			<button class="button=" id="calculate">=</button>
+		</div>
+
+		<div class="calc_row" id="row2">
+			<button class="calc-button" id="seven" value="7">7</button>
+			<button class="calc-button" id="eight" value="8">8</button>
+			<button class="calc-button" id="nine" value="9">9</button>
+			<button class="button-operator"  id="multiply" value="*">x</button>
+		</div>
+
+		<div class="calc_row" id="row3" id="">
+			<button class="calc-button" id="four" value="4">4</button>
+			<button class="calc-button" id="five" value="5">5</button>
+			<button class="calc-button" id="six" value="6">6</button>
+			<button class="button-operator"  id="subtract" value="-">-</button>
+		</div>
+
+		<div class="calc_row" id="row4">
+			<button class="calc-button" id="one" value="1">1</button>
+			<button class="calc-button" id="two" value="2">2</button>
+			<button class="calc-button" id="three" value="3">3</button>
+			<button class="button-operator" id="divide" value="/">/</button>
+			
+		</div>
+		<div class="calc_row" id="row5">
+			<button class="calc-button" id="zero" value="0">0</button>
+			<button class="calc-button" id="decimal">.</button>
+			<button class="button-operator"  id="add" value="+">+</button>
+			
+		</div>
+
+	</div> <!-- end calculator_wrapper -->
+	<script src="/js/jquery-1.12.0.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+	</script>
+	<!--personal javascript file must be below-->
+	<script type="text/javascript">
+	"use strict;"
+
+	/************** DOCUMENT SCOPE ***************/
+	$(document).ready(function() {
+    // alert( 'The DOM has finished loading!' );
+    var secondOperand = document.getElementById('second-operand');
+    var firstOperand = document.getElementById('first-operand');
+    var solution = document.getElementById('answer'); //last box
+    var mathOperator = document.getElementById('operator'); //operator space
+    var numberButtons = document.getElementsByClassName('calc-button');
+    var signOperatorButtons = document.getElementsByClassName("button-operator");
+    var clearButton = document.getElementById('clear');
+    var backSpaceButton = document.getElementById('backspace');
+
+    var calculateButton = document.getElementById('calculate');
+    var decimalButton = document.getElementById('decimal');
+    var percentage = document.getElementById("percent");
+
+    var activeInput = firstOperand;
+   
+ 	/**************  NUMERICAL BUTTONS *********************************/
+ 	for (i = 0; i < numberButtons.length; i++){
+ 		numberButtons[i].addEventListener('click',function(){
+ 			solution.value = "";
+ 			activeInput.value = activeInput.value + this.value;
+ 			console.log(this.value);
+ 			console.log(event);
+ 		}); //numberButtons
+ 	} //end for
+   /**************  MATH OPERATIONS ***************/
+    for (i = 0; i < signOperatorButtons.length; i++) {
+   	signOperatorButtons[i].addEventListener('click',function(){
+   		if (activeInput.value == ""){
+   			//do nothing
+   		} else if (activeInput.value != ""){
+   			console.log(this.value+" Don")
+   			mathOperator.value = this.value;
+   			activeInput = secondOperand;
+   		}
+   	 }); //end listener
+   }
+    /************** CALCULATE BUTTON ***************/
+    calculateButton.addEventListener('click',function(){
+    	function clearOperands () {
+    		mathOperator.value = ""; 
+    		secondOperand.value = "";
+    		firstOperand.value = "";
+    		activeInput = firstOperand;
+    	}
+    switch (mathOperator.value) { //which sign am i?
+    case "+":
+        console.log("Addition");
+        solution.value = (Number(firstOperand.value) + Number(secondOperand.value)).toFixed(3);
+        clearOperands();
+        break;
+    case "-":
+        console.log("Subtraction");
+        solution.value = (Number(firstOperand.value) - Number(secondOperand.value)).toFixed(3);
+         clearOperands();
+        break;
+    case "*":
+        console.log("Multiplication");
+        solution.value = (Number(firstOperand.value) * Number(secondOperand.value)).toFixed(3);
+         clearOperands();
+        break;
+    case "/":
+        console.log("Division");
+        solution.value = (Number(firstOperand.value) / Number(secondOperand.value)).toFixed(3);
+        break;
+         clearOperands();
+    default:
+        console.log("That is not a mathematical operation.");
+
+} //end if
+});
+	 /************** PERCENTAGE BUTTON***************/
+	 percentage.addEventListener('click',function(){
+	 	if (solution.value <= 1 && solution.value >= 0) {
+	 		solution.value = Number(solution.value*100);
+	 	} else{
+
+	 	}
+	 	//do nothing
+	 });
+    /************** CLEAR BUTTON***************/
+    clearButton.addEventListener('click',function(){
+    	secondOperand.value = ""
+		firstOperand.value = "";
+		mathOperator.value = "";
+		solution.value = "";
+		activeInput = firstOperand;
+    });
+ 	/************** DECIMAL BUTTON **************/
+
+decimalButton.addEventListener('click', function(){
+ 		switch (activeInput.value) { //what is my firstOperand.value, "",0,7,7.?
+    case '':
+        console.log("blank");
+        activeInput.value = "0."
+        break;
+   	case "0":
+    	console.log("zero");
+        activeInput.value = "0."
+        break;
+    
+    default:
+    	 if (activeInput.value.indexOf(".") != -1) {
+        console.log("decimal already exists");
+        activeInput.value = activeInput.value; // keep value, do nothing
+   		} else if (activeInput.value != "") {
+        console.log("not blank");
+        activeInput.value = activeInput.value + ".";
+        }
+     } //end switch
+     }); //end eventlistener
+/****************************BACKSPACE BUTTON*****************/
+backSpaceButton.addEventListener('click',function(){
+	if (activeInput) {
+		activeInput.value = activeInput.value.slice(0,-1);
+	} else 
+	   secondOperand.value = secondOperand.value.slice(0,-1);
+
+  }); //backspace
+
+});   //document ready
+	
+	</script>
+</body>
+</html>

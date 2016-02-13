@@ -923,7 +923,7 @@ var report =
 },     //end avg age
 
 "genderCount" : function () {
-      f = 0;
+     
       var females = 0;
       var males = 0;
       var femaleCount = 0;
@@ -1053,7 +1053,21 @@ console.log(report);
   
     return ["The Active users\' balance: "+trueUserTotal.toFixed(3)+"   The inActive users\' balance: "+falseUserTotal.toFixed(3)];
 
-} // end balancesCompare
+}, // end balancesCompare
+
+"namesAlphabetic" : function () {
+
+var userNames = [];
+arrayOfProfiles.forEach(function(element,index,array){
+  
+userNames.unshift(element.name); //local var
+userNames.sort();
+ 
+  }); //end arrayOfProfiles
+return userNames;
+  
+}, //end namesAlphabetic
+
 
 } // end of report
 
@@ -1065,8 +1079,9 @@ document.write("The average age of all users is: " + report.avgAgeUsers()+"</br>
 document.write(report.genderCount()+"</br>");
 document.write("Here is the list of companies: "+"</br>"+report.listOfCompanies());
 document.write(report.popEyeColor()+"</br>");
-document.write(report.compareBalances());
-document.write(report.balancesCompare());
+document.write(report.compareBalances()+"</br>");
+document.write(report.balancesCompare()+"</br>");
+document.write(report.namesAlphabetic()+"</br>");
 
 // });
 </script>

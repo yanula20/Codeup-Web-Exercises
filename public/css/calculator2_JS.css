@@ -17,6 +17,7 @@
 	width: 600px;
 	border: 1px solid black;
 	border-radius: 5px;
+	box-shadow:40px 40px 50px 20px black;
 }
 
 /*-------------------*\
@@ -43,15 +44,10 @@
 	background-color: white;
 }
 
-
 #second-operand {
 	width: 200px;
 	
 }
-/*
-#calculate {
-	width: 70px;
-}*/
 
 input#answer {
 width: 100px;
@@ -74,9 +70,25 @@ color: red;
 /*----------------------------------------*\
   CALCULATOR BUTTONS ---> button.calc-button
 \*-----------------------------------------*/
+#calculate:hover {
+    color: yellow;
+    background-color: red;
+    font-size: 25px;
+}
 
+button.button-operator,
+{
+	background-color: black;
+	color: yellow;
+}
+button.button-operator:hover
+{
+	background-color: yellow;
+	color: black;
+	font-size: 25px;
+}
 
-.button-operator,
+button.button-operator,
 #calculate {
 	height: 50px;
 	width: 190px;
@@ -84,23 +96,24 @@ color: red;
 	color: yellow;
 }
 
+button.calc-button:hover,
+.divBy100:hover,
+#backspace:hover {
+    background-color: yellow;
+    color: black;
+    font-size: 25px;
+
+}
+
 button.calc-button,
 .divBy100,
-#backspace,
-#clear,
-#decimal  {
+#backspace {
 	height: 50px;
 	width: 750px;
-	background-color: lightblue;
-	color: black;
+	background-color: gray;
+	color: yellow;
 
 }
-
-#calculate {
-	background-color: red;
-}
-
-
 
 
 

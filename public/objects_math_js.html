@@ -17,19 +17,22 @@ var circle = {
         return result; // todo: return data
     },
     logInfo: function (round) {
-        // todo: complete this method. if round is true, round the result to the nearest integer.
+        // todo: If round ternary is true, return the rounded radius. If not, return the radius as is (with all the decimal places).
        
         (round)?console.log("The rounded area of the circle with a radius of " + this.radius + ", is: " +Math.round(this.getArea())):console.log("The decimal area of the circle with a radius of " + this.radius + ", is: " +this.getArea());
     }  
 } 
-
-// };
+// circle.getArea() or this this.getArea();
+// circle.logInfo();
+// // };
 // log info about the circle
 circle.logInfo(false);
 circle.logInfo(true);
 
+
 // todo:
-// Change the radius of the circle to 5.
+// Change the radius of the circle to 10.
+circle.radius = 10;
 
 // log info about the circle
 circle.logInfo(false);

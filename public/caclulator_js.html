@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/calculator_js.css">
 	<!-- <link rel="stylesheet" type="text/javascript" href="/js/calculator_js.js"> -->
-
 </head>
 <body>
 	
@@ -24,8 +24,9 @@
 			<input id="answer" type="number"></input>
 		</div>
 		<div class="calc_row" id="row1">
-			<button class="calc-button" id="clear">Clear</button>
+			<button id="clear">Clear</button>
 			<button class="divBy100" id="percent" value="1/100">%</button>
+			<button id="backspace" >Backspace</button>
 			<button class="button=" id="calculate">=</button>
 		
 		</div>
@@ -53,7 +54,7 @@
 		</div>
 		<div class="calc_row" id="row5">
 			<button class="calc-button" id="zero" value="0">0</button>
-			<button class="calc-button" id="decimal">.</button>
+			<button  id="decimal">.</button>
 			<button class="button-operator"  id="add" value="+">+</button>
 			
 		</div>
@@ -65,127 +66,134 @@
 	<!--personal javascript file must be below-->
 	<script type="text/javascript">
 	"use strict;"
-
-	/************** DOCUMENT SCOPE ***************/
 	$(document).ready(function() {
     // alert( 'The DOM has finished loading!' );
+    // DOs assign, activeInput.val(num),activeInput.val() ==, compare
+    //DON'T equate, ex. activeInput.val() =
     var num = "";
-    var num2 = "";
-    var mathOperator = "";
-    var firstOperand = $("#first-operand").val(num);
-    var secondOperand = $("#second-operand").val(num2);
-    var solution = $("#answer").val();
-    var percentSolution = $("#answer").val();
+    var clear = ""
+    var mathOperator = $("#operator").val(clear);
+    var solution = $("#answer").val(clear);
+    var percentSolution = $("#answer").val(clear);
     var activeInput = $("#first-operand");
-    
-    
-    // var activeInput = $("#first-operand").val();
-
-    /*notes:
-    * $("#first-operand").val() or firstOperand can't use substring
-    * $("#first-operand").val(num) can't use substring
-    * $("#first-operand").val().length WORKS!!
-    * $("#backspace").click() on 1st and 2nd operand was backspacing
-    in both boxes; .click() is sticky and does not leave even with conditional statements. Solution:
-    * $("#first-operand").val(); in console.log "77"!
-	* $("#first-operand").val().length; 2 is output of console.log!
-    * $("#first-operand").val().slice(0,-1), CORRECT, removed "7" from "77"
-    * activeInput.slice(0,-1); syntax erro!
-    *
-    */
  	/**************  NUMERICAL BUTTONS ***************/
-
 	$(".calc-button").click(function(){
-		if ($("#operator").val() == "") {
-		num += this.value;                //num = num + this.value, if middle empty, use first
-		$("#first-operand").val(num); 
-		} else {
-			num2 +=this.value;             //num2 = num2 + this.value, if middle full, use third 
-			$("#second-operand").val(num2);
-		}
+		num = num + this.value;
+		console.log(num);
+		activeInput.val(num);
+		$("#answer").val(clear);
 	});
-   /**************  MATH OPERATIONS ***************/
+    /**************  MATH OPERATIONS ***************/
+    $(".button-operator").click(function(){  // plus, minus, div, multiply buttons
+		
+		if (activeInput.val() == ""){  //do nothing, even after, calculation
+			 console.log("empty first operand");
+		} else {
+			$("input#operator").val(this.value); //can still change, with 1stbox != ""
+			activeInput = $("#second-operand");
+			num = "";
+			console.log(num);
+			console.log("operator, now second operand is active");
 
-   $("button.button-operator").click(function(){  // plus, minus, div, multiply buttons
-   		if ($("#first-operand").val() == "") { // do nothing if first-operand is blank
-	    } else {
-		mathOperator = this.value;
-		$("input#operator").val(mathOperator); 
+
 		}
 	});
     /************** CALCULATE BUTTON ***************/
+    function clearAfterEqual(){
+    	$("#first-operand").val(clear);
+		$("input#operator").val(clear);
+    	$("#second-operand").val(clear);
+    	activeInput = $("#first-operand");
+    	num=""
+    	activeInput.val(num);
+    }; 
+
 	$("#calculate").click(function(){
-		var firstOperand = $("#first-operand").val();
-		console.log(firstOperand);
-		var secondOperand = $("#second-operand").val();
-		console.log(secondOperand);
-		var operator = $("#operator").val();
-		console.log(operator);
-		var solution = eval(firstOperand+operator+secondOperand);
-		console.log(solution.toFixed(4));
-		$("#answer").val(solution.toFixed(4));
-	});
+	    switch ($("#operator").val()) { //which sign am i?
+	    case "+":
+	        console.log("Addition");
+	        	 var sum = (Number($("#first-operand").val()) + Number($("#second-operand").val())).toFixed(3);
+	        $("#answer").val(sum);
+	        clearAfterEqual();
+	        break;
+	    case "-":
+	        console.log("Subtraction");
+	        	var subtraction = (Number($("#first-operand").val()) - Number($("#second-operand").val())).toFixed(3);
+	          $("#answer").val(subtraction);
+	          clearAfterEqual();
+	        break;
+	    case "*":
+	        console.log("Multiplication");
+	        	var multi = (Number($("#first-operand").val()) * Number($("#second-operand").val())).toFixed(3);
+	         $("#answer").val(multi);
+	         clearAfterEqual();
+	        break;
+	    case "/":
+	        console.log("Division");
+	       	var divideME = (Number($("#first-operand").val()) / Number($("#second-operand").val())).toFixed(3);
+	       	 $("#answer").val(divideME);
+	       	 clearAfterEqual();
+	        break;
+	    default:
+	        alert("That is not a mathematical operation.");
+	} //end switch
+	}); // answer func
     
 	 /************** PERCENTAGE BUTTON***************/
      $(".divBy100").click(function(){
-   	if ($("#answer").val() <= 1 && $("#answer").val() != "") {     
-   		console.log("hey")
-   		percentSolution = $("#answer").val()*100;
-   		var parsed = percentSolution.toFixed(4);
-   		console.log(parsed);
-   		$("#answer").val(parsed);
-   	} else  {  // do nothing, if not less than to 1 AND not empty
-
-   	}
-   	
-
-   });
-    /************** CLEAR BUTTON***************/
-
-	$("#clear").click(function(){
-		num = "";
-		num2 = "";
-		mathOperator = "";
-		percentSolution = "";
-		solution = "";
-		percentSolution = "";
-
-		$("#first-operand").val(num); 
-		$("#second-operand").val(num2);
-		$("#operator").val(mathOperator);
-		$("#answer").val(solution);
-		$("#answer").val(percentSolution);
-	});
-	
-	
-	
-    		
-		  
-
-
- 	/************** DECIMAL BUTTON ***************/
+     console.log($("#answer").val());
+   		if (Number($("#answer").val()) <= 1 && $("#answer").val() != "") { 
+   	 	$("#answer").val($("#answer").val()*100);
+   	} 
+   	});
+ //    /************** CLEAR BUTTON***************/
+ 	$("#clear").click(function(){
+ 		console.log("clear me");
+ 		$("#operator").val(clear);
+    	$("#answer").val(clear);
+    	$("#first-operand").val(clear);
+    	$("#second-operand").val(clear);
+    	activeInput = $("#first-operand");
+    	num=""
+ 	});	  
+ // 	/************** DECIMAL BUTTON ***************/
 	$("#decimal").click(function(){
-		
-	if (num == "") {
-		num = "0.";
-	$("#first-operand").val(num);
-	// num = "0."
-	} else if (num == "0.") {   //cant click . twice!
-		num = "0.";
-	$("#first-operand").val(num);
-	} else if ($("#first-operand").val() !== "" || $("#first-operand").val() == $("#first-operand").val() + ".") {   //not blank, ex. "7"
-	 	num = $("#first-operand").val() + "."; 
-	 	 console.log("don");
-	    $("#first-operand").val(num); 
-	     console.log("moore");         
-	 } 
-		 
-	});
+ 	switch (num) { //What is activeInput num?
+    case '':
+        console.log("blank");
+        num = "0." 
+        activeInput.val(num);
+
+        break;
+   	case "0":
+    	console.log("zero");
+    	num = "0.";
+        activeInput.val(num);
+        break;
+    default:
+    	if (activeInput.val().indexOf(".") == -1 && activeInput.val() != "") { //no decimal and not empty, ex. "7"
+        console.log("no decimal");
+        num = num+".";
+        activeInput.val(num);
+        } else (activeInput.val().indexOf(".") != -1) 
+        { //has a decimal, ex. "7."
+        console.log("has a number and a decimal");
+        num = num;
+         activeInput.val(num);// keep value, do nothing
+   		}
+     } //end switch
+
+	}) //end click
+/****************************BACKSPACE BUTTON*****************/
+	$("#backspace").click(function(){  
+	    console.log(num);
+		console.log("bspace1");
+			activeInput.val(activeInput.val().slice(0,-1));
+			console.log("bspace updating line 220 "+activeInput.val());
+	 });
+
 
 	});      //document ready
-  
-	 
-
 	
 	</script>
 </body>
