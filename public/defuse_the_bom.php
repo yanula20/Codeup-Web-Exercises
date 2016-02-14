@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Defuse the BOM</title>
+    
 </head>
 <body>
     <h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
@@ -16,10 +17,8 @@
         function updateTimer()
         {
             if (detonationTimer == 0) {
-               
-               
+
                 document.getElementsByTagName("img")[0].style.display = "block";
-                
 
                 // the [0] above is because JS will place any getElement"s" into an
                 // an array behind the scenes!!!

@@ -22,6 +22,7 @@
 			<input id="second-operand" type="number"/>
 			<input id="answer" type="number"/>
 		</div>
+		
 		<div class="calc_row" id="row1">
 			<button class="calc-button" id="clear">Clear</button>
 			<button class="divBy100" id="percent" value="1/100">%</button>
@@ -75,13 +76,10 @@
     var signOperatorButtons = document.getElementsByClassName("button-operator");
     var clearButton = document.getElementById('clear');
     var backSpaceButton = document.getElementById('backspace');
-
     var calculateButton = document.getElementById('calculate');
     var decimalButton = document.getElementById('decimal');
     var percentage = document.getElementById("percent");
-
     var activeInput = firstOperand;
-   
  	/**************  NUMERICAL BUTTONS *********************************/
  	for (i = 0; i < numberButtons.length; i++){
  		numberButtons[i].addEventListener('click',function(){
@@ -91,7 +89,7 @@
  			console.log(event);
  		}); //numberButtons
  	} //end for
-   /**************  MATH OPERATIONS ***************/
+    /**************  MATH OPERATIONS ***************/
     for (i = 0; i < signOperatorButtons.length; i++) {
    	signOperatorButtons[i].addEventListener('click',function(){
    		if (activeInput.value == ""){
@@ -102,16 +100,17 @@
    			activeInput = secondOperand;
    		}
    	 }); //end listener
-   }
+    }
     /************** CALCULATE BUTTON ***************/
     calculateButton.addEventListener('click',function(){
-    	function clearOperands () {
-    		mathOperator.value = ""; 
-    		secondOperand.value = "";
-    		firstOperand.value = "";
-    		activeInput = firstOperand;
-    	}
-    switch (mathOperator.value) { //which sign am i?
+	function clearOperands () {
+		mathOperator.value = ""; 
+		secondOperand.value = "";
+		firstOperand.value = "";
+		activeInput = firstOperand;
+    }
+
+    switch (mathOperator.value) { //Which sign am I?
     case "+":
         console.log("Addition");
         solution.value = (Number(firstOperand.value) + Number(secondOperand.value)).toFixed(3);
@@ -135,13 +134,13 @@
     default:
         console.log("That is not a mathematical operation.");
 
-} //end if
-});
+      } //end if
+    });
 	 /************** PERCENTAGE BUTTON***************/
 	 percentage.addEventListener('click',function(){
 	 	if (solution.value <= 1 && solution.value >= 0) {
 	 		solution.value = Number(solution.value*100);
-	 	} else{
+	 	} else {
 
 	 	}
 	 	//do nothing
@@ -156,7 +155,7 @@
     });
  	/************** DECIMAL BUTTON **************/
 
-decimalButton.addEventListener('click', function(){
+	decimalButton.addEventListener('click', function(){
  		switch (activeInput.value) { //what is my firstOperand.value, "",0,7,7.?
     case '':
         console.log("blank");
@@ -177,16 +176,15 @@ decimalButton.addEventListener('click', function(){
         }
      } //end switch
      }); //end eventlistener
-/****************************BACKSPACE BUTTON*****************/
-backSpaceButton.addEventListener('click',function(){
-	if (activeInput) {
-		activeInput.value = activeInput.value.slice(0,-1);
-	} else 
-	   secondOperand.value = secondOperand.value.slice(0,-1);
+	/****************************BACKSPACE BUTTON*****************/
+	backSpaceButton.addEventListener('click',function(){
+		if (activeInput) {
+			activeInput.value = activeInput.value.slice(0,-1);
+		} else 
+		   secondOperand.value = secondOperand.value.slice(0,-1);
+  	 }); //backspace
 
-  }); //backspace
-
-});   //document ready
+	});  //document ready
 	
 	</script>
 </body>

@@ -7,46 +7,8 @@
 	
 	// (function (){
 	// 	"use strict"
-
-/*
-* create var intervalId
-* set intervalId to the setInterval function (window,global), which takes 2 parameters
-* parameter 1 is a function (what happens during interval) if,else
-    if (count >= max) {
-        clearInterval(intervalId1);
-        console.log("I\'m Done, Don");
-    } else {
-        count++;
-        console.log("This is Don\'s interval!");
-    }
-
-* parameter 2 is the interval in milliseconds
-* for parameter 1, U need var count, var max
-* for parameter 2, need var interval for setInterval function
-* Ensure that you have a clearInterval function that stops ur intervalId
-* in ur parameters
-*
-* PART II NOTES, setTimeout:
-* need var delay = 5000; create this variable, set time in milliseconds
-* set var for setInterval function (see below)
-*
-* var timeoutId = setTimeout(function () {
-    alert('Subscribe to our site!');
-}, delay);
-*
-* clearTimeout(timeoutId);
-* 
-* 
-* next, set up parameter 1 and 2 for the setTimeout
-* parameter 1: what happens after parameter 2: (the delay) runs/expires
-* last include a clearTimeout(timeoutId); (see above)
-*/
-
-var count = 0;
-var max = 10;
+/***************************/
 var interval = 1000; // interval time in milliseconds
-
-
 
 var intervalId1 = setInterval(function() {
     if (count >= max) {
@@ -59,6 +21,8 @@ var intervalId1 = setInterval(function() {
 }, interval);
 
 
+var count = 0;
+var max = 5;
 var intervalId = setInterval(function () {
     if (count >= max) {
         clearInterval(intervalId);
@@ -69,53 +33,78 @@ var intervalId = setInterval(function () {
     }
 }, interval);
 
-
-
-// var countDown = setInterval(function () {
-//     if (count >= max) {
+var countDown = setInterval(function () {
+    if (count >= max) {
        
-//         console.log('T-minus'+count+'seconds until lift-off!');
-//         count--;
-//     } else {
+        console.log('T-minus'+count+'seconds until lift-off!');
+        count--;
+    } else {
         
-//         console.log('We have lift-off!');
-//         clearInterval(countDown);
-//     }
-// }, interval);	
+        console.log('We have lift-off!');
+        clearInterval(countDown);
+    }
+}, interval);	
 
+/***************************/
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
 var delay = 5000; // delay time in milliseconds
-
 var timeoutId = setTimeout(function () {
     alert('Subscribe to our site!');
 }, delay);
-
 // to cancel the timeout, you can call
 clearTimeout(timeoutId);
 // prior to the delay expiring
 
+/***************************/
 var counter = 0;
 var timeOutID; // not special name, just descriptive
-
 var annoying = function(){
  if (counter > 4) {
     console.log("shut up!");
     clearInterval(timeoutID);
     return;
  }
-
 console.log(counter + "Hey! Listen!");
 counter++
 
 timeoutID = setTimeout(annoying, getRandomInt(10,1000));
 
 };
-
-
 annoying();
+
+/***************************/
+
+function drinkAbsinthe (){
+    console.log('That shot was nasty. Never again!');
+}
+drinkAbsinthe();
+var haltAbsinthe = setTimeout(drinkAbsinthe,60*1000);
+// clearTimeout(haltAbsinthe);
+/**********NOTICE SET INTERVAL INSIDE*************/
+var tastyBeverage = 0;
+function takeASip (){
+    console.log("Ummm, tastes good!")
+    tastyBeverage = setTimeout(takeASip,x*3000);
+}
+takeASip();
+
+// clearInterval(tastyBeverage);
+/***************************/
+var interval = 3000;
+
+var blinking = setInterval(function(){
+    console.log("I\'m blinking every 3 seconds!");
+},interval);
+
+// clearInterval(blinking);
+/***************************/
+
+
+
+
 // }); //end IFFE		
 			
     </script>
