@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animate</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0;
+        }
+
+        #btn-animate {
+            margin: 15px;
+        }
+
+        #animate-box {
+            background-color: #000033;
+            height: 250px;
+            margin: 15px;
+            position: relative;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button id="btn-move">Move It</button>
+        <button id="btn-scale">Scale It</button>
+        <button id="btn-hide">Hide It</button>
+        <button id="btn-show">Show It</button>
+        <button id="btn-all">Animate All</button>
+        <button id="btn-blink">Blink</button>
+    </p>
+
+    <div id="animate-box"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!--   
+    $(".content")
+    <li><a href="# data-target="home">Home</a></li>
+    data-target = "home"
+    
+    var target = $this.data('target')
+    $(#+ target).fadeToggle();
+    $(".content").click (function(){
+    $(this).fadeOut(2000, funciton(){
+    console.log("fade out done");
+    .width() - width of just element content
+    .innerWidth() - get 
+})
+}) -->
+
+
+    <script>
+    $(document).ready(function() {
+        "use strict";
+        // TODO: "Move It" should move the box 100 pixels to the left
+        $("#btn-move").click(function(){
+            console.log('ready move');
+            $("#animate-box").css({"color":"orange", "font-size": "15px", "text-align" : "center", "border-radius" : "10px"}).text("I like to move it, move it!").animate({
+                "left" : "+=20px",
+                "top"  : "+=20px"
+                },5000, function(){
+                    console.log("Move it is done!")
+                });
+        });
+
+        // TODO: "Scale It" should expand the box width by 50%
+
+        $("#btn-scale").click(function(){
+            console.log('ready scale');
+            $("#animate-box").text("Scale Me").css({"color":"red", "font-size": "35px", "text-align" : "center", "border-radius" : "10px"}).animate({
+                "width": "+=125px",
+                "heigth": "+=50px",
+                "left": "+=20px"
+                },5000, function(){
+                    console.log("Scale it is done!")
+                });
+        });
+        // TODO: "Hide It" should use opacity to make the box invisible
+        
+
+         $("#btn-hide").click(function(){
+            $("#animate-box").animate({
+                "opacity": ".1"
+            }, 5000, function(){
+                console.log("Hide is done!")
+            });
+        });
+
+        // TODO: "Show It" should make the box appear
+        $("#btn-show").click(function(){
+            $("#animate-box").text("Show it!").css({"color":"yellow", "font-size": "35px", "text-align" : "center", "border-radius" : "10px"}).animate({
+                "opacity": "1"
+            }, 5000, function(){
+                 console.log("Opacity show done!")
+            });
+         });
+
+        // TODO: "Animate All" should use an animation stack to:
+        //      1) Move and scale the box simultaneously
+        //      2) Hide the box
+        //      3) Reset the box back to its original position and opacity
+        $("#btn-all").click(function(){
+
+            $("#animate-box").text("Animate All!").css({
+            "background-color": "#000033",
+            "heigth": "250px",
+            "margin": "15px",
+            "width": "250px",
+            "border-radius": "0px",
+            "position": "absolute"
+            }).animate({
+                "opacity": "1",
+                "top" : "50px",
+                "left" : "0px"
+            }, 10000, function(){
+                 console.log("Animate All Done!")
+            });
+         });
+       
+             
+
+        $("#btn-blink").click(function(){
+            console.log('blink begin');
+            $("#animate-box").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100);
+            
+            });
+     
+
+
+    });
+    </script>
+</body>
+</html>

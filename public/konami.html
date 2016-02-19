@@ -10,7 +10,7 @@
   <!-- order matters, most specific or important style sheet goes at the bottom-->
   <link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
   <style type="text/css">
-  #iggyPic {
+  #laettner {
     display: none;
   }
   </style>
@@ -20,7 +20,7 @@
   <form>
     <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
   </form>
-  <img id="iggyPic" src="/gif/iggy.gif">
+  <img id="laettner" src="/gif/laettner.gif">
 
 <script src="/js/jquery-1.12.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
@@ -30,7 +30,7 @@
 // (function(){
 	"use strict;"
   $(document).ready(function() {
-    alert( 'The DOM has finished loading!' );
+    // alert( 'The DOM has finished loading!' );
     document.getElementById("textfield").innerHTML = "";
     var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39,65, 66];
     
@@ -38,42 +38,30 @@
       var firstKey = konamiArray[0];
       var keyCode = event.keyCode;
      
-      if (keyCode == firstKey) {
-         console.log(firstKey);
-         konamiArray.shift();
-         console.log(konamiArray);
+    if (keyCode == firstKey) {
+        console.log(firstKey);
+        konamiArray.shift();
+        console.log(konamiArray);
             
-           if (Number(konamiArray.length) == Number(0)) {
-             // alert('You win!');
-
-              var interval = 1000;
-              var max = 10;
-              var count = 0;
-              var iggyInterval = setInterval(function() {
-                  if (count >= max) {
-                      clearInterval(iggyInterval);
-                      alert("All Done!");
-                      $('#iggyPic').css("display","none");
-                      $('#textfield').css("backgroundColor","white");
-                      $('#textfield').val("");
-                  } else { 
-                    $('#iggyPic').css("display","block");
-                    $('#textfield').css("backgroundColor","yellow");
-
-                      count++;
-                      console.log(count);
-                  }
-              }, interval);
-
-      } else if (Number(keyCode) != Number(firstKey)) {
-        alert('lose');
+        if (konamiArray.length == 0) {
+            alert('You win!');
+            $('#laettner').css("display","block");
+            $('#textfield').css("backgroundColor","yellow");
+          
+            var delay = 21000; // delay time in milliseconds
+            var laettner = setTimeout(function () {
+                console.log("All Done!");
+                clearTimeout(laettner);
+                $('#laettner').css("display","none");
+                $('#textfield').css("backgroundColor","white").val("");
+            }, delay);
+        } // end win, end array.length = 0 
+    } else {
+        console.log('lose');
         konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-      } //end esle if
-    } // end keyCode == firstKey 
+    } //end esle if
   }); // end keyUp
 }); //document ready
-
-
 </script>
 </body>
 </html>

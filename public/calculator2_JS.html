@@ -17,10 +17,10 @@
 	
 	<div id="calculator_wrapper">
 		<div id="operands">
-			<input id="first-operand" type="number"/>
-			<input id="operator" type="text" />
-			<input id="second-operand" type="number"/>
-			<input id="answer" type="number"/>
+			<input id="first-operand"/>
+			<input id="operator"/>
+			<input id="second-operand"/>
+			<input id="answer"/>
 		</div>
 		
 		<div class="calc_row" id="row1">
@@ -28,7 +28,6 @@
 			<button class="divBy100" id="percent" value="1/100">%</button>
 			<button id="backspace" >Backspace</button>
 			<button class="button-operator"  id="add" value="+">+</button>
-			
 		</div>
 
 		<div class="calc_row" id="row2">
@@ -55,7 +54,10 @@
 		<div class="calc_row" id="row5">
 			<button class="calc-button" id="zero" value="0">0</button>
 			<button class="calc-button" id="decimal">.</button>
-			<button class="button=" id="calculate">=</button></div>
+			<button class="calc-button"  id="plus_minus" value="+">+/-</button>
+			<button class="button=" id="calculate">=</button>
+
+		</div>
 
 	</div> <!-- end calculator_wrapper -->
 	<script src="/js/jquery-1.12.0.js"></script>
@@ -83,10 +85,31 @@
  	/**************  NUMERICAL BUTTONS *********************************/
  	for (i = 0; i < numberButtons.length; i++){
  		numberButtons[i].addEventListener('click',function(){
- 			solution.value = "";
+ 			if (this.value == "0" && activeInput.value == "") {//do not use 0, false
+ 				console.log("I am a zero.")
+ 				activeInput.value = this.value + ".";
+ 			} else if (activeInput.value.indexOf(".") !== -1) {
+ 			    console.log("there is a decimal")
+ 				activeInput.value = activeInput.value + this.value;
+ 			} else if (this.value == "+" && activeInput.value != "") { 
+ 				console.log("+")
+ 				
+ 				activeInput.value = "+" + activeInput.value;
+ 			} else if (this.value == "+" && activeInput.value == "+")  { 
+ 				console.log("-")
+ 				activeInput.value = "-" + activeInput.value;
+ 				
+
+ 			} else if (this.value == "+" && activeInput.value == "-")  { 
+ 				console.log("-")
+ 				activeInput.value = "+" + activeInput.value;
+
+ 			}  else  {
  			activeInput.value = activeInput.value + this.value;
- 			console.log(this.value);
+ 			console.log("donny M");
  			console.log(event);
+ 			solution.value = "";
+ 			}
  		}); //numberButtons
  	} //end for
     /**************  MATH OPERATIONS ***************/
@@ -138,7 +161,7 @@
     });
 	 /************** PERCENTAGE BUTTON***************/
 	 percentage.addEventListener('click',function(){
-	 	if (solution.value <= 1 && solution.value >= 0) {
+	 	if ((solution.value <= 1 && solution.value >= 0) && solution.value != "") {
 	 		solution.value = Number(solution.value*100);
 	 	} else {
 

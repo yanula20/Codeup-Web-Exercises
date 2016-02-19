@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,30 +8,41 @@
    	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<!-- order matters, most specific or important style sheet goes at the bottom-->
-	
 	<link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+	<style type="text/css">
+
+	.invisible {
+		display: none;
+	}
+   
+	.positionRelative {
+		position: relative;
+	}
+	#fade-div {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	</style>
+
 </head>
 <body>
+<h4>This is heading 3</h4>
 
+<div id="wrapper">
+	Hello, from Codeup!
 
-	<h4>This is heading 3</h4>
+	<p><span>1. My favorite vacation</span> spot is Tashkent, Uzbekistan.</p>
 
-	<div id="wrapper">
+	<p>2. My favorite actor is <br>Georgy Kikabidze. He starred<br> in a movie called Mimino.<br> <strong>Mimino means Hawk in Georgian</strong> <br>which is fitting because Georgy's role <br>in the movie was that <br>of a Soviet-era <em>pilot</em>.</p>
 
+	<p><blockquote>3. In this paragraph, I'm using a blockquote.</blockquote><br>By default, most browsers will simply indent block quoted text</p>
 
+	<p>4. Headings and paragraphs are block elements; they take up the entire width of the page</p>
 
-		Hello, from Codeup!
-
-		<p><span>1. My favorite vacation</span> spot is Tashkent, Uzbekistan.</p>
-
-		<p>2. My favorite actor is <br>Georgy Kikabidze. He starred<br> in a movie called Mimino.<br> <strong>Mimino means Hawk in Georgian</strong> <br>which is fitting because Georgy's role <br>in the movie was that <br>of a Soviet-era <em>pilot</em>.</p>
-
-		<p></p><blockquote>3. In this paragraph, I'm using a blockquote.</blockquote><br>By default, most browsers will simply indent block quoted text<p></p>
-
-		<p>4. Headings and paragraphs are block elements; they take up the entire width of the page</p>
-
-		<p>5. em, strong, span, and blockquote are inline elements that are usually nested inside of block elements.</p>
-	</div>
+	<p>5. em, strong, span, and blockquote are inline elements that are usually nested inside of block elements.</p>
+</div>
 	
 	<h1 id="lamp_stack">I'm learning the LAMP stack</h1>
 
@@ -70,82 +81,199 @@
 			<dd>My twin brother's name is Ronald. My name is Donald. No jokes please.</dd>
 		</dl>
 
-	<div class="don">
-		<p id="paragraph"> "Creative, resourceful, and enthusiastic Front-end and Back-end recent Codeup graduate with year experience seeks employment as a Web Developer on a team or individual projects at locations in the continental United States or overseas."
-		</p>
+<div class="don">
+	<p id="paragraph"> "Creative, resourceful, and enthusiastic Front-end and Back-end recent Codeup graduate with year experience seeks employment as a Web Developer on a team or individual projects at locations in the continental United States or overseas."
+	</p>
+</div>
 
-	</div>
+<div>
+    <h1>Parks List</h1>
+    <h3 id="national-parks-toggle">National Parks</h3>
+    <ul id="national-parks">
+        <li>Arches</li>
+        <li>Badlands</li>
+        <li>Carlsbad Caverns</li>
+        <li>Denali</li>
+        <li>Everglades</li>
+    </ul>
+    <h3 id="state-parks-texas-toggle">State Parks of Texas</h3>
+    <ul id="state-parks-texas">
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+</div>
+<div>
+    <h1>Don's List</h1>
+    <h3 id="nouns">Nouns</h3>
+    <ul id="nouns_ul">
+        <li>bike</li>
+        <li>chair</li>
+        <li>calculator</li>
+        <li>tennis ball</li>
+        <li>socks</li>
+    </ul>
+    <h3 id="verbs">Verbs</h3>
+    <ul id="verbs_ul">
+        <li>run</li>
+        <li>walk</li>
+        <li>travel</li>
+        <li>conjugate</li>
+        <li>whistle</li>
+    </ul>
+<div id="fade-div">
+     <ul id="fadeI">
+        <li>This</li>
+        <li>is</li>
+        <li>a Fade</li>
+        <li>in</li>
+        <li>List</li>
+    </ul>
+     <ul id="fadeO">
+        <li>This</li>
+        <li>is</li>
+        <li>a Fade</li>
+        <li>in</li>
+        <li>List</li>
+    </ul>
+     <ul id="slider">
+        <li>This</li>
+        <li>is</li>
+        <li>a slide</li>
+        <li>in and out</li>
+        <li>List</li>
+    </ul>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-	<script src="/js/jquery-1.12.0.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
-	</script>
-	<!--personal javascript file must be below-->
-	<script type="text/javascript">
-	// (function(){
-	"use strict;"
+<div id="button-div">
+<button class="animateButton" id="animate1">Animate Button1</button>
+<br>
+<button class="animateButton" id="animate2">Animate Button2</button>
+<br>
+<button  id="fade-in">Fade In</button>
+<br>
+<button  id="fade-out">Fade Out</button>
+<br>
+<button  id="slide-button">Slide Button</button>
+<br>
+</div>
+<script src="/js/jquery-1.12.0.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+</script>
+<!--personal javascript file must be below-->
+<script type="text/javascript">
+// (function(){
+"use strict;"
 
-	$(document).ready(function() {
-    alert( 'The DOM has finished loading!' );
+$(document).ready(function() {
+alert( 'The DOM has finished loading!' );
 
-     // alert($("#paragraph").html());	
+// alert($("#paragraph").html());	
 
-     // alert($("#lamp_stack").html());
-     $("ol li, h1").append(" I should learn Korean");
+// alert($("#lamp_stack").html());
+$("ol li, h1").append(" ,<em> I should learn Korean<em>");
 
-     $("h4").append(" Anna is mean").css("background-color","green");
+$("h4").append(" Anna is mean").css("background-color","yellow");
 
-     $("dl > dt").css("color", "red");
+$("dt").first().c
 
-     $(".codeup").css("border", "1px solid red");
+$("dt").last().css("color", "green");
 
-     $("li").css("font-size","20px");
+$(".codeup").css("border", "1px dotted orange");
 
-     $("h1,p,li").css("color","yellow");
+$(".codeup").last().css("border", "5px solid papayawhip");
 
- 	
-     $('h1').addClass("donny").click(function() {
-                $('h1').css('background-color', 'red');
-            });
+$("li").css("font-size","20px");
 
-     $('p').dblclick(function() {
-                $('p').css('font-size','18px');
-            });
+$("h1,p,li").css("color","green");
 
-     $('li').hover(function() {
-                $('li').css('color','red');
-            }, function() {
-                $('li').css('color','white');
-            }
+	
+$('h1').addClass("don").click(function() {
+            $('h1').css('background-color', 'red');
+        });
 
-         );
+$('p').dblclick(function() {
+            alert($(this).html()); 
+        });
 
-     // keydown and keypress(does not count for keys with no input, CALLED MODIFIERS, like the SHIFT KEY)
-     // $("test").keyup(functiion (){
-     // 	$('img'.css('display', 'none');
-     // 	$(this).css('display','visible');
+$('p').hover(function() {
+            $('p').css('color','red');
+        }, function() {
+            $('p').css('color','white');
+        }
 
-     // });
+     );
+$("#wrapper").css("border","1px solid black").css("background-color","lightblue");
 
- 	//     $("#textinput").keydown(function(e) {
-	//    	console.log(e.keyCode); // this value
-	// });
-    
-    // clearing out attributes for inline styling
-    // var paragraphs = $('.paras');
+$("#state-parks-texas").css("font-size","30px");
 
-    // paragraphs.css({
-    // 	'font-size': "15px"
-    // 	'background-color': "red"
-    // })
+$("#nouns").dblclick(function(){
+	$("#nouns_ul").toggle('invisible');
+});
 
-    //  var paragraphs = $('.paras');
+$("#fade-in").click(function(){
+	$("#fadeI").fadeOut(4000);
+});
 
-    // paragraphs.css({
-    // 	'font-size': ""
-    // 	'background-color': ""
-    // })
+$("#fade-out").click(function(){
+	$("#fadeO").fadeToggle(2000);
+});
 
-	});
+$("#slide-button").click(function(){
+	$("#fadeI").fadeIn();
+	$("#slider").slideToggle('invisible');
+});
+
+$("#verbs").click(function(){
+	$("#verbs_ul").slideToggle();
+});
+
+$(".animateButton").addClass("positionRelative");
+
+$("#animate1").animate({
+	left: "+=10px",
+	bottom: "+=50px"
+},5000, function(){//animation begins in 5s
+	console.log("animation box 1 complete!")
+});
+
+var count = 0;
+var max = 15;
+var interval = 3000;
+var animateMe = setInterval(function() {
+	if (count>max){
+		alert("box 2 animation complete!");
+		clearInterval(animateMe);
+	} else {
+
+		$("#animate2").animate({
+		left: "+=5px",
+		bottom: "+=5px"
+		},1000).animate({
+		left: "+=8px",
+		bottom: "+=8px"
+		},1000).animate({
+		left: "+=10px",
+		bottom: "+=10px"
+		},1000),
+		console.log(count);
+		count++;
+    }
+ },interval);
+
+
+// keydown and keypress(does not count for keys with no input, CALLED MODIFIERS, like the SHIFT KEY)
+   
+}); //end document ready
 
 
 	// })();

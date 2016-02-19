@@ -18,10 +18,10 @@
 	
 	<div id="calculator_wrapper">
 		<div id="operands">
-			<input id="first-operand" type="number"></input>
+			<input id="first-operand"></input>
 			<input id="operator" type="text"></input>
-			<input id="second-operand" type="number"></input>
-			<input id="answer" type="number"></input>
+			<input id="second-operand"></input>
+			<input id="answer"></input>
 		</div>
 
 		<div class="calc_row" id="row1">
@@ -54,7 +54,8 @@
 		</div>
 		<div class="calc_row" id="row5">
 			<button class="calc-button" id="zero" value="0">0</button>
-			<button  id="decimal">.</button>
+			<button id="decimal" value=".">.</button>
+			<button class="calc-button"  id="plus_minus">+/-</button>
 			<button class="button=" id="calculate">=</button>
 		</div>
 
@@ -77,10 +78,22 @@
     var activeInput = $("#first-operand");
  	/**************  NUMERICAL BUTTONS ***************/
 	$(".calc-button").click(function(){
+		if ($(this).val() == "0" && activeInput.val() == ""){
+			console.log("i am zero");
+			num = $(this).val() + ".";
+			activeInput.val(num)
+		} else if (activeInput.val().indexOf(".") !== -1 && activeInput.val() !== "0." ) { //ex. 7.
+			num = activeInput.val() + $(this).val();
+			console.log(num);
+			console.log("Mmmmm");
+			activeInput.val(num)
+		} else { 
 		num = num + this.value;
+		activeInput.val(num)
 		console.log(num);
-		activeInput.val(num);
+		// activeInput.val(num);
 		$("#answer").val(clear);
+		}
 	});
     /**************  MATH OPERATIONS ***************/
     $(".button-operator").click(function(){  // plus, minus, div, multiply buttons
@@ -93,8 +106,6 @@
 			num = "";
 			console.log(num);
 			console.log("operator, now second operand is active");
-
-
 		}
 	});
     /************** CALCULATE BUTTON ***************/
@@ -142,7 +153,7 @@
      $(".divBy100").click(function(){
      console.log($("#answer").val());
    		if (Number($("#answer").val()) <= 1 && $("#answer").val() != "") { 
-   	 	$("#answer").val($("#answer").val()*100);
+   	 	$("#answer").val(($("#answer").val()*100).toFixed(3));
    	} 
    	});
  //    /************** CLEAR BUTTON***************/
@@ -157,27 +168,21 @@
  	});	  
  // 	/************** DECIMAL BUTTON ***************/
 	$("#decimal").click(function(){
- 	switch (num) { //What is activeInput num?
-    case '':
-        console.log("blank");
-        num = "0." 
+		console.log(this.value);
+ 	switch (activeInput.val()) { //What is num value?
+    case "":
+    	num = num + this.value;
+        console.log("blank, so adding decimal");
         activeInput.val(num);
-
-        break;
-   	case "0":
-    	console.log("zero");
-    	num = "0.";
-        activeInput.val(num);
+        console.log(num);
         break;
     default:
     	if (activeInput.val().indexOf(".") == -1 && activeInput.val() != "") { //no decimal and not empty, ex. "7"
         console.log("no decimal");
-        num = num+".";
-        activeInput.val(num);
+        activeInput.val(num = num+".");
         } else (activeInput.val().indexOf(".") != -1) 
         { //has a decimal, ex. "7."
         console.log("has a number and a decimal");
-        num = num;
          activeInput.val(num);// keep value, do nothing
    		}
      } //end switch
