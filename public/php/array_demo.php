@@ -1,8 +1,26 @@
 <?php
 
-$russ = 'Russian';
+$myArray = ['d','o','n','x','y','u','w','zz','animal'];
 
-$kor = 'Korean';
+echo $myArray[2] . '<br>';
+
+echo "$myArray[5]<br>"; 
+
+echo "{$myArray[0]}{$myArray[1]}{$myArray[2]}ald moore<br>";
+
+echo "{$myArray[3]}" . '<br>'; 
+
+echo "{$myArray[7]} - - {$myArray[7]}<br><br>"; 
+
+echo '$myArray[8]' . '<br><br>'; //output: $myArray[8];
+
+print_r($myArray);
+
+var_dump($myArray);
+
+$russ = 'Russian'; //must define above the array
+
+$kor = 'Korean'; //must define above the array
 
 $languages = ['French','German',"$russ"];//double quotes on $russ
 
@@ -16,24 +34,18 @@ var_dump($languages2);
 
 print_r($languages2);
 
-echo "<br><br>$languages[0]";
+echo '<br><br>' . "$languages[0]";
 
-echo "<br>$languages[1]<br>";
+echo '<br>' . $languages[1] . '<br>';
 
-echo "$languages[2]";
+echo $languages[2] . " {$languages[0]}";
 
 //Associative Array
 
-$person4['first_name'] = 'Joe';
-$person4['last_name'] = 'Blow';
-$person4['e-mail'] = 'myemail4@email.com';
+$person1['first_name'] = 'Warren';
+$person1['last_name'] = 'Sapp';
+$person1['e-mail'] = 'qbsacked@email.com';
 
-
-$person1 = [
-	'first_name'  => 'Billy',
-	'last_name' => 'the Kid',
-	'e-mail'  => 'myemail1@email.com'
-];
 
 $person2 = [
 	'first_name'  => 'Pat',
@@ -46,6 +58,12 @@ $person3 = [
 	'first_name' => 'Will',
 	'last_name' => 'Smith',
 	'e-mail'  => 'myemail3@email.com'
+];
+
+$person4 = [
+	'first_name' => 'JJ',
+	'last_name' => 'Walker',
+	'e-mail' => 'goodtimes@email.com'
 ];
 
 
@@ -63,6 +81,9 @@ $people = [
 	'person5' => $person5
 	];
 	
+var_dump($people);
+
+print_r($people);
 
 $book1 = [
 	'title' => 'I love cats!',
@@ -95,10 +116,15 @@ $bookResults = [
 	'book2' => $book2, 
 	'book3' => $book3,
 	'book4' => $book4
-
 ];
 
-//echo "{$bookResults}['book1']['title']";
+var_dump($bookResults['book1']['title']);
+
+print_r($bookResults['book3']['title'] . '<br>');
+
+echo "Book1 has {$bookResults['book1']['pages']} pages.<br>";
+
+echo "The category for book4 is: {$bookResults['book4']['category']}<br>";
 
 
 $author1 = [
@@ -107,9 +133,6 @@ $author1 = [
 	'age' => 30
 ];
 
-//echo "{$bookResults}['book1']"
-
-$bookResults['book1']['author'] = $author1; //must be below $bookResults 
 
 $author2 = [
 	'first_name' => "Willy",
@@ -137,6 +160,8 @@ $authors = [
 'author4' => $author4['last_name'],
 ];
 
+echo "A guy named {$authors['author1']} wrote book1.";
+
 
 $numbers = array(1,2,3,4,5);
 
@@ -150,9 +175,5 @@ var_dump($numbers[3]);
 
 print_r($numbers2[3]);
 
-$people = [
-	'person1' => $person1,
-	'person2' => $person2
 
-];
 ?>
