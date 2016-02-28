@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Komani Code</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- order matters, most specific or important style sheet goes at the bottom-->
-  <link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
-  <style type="text/css">
-  #laettner {
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Komani Code</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>   	
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- order matters, most specific or important style sheet goes at the bottom-->
+    <link rel="stylesheet" type="text/css" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+
+    <style type="text/css">
+
+    #laettner {
     display: none;
-  }
+    }
+
   </style>
 </head>
 <body>
-  <p>Please type something into this form:<p/>
-  <form>
-    <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
-  </form>
-  <img id="laettner" src="/gif/laettner.gif">
 
-<script src="/js/jquery-1.12.0.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
-</script>
-<!--personal javascript file must be below-->
-<script type="text/javascript">
+    <p>Please type something into this form:<p/>
+
+    <form>
+    <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
+    </form>
+
+    <img id="laettner" src="/gif/laettner.gif">
+
+    <script src="/js/jquery-1.12.0.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+
+    </script>
+    <!--personal javascript file must be below-->
+    <script type="text/javascript">
 // (function(){
 	"use strict;"
-  $(document).ready(function() {
+    $(document).ready(function() {
     // alert( 'The DOM has finished loading!' );
     document.getElementById("textfield").innerHTML = "";
     var konamiArray = [38, 38, 40, 40, 37, 39, 37, 39,65, 66];
@@ -48,14 +59,14 @@
             $('#laettner').css("display","block");
             $('#textfield').css("backgroundColor","yellow");
           
-            var delay = 21000; // delay time in milliseconds
+            var delay = 21000; 
             var laettner = setTimeout(function () {
                 console.log("All Done!");
                 clearTimeout(laettner);
                 $('#laettner').css("display","none");
                 $('#textfield').css("backgroundColor","white").val("");
             }, delay);
-        } // end win, end array.length = 0 
+        } 
     } else {
         console.log('lose');
         konamiArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];

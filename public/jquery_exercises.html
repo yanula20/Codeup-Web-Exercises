@@ -221,7 +221,9 @@ $("#nouns").dblclick(function(){
 });
 
 $("#fade-in").click(function(){
-	$("#fadeI").fadeOut(4000);
+	$("#fadeI").fadeOut(4000, function(){
+		alert("fade out");
+	});
 });
 
 $("#fade-out").click(function(){

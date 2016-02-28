@@ -7,7 +7,7 @@
 	
 	// (function (){
 	// 	"use strict"
-/***************************/
+
 var interval = 1000; // interval time in milliseconds
 
 var intervalId1 = setInterval(function() {
@@ -45,7 +45,6 @@ var countDown = setInterval(function () {
     }
 }, interval);	
 
-/***************************/
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -58,7 +57,7 @@ var timeoutId = setTimeout(function () {
 clearTimeout(timeoutId);
 // prior to the delay expiring
 
-/***************************/
+
 var counter = 0;
 var timeOutID; // not special name, just descriptive
 var annoying = function(){
@@ -75,7 +74,7 @@ timeoutID = setTimeout(annoying, getRandomInt(10,1000));
 };
 annoying();
 
-/***************************/
+
 
 function drinkAbsinthe (){
     console.log('That shot was nasty. Never again!');
@@ -83,8 +82,10 @@ function drinkAbsinthe (){
 drinkAbsinthe();
 var haltAbsinthe = setTimeout(drinkAbsinthe,60*1000);
 // clearTimeout(haltAbsinthe);
-/**********NOTICE SET INTERVAL INSIDE*************/
+
+
 var tastyBeverage = 0;
+
 function takeASip (){
     console.log("Ummm, tastes good!")
     tastyBeverage = setTimeout(takeASip,x*3000);
@@ -92,7 +93,7 @@ function takeASip (){
 takeASip();
 
 // clearInterval(tastyBeverage);
-/***************************/
+
 var interval = 3000;
 
 var blinking = setInterval(function(){
@@ -100,10 +101,6 @@ var blinking = setInterval(function(){
 },interval);
 
 // clearInterval(blinking);
-/***************************/
-
-
-
 
 // }); //end IFFE		
 			

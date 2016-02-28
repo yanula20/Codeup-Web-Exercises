@@ -6,89 +6,110 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Simple Simon</title>
+  <title>Simple Simon</title>
   
   <link rel="stylesheet" type="text/css" href="/css/bootstrap-library.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'> 
- 
+
   <style type="text/css">
-    #wrapper {
+
+  h1 {
+    color: yellow;
+  }
+
+  #wrapper {
       position: relative;
       width: 500px;
       margin: 0 auto;
-    }
+  }
 
-    #four-boxes {
+  body {
+      background-color: black;
+      font-family: Comic Sans, Comic Sans MS, cursive;
+  }
+
+  #four-boxes {
       position: absolute;
       top: 100px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-    }
+  }
 
-     #control-div {
+  #control-div {
+      width: 500px;
       position: absolute;
-      top: 525px;
+      top: 630px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      width: 400px;
-    }
+      left: 8px;
+  }
 
-    .box {
-      width: 200px;
-      height: 200px;
+  .box {
+      width: 250px;
+      height: 250px;
       border-radius: 15px;
-      border: 10px;
-    }
+      border: 3px solid black;
+      margin: 0 auto;
+  }
 
-    #green {
+  #green {
       background-color: green;
-      border: 2px black;
-    }
+      border-top-left-radius: 20em;
+  }
 
-    #red {
+  #red {
       background-color: red;
-        border: 2px black;
-    }
+      border-top-right-radius: 20em;
+  }
 
-    #blue {
+  #blue {
       background-color: blue;
-        border: 2px black;
-    }
+      border-bottom-left-radius: 20em;
+  }
 
-    #yellow {
+  #yellow {
       background-color: yellow;
-        border: 2px black;
-    }
+      border-bottom-right-radius: 20em;
+  }
 
-    textarea {
+  textarea {
       border-radius: 5px;
-    }
 
-    #start {
-      height: 40px;
+  }
+
+  #start {
+      height: 46px;
       width: 75px;
-    }
+      font-size: 15px;
+      background-color: orange;
+      font-family: Comic Sans, Comic Sans MS, cursive;
+  }
 
-   </style>  
+  h1 {
+      text-align: center;
+  }
+
+  </style>  
 </head>
 <body>
     <div id="wrapper">
+        <h1>Simple Simon Game</h1>
 
-      <div id="four-boxes">
+        <div id="four-boxes">
 
-        <div class="box" id="green"></div>
-        <div class="box" id="red"></div>
-        <div class="box" id="blue"></div>
-        <div class="box" id="yellow"></div>
+          <button class="box" id="green" value=1></button>
+          <button class="box" id="red" value=2></button>
+          <button class="box" id="blue" value=4></button>
+          <button class="box" id="yellow" value=3></button>
 
       </div>
 
-        <br>
-        <br>
-        <br>
-        <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
       <div id="control-div">
 
@@ -96,82 +117,170 @@
          <textarea class="control" id="messages" rows="2" cols="20"></textarea>
          <textarea class="control" id="level" rows="2" cols="20"></textarea>
 
-      </div>
+     </div>
 
+ </div> <!-- end wrapper   --> 
 
+ <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+ <script src="/js/bootstrap.min.js"></script>
+ <script type="text/javascript">
 
+ var levelCount = 1;
 
+ var i = 0;
 
-      </div> <!-- end wrapper   --> 
+ var gameArray = [];
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="/js/bootstrap.js"></script>
-<script type="text/javascript">
+ var player = Number($(".box").val());
+ 
 
-  var gameArray = [];
+ function getRandomNumber () {
 
-  function getRandomNumber () {
-      return Math.floor((Math.random() * 4) + 1);
-  }
+    return Math.floor((Math.random() * 3) + 1);
+}
 
-  $("#start").click(function(){
-      gameArray.push(getRandomNumber());
-      console.log(gameArray);
-  })
+function buildGameArray (){
 
-  gameArray.forEach(function(random,index,array){
+    gameArray.push(getRandomNumber());
+    simonBlinks();
 
-    switch (random) {//am I 1,2,3, or 4?
+}
 
-    case 1:
-    console.log("1")
-      
-      $("#green").animate({
+$("#start").click(function (){
+
+    buildGameArray();
+
+    $("#messages").val("");
+
+});
+
+$("#messages").val("Press Start to begin.").css({"font-size": "18px", "text-align" : "center", "background-color":"green", "font-family": "Comic Sans"});
+
+$("#level").css({"font-size": "18px", "text-align" : "center", "background-color" : "yellow", "font-family": "Comic Sans"});
+
+$("#level").val("ROUND: 1");
+
+function simonBlinks() {
+
+    gameArray.forEach(function (random,i,array){
+
+        switch (random) {//am I 1,2,3, or 4?
+
+            case 1:
+                setTimeout(function() {
+                    $("#green").animate({
+                        "opacity": ".1"
+                    }, 500).animate({
+                        "opacity": "1"
+                    }, 500 , function(){
+                        console.log("green blink done!")
+                    });
+                }, 1000*i);
+                break;
+
+            case 2:
+            setTimeout(function() {
+                $("#red").animate({
                 "opacity": ".1"
-                }, 2000).animate({
-                "opacity": "1"
-                }, 2000 , function(){
-                    console.log("green blink done!")
+                }, 500).animate({
+                    "opacity": "1"
+                }, 500, function(){
+                    console.log("red blink done!")
                 });
-    break;
+                }, 1000*i);
+            break;
 
-    case 2:
-      
-      $("#yellow").animate({
-                "opacity": ".1"
-                }, 2000).animate({
-                "opacity": "1"
-                }, 2000, function(){
-                    console.log("yellow blink done!")
+            case 3:
+            setTimeout(function() {  
+                $("#yellow").animate({
+                  "opacity": ".1"
+                }, 500).animate({
+                  "opacity": "1"
+                }, 500, function(){
+                  console.log("yellow blink done!")
                 });
-    break;
+                }, 1000*i);
+            break;
 
+            case 4:
+            setTimeout(function() {
+                $("#blue").animate({
+                  "opacity": ".1"
+                }, 500).animate({
+                  "opacity": "1"
+                }, 500, function(){
+                  console.log("blue blink done!")
+                });
+                }, 1000*i);
+            break;
 
-  } //end switch
+            default:
+
+        } //end switch
 
 }) //end forEach
 
+} // end checkGameArray
+
+function playerResponses(player){
+
+    var game = gameArray[i];
+
+    if (game == player) {
+
+        i++;
+
+        console.log('button click');
+
+        console.log(game+" "+player);
 
 
+        if (i == gameArray.length) {
 
+            $("#messages").val("Click START for the next round.");
 
+            $("#messages").css({"font-size": "18px", "text-align" : "center", "background-color":"green", "font-family": "Comic Sans"});
 
+            levelCount++;
 
+            $("#level").val("ROUND: "+levelCount).css({"font-size": "18px", "text-align" : "center", "background-color":"yellow", "font-family": "Comic Sans"});
 
+            i = 0;
 
+            alert("Next Round! Let\'s go!")
+        }
 
+    } else {
 
+    confirm("Game Over! Do you want to play again?");
 
-// <!-- find random function that returns 1,2,3 or 4   --> 
-// <!-- create 2 arrays playerArray GameArray   -->
-// <!-- four functions that blink, eq 1,2,3,4   -->
-// <!-- Game Array is pushed a number, that array is run thru
-// a forEach loop that will have a switch (GameArray[i].val()), 1 blink blue
-// 2, blink 4, etc.  -->
-// <!-- four functions that blink, eq 1,2,3,4   -->
+    $("#messages").css({"font-size": "18px", "font-family": "Comic Sans", "text-align" : "center", "background-color":"red"});
 
-      /*--js here--*/
+    $("#messages").val("Press START to begin."); 
+
+    $("#level").val("ROUND: 1");
+
+    levelCount = 1;
+
+    gameArray = [];
+
+} 
+
+}; //playerResponses
+
+$(".box").click(function() {
+
+    var player = Number($(this).val());
+
+    playerResponses(player); 
+
+    console.log('button click');
+
+    console.log($(this).val());
+
+}); 
+
 </script>
-<!---personalized js external file-->
-  </body>
-  </html>  
+
+</body>
+</html>  
