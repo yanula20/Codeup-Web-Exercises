@@ -1,8 +1,7 @@
 "use strict";
 /*notes: 
 * iteration: num=num+1; num++; num+=;
-*
-*
+
 *
 */
 
@@ -13,17 +12,16 @@ while (i < 131072) {
     i=i*2;
 }
 
-//*****************************************
 
 console.log("Count to 100 by 2s");
 var num = 0;
 
-while (num <100) {
+while (num < 100) {
 	num = num + 2;
 	console.log(num);
 }
 	
-//*****************************************
+
 console.log("Challenge 1: Log 1 to 100, display only odds");
 
 i = 1;
@@ -33,16 +31,16 @@ while (i < 100) {
    	 i+=2; //i=i+2
 }
 	
-//*****************************************
+
 console.log("Challenge 2: Log 1 to 100, display only evens");
 
-for (i = 2; i <=100; i++) {
+for (i = 2; i <= 100; i++) {
 	if (i%2 == 0){
 		console.log("The even number is : "+i);
 	} 
 }
 
-//*****************************************
+
 console.log("Challenge 3: Log 100 to 1, display only evens");
 
 for (i = 100; i > 1 ; i--) {
@@ -51,7 +49,7 @@ for (i = 100; i > 1 ; i--) {
 	} 
 }
 
-//*****************************************
+
 console.log("Challenge 4: Log 100 to 1, display only odds");
 
 for (i = 100; i > 0 ; i--) {
@@ -60,7 +58,6 @@ for (i = 100; i > 0 ; i--) {
 	} 
 }
 
-//*****************************************
 console.log("Challenge 5: Log 1 to 100, display every other even");
 
 for (i = 2; i < 100;) {
@@ -70,7 +67,7 @@ for (i = 2; i < 100;) {
 		
 	} 
 }
-//*****************************************
+
 console.log("Challenge 6: Log 1 to 100, display every other odd");
 
 for (i = 1; i < 100;) {
@@ -80,7 +77,7 @@ for (i = 1; i < 100;) {
 	} 
 }
 
-//*****************************************
+
 console.log("Challenge 7: Log 100 to 1, display every other odd");
 
 for (i = 100; i > 0; i--) {
@@ -89,7 +86,7 @@ for (i = 100; i > 0; i--) {
 		i = i-3;
 	} 
 } 
-//*****************************************
+
 console.log("Challenge 8: Log 100 to 1, display every other even");
 
 for (i = 100; i > 0;  ) {
