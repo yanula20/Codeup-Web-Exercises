@@ -1,3 +1,8 @@
+<?php
+
+require_once 'css_styling.php';
+
+?>
 
 <p>
 	<h1>Which state do you live in?</h1>
@@ -11,5 +16,5 @@
 	</select>
 </p>
 
-			
+		
 		
