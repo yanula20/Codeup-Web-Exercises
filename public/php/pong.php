@@ -1,11 +1,15 @@
 <?php
 
+require_once 'functions.php';
+
+
 ///creates assoc. array of ur data;
+
 function pageController(){
 
-	if(isset($_GET['counter'])){
+	if(inputHas('counter')){
 
-		$counter = $_GET['counter'];
+		$counter = inputGet('counter');
 
 	}else{
 
