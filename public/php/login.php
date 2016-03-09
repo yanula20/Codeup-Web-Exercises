@@ -3,22 +3,22 @@
 //allows us to use $_SESSION superglobals later
 session_start();
 
-include_once 'functions.php';
+require_once 'functions.php';
 
 var_dump($_POST);
 
 //corect login
-$username = 'guest';
+$username = 'terrible';
 
 //corect login
-$password = 'password';
+$password = 'terry';
 
 
 
 //checks for user input in html POST method
-$attemptedUsername = isset($_POST['username']) ? $_POST['username'] : '';
+$attemptedUsername = inputHas('username')? inputGet('username') : '';
 
-$attemptedPassword = isset($_POST['password']) ? $_POST['password'] : '';
+$attemptedPassword = inputHas('password') ? inputGet('password') : '';
 
 
 
@@ -51,13 +51,23 @@ if(isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] != ""){
 <html>
 <head>
     <title>POST Example</title>
+
+<style type="text/css">
+
+body{
+
+    background-color: yellow;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+</style>
 </head>
 <body>
     <form method="POST"  action="login.php">
         <label>Name</label>
         <input type="text" name="username"><br>
         <label>Password</label>
-        <input type="passwoerd" name="password"><br>
+        <input type="password" name="password"><br>
         <input type="submit">
     </form>
 </body>
