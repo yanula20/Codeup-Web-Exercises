@@ -3,47 +3,25 @@
 require_once '../parks_db_connect.php';
 require_once '../Input.php';
 
-$page1 = 1;
-
-$page2 = 2;
-
-$page3 = 3;
+//from PREV and NEXT current page
+$page = Input::has('page')? Input::get('page') : 1;
 
 $limit = 4;
 
-$offset1 = ($limit * $page1)-$limit;
 
-$offset2 = ($limit * $page2)-$limit;
+$offset = ($limit * $page)-$limit;
 
-$offset3 = ($limit * $page3)-$limit;
-
-$var = Input::has('page')? Input::get('page') : 1;
-
-switch ($var) {
-
-    case 1:
-  
-    $stmt = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset1");
-
+$stmt = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset");
  
-    $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        break;
-    case 2:
-        
-    $stmt = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset2");
+$parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-    $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        break;
-    case 3:
-         
-    $stmt = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset3");
+//php either back ticks or nothing, pdostate obj -> with fetchColumn string with num, typecasted below
+$count = $dbc->query("SELECT count('id') FROM national_parks")->fetchColumn();
 
-    $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        break;
-   
-    default:
-}
+$total_pages = $count/4;
+
+
 
 ?>
 <!DOCTYPE html>
@@ -73,16 +51,14 @@ switch ($var) {
     <h3><?=$park['date_established'] ?><h3>
     <h3><?=$park['area_in_acres'] ?><h3>
     <?php endforeach; ?>
-        
-    <a href="national_parks.php?=page=<?=$page1;?>">page 1</a><br>
+     
+    <?php if($page < $total_pages) { ?> 
+    <a href="national_parks.php?page=<?=($page+1)?>">NEXT</a><br>
+    <?php } ?>
   
-         
-    <a href="national_parks.php?page=<?=$page2;?>">page 2</a><br>
-
-
-    <a href="national_parks.php?page=<?=$page3;?>">page 3</a><br>
-
-
+    <?php if($page > 1 ) { ?>     
+    <a href="national_parks.php?page=<?=($page-1)?>">PREVIOUS</a><br>
+    <?php } ?>
      <!--html here-->
 
 
