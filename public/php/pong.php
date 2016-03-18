@@ -1,15 +1,15 @@
 <?php
 
-require_once 'functions.php';
+require_once '../../Input.php';
 
 
 ///creates assoc. array of ur data;
 
 function pageController(){
 
-	if(inputHas('counter')){
+	if(Input::has('counter')){
 
-		$counter = inputGet('counter');
+		$counter = Input::get('counter');
 
 	}else{
 

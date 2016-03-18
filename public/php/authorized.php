@@ -2,6 +2,7 @@
 <?php
 session_start();
 
+require_once '../../Auth.php';
 
 //checking the session for the 'logge_in_user' key and making sure it has a value
 //are they logged in?
@@ -13,7 +14,7 @@ if( ! isset($_SESSION['logged_in_user']) || $_SESSION['logged_in_user'] == ""){
 
 } else{
 
-    $username = $_SESSION['logged_in_user'];
+    $username = Auth::user();
 }
 
 
@@ -45,7 +46,7 @@ h1 {
 <body>
 
     <h1>AUTHORIZED!!</h1>
-    <h3><?= $username;?></h3>
+    <h3><?=$username;?></h3>
     <br>
     <a href="logout.php">Logout</a>
 

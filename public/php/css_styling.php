@@ -4,10 +4,16 @@
 
 <style type="text/css">
 
-html{
+body{
+	
 	color: salmon;
+
 }
 
+h1{
+
+	font-size: 25px;
+}
 
 </style>
 

@@ -1,29 +1,34 @@
 <?php
+
+
 //starts session or finds a session
 //allows us to use $_SESSION superglobals later
 session_start();
 
-require_once 'functions.php';
+require_once '../../Input.php';
+
+require_once '../../Auth.php';
+
+require_once '../../Log.php';
 
 var_dump($_POST);
 
-//corect login
-$username = 'terrible';
 
 //corect login
-$password = 'terry';
+$username = 'guest';
+$password = 'password';
 
 
 
 //checks for user input in html POST method
-$attemptedUsername = inputHas('username')? inputGet('username') : '';
+$attemptedUsername = Input::has('username')? Input::get('username') : '';
 
-$attemptedPassword = inputHas('password') ? inputGet('password') : '';
+$attemptedPassword = Input::has('password') ? Input::get('password') : '';
 
 
 
 //checking if 'logged_in_user'
-if(isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] != ""){
+if(Auth::check()){
 
 	header("Location: authorized.php");
 
@@ -31,9 +36,13 @@ if(isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] != ""){
 
 
 //first time logged in
-}elseif($attemptedPassword == $password && $attemptedUsername == $username){
+}elseif(Auth::attempt($attemptedUsername,$attemptedPassword)){
 
 	$_SESSION['logged_in_user'] = $username;//session key for the username
+
+    $successUserLog = new Log('success-');
+
+    $successUserLog->logInfo("User login successful.");
 	
 	header("Location: authorized.php");
 
@@ -41,6 +50,10 @@ if(isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] != ""){
 
 //  Checking to see if entered wrong info
 } elseif  ($attemptedUsername != '' || $attemptedPassword != ''){
+
+    $failedUserLog = new Log('failed-');
+
+    $failedUserLog->logError("User login NOT successful.");
 
 	echo 'You have not successfully logged in!';
 }

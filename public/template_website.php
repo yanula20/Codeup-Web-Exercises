@@ -9,12 +9,14 @@
 <body>
     <div id="wrapper">
      
-    <?php require_once 'php/index.php'; ?>
+ 
+    
+    <?php require_once 'php/index1.php'; ?>
 
     </div> <!-- end wrapper   --> 
 
 
-    <button class="btn btn-primary">Test Button</button>
+
     <?php require_once 'php/javascript_styling.php'; ?>
 
 </body>

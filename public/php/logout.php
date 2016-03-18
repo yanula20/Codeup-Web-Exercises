@@ -1,17 +1,10 @@
 <?php
+
 session_start();
 
-function clearSession()
-{
-    // clear $_SESSION array
-    session_unset();
+require_once '../../Auth.php';
 
-    // delete session data on the server and send the client a new cookie
-    session_regenerate_id(true);
- 
-}
-
-clearSession();
+Auth::logout();
 
 header("Location: login.php");
 

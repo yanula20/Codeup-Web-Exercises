@@ -1,8 +1,3 @@
-<?php
-
-require_once 'css_styling.php';
-
-?>
 
 <p>
 	<h1>Which state do you live in?</h1>
@@ -14,6 +9,10 @@ require_once 'css_styling.php';
 		<option>Vermont</option>
 		<option>Washington</option>
 	</select>
+	<br>
+	<br>
+	<br>
+	<button class="btn btn-primary">Test Button</button>
 </p>
 
 		
