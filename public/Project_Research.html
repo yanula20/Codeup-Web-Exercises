@@ -182,6 +182,7 @@ form {
 "use strict;"
 var address;
 var language;
+
 $(document).ready(function() {
 
     var mapOptions = {
@@ -198,7 +199,8 @@ $(document).ready(function() {
 
 function getGitHubData(language,address){
 
-   
+
+
         
 $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"location:"+"\""+address+"\""+"sort:followers").done(function(data) {
       
@@ -208,7 +210,6 @@ $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"loca
         console.log("Data returned from server:");
         console.log(data);
 
-
         console.log('This is the total users:'+data.total_count+' with '+language+' in '+address);
 
         data.items.forEach(function (items, index, array) {
@@ -217,75 +218,160 @@ $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"loca
         var profileString = ""
         profileString += "<di class=\"item\">"
         profileString += "<p>"+"rank by followers: "+(index+1)+"<p>"
+         profileString += "<p>"+"LOCATION: "+address+"</p>"
         profileString += "<p>"+"user_login: "+items.login+"<p>"
         profileString += "<p>"+"repos_url: "+items.repos_url+"</p>"
         profileString += "<p>"+"followers_url: "+items.followers_url+"</p>"
-        profileString += "<p>"+"following_url: "+items.following_url+"</p>"
         profileString += "</div>"
 
         $(".carousel-inner").append(profileString);
          
 
-       }); //end foreach
+        }); //end foreach
+
+ var languageObj = [{//element
+            
+            language: "javascript",
+            description: address,
+            image: "<img src=\"/img/langicons/js.png\" alt=\"javascript\">",
+        },{//element..address,element.description,
+            language: "python",
+            description: address,
+            image: "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">",
+        },{
+            language: "ruby",
+            description: address,
+            image: "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">",
+        
+        }];
 
 
-    }); //end ajax github
+     switch(language){
+
+            case "javascript":
+            console.log('js icon here');
+            languageObj.image = "<img src=\"/img/langicons/js.png\" alt=\"javascript\">";
+            break;
+
+            case "python":
+            console.log('python icon here');
+            languageObj.image = "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">";
+            break;
+
+            case "ruby":
+            console.log('ruby icon here');
+            languageObj.image = "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">";
+            break;
+
+            case "ruby on rails":
+            console.log('ruby on rails icon here');
+            break;
+
+
+            case "c#":
+            console.log('c# icon here');
+            break;
+
+
+            case "c++":
+            console.log('c++ icon here');
+            break;
+
+
+            case "mysql":
+            console.log('mysql icon here');
+            break;
+
+
+            case "lisp":
+            console.log('lisp icon here');
+            break;
+
+        }
+
+var geocoder = new google.maps.Geocoder ();
+geocoder.geocode({"address": address}, function(results, status) {
+
+
+
+    var latitude = results[0].geometry.location.lat();
+    console.log(latitude);
+    var longitude = results[0].geometry.location.lng();
+    console.log(longitude);
+    var latlng = {
+        lat: latitude,
+        lng: longitude
+    };
+
+    console.log(latlng);
+
+    if (status == google.maps.GeocoderStatus.OK) {
+         console.log(results);
+         console.log(status);
+
+        var marker = new google.maps.Circle ({
+        center: latlng,
+        map: map,
+        icon: languageObj.image,
+        animation : google.maps.Animation.DROP,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        radius: Math.sqrt(data.total_count)*500,
+       
+        }); 
+
+        map.panTo(results[0].geometry.location);
+
+
+        var infowindow = new google.maps.InfoWindow({
+            content: "The number of self-identified "+language+" programmers in "+address+" is "+
+            data.total_count+
+            languageObj.image,
+            position: latlng
+            
+        });
+
+        marker.addListener('mouseover', function(){
+            infowindow.open(map, marker);
+        });
+
+           marker.addListener('mouseout', function(){
+            infowindow.close(map, marker);
+        });
+
+    }   else {
+
+            alert("Geocoding was not successful - STATUS: " + status);
+
+    }
+
+
+    $.get("https://api.twitter.com/1.1/search/tweets.json?geocode="+latitude+","+longitude+",1mi").done(function(data) {
+ 
+    alert("twitter get call completed successfully!");
+    console.log("Data returned from server:");
+    console.log(data);
+    console.log('address from github data in twitter below');
+    console.log(address);
+
+
+}); //end twittter
+
+}); //end geocoder
+        
+
+
+
+
+}); //end ajax github
     
 
-}
-
-function getAddress(){
-            
-        var geocoder = new google.maps.Geocoder ();
-        geocoder.geocode({"address": address}, function(results, status) {
-
-            if (status == google.maps.GeocoderStatus.OK) {
-                 console.log(results);
-                 console.log(status);
-            
-                    var marker = new google.maps.Marker ({
-                    "position": results[0].geometry.location,
-                    "map": map,
-                    "animation" : google.maps.Animation.DROP,
-                    draggable : true,
-                    }); 
-
-                    map.panTo(results[0].geometry.location);
-
-                    var infowindow = new google.maps.InfoWindow({
-                        content: address
-                    });
-
-                    marker.addListener('click', function(){
-                        infowindow.open(map, marker);
-                    });
+}//end getGitHubData
 
 
-
-            }   else {
-
-                    alert("Geocoding was not successful - STATUS: " + status);
-
-            }
-
-        }); //end geocoder
-           
-    } //end getAddress
-
-
-
-function getTwitter(){
-
-    $.ajax({
-        type: 'GET',
-        dataType: 'json',
-        data: {},
-        url: 'https://twitter.com/i/search/timeline?f=realtime&q=Babylon%205&src=typd&include_available_features=1&include_entities=1&last_note_ts=85&scroll_cursor=TWEET-553069642609344512-553159310448918528-BD1UO2FFu9QAAAAAAAAETAAAAAcAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
-       
-       
-});
-
-}
     
 
     $("#submit-address").click(function(e){
@@ -294,9 +380,8 @@ function getTwitter(){
         language = $("#language").val();
         e.preventDefault();
         getGitHubData(language,address);
-        getAddress(address);
-        getTwitter();
         
+       
 });
 
 
