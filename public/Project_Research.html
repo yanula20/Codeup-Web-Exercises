@@ -182,7 +182,6 @@ form {
 "use strict;"
 var address;
 var language;
-var data;
 $(document).ready(function() {
 
     var mapOptions = {
@@ -227,10 +226,9 @@ $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"loca
         $(".carousel-inner").append(profileString);
          
 
-
        }); //end foreach
 
-        return data.total_count;
+
     }); //end ajax github
     
 
@@ -245,12 +243,11 @@ function getAddress(){
                  console.log(results);
                  console.log(status);
             
-                    var marker = new google.maps.Circle ({
+                    var marker = new google.maps.Marker ({
                     "position": results[0].geometry.location,
                     "map": map,
                     "animation" : google.maps.Animation.DROP,
                     draggable : true,
-                    radius: Math.sqrt(getGitHubData()) * 100
                     }); 
 
                     map.panTo(results[0].geometry.location);
@@ -292,6 +289,7 @@ function getTwitter(){
     
 
     $("#submit-address").click(function(e){
+        // $(".carousel-inner").innerHTML(" ");
         address = $("#address").val();
         language = $("#language").val();
         e.preventDefault();

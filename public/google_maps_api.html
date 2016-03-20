@@ -9,230 +9,168 @@
     </style>
 </head>
 <body>
-<!-- div to hold map -->
-<div id="map-canvas"></div>
+    <!-- div to hold map -->
+    <div id="map-canvas"></div>
 
-<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJMMD6k9NVgkv5xDAcIaENzanI8psOI44"></script>
+    <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJMMD6k9NVgkv5xDAcIaENzanI8psOI44"></script>
 
+    <!-- Script to show address on map -->
+    <script type="text/javascript">
+    (function() {
+        "use strict";
+        /**********************************/
+        var address = "600 Navarro, San Antonio, TX";
 
-<!-- Script to show address on map -->
-<script type="text/javascript">
-(function() {
-    "use strict";
-    /**********************************/
-    var address = "600 Navarro, San Antonio, TX";
+        var geocoder = new google.maps.Geocoder ();//object that sends req to google
+        
+        // function handles the data that comes back from the google service. Handle the results and its status
+        geocoder.geocode({ "address": address }, function(results, status) {
+            /*geocode is the method for the geocoder obj, this is from google
+            and its parameters are results and status*/
+           // Check for a successful result. this is call back function
+           //address is a key, var address is global
+           if (status == google.maps.GeocoderStatus.OK) {
+                //status is 1 of 2 parameters/arguments of geocodemthode
+               // Recenter the map over the address
 
-    var myGeocoder = new google.maps.Geocoder ();//object that sends req to google
-    
-    // function handles the data that comes back from the google service. Handle the results and its status
-    myGeocoder.geocode({ "address": address }, function(results, status) {
-        /*geocode is the method for the geocoder obj, this is from google
-        and its parameters are results and status*/
-       // Check for a successful result. this is call back function
-       //address is a key, var address is global
-       if (status == google.maps.GeocoderStatus.OK) {
-        console.log(results);
-            //status is 1 of 2 parameters/arguments of geocodemthode
-           // Recenter the map over the address
+               // map.setCenter(results[0].geometry.location);
+               // map.panTo(results[0].geometry.location);
+            //geometry is key and location is value
 
-           // map.setCenter(results[0].geometry.location);
-           // map.panTo(results[0].geometry.location);
-        //geometry is key and location is value
+               var marker = new google.maps.Marker ({
+                "position": results[0].geometry.location,
+                "map": map
+               });
 
-           var marker = new google.maps.Marker ({
-            "position": results[0].geometry.location,
-            "map": map
-           });
+                // Create a new infoWindow object with content
+                var infowindow = new google.maps.InfoWindow({
+                    content: "<h6>Changing the world, one programmer at a time.</h6>"
+                });
 
-            // Create a new infoWindow object with content
-            var infowindow = new google.maps.InfoWindow({
-                content: "<h6>Changing the world, one programmer at a time.</h6>"
-            });
+                // Open the window using our map and marker
+                marker.addListener('mouseover', function(){
+                    infowindow.open(map, marker);
+                });
+                
 
-            // Open the window using our map and marker
-            marker.addListener('mouseover', function(){
-                infowindow.open(map, marker);
-            });
+           } else {
+
+               // Show an error message with the status if our request fails
+               alert("Geocoding was not successful - STATUS: " + status);
+           }
+        });
+           /**********************************/
+           //array members and their properties are described with element.address, element.description, ..etc.
+        var addressObj = [{//element
             
-
-       } else {
-
-           // Show an error message with the status if our request fails
-           alert("Geocoding was not successful - STATUS: " + status);
-       }
-    });
-       /**********************************/
-       //array members and their properties are described with element.address, element.description, ..etc.
-    var addressArray = [{//element
+            address: "18318 Sonterra Pl San Antonio TX 78258",
+            description: 'Brazilian BBQ. Great Hangover food.<br> Try the Guarana!<br>',
+            iconUrl: '/img/restaurant.png',
+            favoriteDish:"<a href=\"https://en.wikipedia.org/wiki/Churrasco\">Churrasco<a/>",
+            image: "<img src=\"/img/google_maps_img/brazilian_bbq.jpeg\" alt=\"brazilian bbq\">",
+        },{//element..address,element.description,
+            address: "4400 Rittiman Rd San Antonio, TX 78218",
+            description: "If you like Ponjon in a great family atmosphere, <br> try the Korean BBQ House.<br>",
+            iconUrl: '/img/restaurant_korean.png',
+            favoriteDish:"<a href=\"https://en.wikipedia.org/wiki/Bibimbap\">Bibimbap<a/>",
+            image: "<img src=\"/img/google_maps_img/kiku_korean.jpeg\" alt=\"Kiku Korean restaurant\">",
+        },{
+            address: "5418 W Military Dr San Antonio TX 78242",
+            description: "Yorky\'s Taco House. <br> Bright, art-filled cafe offering Mexican classics.<br> Breakfast & Lunch specials.<br>",
+            iconUrl: '/img/restaurant_mexican.png',
+            favoriteDish: "<a href=\"https://en.wikipedia.org/wiki/Doritos\">Taco Doritos<a/>",
+            image: "<img src=\"/img/google_maps_img/Yorkys.jpeg\" alt=\"Taco Restaurant\">",
         
-        address: "<br>18318 Sonterra Pl San Antonio TX 78258<br>",
-        description: 'Brazilian BBQ. Great Hangover food.<br> Try the Guarana!<br>',
-        iconUrl: '/img/restaurant.png',
-        favoriteDish:"<a href=\"https://en.wikipedia.org/wiki/Churrasco\">Churrasco<a/>",
-        image: "<img src=\"/img/google_maps_img/brazilian_bbq.jpeg\" alt=\"brazilian bbq\">",
-    },{//element..address,element.description,
-        address: "<br>4400 Rittiman Rd San Antonio, TX 78218<br>",
-        description: "If you like Ponjon in a great family atmosphere, <br> try the Korean BBQ House.<br>",
-        iconUrl: '/img/restaurant_korean.png',
-        favoriteDish:"<a href=\"https://en.wikipedia.org/wiki/Bibimbap\">Bibimbap<a/>",
-        image: "<img src=\"/img/google_maps_img/kiku_korean.jpeg\" alt=\"Kiku Korean restaurant\">",
-    },{
-        address: "<br>5418 W Military Dr San Antonio TX 78242<br>",
-        description: "Yorky\'s Taco House. <br> Bright, art-filled cafe offering Mexican classics.<br> Breakfast & Lunch specials.<br>",
-        iconUrl: '/img/restaurant_mexican.png',
-        favoriteDish: "<a href=\"https://en.wikipedia.org/wiki/Doritos\">Taco Doritos<a/>",
-        image: "<img src=\"/img/google_maps_img/Yorkys.jpeg\" alt=\"Taco Restaurant\">",
-    
-    }];
+        }];
 
-    //Brazilian BBQ, Korian BBQ, Kiku Garden korean food
-    // var geocoder = new google.maps.Geocoder ();//object that sends request to google
-    addressArray.forEach(function (element, index, array) {
-          // function handles the data that comes back from the google service. Handle the results and its status
-    myGeocoder.geocode({ "address": element.address }, function(results, status) {
-        /*geocode is the method for the geocoder obj, this is from google
-        and its parameters are results and status*/
-       // Check for a successful result. this is call back function
-       //address is a key, var address is global
-       if (status == google.maps.GeocoderStatus.OK) {
+        //Brazilian BBQ, Korian BBQ, Kiku Garden korean food
+        var geocoder = new google.maps.Geocoder ();//object that sends request to google
+        addressObj.forEach(function (element, index, array) {
+              // function handles the data that comes back from the google service. Handle the results and its status
+        geocoder.geocode({ "address": element.address }, function(results, status) {
           console.log(results);
-            //status is 1 of 2 parameters/arguments of geocodemthode
-           // Recenter the map over the address
+          console.log(status);
+            /*geocode is the method for the geocoder obj, this is from google
+            and its parameters are results and status*/
+           // Check for a successful result. this is call back function
+           //address is a key, var address is global
+           if (status == google.maps.GeocoderStatus.OK) {
+                //status is 1 of 2 parameters/arguments of geocodemthode
+               // Recenter the map over the address
 
-           // map.setCenter(results[0].geometry.location);
-           // map.setCenter(results[0].geometry.location);
-        //geometry is key and location is value
+               // map.setCenter(results[0].geometry.location);
+               // map.setCenter(results[0].geometry.location);
+            //geometry is key and location is value
 
-           var marker = new google.maps.Marker ({
-            "position": results[0].geometry.location,
-            // icon: 'http://cdn.com/my-custom-icon.png',
-            // results[0] does not change
-            "map": map,
-            icon: element.iconUrl,
-            draggable: true,
-            animation: google.maps.Animation.DROP
+               var marker = new google.maps.Marker ({
+                "position": results[0].geometry.location,
+                // icon: 'http://cdn.com/my-custom-icon.png',
+                // results[0] does not change
+                "map": map,
+                icon: element.iconUrl,
+                draggable: true,
+                animation: google.maps.Animation.DROP
 
-           });
+               });
 
-            // click on marker to open infowindow
-            marker.addListener('click', function(){
-                infowindow.open(map, marker);
-            });
+                marker.addListener('click', toggleBounce);
 
-            marker.addListener('click', toggleBounce);
+                function toggleBounce() {
+                  if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                  } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                  }
+                }
+                // Create a new infoWindow object with content
+               
+                var infowindow = new google.maps.InfoWindow({
+                    content: "My restaurant pick number "+(index+1)+" is as follows:"+
+                             element.address+
+                             element.description+
+                             element.favoriteDish+
+                             element.image
+                });
 
-            function toggleBounce() {
-              if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-              } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            }
-            // Create a new infoWindow object with content
-            var infowindow = new google.maps.InfoWindow({
-                content: "My restaurant pick number "+(index+1)+" is as follows:"+
-                         element.address+
-                         element.description+
-                         element.favoriteDish+"<br>"+
-                         element.image
-            });
-       } else {
+                // // Open the window using our map and marker
+                marker.addListener('click', function(){
+                    infowindow.open(map, marker);
+                });
+                
 
-           // Show an error message with the status if our request fails
-           alert("Geocoding was not successful - STATUS: " + status);
-       }
+           } else {
 
-      
-    }); //end geocoder
-});  //end forEach
-    /**************REVERSE GEOCODING********************/
-//     var reverseGeocodingArray = {
-//         zoom: 10,
-//         center: {
-//             lat:  40.714224,
-//             lng: -73.961452
-//         },
-//         mapTypeId: google.maps.MapTypeId.HYBRID
-//     };
-
-//     reverseGeocodingArray.forEach(function (element,index,array){
-
-//        myGeocoder.geocode({center: center.lat,center.lng}, function(results, status) {
+               // Show an error message with the status if our request fails
+               alert("Geocoding was not successful - STATUS: " + status);
+           }
+        }); //end geocoder
         
-//        if (status == google.maps.GeocoderStatus.OK) {
-//           console.log(results);
+    });
+      
+         /**********************************/
+        // Set our map options
+        var mapOptions = {
+            // Set the zoom level
+            zoom: 10,
 
-//            var marker = new google.maps.Marker ({
-//             "position": results[0].geometry.location,
-//             "map": map,
-//             draggable: true,
-//             animation: google.maps.Animation.DROP
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.4284595,
+                lng: -98.492433
+            },
+            mapTypeId: google.maps.MapTypeId.HYBRID
+            // MapTypeId.ROADMAP — default road map view. This is the default map type.
+            // MapTypeId.SATELLITE — Google Earth satellite images
+            // MapTypeId.HYBRID — mixture of roadmap and satellite views
+            // MapTypeId.TERRAIN — physical map based on terrain information.
+        };
 
-//            });
-
-           
-//             marker.addListener('click', function(){
-//                 infowindow.open(map, marker);
-//             });
-
-//             marker.addListener('click', toggleBounce);
-
-//             function toggleBounce() {
-//               if (marker.getAnimation() !== null) {
-//                 marker.setAnimation(null);
-//               } else {
-//                 marker.setAnimation(google.maps.Animation.BOUNCE);
-//               }
-//             }
-           
-//             var infowindow = new google.maps.InfoWindow({
-//                 content: "<h6>"+"Boogie Down Brooklyn, Stand Up!"+"</h6>"
-//             });
-
-//        } else {
-
-//            // Show an error message with the status if our request fails
-//            alert("Geocoding was not successful - STATUS: " + status);
-//        }
-//     }); //end geocoder
-// }); //end forEach
-
-
-
-
-     /**********************************/
-    // Set our map options
-    var mapOptions = {
-        // Set the zoom level
-        zoom: 10,
-
-        // This sets the center of the map at our location
-        center: {
-            lat:  29.4284595,
-            lng: -98.492433
-        },
-        mapTypeId: google.maps.MapTypeId.HYBRID
-        // MapTypeId.ROADMAP — default road map view. This is the default map type.
-        // MapTypeId.SATELLITE — Google Earth satellite images
-        // MapTypeId.HYBRID — mixture of roadmap and satellite views
-        // MapTypeId.TERRAIN — physical map based on terrain information.
-    };
-
-    // Render the map, must create div first
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);//grab the map-canvas div
-    console.log("Map was intialized successfully.");
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);//grab the map-canvas div
+        console.log("Map was intialized successfully.");
         
     })();
     </script>
 </body>
-  
-
-
-
-
-
-
-
-
-
+</html>
