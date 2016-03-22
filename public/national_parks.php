@@ -1,4 +1,5 @@
 <?php 
+
 //PDO connects to mysql parks db
 require_once '../parks_db_connect.php';
 require_once '../Input.php';
@@ -10,14 +11,43 @@ $limit = 4;
 
 $offset = ($limit * $page)-$limit;
 
-$stmt = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset");
+$stmt = $dbc->prepare("SELECT * FROM national_parks LIMIT :limit OFFSET :offset");
+
+$stmt->bindValue(':limit', $limit,PDO::PARAM_INT);
+
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+$stmt->execute();
  
 $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//php either back ticks or nothing, pdostate obj -> with fetchColumn string with num, typecasted below
 $count = $dbc->query("SELECT count('id') FROM national_parks")->fetchColumn();
 
 $total_pages = $count/4;
+
+if(!empty($_POST)){
+
+    descAdd($dbc);
+
+}
+
+function descAdd($dbc){
+
+    if(Input::has('desc') && Input::get('name') != ""){
+        $description = Input::get('desc');
+    }
+    if(Input::has('parkId')){
+        $parkIds = Input::get('parkId');
+    }
+ 
+var_dump($description);
+Var_dump($parkIds);
+$stmt = $dbc->prepare("UPDATE national_parks SET description = :description WHERE parks_id = :parks_id"); 
+$stmt->bindValue(':description', $description, PDO::PARAM_STR);
+$stmt->bindValue(':parks_id', $parkIds, PDO::PARAM_STR);
+$stmt->execute();
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -40,11 +70,19 @@ $total_pages = $count/4;
     <div id="wrapper">
 
     <h1>National Parks</h1>
+
     <?php foreach($parks as $park): ?>
-    <h2>Park name: <?=$park['name'] ?><h2>
-    <h3>location: <?=$park['location'] ?><h3>
-    <h4>Date established: <?=$park['date_established'] ?><h4>
-    <h4>acres: <?=$park['area_in_acres'] ?><h4>
+    <h2>Park name: <?=$park['name'] ?></h2>
+    <h3>location: <?=$park['location'] ?></h3>
+    <h4>Date established: <?=$park['date_established'] ?></h4>
+    <h4>acres: <?=$park['area_in_acres'] ?></h4>
+    <br>
+    <form method="POST" action="national_parks.php">
+        <textarea rows="10" cols="35" name="desc" placeholder="Enter park description"></textarea>
+        <br>
+        <input type="hidden" name="parkId" value=" <?=$park['parks_id'];?>">
+        <input id="descAd" type="submit" >
+    </form>
     <?php endforeach; ?>
      
     <?php if($page < $total_pages) { ?> 
@@ -62,7 +100,7 @@ $total_pages = $count/4;
 <script src="/js/bootstrap.js"></script>
 
 <script type="text/javascript">
-      /*--js here--*/
+      
 </script>
 <!---personalized js external file-->
   </body>

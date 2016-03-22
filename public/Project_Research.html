@@ -218,7 +218,8 @@ $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"loca
         var profileString = ""
         profileString += "<di class=\"item\">"
         profileString += "<p>"+"rank by followers: "+(index+1)+"<p>"
-         profileString += "<p>"+"LOCATION: "+address+"</p>"
+        profileString += "<p>"+"LOCATION: "+address+"</p>"
+        profileString += "<p>"+"LANGUAGE: "+language+"</p>"
         profileString += "<p>"+"user_login: "+items.login+"<p>"
         profileString += "<p>"+"repos_url: "+items.repos_url+"</p>"
         profileString += "<p>"+"followers_url: "+items.followers_url+"</p>"
@@ -234,14 +235,17 @@ $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"loca
             language: "javascript",
             description: address,
             image: "<img src=\"/img/langicons/js.png\" alt=\"javascript\">",
+            iconUrl: "/img/langicons/js.png"
         },{//element..address,element.description,
             language: "python",
             description: address,
             image: "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">",
+            iconUrl: "/img/langicons/python.png"
         },{
             language: "ruby",
             description: address,
             image: "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">",
+            iconUrl: "/img/langicons/ruby.png"
         
         }];
 
@@ -251,16 +255,19 @@ $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"loca
             case "javascript":
             console.log('js icon here');
             languageObj.image = "<img src=\"/img/langicons/js.png\" alt=\"javascript\">";
+            languageObj.iconUrl = "/img/langicons/js.png";
             break;
 
             case "python":
             console.log('python icon here');
             languageObj.image = "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">";
+            languageObj.iconUrl = "/img/langicons/python.png";
             break;
 
             case "ruby":
             console.log('ruby icon here');
             languageObj.image = "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">";
+            languageObj.iconUrl = "/img/langicons/ruby.png";
             break;
 
             case "ruby on rails":
@@ -310,6 +317,7 @@ geocoder.geocode({"address": address}, function(results, status) {
          console.log(status);
 
         var marker = new google.maps.Circle ({
+
         center: latlng,
         map: map,
         icon: languageObj.image,
@@ -320,6 +328,29 @@ geocoder.geocode({"address": address}, function(results, status) {
         fillColor: '#FF0000',
         fillOpacity: 0.35,
         radius: Math.sqrt(data.total_count)*500,
+        
+       
+        }); 
+        marker.setMap(map);
+        
+        var direction = 1;
+        var rMin = 500, rMax = 10000;
+        setInterval(function() {
+            var radius = marker.getRadius();
+            if ((radius > rMax) || (radius < rMin)) {
+                direction *= -1;
+            }
+            marker.setRadius(radius + direction * 10);
+        }, 50);
+   
+
+        var markerLanguage = new google.maps.Marker ({
+            
+        position: results[0].geometry.location,
+        map: map,
+        icon: languageObj.iconUrl,
+        animation : google.maps.Animation.DROP,
+        draggable: true
        
         }); 
 
@@ -328,17 +359,16 @@ geocoder.geocode({"address": address}, function(results, status) {
 
         var infowindow = new google.maps.InfoWindow({
             content: "The number of self-identified "+language+" programmers in "+address+" is "+
-            data.total_count+
-            languageObj.image,
+            data.total_count,
             position: latlng
             
         });
 
-        marker.addListener('mouseover', function(){
+        markerLanguage.addListener('mouseover', function(){
             infowindow.open(map, marker);
         });
 
-           marker.addListener('mouseout', function(){
+           markerLanguage.addListener('mouseout', function(){
             infowindow.close(map, marker);
         });
 
@@ -349,7 +379,7 @@ geocoder.geocode({"address": address}, function(results, status) {
     }
 
 
-    $.get("https://api.twitter.com/1.1/search/tweets.json?geocode="+latitude+","+longitude+",1mi").done(function(data) {
+    $.get("https://api.twitter.com/search.json?geocode="+latitude+","+longitude+",1mi").done(function(data) {
  
     alert("twitter get call completed successfully!");
     console.log("Data returned from server:");
