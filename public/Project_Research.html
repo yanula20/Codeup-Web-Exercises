@@ -22,7 +22,6 @@
     margin: 0 auto;
  }
 
-
 #map-canvas {
 
     width: 770px;
@@ -92,7 +91,6 @@ form {
             </div>
 
             <div id="map-canvas"></div>
-            
 
         </div>  <!--  end container -->
         <br>
@@ -171,7 +169,6 @@ form {
 
      <!--html here-->
 
-
     </div> <!-- end wrapper   --> 
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -198,223 +195,207 @@ $(document).ready(function() {
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
 function getGitHubData(language,address){
-
-
-
         
-$.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"location:"+"\""+address+"\""+"sort:followers").done(function(data) {
-      
+    $.get("https://api.github.com/search/users?q=language:"+"\""+language+"\""+"location:"+"\""+address+"\""+"sort:followers").done(function(data) {
 
-        console.log(address);
-        alert("AJAX call completed successfully!");
-        console.log("Data returned from server:");
-        console.log(data);
+            console.log(address);
+            alert("AJAX call completed successfully!");
 
-        console.log('This is the total users:'+data.total_count+' with '+language+' in '+address);
+            console.log("Data returned from server:");
 
-        data.items.forEach(function (items, index, array) {
-        
+            console.log(data);
 
-        var profileString = ""
-        profileString += "<di class=\"item\">"
-        profileString += "<p>"+"rank by followers: "+(index+1)+"<p>"
-        profileString += "<p>"+"LOCATION: "+address+"</p>"
-        profileString += "<p>"+"LANGUAGE: "+language+"</p>"
-        profileString += "<p>"+"user_login: "+items.login+"<p>"
-        profileString += "<p>"+"repos_url: "+items.repos_url+"</p>"
-        profileString += "<p>"+"followers_url: "+items.followers_url+"</p>"
-        profileString += "</div>"
+            console.log('This is the total users:'+data.total_count+' with '+language+' in '+address);
 
-        $(".carousel-inner").append(profileString);
-         
+            data.items.forEach(function (items, index, array) {
 
-        }); //end foreach
+                var profileString = ""
+                profileString += "<di class=\"item\">"
+                profileString += "<p>"+"rank by followers: "+(index+1)+"<p>"
+                profileString += "<p>"+"LOCATION: "+address+"</p>"
+                profileString += "<p>"+"LANGUAGE: "+language+"</p>"
+                profileString += "<p>"+"user_login: "+items.login+"<p>"
+                profileString += "<p>"+"repos_url: "+items.repos_url+"</p>"
+                profileString += "<p>"+"followers_url: "+items.followers_url+"</p>"
+                profileString += "</div>"
 
- var languageObj = [{//element
-            
-            language: "javascript",
-            description: address,
-            image: "<img src=\"/img/langicons/js.png\" alt=\"javascript\">",
-            iconUrl: "/img/langicons/js.png"
-        },{//element..address,element.description,
-            language: "python",
-            description: address,
-            image: "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">",
-            iconUrl: "/img/langicons/python.png"
-        },{
-            language: "ruby",
-            description: address,
-            image: "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">",
-            iconUrl: "/img/langicons/ruby.png"
-        
-        }];
+                $(".carousel-inner").append(profileString);
+             
 
+            }); //end foreach
 
-     switch(language){
+            var languageObj = [{//element
 
-            case "javascript":
-            console.log('js icon here');
-            languageObj.image = "<img src=\"/img/langicons/js.png\" alt=\"javascript\">";
-            languageObj.iconUrl = "/img/langicons/js.png";
-            break;
+                language: "javascript",
+                description: address,
+                image: "<img src=\"/img/langicons/js.png\" alt=\"javascript\">",
+                iconUrl: "/img/langicons/js.png"
+                },{//element..address,element.description,
+                language: "python",
+                description: address,
+                image: "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">",
+                iconUrl: "/img/langicons/python.png"
+                },{
+                language: "ruby",
+                description: address,
+                image: "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">",
+                iconUrl: "/img/langicons/ruby.png"
 
-            case "python":
-            console.log('python icon here');
-            languageObj.image = "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">";
-            languageObj.iconUrl = "/img/langicons/python.png";
-            break;
+            }];
 
-            case "ruby":
-            console.log('ruby icon here');
-            languageObj.image = "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">";
-            languageObj.iconUrl = "/img/langicons/ruby.png";
-            break;
+            switch(language){
 
-            case "ruby on rails":
-            console.log('ruby on rails icon here');
-            break;
+                case "javascript":
+                console.log('js icon here');
+                languageObj.image = "<img src=\"/img/langicons/js.png\" alt=\"javascript\">";
+                languageObj.iconUrl = "/img/langicons/js.png";
+                break;
 
+                case "python":
+                console.log('python icon here');
+                languageObj.image = "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">";
+                languageObj.iconUrl = "/img/langicons/python.png";
+                break;
 
-            case "c#":
-            console.log('c# icon here');
-            break;
+                case "ruby":
+                console.log('ruby icon here');
+                languageObj.image = "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">";
+                languageObj.iconUrl = "/img/langicons/ruby.png";
+                break;
+
+                case "ruby on rails":
+                console.log('ruby on rails icon here');
+                break;
 
 
-            case "c++":
-            console.log('c++ icon here');
-            break;
+                case "c#":
+                console.log('c# icon here');
+                break;
 
 
-            case "mysql":
-            console.log('mysql icon here');
-            break;
+                case "c++":
+                console.log('c++ icon here');
+                break;
 
 
-            case "lisp":
-            console.log('lisp icon here');
-            break;
-
-        }
-
-var geocoder = new google.maps.Geocoder ();
-geocoder.geocode({"address": address}, function(results, status) {
+                case "mysql":
+                console.log('mysql icon here');
+                break;
 
 
+                case "lisp":
+                console.log('lisp icon here');
+                break;
 
-    var latitude = results[0].geometry.location.lat();
-    console.log(latitude);
-    var longitude = results[0].geometry.location.lng();
-    console.log(longitude);
-    var latlng = {
-        lat: latitude,
-        lng: longitude
-    };
-
-    console.log(latlng);
-
-    if (status == google.maps.GeocoderStatus.OK) {
-         console.log(results);
-         console.log(status);
-
-        var marker = new google.maps.Circle ({
-
-        center: latlng,
-        map: map,
-        icon: languageObj.image,
-        animation : google.maps.Animation.DROP,
-        strokeColor: '#FF0000',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#FF0000',
-        fillOpacity: 0.35,
-        radius: Math.sqrt(data.total_count)*500,
-        
-       
-        }); 
-        marker.setMap(map);
-        
-        var direction = 1;
-        var rMin = 500, rMax = 10000;
-        setInterval(function() {
-            var radius = marker.getRadius();
-            if ((radius > rMax) || (radius < rMin)) {
-                direction *= -1;
             }
-            marker.setRadius(radius + direction * 10);
-        }, 50);
-   
 
-        var markerLanguage = new google.maps.Marker ({
-            
-        position: results[0].geometry.location,
-        map: map,
-        icon: languageObj.iconUrl,
-        animation : google.maps.Animation.DROP,
-        draggable: true
-       
-        }); 
+            var geocoder = new google.maps.Geocoder ();
+            geocoder.geocode({"address": address}, function(results, status) {
 
-        map.panTo(results[0].geometry.location);
+                var latitude = results[0].geometry.location.lat();
+
+                console.log(latitude);
+
+                var longitude = results[0].geometry.location.lng();
+
+                console.log(longitude);
+
+                var latlng = {
+                    lat: latitude,
+                    lng: longitude
+                };
+
+                console.log(latlng);
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                     console.log(results);
+                     console.log(status);
+
+                    var marker = new google.maps.Circle ({
+
+                        center: latlng,
+                        map: map,
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 1,
+                        draggable: true,
+                        geodesic: true,
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.35,
+                        label: data.total_count,
+                        radius: Math.sqrt(data.total_count)*500,
+
+                    }); 
+
+                    marker.setMap(map);
+                    
+                    var direction = 1;
+                    var rMin = Math.sqrt(data.total_count)*500, rMax = Math.sqrt(data.total_count)*525;
+                    setInterval(function() {
+                        var radius = marker.getRadius();
+                        if ((radius > rMax) || (radius < rMin)) {
+                            direction *= -1;
+                        }
+                        marker.setRadius(radius + direction * 10);
+                    }, 1);
+
+                    var markerLanguage = new google.maps.Marker ({
+                        
+                        position: results[0].geometry.location,
+                        map: map,
+                        icon: languageObj.iconUrl,
+                        animation : google.maps.Animation.DROP,
+                        draggable: true
+                   
+                    }); 
+
+                    map.panTo(results[0].geometry.location);
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "The number of self-identified "+language+" programmers in "+address+" is "+
+                        data.total_count,
+                        position: latlng
+                        
+                    });
+
+                    markerLanguage.addListener('mouseover', function(){
+                        infowindow.open(map, marker);
+                    });
+
+                       markerLanguage.addListener('mouseout', function(){
+                        infowindow.close(map, marker);
+                    });
+
+                }else {
+
+                    alert("Geocoding was not successful - STATUS: " + status);
+
+                }
 
 
-        var infowindow = new google.maps.InfoWindow({
-            content: "The number of self-identified "+language+" programmers in "+address+" is "+
-            data.total_count,
-            position: latlng
-            
-        });
+                $.get("https://api.twitter.com/search.json?geocode="+latitude+","+longitude+",1mi").done(function(data) {
+             
+                alert("twitter get call completed successfully!");
+                console.log("Data returned from server:");
+                console.log(data);
+                console.log('address from github data in twitter below');
+                console.log(address);
+            }); //end twittter
 
-        markerLanguage.addListener('mouseover', function(){
-            infowindow.open(map, marker);
-        });
+        }); //end geocoder
 
-           markerLanguage.addListener('mouseout', function(){
-            infowindow.close(map, marker);
-        });
-
-    }   else {
-
-            alert("Geocoding was not successful - STATUS: " + status);
-
-    }
-
-
-    $.get("https://api.twitter.com/search.json?geocode="+latitude+","+longitude+",1mi").done(function(data) {
- 
-    alert("twitter get call completed successfully!");
-    console.log("Data returned from server:");
-    console.log(data);
-    console.log('address from github data in twitter below');
-    console.log(address);
-
-
-}); //end twittter
-
-}); //end geocoder
-        
-
-
-
-
-}); //end ajax github
-    
+    }); //end ajax github
 
 }//end getGitHubData
 
-
-    
-
-    $("#submit-address").click(function(e){
-        // $(".carousel-inner").innerHTML(" ");
-        address = $("#address").val();
-        language = $("#language").val();
-        e.preventDefault();
-        getGitHubData(language,address);
-        
-       
+$("#submit-address").click(function(e){
+    // $(".carousel-inner").innerHTML(" ");
+    address = $("#address").val();
+    language = $("#language").val();
+    e.preventDefault();
+    getGitHubData(language,address);
+   
 });
-
-
 
 $("#submit-heatmap").click(function(){
     var selected_value = []; // initialize empty array 
@@ -426,18 +407,14 @@ $("#submit-heatmap").click(function(){
         selected_value.forEach(function (language, index, array) {
             console.log(language+'make my density circle on the map');
 
-
         });
     });
         
 });
    
-     console.log('hi'); 
+    console.log('hi'); 
 
-
-    alert( 'The DOM has finished loading!' );
-
-                
+    alert( 'The DOM has finished loading!');
                        
 }); //end document scope
 // })();   //end IFFE
@@ -445,5 +422,5 @@ $("#submit-heatmap").click(function(){
 
 </script>
 <!---personalized js external file-->
-  </body>
-  </html>  
+</body>
+</html>  

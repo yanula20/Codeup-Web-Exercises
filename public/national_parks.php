@@ -33,21 +33,29 @@ if(!empty($_POST)){
 
 function descAdd($dbc){
 
-    if(Input::has('desc') && Input::get('name') != ""){
-        $description = Input::get('desc');
-    }
-    if(Input::has('parkId')){
-        $parkIds = Input::get('parkId');
-    }
- 
-var_dump($description);
-Var_dump($parkIds);
-$stmt = $dbc->prepare("UPDATE national_parks SET description = :description WHERE parks_id = :parks_id"); 
-$stmt->bindValue(':description', $description, PDO::PARAM_STR);
-$stmt->bindValue(':parks_id', $parkIds, PDO::PARAM_STR);
-$stmt->execute();
+    if (Input::has('name') && Input::get('name') != '' && Input::has('description') && Input::get('description') != '' && Input::has('location') && Input::get('location') != '' && Input::has('date_established') && Input::get('date_established') && Input::has('area_in_acres') && Input::get('area_in_acres') != '') {
 
-}
+        $name = Input::get('name');
+        $description = Input::get('description');
+        $location = Input::get('location');
+        $date_established = Input::get('date_established');
+        $area_in_acres = Input::get('area_in_acres');
+
+
+        var_dump($description);
+        
+        $stmt = $dbc->prepare("INSERT INTO national_parks (name,description,location,date_established,area_in_acres) VALUES (:name,:description,:location,:date_established,:area_in_acres)"); 
+        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+        $stmt->bindValue(':location', $location, PDO::PARAM_STR);
+        $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+        $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+    
+
+
+}//end descAdd
 
 ?>
 <!DOCTYPE html>
@@ -77,13 +85,20 @@ $stmt->execute();
     <h4>Date established: <?=$park['date_established'] ?></h4>
     <h4>acres: <?=$park['area_in_acres'] ?></h4>
     <br>
-    <form method="POST" action="national_parks.php">
-        <textarea rows="10" cols="35" name="desc" placeholder="Enter park description"></textarea>
+    <?php endforeach; ?>
+     <form method="POST" action="national_parks.php">
+        <textarea rows="1" cols="35" name="name" placeholder="Enter park name"></textarea>
         <br>
-        <input type="hidden" name="parkId" value=" <?=$park['parks_id'];?>">
+        <textarea rows="10" cols="35" name="description" placeholder="Enter park description"></textarea>
+        <br>
+         <textarea rows="1" cols="35" name="location" placeholder="Enter park location"></textarea>
+        <br>
+        <textarea rows="1" cols="35" name="date_established" placeholder="Enter date established: YYYY-MM-DD" type="date" maxlength="10"></textarea>
+        <br>
+         <textarea rows="1" cols="35" name="area_in_acres" placeholder="Enter park acres" type="text" maxlength="12"></textarea>
+         <br>
         <input id="descAd" type="submit" >
     </form>
-    <?php endforeach; ?>
      
     <?php if($page < $total_pages) { ?> 
     <a href="national_parks.php?page=<?=($page+1)?>">NEXT</a><br>
