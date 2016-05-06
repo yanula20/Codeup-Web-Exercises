@@ -20,11 +20,6 @@ $parksArray = [
 
 	];
 
-
-
-
-
-
 foreach ($parksArray as $park) {
 	$stmt = $dbc->prepare("INSERT INTO national_parks (name, description, location, date_established, area_in_acres) 
 VALUES(:name,:description,:location,:date_established,:area_in_acres)"); 

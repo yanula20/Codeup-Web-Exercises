@@ -1,4 +1,8 @@
+<?php
+require '../twitterproxy.php';
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -12,7 +16,22 @@
   <!---external personalized stylesheet-->
   <style type="text/css">
 
- #profiles{
+body{
+    background-color: lightblue;
+    color : black;
+
+}
+
+#tweetResults{
+    font-size: 25px;
+}
+
+body p {
+
+   color :black;
+}
+
+#profiles{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -21,6 +40,7 @@
     background-color: yellow;
     margin: 0 auto;
  }
+
 
 #map-canvas {
 
@@ -53,6 +73,8 @@ form {
     flex-direction: row;
     width: 350px;
     margin: 0 auto;
+    
+
 }
 
 #heat_form{
@@ -166,6 +188,12 @@ form {
           </a>
 
         </div> <!-- myCarousel -->
+        <br>
+        <div id="tweetResults">
+       
+
+        </div>
+
 
      <!--html here-->
 
@@ -179,6 +207,7 @@ form {
 "use strict;"
 var address;
 var language;
+
 
 $(document).ready(function() {
 
@@ -210,7 +239,7 @@ function getGitHubData(language,address){
             data.items.forEach(function (items, index, array) {
 
                 var profileString = ""
-                profileString += "<di class=\"item\">"
+                profileString += "<div class=\"item\">"
                 profileString += "<p>"+"rank by followers: "+(index+1)+"<p>"
                 profileString += "<p>"+"LOCATION: "+address+"</p>"
                 profileString += "<p>"+"LANGUAGE: "+language+"</p>"
@@ -224,22 +253,32 @@ function getGitHubData(language,address){
 
             }); //end foreach
 
+
+
             var languageObj = [{//element
 
                 language: "javascript",
                 description: address,
                 image: "<img src=\"/img/langicons/js.png\" alt=\"javascript\">",
-                iconUrl: "/img/langicons/js.png"
+                iconUrl: "/img/langicons/js.png",
+                strokeColor: '#FFEA05',
+                fillColor: '#FFEA05',
+               
                 },{//element..address,element.description,
                 language: "python",
                 description: address,
                 image: "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">",
-                iconUrl: "/img/langicons/python.png"
+                iconUrl: "/img/langicons/python.png",
+                strokeColor: '#368EED',
+                fillColor:  '#368EED'
+                
                 },{
                 language: "ruby",
                 description: address,
                 image: "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">",
-                iconUrl: "/img/langicons/ruby.png"
+                iconUrl: "/img/langicons/ruby.png",
+                strokeColor: '#FF0000',
+                fillColor: '#FF0000'
 
             }];
 
@@ -249,42 +288,79 @@ function getGitHubData(language,address){
                 console.log('js icon here');
                 languageObj.image = "<img src=\"/img/langicons/js.png\" alt=\"javascript\">";
                 languageObj.iconUrl = "/img/langicons/js.png";
+                languageObj.strokeColor = '#FFEA05',
+                languageObj.fillColor = '#FFEA05'
+
                 break;
 
                 case "python":
                 console.log('python icon here');
                 languageObj.image = "<img src=\"/img/langicons/python.jpeg\" alt=\"python\">";
-                languageObj.iconUrl = "/img/langicons/python.png";
+                languageObj.iconUrl = "/img/langicons/python.jpeg";
+                languageObj.strokeColor = '#368EED',
+                languageObj.fillColor = '#368EED'
+
                 break;
 
                 case "ruby":
                 console.log('ruby icon here');
                 languageObj.image = "<img src=\"/img/langicons/ruby.png\" alt=\"ruby\">";
                 languageObj.iconUrl = "/img/langicons/ruby.png";
+                languageObj.strokeColor = '#FF0000',
+                languageObj.fillColor = '#FF0000'
                 break;
 
                 case "ruby on rails":
                 console.log('ruby on rails icon here');
+                languageObj.image = "<img src=\"/img/langicons/rubyonrails.jpeg\" alt=\"rubyonrails\">";
+                languageObj.iconUrl = "/img/langicons/rubyonrails.jpeg";
+                languageObj.strokeColor = '#FFB3B3',
+                languageObj.fillColor = '#FFB3B3'
                 break;
 
 
-                case "c#":
-                console.log('c# icon here');
+                case "c":
+                console.log('c icon here');
+                languageObj.image = "<img src=\"/img/langicons/c.png\" alt=\"c\">";
+                languageObj.iconUrl = "/img/langicons/c.png";
+                languageObj.strokeColor = '#90A1D4',
+                languageObj.fillColor = '#90A1D4'
                 break;
 
 
                 case "c++":
                 console.log('c++ icon here');
+                languageObj.image = "<img src=\"/img/langicons/c++.jpeg\" alt=\"c++\">";
+                languageObj.iconUrl = "/img/langicons/c++.jpeg";
+                languageObj.strokeColor = '#2EB89A',
+                languageObj.fillColor = '#2EB89A'
                 break;
 
 
+
+                case "c#":
+                console.log('c# icon here');
+                languageObj.image = "<img src=\"/img/langicons/csharp.jpeg\" alt=\"c#\">";
+                languageObj.iconUrl = "/img/langicons/csharp.jpeg";
+                languageObj.strokeColor = '#FFB3B3',
+                languageObj.fillColor = '#FFB3B3'
+                break;
+
                 case "mysql":
                 console.log('mysql icon here');
+                languageObj.image = "<img src=\"/img/langicons/mysql.png\" alt=\"mysql\">";
+                languageObj.iconUrl = "/img/langicons/mysql.png";
+                languageObj.strokeColor = '#DAEBE7',
+                languageObj.fillColor = '#DAEBE7'
                 break;
 
 
                 case "lisp":
                 console.log('lisp icon here');
+                languageObj.image = "<img src=\"/img/langicons/lisp.jpeg\" alt=\"lisp\">";
+                languageObj.iconUrl = "/img/langicons/lisp.jpeg";
+                languageObj.strokeColor = '#0D4035',
+                languageObj.fillColor = '#0D4035'
                 break;
 
             }
@@ -292,17 +368,13 @@ function getGitHubData(language,address){
             var geocoder = new google.maps.Geocoder ();
             geocoder.geocode({"address": address}, function(results, status) {
 
-                var latitude = results[0].geometry.location.lat();
+                var lat = results[0].geometry.location.lat();
 
-                console.log(latitude);
-
-                var longitude = results[0].geometry.location.lng();
-
-                console.log(longitude);
+                var long = results[0].geometry.location.lng();
 
                 var latlng = {
-                    lat: latitude,
-                    lng: longitude
+                    lat: lat,
+                    lng: long
                 };
 
                 console.log(latlng);
@@ -315,20 +387,21 @@ function getGitHubData(language,address){
 
                         center: latlng,
                         map: map,
-                        strokeColor: '#FF0000',
                         strokeOpacity: 0.8,
                         strokeWeight: 1,
                         draggable: true,
                         geodesic: true,
-                        fillColor: '#FF0000',
+                        strokeColor: languageObj.strokeColor,
+                        fillColor: languageObj.fillColor,
                         fillOpacity: 0.35,
                         label: data.total_count,
                         radius: Math.sqrt(data.total_count)*500,
 
                     }); 
+                    
 
                     marker.setMap(map);
-                    
+
                     var direction = 1;
                     var rMin = Math.sqrt(data.total_count)*500, rMax = Math.sqrt(data.total_count)*525;
                     setInterval(function() {
@@ -338,6 +411,7 @@ function getGitHubData(language,address){
                         }
                         marker.setRadius(radius + direction * 10);
                     }, 1);
+
 
                     var markerLanguage = new google.maps.Marker ({
                         
@@ -372,24 +446,60 @@ function getGitHubData(language,address){
 
                 }
 
+                
+                    console.log(language);
+                    console.log(typeof(language));
+                    console.log(address+"for twitter below");
 
-                $.get("https://api.twitter.com/search.json?geocode="+latitude+","+longitude+",1mi").done(function(data) {
-             
-                alert("twitter get call completed successfully!");
-                console.log("Data returned from server:");
-                console.log(data);
-                console.log('address from github data in twitter below');
-                console.log(address);
-            }); //end twittter
+                $.get('../twitterproxy.php?url='+encodeURIComponent("search/tweets.json?geocode="+lat+","+long+",60mi&count=100&q="+language),function(d){
+                    
+
+                    alert("twitter get call completed successfully!");
+                    console.log("Data returned from server:");
+                    console.log(d);
+                    console.log(address);
+                    console.log(language);
+
+                    
+                    d.statuses.forEach(function (element, index, array) {
+                    
+                    var twitterResults = ""
+                    twitterResults += "<div>"
+                    twitterResults += "<p>"+"Created : "+element.created_at+"<p>"
+                    twitterResults += "<p>"+"Name : "+element.user.name+"<p>"
+                    twitterResults += "<p>"+"Location : "+element.user.location+"<p>"
+                    twitterResults += "<p>"+"Screen Name : "+element.user.screen_name+"<p>"
+                    twitterResults += "<p>"+"Location: "+element.user.location+"<p>"
+                    twitterResults += "<p>"+"LANGUAGE: "+language+"</p>"
+                    twitterResults += "<p>"+"Tweet : "+element.text+"<p>"
+                    twitterResults += "<p>"+"Description : "+element.user.description+"</p>"
+                    twitterResults += "</div><br><br>"
+
+                    $("#tweetResults").append(twitterResults);
+                 
+
+                }); //end foreach
+                
+            }).fail(function() {
+                alert("There was an error!");
+            }).always(function() {
+                alert("And we're finished!");
+            }); //end ajax twittter
 
         }); //end geocoder
 
-    }); //end ajax github
+    }).fail(function() {
+                alert("There was an error!");
+            }).always(function() {
+                alert("And we're finished!");
+            });//end ajax github
 
 }//end getGitHubData
 
 $("#submit-address").click(function(e){
-    // $(".carousel-inner").innerHTML(" ");
+    $(".carousel-inner").innerHTML = "";
+    $("#tweetResults").innerHTML = "";
+
     address = $("#address").val();
     language = $("#language").val();
     e.preventDefault();
@@ -401,11 +511,14 @@ $("#submit-heatmap").click(function(){
     var selected_value = []; // initialize empty array 
     
     $(".source:checked").each(function(){
+
         selected_value.push($(this).val());
+
         console.log(selected_value);
 
         selected_value.forEach(function (language, index, array) {
-            console.log(language+'make my density circle on the map');
+
+        console.log(language+'make my density circle on the map');
 
         });
     });

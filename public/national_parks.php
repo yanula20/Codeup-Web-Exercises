@@ -4,6 +4,7 @@
 require_once '../parks_db_connect.php';
 require_once '../Input.php';
 
+$errors = [];
 //from PREV and NEXT current page
 $page = Input::has('page')? Input::get('page') : 1;
 
@@ -27,24 +28,74 @@ $total_pages = $count/4;
 
 if(!empty($_POST)){
 
-    descAdd($dbc);
+    $errors=descAdd($dbc);
 
 }
 
 function descAdd($dbc){
 
-    if (Input::has('name') && Input::get('name') != '' && Input::has('description') && Input::get('description') != '' && Input::has('location') && Input::get('location') != '' && Input::has('date_established') && Input::get('date_established') && Input::has('area_in_acres') && Input::get('area_in_acres') != '') {
+     $errors = [];
 
-        $name = Input::get('name');
-        $description = Input::get('description');
-        $location = Input::get('location');
-        $date_established = Input::get('date_established');
-        $area_in_acres = Input::get('area_in_acres');
+     var_dump($_POST['date_established']);
+   
+
+    try {
+          $name = Input::getString('name');
+
+    } catch (Exception $e){
+
+        //get Exceptiion msg and push to array
+        $errors[] = $e->getMessage();
+
+    }
+
+    try {
+          $description = Input::getString('description');
+
+    } catch (Exception $e){
+
+        $errors[] = $e->getMessage();
+
+    }
+
+    try {
+          $location = Input::getString('location');
+
+    } catch (Exception $e){
+
+        $errors[] = $e->getMessage();
+
+    }
+
+    try {
+          $date_established = Input::getDate('date_established');
+
+    } catch (Exception $e){
+
+        $errors[] = $e->getMessage();
+
+    }
+
+    try {
+          $area_in_acres = Input::getNumber('area_in_acres');
+
+    } catch (Exception $e){
+
+        $errors[] = $e->getMessage();
+
+    }
+    
+    if(empty($errors)){
+
+        $name = Input::getString('name');
+        $description = Input::getString('description');
+        $location = Input::getString('location');
+        $date_established = Input::getString('date_established');
+        $area_in_acres = Input::getNumber('area_in_acres');
 
 
-        var_dump($description);
-        
-        $stmt = $dbc->prepare("INSERT INTO national_parks (name,description,location,date_established,area_in_acres) VALUES (:name,:description,:location,:date_established,:area_in_acres)"); 
+
+     $stmt = $dbc->prepare("INSERT INTO national_parks (name,description,location,date_established,area_in_acres) VALUES (:name,:description,:location,:date_established,:area_in_acres)"); 
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->bindValue(':description', $description, PDO::PARAM_STR);
         $stmt->bindValue(':location', $location, PDO::PARAM_STR);
@@ -52,7 +103,9 @@ function descAdd($dbc){
         $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
         $stmt->execute();
     }
-    
+
+   var_dump($errors);     
+ return $errors;
 
 
 }//end descAdd
@@ -87,7 +140,7 @@ function descAdd($dbc){
     <br>
     <?php endforeach; ?>
      <form method="POST" action="national_parks.php">
-        <textarea rows="1" cols="35" name="name" placeholder="Enter park name"></textarea>
+        <textarea rows="1" cols="35" name="name" placeholder="Enter park name" value="<?=empty($errors)? '' : Input::get('name','')?>"></textarea>
         <br>
         <textarea rows="10" cols="35" name="description" placeholder="Enter park description"></textarea>
         <br>
@@ -99,6 +152,10 @@ function descAdd($dbc){
          <br>
         <input id="descAd" type="submit" >
     </form>
+
+    <?php foreach($errors as $error): ?>
+        <p><?= $error ?></p><br>
+    <?php endforeach; ?>
      
     <?php if($page < $total_pages) { ?> 
     <a href="national_parks.php?page=<?=($page+1)?>">NEXT</a><br>

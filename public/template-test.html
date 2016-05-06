@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="donny">
+<head>
+    <meta charset="utf-8">
+    <title>Angular Exercise Module</title>
+
+    <style>
+
+    li:first-child {
+        font-style: italic;
+    }
+
+    li:last-child {
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]">{{ num }}</li>
+</ul>
+
+<ul>
+    <li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" ng-if="num % 3 != 0">{{ num }}</li>
+</ul>
+
+<ul>
+    <li ng-repeat="letter in ['a', 'b', 'c', 'd', 'e', 'f']">{{ letter | uppercase }}</li>
+</ul>
+
+<ul>
+    <li ng-repeat="ltr in ['A', 'B', 'C', 'D', 'E', 'F']">{{ ltr | lowercase }}</li>
+</ul>
+
+
+<img ng-repeat="img in ['/img/codeup-arrow.png', '/img/Death-Star1.png', '/img/nine-club.png']" ng-src="{{ img }}" >
+
+<br>
+
+
+<!-- Novalidate disables the browser's default validation. Angular recommends
+     doing this in order to make a more consistent user experience across browsers -->
+<form novalidate>
+    <label for="first_name">First Name</label>
+    <input type="text" id="first_name" ng-model="user.firstName" maxlength="50" required>
+
+    <label for="last_name">Last Name</label>
+    <input type="text" id="last_name"  ng-model="user.lastName" maxlength="100" required>
+
+    <label for="email">eMail</label>
+    <input type="email" id="email" ng-model="user.email" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" ng-model="user.password" minlength="6" required>
+</form>
+
+<p>
+    <h1>Welcome, {{user.firstName}}!</h1>
+
+    <h1>Your last name is {{user.lastName}}</h1>
+
+    <h1>Your e-mail is {{user.email}}</h1>
+
+</p> 
+
+
+    <script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/templateTest.js"></script>
+</body>
+</html>

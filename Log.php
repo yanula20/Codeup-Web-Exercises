@@ -3,11 +3,11 @@
 
 class Log{
 
-	public $filename; 
+	protected $filename; 
 
-	public $handle;
+	private $handle;
 
-	public $date;
+	private $date;
 
 
 	public function __construct($prefix = 'log-'){
@@ -15,11 +15,32 @@ class Log{
 
 	 	$this->date = date("Y-m-d");
 
-        $this->filename = '../logs/' . $prefix . $this->date . '.log';
+        $this->setFileName($prefix);
 
 		$this->handle = fopen($this->filename, 'a');
 
 	   
+    }
+
+    private function setFileName($prefix){
+
+    	//does specific file exist, if not create it, update the 
+    	touch('../logs/' . $prefix . $this->date . '.log');
+
+    	//check to see if I can WRITE to that existing file
+		if(is_writable('../logs/' . $prefix . $this->date . '.log')){
+
+			$this->filename = '../logs/' . $prefix . $this->date . '.log';
+
+
+		} else{
+
+			echo "Cannot write to file." . PHP_EOL;
+			die();
+		} 	
+    	
+
+
     }
 
 
